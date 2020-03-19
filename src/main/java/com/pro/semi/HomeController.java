@@ -24,7 +24,7 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView home() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("redirect:list.inc");
+		mv.setViewName("redirect:main.inc");
 		return mv;
 	}
 	

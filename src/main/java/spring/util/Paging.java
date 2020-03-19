@@ -10,21 +10,25 @@ public class Paging {
 				begin, end;
 	private boolean isPrePage, isNextPage;
 	private StringBuffer sb;
+	private String type;
 	
 	// Constructor ------------------------------------------------------------------------
-	public Paging(int nowPage, int rowTotal, int blockList, int blockPage) {
+	public Paging(int nowPage, int rowTotal, int blockList, int blockPage, String type) {
 		this.nowPage = nowPage;
 		this.rowTotal = rowTotal;
 		this.blockList = blockList;
 		this.blockPage = blockPage;
 		this.isPrePage = false;
 		this.isNextPage = false;
+		this.type = type;
 		
 		makeHTML();
 	}
 	
 	// Getter Setter -----------------------------------------------------------------------
 	public int getNowPage() { return nowPage; }
+	public String getType() { return type; }
+	public void setType(String type) { this.type = type; }
 	public void setNowPage(int nowPage) { this.nowPage = nowPage; }
 	public int getRowTotal() { return rowTotal; }
 	public void setRowTotal(int rowTotal) { 	this.rowTotal = rowTotal; }
@@ -73,13 +77,13 @@ public class Paging {
 		this.sb = new StringBuffer("<ol class='paging'>");
 
 		if(this.isPrePage) {
-			sb.append("<li><a href='list.inc?nowPage=");
+			sb.append("<li><a href='main.inc?nowPage=");
 			if (this.nowPage - this.blockPage < 1) {
 				sb.append("1");
 			} else {
 				sb.append(this.nowPage - this.blockPage);
 			}
-			sb.append("'>&lt;</a></li>");
+			sb.append("&s_type=" + this.type + "'>&lt;</a></li>");
 		} else { 
 			sb.append("<li class='disable'>&lt;</li>");
 		}
@@ -90,23 +94,23 @@ public class Paging {
 				sb.append(i);
 				sb.append("</li>");
 			} else {
-				sb.append("<li><a href='list.inc?nowPage=");
+				sb.append("<li><a href='main.inc?nowPage=");
 				sb.append(i);
-				sb.append("'>");
+				sb.append("&s_type=" + this.type + "'>");
 				sb.append(i);
 				sb.append("</a></li>");
 			}
 		}
 
 		if(this.isNextPage) {
-			sb.append("<li><a href='list.inc?nowPage=");
+			sb.append("<li><a href='main.inc?nowPage=");
 			if(this.nowPage + this.blockPage > this.totalPage) {
 				sb.append(this.totalPage);
 			} else {
 				sb.append(this.nowPage + this.blockPage);
 			}
 			
-			sb.append("'>&gt;</a></li>");
+			sb.append("&s_type=" + this.type + "'>&gt;</a></li>");
 		} else { 
 			sb.append("<li class='disable'>&gt;</li>");
 		}

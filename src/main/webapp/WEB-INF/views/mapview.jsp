@@ -1,7 +1,9 @@
+<%@page import="com.data.vo.ProtectVO"%>
+<%@page import="com.data.vo.StoreVO"%>
+<%@page import="com.data.vo.HospitalVO"%>
+<%@page import="com.data.vo.RescueVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,24 +17,6 @@
 	<input type="button" value="유기동물 보호시설" onclick="load(3)"/> 
 	<div id="map" style="width:500px;height:400px;"></div>
 	<p>${length }개의 데이터</p>
-	<%if(request.getAttribute("type").equals("0") || request.getAttribute("type") == null) {%>
-		<c:forEach items="${ar }" var="vo">
-			<p>${vo.RESCUE_INST_NM }</p>
-		</c:forEach>
-	<%} else if(request.getAttribute("type").equals("1")) { %>
-		<c:forEach items="${ar }" var="vo">
-			<p>${vo.BIZPLC_NM }</p>
-		</c:forEach>
-	<%} else if(request.getAttribute("type").equals("2")) {%>
-		<c:forEach items="${ar }" var="vo">
-			<p>${vo.BIZPLC_NM }</p>
-		</c:forEach>
-	<%} else if(request.getAttribute("type").equals("3")) {%>
-		<c:forEach items="${ar }" var="vo">
-			<p>${vo.ENTRPS_NM }</p>
-		</c:forEach>
-	<%} %>
-	
 	
 	<script>
 		function load(type) {
@@ -53,10 +37,58 @@
 		
 		// 마커를 표시할 위치와 title 객체 배열입니다
 		var positions = [
-			    {
-			    	title: '실험', 
-			    	latlng: new kakao.maps.LatLng(37.26718595, 127.0312471)
-			    }
+			    
+			    	<%
+			    	Object obj = session.getAttribute("ar");
+			    	if(request.getAttribute("type").equals("0")) {
+			    		RescueVO[] ar = (RescueVO[])obj;
+				    	for(int i = 0 ; i < ar.length ; i++) {%>
+				    		{
+					    		title: '<%=ar[i].getRESCUE_INST_NM()%>', 
+						    	latlng: new kakao.maps.LatLng('<%=ar[i].getREFINE_WGS84_LAT()%>', '<%=ar[i].getREFINE_WGS84_LOGT()%>')
+				    		}
+				    <%		if(i != ar.length-1) { %>
+				    		,			
+			    	<%		}	
+				   		}
+				    	
+			    	} else if(request.getAttribute("type").equals("1")) {
+			    		HospitalVO[] ar = (HospitalVO[])obj;
+			    		for(int i = 0 ; i < ar.length ; i++) {%>
+			    		{
+				    		title: '<%=ar[i].getBIZPLC_NM()%>', 
+					    	latlng: new kakao.maps.LatLng('<%=ar[i].getREFINE_WGS84_LAT()%>', '<%=ar[i].getREFINE_WGS84_LOGT()%>')
+			    		}
+			    <%			if(i != ar.length-1) { %>
+			    			,			
+		    		<%		}	
+			   			}
+			    	} else if(request.getAttribute("type").equals("2")) {
+			    		StoreVO[] ar = (StoreVO[])obj;
+			    		for(int i = 0 ; i < ar.length ; i++) {%>
+			    		{
+				    		title: '<%=ar[i].getBIZPLC_NM()%>', 
+					    	latlng: new kakao.maps.LatLng('<%=ar[i].getREFINE_WGS84_LAT()%>', '<%=ar[i].getREFINE_WGS84_LOGT()%>')
+			    		}
+			    <%		if(i != ar.length-1) { %>
+				    		,			
+			    	<%		}	
+				   		}
+			    	} else if(request.getAttribute("type").equals("3")) {
+			    		ProtectVO[] ar = (ProtectVO[])obj;
+			    		for(int i = 0 ; i < ar.length ; i++) {%>
+			    		{
+				    		title: '<%=ar[i].getENTRPS_NM()%>', 
+					    	latlng: new kakao.maps.LatLng('<%=ar[i].getREFINE_WGS84_LAT()%>', '<%=ar[i].getREFINE_WGS84_LOGT()%>')
+			    		}
+			    <%		if(i != ar.length-1) { %>
+				    		,			
+			    	<%		}	
+				   		}
+			    	}
+			    	%>
+			    	
+			    
 		];
 		
 		// 마커 이미지의 이미지 주소입니다
@@ -105,6 +137,5 @@
 		    };
 		}
 	</script>
-	
 </body>
 </html>

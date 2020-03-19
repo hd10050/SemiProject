@@ -67,6 +67,10 @@ th{
 </style>
 </head>
 <body>
+   <input type="button" value="1" onclick="bbs(0)"/>
+   <input type="button" value="2" onclick="bbs(1)"/>
+   <input type="button" value="3" onclick="bbs(2)"/>
+   <input type="button" value="4" onclick="bbs(3)"/>
    
    <div id="wrap">
    
@@ -192,13 +196,18 @@ th{
       </c:forEach>      
          </tbody>      
       <%} %>
-      
+      <tfoot>
+      	${pageCode }
+      </tfoot>
    </table>
    </div>
    
-   
-   
-   
    </div>
+   
+   <script>
+		function bbs(type) {
+			document.location.href="main.inc?s_type=" + type;
+		}
+   </script>
 </body>
 </html>

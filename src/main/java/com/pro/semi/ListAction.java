@@ -64,7 +64,7 @@ public class ListAction {
 		}
 
 		// -------------------------------------------------------
-		mv.setViewName("main");
+		mv.setViewName("mapview");
 
 		return mv;
 	}
