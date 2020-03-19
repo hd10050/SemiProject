@@ -123,7 +123,7 @@ th{
       <c:forEach var="vo" items="${ar}">
          <tr>
             <td>${vo.SIGUN_NM}</td>
-            <td><a href="view.inc?RESCUE_INST_TELNO=${vo.RESCUE_INST_TELNO}&type=${request.type}">${vo.RESCUE_INST_NM}</a></td>
+            <td><a href="view.inc?RESCUE_INST_TELNO=${vo.RESCUE_INST_TELNO}&type=${requestScope.type}">${vo.RESCUE_INST_NM}</a></td>
             <td>${vo.REFINE_LOTNO_ADDR}</td>
             <td>${vo.RESCUE_INST_TELNO}</td>
          </tr>
@@ -145,7 +145,7 @@ th{
       <c:forEach var="vo" items="${ar}">
          <tr>
             <td>${vo.SIGUN_NM}</td>
-            <td><a href="view.inc?LOCPLC_FACLT_TELNO=${vo.LOCPLC_FACLT_TELNO}&type=${request.type}">${vo.BIZPLC_NM}</a></td>
+            <td><a href="view.inc?LOCPLC_FACLT_TELNO=${vo.LOCPLC_FACLT_TELNO}&type=${requestScope.type}">${vo.BIZPLC_NM}</a></td>
             <td>${vo.REFINE_LOTNO_ADDR}</td>
             <td>${vo.LOCPLC_FACLT_TELNO}</td>
          </tr>
@@ -167,7 +167,7 @@ th{
       <c:forEach var="vo" items="${ar}">
          <tr>
             <td>${vo.SIGUN_NM}</td>
-            <td><a href="view.inc?LOCPLC_FACLT_TELNO=${vo.LOCPLC_FACLT_TELNO}&type=${request.type}">${vo.BIZPLC_NM}</a></td>
+            <td><a href="view.inc?LOCPLC_FACLT_TELNO=${vo.LOCPLC_FACLT_TELNO}&type=${requestScope.type}">${vo.BIZPLC_NM}</a></td>
             <td>${vo.REFINE_LOTNO_ADDR}</td>
             <td>${vo.LOCPLC_FACLT_TELNO}</td>
          </tr>
@@ -189,7 +189,7 @@ th{
       <c:forEach var="vo" items="${ar}">
          <tr>
             <td>${vo.SIGUN_NM}</td>
-            <td><a href="view.inc?ENTRPS_TELNO=${vo.ENTRPS_TELNO}&type=${request.type}">${vo.ENTRPS_NM}</a></td>
+            <td><a href="view.inc?ENTRPS_TELNO=${vo.ENTRPS_TELNO}&type=${requestScope.type}">${vo.ENTRPS_NM}</a></td>
             <td>${vo.REFINE_LOTNO_ADDR}</td>
             <td>${vo.ENTRPS_TELNO}</td>
          </tr>
