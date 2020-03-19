@@ -99,11 +99,13 @@ th{
 			<col width="*"/>
 			<col width="105px"/>
 		</colgroup>
+		
+		<%--야생동물 구조치료기관 --%>
 		<%if(request.getAttribute("type").equals("0")) { %>
 		<thead>	
 			<tr>
 				<th>지역</th>
-				<th>병원명</th>
+				<th>기관명</th>
 				<th>주소</th>
 				<th>전화번호</th>
 			</tr>
@@ -117,9 +119,72 @@ th{
 				<td>${vo.RESCUE_INST_TELNO}</td>
 			</tr>
 		</c:forEach>				
-
 		</tbody>
+		
+		<%-- 동물병원 --%>
+		<%}else if(request.getAttribute("type").equals("1")) { %>
+		<thead>	
+			<tr>
+				<th>지역</th>
+				<th>병원명</th>
+				<th>주소</th>
+				<th>전화번호</th>
+			</tr>
+		</thead>	
+		<tbody>
+		<c:forEach var="vo" items="${ar}">
+			<tr>
+				<td>${vo.SIGUN_NM}</td>
+				<td><a href="view.inc?stdRestNm=${vo.LOCPLC_FACLT_TELNO}">${vo.BIZPLC_NM}</a></td>
+				<td>${vo.REFINE_LOTNO_ADDR}</td>
+				<td>${vo.LOCPLC_FACLT_TELNO}</td>
+			</tr>
+		</c:forEach>		
+			</tbody>		
+		
+		<%-- 동물약국 --%>	
+		<%}else if(request.getAttribute("type").equals("2")) { %>
+		<thead>	
+			<tr>
+				<th>지역</th>
+				<th>약국명</th>
+				<th>주소</th>
+				<th>전화번호</th>
+			</tr>
+		</thead>	
+		<tbody>
+		<c:forEach var="vo" items="${ar}">
+			<tr>
+				<td>${vo.SIGUN_NM}</td>
+				<td><a href="view.inc?stdRestNm=${vo.LOCPLC_FACLT_TELNO}">${vo.BIZPLC_NM}</a></td>
+				<td>${vo.REFINE_LOTNO_ADDR}</td>
+				<td>${vo.LOCPLC_FACLT_TELNO}</td>
+			</tr>
+		</c:forEach>		
+			</tbody>		
+		
+		<%-- 유기 동물 보호시설  --%>	
+		<%}else if(request.getAttribute("type").equals("3")) { %>
+		<thead>	
+			<tr>
+				<th>지역</th>
+				<th>기관명</th>
+				<th>주소</th>
+				<th>전화번호</th>
+			</tr>
+		</thead>	
+		<tbody>
+		<c:forEach var="vo" items="${ar}">
+			<tr>
+				<td>${vo.SIGUN_NM}</td>
+				<td><a href="view.inc?stdRestNm=${vo.ENTRPS_TELNO}">${vo.ENTRPS_NM}</a></td>
+				<td>${vo.REFINE_LOTNO_ADDR}</td>
+				<td>${vo.ENTRPS_TELNO}</td>
+			</tr>
+		</c:forEach>		
+			</tbody>		
 		<%} %>
+		
 	</table>
 	</div>
 	
