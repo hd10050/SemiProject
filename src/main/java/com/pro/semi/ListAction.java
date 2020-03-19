@@ -61,7 +61,7 @@ public class ListAction {
 		}
 
 		// -------------------------------------------------------
-		mv.setViewName("home");
+		mv.setViewName("main");
 
 		return mv;
 	}
