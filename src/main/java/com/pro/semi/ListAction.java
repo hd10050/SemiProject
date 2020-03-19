@@ -12,6 +12,7 @@ import java.util.Locale;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -33,6 +34,8 @@ public class ListAction {
 	
 	@Autowired
 	HttpServletRequest request;
+	@Autowired
+	HttpSession session;
 	
 	@RequestMapping(value = "/list.inc")
 	public ModelAndView data(String s_type) throws Exception {
@@ -61,7 +64,7 @@ public class ListAction {
 		}
 
 		// -------------------------------------------------------
-		mv.setViewName("home");
+		mv.setViewName("main");
 
 		return mv;
 	}
@@ -107,6 +110,7 @@ public class ListAction {
 				}
 			}
 			mv.addObject("ar", r_ar);
+			session.setAttribute("ar", r_ar);
 			mv.addObject("length", r_ar.length);
 			break;
 		case 1:
@@ -137,6 +141,7 @@ public class ListAction {
 				}
 			}
 			mv.addObject("ar", h_ar);
+			session.setAttribute("ar", h_ar);
 			mv.addObject("length", h_ar.length);
 			break;
 		case 2:
@@ -166,6 +171,7 @@ public class ListAction {
 				}
 			}
 			mv.addObject("ar", s_ar);
+			session.setAttribute("ar", s_ar);
 			mv.addObject("length", s_ar.length);
 			break;
 		case 3:
@@ -193,6 +199,7 @@ public class ListAction {
 				}
 			}
 			mv.addObject("ar", p_ar);
+			session.setAttribute("ar", p_ar);
 			mv.addObject("length", p_ar.length);
 			break;
 		}
