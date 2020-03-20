@@ -37,12 +37,12 @@
    
    <div id="search" class="col-sm-12 pull-center well" >
    <form class="form-inline">
-      <select name="searchSelect" class="form-control">   
+      <select name="searchSelect" id="searchSelect" class="form-control">   
          <option value=""> 지역</option>
          <option value=""> 병원명</option>
         </select>
-        <input type="text"  class="form-control" size="20" name="searchValue"/>
-        <input type="button" value="검색" id="searchbt" class="btn btn-default"/>
+        <input type="text"  class="form-control" size="20" name="searchValue" id="searchValue"/>
+        <input type="button" value="검색" id="searchbt" class="btn btn-default" onclick="search()"/>
    </form>
    
   	 <div id = "buttons"> 
@@ -82,7 +82,7 @@
             <td>${vo.REFINE_LOTNO_ADDR}</td>
             <td>${vo.RESCUE_INST_TELNO}</td>
          </tr>
-      </c:forEach>            
+      </c:forEach>
       </tbody>
       
       <%-- 동물병원 --%>
@@ -157,7 +157,7 @@
 	
          <tfoot id="tfoot">
          	 <tr>
-         	 	<td>
+         	 	<td colspan="4">
       		${pageCode }
       			</td>
       		</tr>		
@@ -168,14 +168,30 @@
    </table>
    </div> 
    </div>
-
+	
+	<form action="search.inc" method="post" name="search_form">
+		<input type="hidden" id="search_value" name="search_value"/>
+		<input type="hidden" id="search_type" name="search_type"/>
+		<input type="hidden" name="s_type" value='<%=request.getAttribute("type")%>'/>
+	</form>
   	
    <script src="resources/js/jquery-3.4.1.min.js"></script>
    <script>
-		function bbs(type) {
+   		function bbs(type) {
 			document.location.href="main.inc?s_type=" + type;
 		}
-
+   		
+		function search() {
+			var val = $("#searchValue").val();
+			var index = $("#searchSelect option").index($("#searchSelect option:selected"));
+			if(val.trim().length < 1) {
+				alert("검색값을 입력해주세요.");
+				return;
+			}
+			$("#search_type").attr('value', index);
+			$("#search_value").attr('value', val);
+			search_form.submit();
+		}
    </script>
 </body>
 </html>
