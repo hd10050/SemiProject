@@ -10,104 +10,59 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-#wrap{
-   width: 690px;
-   margin: auto;   
-   }
-   
-#list{
-    border:1px solid red;
-    padding: auto;
-}   
-   
-#list table {
-       width:670px;
-         margin: auto;
-       border-collapse:collapse;
-       font-size:14px;
-   }   
-   
-#list table th {
-       text-align:center;
-       border:1px solid #d9f1f7;
-       padding:4px 10px;
-   }
-   
-#list table td {
-       text-align:left;
-       border:1px solid #d9e1e8;
-       padding:4px 10px;
-     
-   }
-   
-th{
-      height: 40px;
-      color: #353866;
-      font-family: ‘Roboto’, ‘Spoqa Han Sans’, ‘Spoqa Han Sans JP’, ‘Sans-serif’; 
-      font-size: 14px;
-      font-weight: 700;
-      background-color: #d9e1e8;
-   
-   } 
-   #search{
-       border:1px solid blue;
-       margin: auto;
-        padding: 30px;
-   }
-   
-   
-   #mainImage{
-      
-      border:1px solid green;
-   
-   }
-   
 
-</style>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<link rel="stylesheet" href="resources/css/page.css"/>
+
+<link type="text/css" rel="stylesheet" href="resources/css/main.css"/>
+
 </head>
 <body>
-   <input type="button" value="1" onclick="bbs(0)"/>
-   <input type="button" value="2" onclick="bbs(1)"/>
-   <input type="button" value="3" onclick="bbs(2)"/>
-   <input type="button" value="4" onclick="bbs(3)"/>
+  
    
    <div id="wrap">
    
-   <div id="mainImage">
+   <div id="mainImage" class="col-sm-12 pull-center well" >
       <%-- 메인 이미지 넣기 --%>
       <h1>이미지 </h1>
-   
-   
    </div>
    
    
    
-   
-   <div id="search">
-   <form>
-      <select name="searchSelect">   
+   <div id="search" class="col-sm-12 pull-center well" >
+   <form class="form-inline">
+      <select name="searchSelect" class="form-control">   
          <option value=""> 지역</option>
          <option value=""> 병원명</option>
         </select>
-        <input type="text" size="20" name="searchValue"/>
-        <input type="button" value="검색" id="searchbt"/>
+        <input type="text"  class="form-control" size="20" name="searchValue"/>
+        <input type="button" value="검색" id="searchbt" class="btn btn-default"/>
    </form>
+   
+  	 <div id = "buttons"> 
+	       <input type="button" value="야생동물 구조치료기관" onclick="bbs(0)" class="btn btn-xs btn-primary"/>
+		   <input type="button" value="동물 병원" onclick="bbs(1)" class="btn btn-xs btn-primary"/>
+		   <input type="button" value="동물 약국" onclick="bbs(2)" class="btn btn-xs btn-primary"/>
+		   <input type="button" value="유기 동물 보호시설" onclick="bbs(3)" class="btn btn-xs btn-primary"/>
+      </div> 
    </div>
-   <%-- 지도 --%>
    
-   
-   
-   <%-- 리스트 --%>
-   <div id ="list">
-   <table id="list">
+   <div id ="list" class="col-sm-12 pull-center well" >
+   <table>
       <colgroup>
          <col width="66px"/>
          <col width="165px"/>
          <col width="*"/>
          <col width="105px"/>
       </colgroup>
-      
+
+
       <%--야생동물 구조치료기관 --%>
       <%if(request.getAttribute("type").equals("0")) {
       		RescueVO[] ar = (RescueVO[])session.getAttribute("ar");%>
@@ -193,21 +148,34 @@ th{
             <td>${vo.REFINE_LOTNO_ADDR}</td>
             <td>${vo.ENTRPS_TELNO}</td>
          </tr>
-      </c:forEach>      
-         </tbody>      
-      <%} %>
-      <tfoot>
-      	${pageCode }
-      </tfoot>
+      </c:forEach>
+ 
+         </tbody>  
+  
+             
+      <% }%>
+	
+         <tfoot id="tfoot">
+         	 <tr>
+         	 	<td>
+      		${pageCode }
+      			</td>
+      		</tr>		
+     
+         </tfoot>
+      
+        
    </table>
+   </div> 
    </div>
-   
-   </div>
-   
+
+  	
+   <script src="resources/js/jquery-3.4.1.min.js"></script>
    <script>
 		function bbs(type) {
 			document.location.href="main.inc?s_type=" + type;
 		}
+
    </script>
 </body>
 </html>
