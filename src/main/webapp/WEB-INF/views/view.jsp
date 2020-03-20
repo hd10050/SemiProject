@@ -5,82 +5,313 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="resources/css/jquery-ui.min.css"/>
 <style type="text/css">
-	table{
-		width: 800px;
-		border-collapse: collapse;
-	}
-	table th, table td{
-		border: 1px solid black;
-		padding: 4px;
-	}
+	
+/*****************globals*************/
+	body {
+	  font-family: 'open sans';
+	  overflow-x: hidden; }
+	
+	img {
+	  max-width: 100%; }
+	
+	.preview {
+	  display: -webkit-box;
+	  display: -webkit-flex;
+	  display: -ms-flexbox;
+	  display: flex;
+	  -webkit-box-orient: vertical;
+	  -webkit-box-direction: normal;
+	  -webkit-flex-direction: column;
+	      -ms-flex-direction: column;
+	          flex-direction: column; }
+	  @media screen and (max-width: 996px) {
+	    .preview {
+	      margin-bottom: 20px; } }
+	
+	.preview-pic {
+	  -webkit-box-flex: 1;
+	  -webkit-flex-grow: 1;
+	      -ms-flex-positive: 1;
+	          flex-grow: 1; }
+	
+	.preview-thumbnail.nav-tabs {
+	  border: none;
+	  margin-top: 15px; }
+	  .preview-thumbnail.nav-tabs li {
+	    width: 18%;
+	    margin-right: 2.5%; }
+	    .preview-thumbnail.nav-tabs li img {
+	      max-width: 100%;
+	      display: block; }
+	    .preview-thumbnail.nav-tabs li a {
+	      padding: 0;
+	      margin: 0; }
+	    .preview-thumbnail.nav-tabs li:last-of-type {
+	      margin-right: 0; }
+	
+	.tab-content {
+	  overflow: hidden; }
+	  .tab-content img {
+	    width: 100%;
+	    -webkit-animation-name: opacity;
+	            animation-name: opacity;
+	    -webkit-animation-duration: .3s;
+	            animation-duration: .3s; }
+	
+	.card {
+	  margin-top: 130px;
+	  background: #eee;
+	  padding: 3em;
+	  line-height: 1.5em;
+	 }
+	
+	@media screen and (min-width: 997px) {
+	  .wrapper {
+	    display: -webkit-box;
+	    display: -webkit-flex;
+	    display: -ms-flexbox;
+	    display: flex; } }
+	
+	.details {
+	  display: -webkit-box;
+	  display: -webkit-flex;
+	  display: -ms-flexbox;
+	  display: flex;
+	  -webkit-box-orient: vertical;
+	  -webkit-box-direction: normal;
+	  -webkit-flex-direction: column;
+	      -ms-flex-direction: column;
+	          flex-direction: column; }
+	
+	.colors {
+	  -webkit-box-flex: 1;
+	  -webkit-flex-grow: 1;
+	      -ms-flex-positive: 1;
+	          flex-grow: 1; }
+	
+	.product-title, .price, .sizes, .colors {
+	  text-transform: UPPERCASE;
+	  font-weight: bold; }
+	
+	.checked, .price span {
+	  color: #ff9f1a; }
+	
+	.product-title, .rating, .product-description, .price, .vote, .sizes {
+	  margin-bottom: 15px; }
+	
+	.product-title {
+	  margin-top: 0; }
+	
+	.size {
+	  margin-right: 10px; }
+	  .size:first-of-type {
+	    margin-left: 40px; }
+	
+	.color {
+	  display: inline-block;
+	  vertical-align: middle;
+	  margin-right: 10px;
+	  height: 2em;
+	  width: 2em;
+	  border-radius: 2px; }
+	  .color:first-of-type {
+	    margin-left: 20px; }
+	
+	.add-to-cart, .like {
+	  background: #ff9f1a;
+	  padding: 1.2em 1.5em;
+	  border: none;
+	  text-transform: UPPERCASE;
+	  font-weight: bold;
+	  color: #fff;
+	  -webkit-transition: background .3s ease;
+	          transition: background .3s ease; }
+	  .add-to-cart:hover, .like:hover {
+	    background: #b36800;
+	    color: #fff; }
+	
+	.not-available {
+	  text-align: center;
+	  line-height: 2em; }
+	  .not-available:before {
+	    font-family: fontawesome;
+	    content: "\f00d";
+	    color: #fff; }
+	
+	.orange {
+	  background: #ff9f1a; }
+	
+	.green {
+	  background: #85ad00; }
+	
+	.blue {
+	  background: #0076ad; }
+	
+	.tooltip-inner {
+	  padding: 1.3em; }
+	
+	@-webkit-keyframes opacity {
+	  0% {
+	    opacity: 0;
+	    -webkit-transform: scale(3);
+	            transform: scale(3); }
+	  100% {
+	    opacity: 1;
+	    -webkit-transform: scale(1);
+	            transform: scale(1); } }
+	
+	@keyframes opacity {
+	  0% {
+	    opacity: 0;
+	    -webkit-transform: scale(3);
+	            transform: scale(3); }
+	  100% {
+	    opacity: 1;
+	    -webkit-transform: scale(1);
+	            transform: scale(1); } }        
+	 #map{
+	 	display: none;
+	 }  
+	 #pic-1{
+	 	padding-left: 400px;
+	 }
+	 #detail{
+	 	padding-left: 100px;
+	 	padding-top: 100px;
+	 }
+	 .action{
+	 	padding-top: 20px;
+	 }
+	
+	/*# sourceMappingURL=style.css.map */
 </style>
 </head>
 <body>
-	  <input type="hidden" id="type" name="type" value="<%=request.getParameter("type")%>"/>
-      <% 
-        switch( Integer.parseInt(request.getParameter("type")) ){
-	           case 0:
-	   %>     	   
-					<h1>야생동물 구조치료기관</h1>
-						지역명: ${rvo.SIGUN_NM }
-						보호소명 : ${rvo.RESCUE_INST_NM }
-						전화번호 : ${rvo.RESCUE_INST_TELNO } 
-						주소 : ${rvo.REFINE_LOTNO_ADDR }
-					<div id="map" style="width:500px;height:400px;"></div>
+	<div class="container">
+		<div class="card">
+			<div class="container-fliud">
+			
+				<div id="wrapper row" class="wrapper row">
+				
+					<div class="preview col-md-6">
+						<div class="preview-pic tab-content">
+							<% 
+						        switch( Integer.parseInt(request.getParameter("type")) ){
+							           case 0:
+							 %>     
+						  		<div class="tab-pane active" id="pic-1"><img src="resources/css/images/threecuties.jpg" /></div>
+						    <% 			
+										break;
+											
+										case 1:
+							%>
+								<div class="tab-pane active" id="pic-1"><img src="resources/css/images/twocuties.jpg" /></div>
+							<% 		
+										break;
+											
+										case 2:
+							%>	
+								<div class="tab-pane active" id="pic-1"><img src="resources/css/images/dog.jpg" /></div>
+							<%
+										break;
+								
+										default:
+							%>
+								<div class="tab-pane active" id="pic-1"><img src="resources/css/images/cat.png" /></div>
+							<%			
+								}
+						     %>
+						</div>
+					</div>
 					
-					<input type="hidden" id="r_y" value="${rvo.REFINE_WGS84_LAT }"/>
-					<input type="hidden" id="r_x" value="${rvo.REFINE_WGS84_LOGT }"/>
-		<% 			
-					break;
+					<div class="details col-md-6" id="detail">
 					
-				case 1:
-		%>			
-					<h1>동물병원</h1>
-						지역명: ${hvo.SIGUN_NM }
-						보호소명 : ${hvo.BIZPLC_NM }
-						전화번호 : ${hvo.LOCPLC_FACLT_TELNO } 
-						주소 : ${hvo.REFINE_LOTNO_ADDR }
-					<div id="map" style="width:500px;height:400px;"></div>	
-					
-					<input type="hidden" id="h_y" value="${hvo.REFINE_WGS84_LAT }"/>
-					<input type="hidden" id="h_x" value="${hvo.REFINE_WGS84_LOGT }"/>
-		<% 		
-					break;
-					
-				case 2:
-		%>				
-					<h1>동물약국</h1>
-						지역명: ${svo.SIGUN_NM }
-						보호소명 : ${svo.BIZPLC_NM }
-						전화번호 : ${svo.LOCPLC_FACLT_TELNO } 
-						주소 : ${svo.REFINE_LOTNO_ADDR }
-					<div id="map" style="width:500px;height:400px;"></div>
-					
-					<input type="hidden" id="s_y" value="${svo.REFINE_WGS84_LAT }"/>
-					<input type="hidden" id="s_x" value="${svo.REFINE_WGS84_LOGT }"/>
-					
-		<%
-					break;
-		
-				default:
-		%>				
-					<h1>유기동물 보호시설</h1>
-						지역명: ${pvo.SIGUN_NM }
-						보호소명 : ${pvo.ENTRPS_NM }
-						전화번호 : ${pvo.ENTRPS_TELNO } 
-						주소 : ${pvo.REFINE_LOTNO_ADDR }
-					<div id="map" style="width:500px;height:400px;"></div>
-					
-					<input type="hidden" id="p_y" value="${pvo.REFINE_WGS84_LAT }"/>
-					<input type="hidden" id="p_x" value="${pvo.REFINE_WGS84_LOGT }"/>
-		
-		<%			
-		}
-      %>
+							  <input type="hidden" id="type" name="type" value="<%=request.getParameter("type")%>"/>
+						      <% 
+						        switch( Integer.parseInt(request.getParameter("type")) ){
+							           case 0:
+							   %>     	   
+											<h3 class="product-title">야생동물 구조치료기관</h3>
+												<h4 class="price">지역명: <span>${rvo.SIGUN_NM }</span></h4>
+												<h4 class="price">보호소명 : ${rvo.RESCUE_INST_NM }</h4>
+												<h4 class="price">전화번호 : ${rvo.RESCUE_INST_TELNO } </h4>
+												<h4 class="price">주소 : ${rvo.REFINE_LOTNO_ADDR }</h4>
+											<div id="map" style="width:500px;height:400px;"></div>
+											
+											<input type="hidden" id="r_y" value="${rvo.REFINE_WGS84_LAT }"/>
+											<input type="hidden" id="r_x" value="${rvo.REFINE_WGS84_LOGT }"/>
+											<input type="hidden" id="r_name" value="${rvo.RESCUE_INST_NM }"/>
+								<% 			
+											break;
+											
+										case 1:
+								%>			
+											<h1>동물병원</h1>
+												지역명: ${hvo.SIGUN_NM }
+												보호소명 : ${hvo.BIZPLC_NM }
+												전화번호 : ${hvo.LOCPLC_FACLT_TELNO } 
+												주소 : ${hvo.REFINE_LOTNO_ADDR }
+											<div id="map" style="width:500px;height:400px;"></div>	
+											
+											<input type="hidden" id="h_y" value="${hvo.REFINE_WGS84_LAT }"/>
+											<input type="hidden" id="h_x" value="${hvo.REFINE_WGS84_LOGT }"/>
+											<input type="hidden" id="h_name" value="${hvo.BIZPLC_NM }"/>
+								<% 		
+											break;
+											
+										case 2:
+								%>				
+											<h1>동물약국</h1>
+												지역명: ${svo.SIGUN_NM }
+												보호소명 : ${svo.BIZPLC_NM }
+												전화번호 : ${svo.LOCPLC_FACLT_TELNO } 
+												주소 : ${svo.REFINE_LOTNO_ADDR }
+											<div id="map" style="width:500px;height:400px;"></div>
+											
+											<input type="hidden" id="s_y" value="${svo.REFINE_WGS84_LAT }"/>
+											<input type="hidden" id="s_x" value="${svo.REFINE_WGS84_LOGT }"/>
+											<input type="hidden" id="s_name" value="${svo.BIZPLC_NM }"/>
+											
+								<%
+											break;
+								
+										default:
+								%>				
+											<h1>유기동물 보호시설</h1>
+												지역명: ${pvo.SIGUN_NM }
+												보호소명 : ${pvo.ENTRPS_NM }
+												전화번호 : ${pvo.ENTRPS_TELNO } 
+												주소 : ${pvo.REFINE_LOTNO_ADDR }
+											<div id="map" ></div>
+											
+											<input type="hidden" id="p_y" value="${pvo.REFINE_WGS84_LAT }"/>
+											<input type="hidden" id="p_x" value="${pvo.REFINE_WGS84_LOGT }"/>
+											<input type="hidden" id="p_name" value="${pvo.ENTRPS_NM }"/>
+								
+								<%			
+								 }
+						         %>
+      				
+      						<div class="action">
+								<button class="add-to-cart btn btn-default" type="button" id="list_btn">목록으로</button>
+								<button class="add-to-cart btn btn-default" type="button" id="map_btn">지도</button>
+							</div>
+							
+      					</div>
+      					
+	      			</div>
+	      			
+				</div>
+			</div>
+		</div>
+      
 		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8d26b23142336a11ee181cc1c827a3ff"></script>
 		<script src="resources/js/jquery-3.4.1.min.js"></script>
-		<script>
+		<script src="resources/js/jquery-ui.min.js"></script>
+		<script>	
+		
 			var container = document.getElementById('map');
 			var type = $("#type").val();
 			var options = null;
@@ -188,6 +419,15 @@
 			        infowindow.close();
 			    };
 			}
+			
+			$("#map_btn").click(function () {
+				$("#map").dialog({width: 500, height: 400 });
+				$("#map").css("display", "block");
+			});	
+			
+			$("#list_btn").click(function () {
+				location.href="main.inc";
+			});	
 		</script>
 </body>
 </html>

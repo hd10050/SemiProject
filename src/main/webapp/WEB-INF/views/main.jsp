@@ -22,17 +22,106 @@
 
 <link type="text/css" rel="stylesheet" href="resources/css/main.css"/>
 
-</head>
-<body>
+<!-- Nav -->
+  <!-- Bootstrap core CSS -->
+  <link href="resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="resources/css/modern-business.css" rel="stylesheet">
+
+<style type="text/css">
+	.navbar-menu{
+		padding-left:30px;
+		font-size: 16px;
+		background-color: transparent;
+		color: white;
+		border: none;
+	}
+</style>
   
+</head>
+  <!-- Navigation -->
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="main.inc" style="font-size: 20px; padding-top: 6px;">Home</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <input type="button" value="야생동물 구조치료기관" onclick="bbs(0)" class="navbar-menu"/>
+          </li>
+          <li class="nav-item">
+            <input type="button" value="동물 병원" onclick="bbs(1)" class="navbar-menu" />
+          </li>
+          <li class="nav-item">
+            <input type="button" value="동물 약국" onclick="bbs(2)" class="navbar-menu"/>
+          </li>
+           <li class="nav-item">
+            <input type="button" value="유기 동물 보호시설" onclick="bbs(3)" class="navbar-menu"/>
+            
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+  </nav>
+  
+<body style="padding-top: 80px;">
+<header>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <!-- Slide One - Set the background image for this slide in the line below -->
+        <div class="carousel-item active" style="background-image: url('resources/css/images/main1.jpg')">
+          <div class="carousel-caption d-none d-md-block">
+            <h3>First Slide</h3>
+            <p>This is a description for the first slide.</p>
+          </div>
+        </div>
+        <!-- Slide Two - Set the background image for this slide in the line below -->
+        <div class="carousel-item" style="background-image: url('resources/css/images/main2.jpg')">
+          <div class="carousel-caption d-none d-md-block">
+            <h3>Second Slide</h3>
+            <p>This is a description for the second slide.</p>
+          </div>
+        </div>
+        <!-- Slide Three - Set the background image for this slide in the line below -->
+        <div class="carousel-item" style="background-image: url('resources/css/images/main3.jpg')">
+          <div class="carousel-caption d-none d-md-block">
+            <h3>Third Slide</h3>
+            <p>This is a description for the third slide.</p>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </header>
+
+
+
    
    <div id="wrap">
    
+   <%-- 
    <div id="mainImage" class="col-sm-12 pull-center well" >
-      <%-- 메인 이미지 넣기 --%>
+        메인 이미지 넣기 
       <h1>이미지 </h1>
    </div>
-   
+   --%>
    
    
    <div id="search" class="col-sm-12 pull-center well" >
@@ -177,6 +266,13 @@
 		<input type="hidden" id="search_type" name="search_type"/>
 		<input type="hidden" name="s_type" value='<%=request.getAttribute("type")%>'/>
 	</form>
+  	
+  	
+  	  <!-- Bootstrap core JavaScript -->
+  <script src="resources/vendor/jquery/jquery.min.js"></script>
+  <script src="resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  	
+  	
   	
    <script src="resources/js/jquery-3.4.1.min.js"></script>
    <script>
