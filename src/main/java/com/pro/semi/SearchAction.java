@@ -108,7 +108,7 @@ public class SearchAction {
 					Element e = l_list.get(i);
 					// 0:지역 1:시설명
 					if(search_type.equals("0")) {
-						if (isContain(e.getChildText("REFINE_LOTNO_ADDR"), search_value)) {
+						if (isContain(e.getChildText("SIGUN_NM"), search_value)) {
 							RescueVO vo = new RescueVO(e.getChildText("SUM_YM"), e.getChildText("SIGUN_NM"), e.getChildText("SIGUN_CD"), e.getChildText("RESCUE_INST_NM"), e.getChildText("RESCUE_INST_TELNO"),
 									e.getChildText("REFINE_ZIP_CD"), e.getChildText("REFINE_LOTNO_ADDR"), e.getChildText("REFINE_ROADNM_ADDR"), e.getChildText("REFINE_WGS84_LAT"), e.getChildText("REFINE_WGS84_LOGT"));
 							//r_ar[i] = vo;
@@ -149,7 +149,7 @@ public class SearchAction {
 					Element e = l_list.get(i);
 					// 0:지역 1:시설명
 					if(search_type.equals("0")) {
-						if (isContain(e.getChildText("REFINE_LOTNO_ADDR"), search_value)) {
+						if (isContain(e.getChildText("SIGUN_NM"), search_value)) {
 							HospitalVO vo = new HospitalVO(e.getChildText("SIGUN_CD"),e.getChildText("SIGUN_NM"),e.getChildText("BIZPLC_NM"),
 									e.getChildText("LICENSG_DE"),e.getChildText("LICENSG_CANCL_DE"),e.getChildText("BSN_STATE_DIV_CD"),
 									e.getChildText("BSN_STATE_NM"),e.getChildText("CLSBIZ_DE"),e.getChildText("LOCPLC_FACLT_TELNO"),e.getChildText("LOCPLC_AR_INFO"),
@@ -200,7 +200,7 @@ public class SearchAction {
 					Element e = l_list.get(i);
 					// 0:지역 1:시설명
 					if(search_type.equals("0")) {
-						if (isContain(e.getChildText("REFINE_LOTNO_ADDR"), search_value)) {
+						if (isContain(e.getChildText("SIGUN_NM"), search_value)) {
 							StoreVO vo = new StoreVO(e.getChildText("SIGUN_CD"),e.getChildText("SIGUN_NM"),e.getChildText("BIZPLC_NM"),e.getChildText("LICENSG_DE"),
 									e.getChildText("LICENSG_CANCL_DE"),e.getChildText("BSN_STATE_DIV_CD"),e.getChildText("BSN_STATE_NM"),e.getChildText("CLSBIZ_DE"),
 									e.getChildText("LOCPLC_FACLT_TELNO"),e.getChildText("LOCPLC_AR_INFO"),e.getChildText("ROADNM_ZIP_CD"),e.getChildText("REFINE_ROADNM_ADDR"),
@@ -249,7 +249,7 @@ public class SearchAction {
 					Element e = l_list.get(i);
 					// 0:지역 1:시설명
 					if(search_type.equals("0")) {
-						if (isContain(e.getChildText("REFINE_LOTNO_ADDR"), search_value)) {
+						if (isContain(e.getChildText("SIGUN_NM"), search_value)) {
 							ProtectVO vo = new ProtectVO(e.getChildText("SUM_YY"),e.getChildText("SIGUN_NM"),e.getChildText("SIGUN_CD"),e.getChildText("ENTRPS_NM"),
 									e.getChildText("ENTRPS_TELNO"),e.getChildText("REPRSNTV_NM"),e.getChildText("CONTRACT_PERD"),e.getChildText("ACEPTNC_ABLTY_CNT"),
 									e.getChildText("CORPR_ANIMAL_HOSPTL_DTLS"),e.getChildText("RM_MATR"),e.getChildText("REFINE_ZIP_CD"),e.getChildText("REFINE_LOTNO_ADDR"),
