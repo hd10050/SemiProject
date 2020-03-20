@@ -37,7 +37,6 @@
 		
 		// 마커를 표시할 위치와 title 객체 배열입니다
 		var positions = [
-			    
 			    	<%
 			    	Object obj = session.getAttribute("ar");
 			    	if(request.getAttribute("type").equals("0")) {

@@ -67,6 +67,7 @@ public class SearchAction {
 			break;
 		}
 		// -------------------------------------------------------
+		request.setAttribute("chk", "1");
 		mv.setViewName("main");
 
 		return mv;
@@ -258,7 +259,7 @@ public class SearchAction {
 							//p_ar[i] = vo;
 						}
 					} else if (search_type.equals("1")) {
-						if (isContain(e.getChildText("BIZPLC_NM"), search_value)) {
+						if (isContain(e.getChildText("ENTRPS_NM"), search_value)) {
 							ProtectVO vo = new ProtectVO(e.getChildText("SUM_YY"),e.getChildText("SIGUN_NM"),e.getChildText("SIGUN_CD"),e.getChildText("ENTRPS_NM"),
 									e.getChildText("ENTRPS_TELNO"),e.getChildText("REPRSNTV_NM"),e.getChildText("CONTRACT_PERD"),e.getChildText("ACEPTNC_ABLTY_CNT"),
 									e.getChildText("CORPR_ANIMAL_HOSPTL_DTLS"),e.getChildText("RM_MATR"),e.getChildText("REFINE_ZIP_CD"),e.getChildText("REFINE_LOTNO_ADDR"),
@@ -284,7 +285,6 @@ public class SearchAction {
 
 		str.replaceAll(" ", "");
 		value.replaceAll(" ", "");
-		System.out.println(str + " : " + value);
 		
 	    if(str.indexOf(value) > -1) {
 	    	chk = true;

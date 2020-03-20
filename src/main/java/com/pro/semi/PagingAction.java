@@ -87,7 +87,8 @@ public class PagingAction {
 		mv.addObject("type", type);
 		mv.setViewName("main");
 		request.setAttribute("type", type);
-
+		request.setAttribute("chk", "0");
+		
 		return mv;
 	}
 	

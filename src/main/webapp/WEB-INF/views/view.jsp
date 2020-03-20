@@ -17,7 +17,6 @@
 </style>
 </head>
 <body>
-	
 	  <input type="hidden" id="type" name="type" value="<%=request.getParameter("type")%>"/>
       <% 
         switch( Integer.parseInt(request.getParameter("type")) ){
