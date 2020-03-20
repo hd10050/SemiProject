@@ -95,7 +95,7 @@
             <th>주소</th>
             <th>전화번호</th>
          </tr>
-      </thead>   
+      </thead>     
       <tbody>
       <c:forEach var="vo" items="${ar}">
          <tr>
