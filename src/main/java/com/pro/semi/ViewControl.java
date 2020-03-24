@@ -34,7 +34,6 @@ public class ViewControl {
 	      //타입
 	      String type = Request.getParameter("type");
 	      
-	      
 	      ModelAndView mv = new ModelAndView();
 
 	       switch(Integer.parseInt(type)){
