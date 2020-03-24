@@ -6,13 +6,13 @@
 
 
 	<!-- 회원 가입 -->
-	<insert id="joinMem" parameterType="mybatis.vo.MemberVO">
+	<insert id="joinMem" parameterType="com.data.vo.MemberVO">
 		insert into member_table(m_idx, m_id, m_pw, m_name, m_gender, m_status, m_phone) 
-		values(member_table.sesq, #{m_id}, #{m_pw}, #{m_name}, #{m_gender}, 0, #{m_phone})
+		values(member_table_sesq.NEXTVAL, #{m_id}, #{m_pw}, #{m_name}, #{m_gender}, 0, #{m_phone})
 	</insert>
 	
 	<!-- 회원 정보 수정 -->
-	<update id="updateMem" parameterType="mybatis.vo.MemberVO">
+	<update id="updateMem" parameterType="com.data.vo.MemberVO">
 		update	member_table
 		<set>
 			<trim suffixOverrides=",">
@@ -34,13 +34,13 @@
 	</update>
 	
 	<!-- 회원 탈퇴 -->
-	<update id="delMem" parameterType="mybatis.vo.MemberVO">
+	<update id="delMem" parameterType="com.data.vo.MemberVO">
 		update member_table set status = 1 where m_idx = #{m_idx} and m_pw = #{m_pw}
 	</update>
 	
 	
 		<!-- 회원 로그인 -->
-	<select id="login" resultType="mybatis.vo.MemberVO" parameterType="java.util.Map">
+	<select id="login" resultType="com.data.vo.MemberVO" parameterType="java.util.Map">
 		select * from member_table where m_id = #{m_id} and m_pw = #{m_pw} and status = 0
 	</select>
 	
