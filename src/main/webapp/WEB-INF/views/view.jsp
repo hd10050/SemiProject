@@ -355,22 +355,17 @@
 		for(int i = 0 ; i < r_ar.length ; i++) {
 %>
 			<hr/>
-			<div>
-				<table>
-					<tr>
-						<td><%=r_ar[i].getMvo().getM_name() %></td>
-						<td><%=r_ar[i].getR_date() %></td>
-						<td><%=r_ar[i].getR_score() %></td>
-					</tr>
-					<tr>
-						<td colspan=2><%=r_ar[i].getR_content() %></td>
-						<td>
-							<input type="button" value="수정" />
-							<input type="button" value="삭제" />
-						</td>
-					</tr>
-				</table>
-			</div>
+			<form id="edit_frm<%=i%>" action="control" method="post">
+					<%=r_ar[i].getMvo().getM_name() %>(<%=r_ar[i].getR_date() %>)
+					<h6><%=r_ar[i].getR_score() %></h6>
+					<h6 id="content<%=i%>"><%=r_ar[i].getR_content() %></h6>
+					<input type="hidden" name="r_idx" value='<%=r_ar[i].getR_idx() %>'/>
+					<input type="hidden" name="type" value="<%=request.getParameter("type")%>"/>
+					<input type="hidden" name="b_idx" value='<%=r_ar[i].getB_idx() %>'/>
+			
+					<button type=button id="ans_edit<%=i%>" onclick="ans_edit('<%=i%>', '<%=r_ar[i].getR_idx()%>', this.form)">수정</button>
+					<button type=button id="ans_del<%=i%>" onclick="ans_del('<%=r_ar[i].getR_idx() %>','<%=r_ar[i].getB_idx()%>')">삭제</button>
+			</form>
 <%	
 		}
 	}
@@ -379,7 +374,6 @@
 		<script src="resources/js/jquery-3.4.1.min.js"></script>
 		<script src="resources/js/jquery-ui.min.js"></script>
 		<script>	
-		
 			var container = document.getElementById('map');
 			var type = $("#type").val();
 			var options = null;
@@ -496,6 +490,39 @@
 			$("#list_btn").click(function () {
 				location.href="main.inc";
 			});	
+			
+			<%------------------------------------------------------------%>
+			
+			function ans_del(r_idx,b_idx){
+				var Param ="type=ans_del&c_idx="+encodeURIComponent(c_idx);
+				$.ajax({
+					url:"control",
+					type:"post",
+					data:Param,
+					dataType:"json"
+				}).done(function(data){
+					//console.log(data.value)
+					if(data.value == "true"){
+						alert("댓글삭제 완료");
+					} else {
+						alert("댓글삭제 실패");
+					}
+				}).fail(function(err){
+					console.log(err)
+				});
+			}
+
+			function ans_edit(num, r_idx, frm){
+				console.log(frm);
+				var content = $("#content"+num).html();
+				$("#content"+num).html("<textarea rows='5' cols='90' name='content'>" + content + "</textarea>");
+				$("#ans_edit"+num).attr("onclick", "ans_editok("+ num +")", frm);
+			}
+
+			function ans_editok(num){
+				var frm = $("#edit_frm"+num);
+				frm.submit();
+			}
 		</script>
 </body>
 </html>
