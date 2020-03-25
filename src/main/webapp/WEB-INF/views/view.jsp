@@ -1,5 +1,8 @@
+<%@page import="com.data.vo.ReviewVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -189,6 +192,7 @@
 </style>
 </head>
 <body>
+
 	<div class="container">
 		<div class="card">
 			<div class="container-fliud">
@@ -289,7 +293,6 @@
 											<input type="hidden" id="p_y" value="${pvo.REFINE_WGS84_LAT }"/>
 											<input type="hidden" id="p_x" value="${pvo.REFINE_WGS84_LOGT }"/>
 											<input type="hidden" id="p_name" value="${pvo.ENTRPS_NM }"/>
-								
 								<%			
 								 }
 						         %>
@@ -306,7 +309,34 @@
 				</div>
 			</div>
 		</div>
-      
+		
+		
+<%
+	ReviewVO[] r_ar = null;
+	if(request.getAttribute("review_ar") != null ){
+		r_ar = (ReviewVO[])request.getAttribute("review_ar");
+		System.out.println(r_ar.length);
+		for(int i = 0 ; i < r_ar.length ; i++) {
+%>
+			<hr/>
+			<div>
+				<table>
+					<tr>
+						<td><%=r_ar[i].getMvo().getM_name() %></td>
+						<td><%=r_ar[i].getR_date() %></td>
+						<td><%=r_ar[i].getR_score() %></td>
+					</tr>
+					<tr>
+						<td colspan=3><%=r_ar[i].getR_content() %></td>
+					</tr>
+				</table>
+			</div>
+<%	
+		}
+	}
+%>
+
+
 		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8d26b23142336a11ee181cc1c827a3ff"></script>
 		<script src="resources/js/jquery-3.4.1.min.js"></script>
 		<script src="resources/js/jquery-ui.min.js"></script>
@@ -331,7 +361,7 @@
 						level: 3
 				};
 			} else if(type == 3) {
-				options = { 
+				options = {
 						center: new kakao.maps.LatLng($("#p_y").val(), $("#p_x").val()), 
 						level: 3
 				};

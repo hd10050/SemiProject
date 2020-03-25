@@ -3,11 +3,12 @@ package com.data.vo;
 public class ReviewVO {
 	
 	private String r_idx, m_idx, b_idx, r_score, r_content, r_date, r_status;
+	private MemberVO mvo;
 
 	// constructor
 	public ReviewVO() { }
 	public ReviewVO(String r_idx, String m_idx, String b_idx, String r_score, String r_content, String r_date,
-			String r_status) {
+			String r_status, MemberVO mvo) {
 		this.r_idx = r_idx;
 		this.m_idx = m_idx;
 		this.b_idx = b_idx;
@@ -15,6 +16,7 @@ public class ReviewVO {
 		this.r_content = r_content;
 		this.r_date = r_date;
 		this.r_status = r_status;
+		this.mvo = mvo;
 	}
 	
 	// getter setter
@@ -32,5 +34,7 @@ public class ReviewVO {
 	public void setR_date(String r_date) { this.r_date = r_date; }
 	public String getR_status() { return r_status; }
 	public void setR_status(String r_status) { this.r_status = r_status; }
+	public MemberVO getMvo() { return mvo; }
+	public void setMvo(MemberVO mvo) { this.mvo = mvo; }
 	
 }

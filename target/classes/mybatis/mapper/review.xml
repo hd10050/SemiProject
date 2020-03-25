@@ -3,8 +3,22 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="review">
-
-
+	
+	<resultMap type="com.data.vo.ReviewVO" id="get_memvo">
+		<association property="mvo" javaType="com.data.vo.MemberVO" select="getmvo" column="m_idx"/>
+	</resultMap>
+	
+	<select id="getmvo" resultType="com.data.vo.MemberVO" parameterType="String">
+		select * from member_table
+		where m_idx = #{m_idx}
+	</select>
+	
+	<!-- 리뷰 목록 -->
+	<select id="listReview" resultMap="get_memvo" parameterType="String">
+		select * from review_table
+		where b_idx = #{b_idx}
+		and r_status = 0
+	</select>
 
 	<!-- 리뷰 댓글 쓰기  -->
 	<insert id="writeReview" parameterType="com.data.vo.ReviewVO">
