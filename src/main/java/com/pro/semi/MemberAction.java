@@ -29,11 +29,6 @@ public class MemberAction {
 	public Map<String, String> memreg(MemberVO mvo) throws Exception{
 		Map<String, String> map = new HashMap<String, String>();
 		
-		System.out.println(mvo.getM_id());
-		System.out.println(mvo.getM_name());
-		System.out.println(mvo.getM_phone());
-		System.out.println(mvo.getM_gender());
-		System.out.println(mvo.getM_pw());
 		String chk = "0";
 		if(m_dao.join(mvo)) {
 			chk = "1";
@@ -44,9 +39,6 @@ public class MemberAction {
 		return map;
 	}
 	
-	@RequestMapping("/login.inc")
-	public String login() {
-		return "login";
-	}
+
 }  
 ;

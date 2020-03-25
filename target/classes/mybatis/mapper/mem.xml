@@ -41,7 +41,8 @@
 	
 		<!-- 회원 로그인 -->
 	<select id="login" resultType="com.data.vo.MemberVO" parameterType="java.util.Map">
-		select * from member_table where m_id = #{m_id} and m_pw = #{m_pw} and status = 0
+		select * from member_table 
+		where m_id = #{m_id} and m_pw = #{m_pw}
 	</select>
 	
 	
