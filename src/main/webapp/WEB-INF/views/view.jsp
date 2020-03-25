@@ -355,14 +355,14 @@
 		for(int i = 0 ; i < r_ar.length ; i++) {
 %>
 			<hr/>
-			<form id="edit_frm<%=i%>" action="control" method="post">
+			<form id="edit_frm<%=i%>" action="r_edit.inc" method="post">
 					<%=r_ar[i].getMvo().getM_name() %>(<%=r_ar[i].getR_date() %>)
 					<h6><%=r_ar[i].getR_score() %></h6>
 					<h6 id="content<%=i%>"><%=r_ar[i].getR_content() %></h6>
 					<input type="hidden" name="r_idx" value='<%=r_ar[i].getR_idx() %>'/>
 					<input type="hidden" name="type" value="<%=request.getParameter("type")%>"/>
 					<input type="hidden" name="b_idx" value='<%=r_ar[i].getB_idx() %>'/>
-			
+
 					<button type=button id="ans_edit<%=i%>" onclick="ans_edit('<%=i%>', '<%=r_ar[i].getR_idx()%>', this.form)">수정</button>
 					<button type=button id="ans_del<%=i%>" onclick="ans_del('<%=r_ar[i].getR_idx() %>','<%=r_ar[i].getB_idx()%>')">삭제</button>
 			</form>
@@ -513,7 +513,6 @@
 			}
 
 			function ans_edit(num, r_idx, frm){
-				console.log(frm);
 				var content = $("#content"+num).html();
 				$("#content"+num).html("<textarea rows='5' cols='90' name='content'>" + content + "</textarea>");
 				$("#ans_edit"+num).attr("onclick", "ans_editok("+ num +")", frm);
