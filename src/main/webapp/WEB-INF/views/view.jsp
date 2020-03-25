@@ -310,6 +310,42 @@
 			</div>
 		</div>
 		
+		<hr/>
+		<div>
+			<table>
+				<tr>
+					<th colspan="5">평점</th>
+				</tr>
+				<tr>
+					<td>
+						<input type="radio" />1.0
+					</td>
+					<td>
+						<input type="radio" />2.0
+					</td>
+					<td>
+						<input type="radio" />3.0
+					</td>
+					<td>
+						<input type="radio" />4.0
+					</td>
+					<td>
+						<input type="radio" />5.0
+					</td>
+				</tr>
+				<tr>
+					<th colspan="5">댓글 쓰기</th>
+				</tr>
+				<tr>
+					<td colspan="5"><textarea rows="5" cols="90"></textarea></td>
+				</tr>
+				<tr>
+					<td>
+						<input type="button" value="등록" />
+					</td>
+				</tr>
+			</table>
+		</div>
 		
 <%
 	ReviewVO[] r_ar = null;
@@ -327,7 +363,11 @@
 						<td><%=r_ar[i].getR_score() %></td>
 					</tr>
 					<tr>
-						<td colspan=3><%=r_ar[i].getR_content() %></td>
+						<td colspan=2><%=r_ar[i].getR_content() %></td>
+						<td>
+							<input type="button" value="수정" />
+							<input type="button" value="삭제" />
+						</td>
 					</tr>
 				</table>
 			</div>
@@ -335,8 +375,6 @@
 		}
 	}
 %>
-
-
 		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8d26b23142336a11ee181cc1c827a3ff"></script>
 		<script src="resources/js/jquery-3.4.1.min.js"></script>
 		<script src="resources/js/jquery-ui.min.js"></script>
