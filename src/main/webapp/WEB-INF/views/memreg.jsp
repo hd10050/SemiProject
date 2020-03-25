@@ -42,6 +42,11 @@
     background-color: red;
     color: #fff;
 }
+.btn-naver {
+    background-color: green;
+    color: #fff;
+}
+
 </style>
 </head>
 <div class="container">
@@ -54,9 +59,10 @@
 	<h4 class="card-title mt-3 text-center">회 원 가 입</h4>
 	<p class="text-center"></p>
 	<p>
-		<a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Login via Twitter</a>
-		<a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via facebook</a>
-		<a href="" class="btn btn-block btn-google"> <i class="fab fa-google"></i>   Login via google</a>
+		<a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i> 트위터로 로그인</a>
+		<a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i> 페이스북으로 로그인</a>
+		<a href="" class="btn btn-block btn-google"> <i class="fab fa-google"></i>  구글로 로그인</a>
+		<a href="" class="btn btn-block btn-naver"> <img src="resources/css/images/naver_logo.png"></i>  네이버로 로그인</a>
 	</p>
 	<p class="divider-text">
         <span class="bg-light">OR</span>
