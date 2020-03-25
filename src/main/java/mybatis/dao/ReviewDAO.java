@@ -11,6 +11,13 @@ public class ReviewDAO {
 	@Autowired
 	private SqlSessionTemplate ss;
 	
+	//댓글 조회
+	public ReviewVO getReview(String r_idx) {
+		ReviewVO vo = ss.selectOne("getReview", r_idx);
+		
+		return vo;
+	}
+	
 	//댓글 리스트
 	public ReviewVO[] listReview(String b_idx) {
 		ReviewVO[] ar = null;
