@@ -33,9 +33,15 @@ public class ReviewDAO {
 	}
 	
 	//댓글 쓰기
-	public boolean writeReview(ReviewVO vo) {
+	public boolean writeReview(ReviewVO rvo) {
 		boolean chk = false;
-		int cnt = ss.update("review.writeReview",vo);
+		
+		System.out.println("getM_idx=" + rvo.getM_idx());
+		System.out.println("getB_idx=" + rvo.getB_idx());
+		System.out.println("getR_score=" + rvo.getR_score());
+		System.out.println("getR_content=" + rvo.getR_content());
+		
+		int cnt = ss.insert("review.writeReview", rvo);
 		if(cnt > 0) {
 			chk = true;
 		}

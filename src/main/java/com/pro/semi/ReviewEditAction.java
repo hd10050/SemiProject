@@ -10,7 +10,7 @@ import com.data.vo.ReviewVO;
 import mybatis.dao.ReviewDAO;
 
 @Controller
-public class EditAction {
+public class ReviewEditAction {
 	
 	@Autowired
 	private ReviewDAO reviewDao;

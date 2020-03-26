@@ -1,3 +1,4 @@
+<%@page import="com.data.vo.MemberVO"%>
 <%@page import="com.data.vo.ReviewVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -201,7 +202,7 @@
 				
 					<div class="preview col-md-6">
 						<div class="preview-pic tab-content">
-							<% 
+							<%  String b_idx = (String)request.getAttribute("b_idx");
 						        switch( Integer.parseInt(request.getParameter("type")) ){
 							           case 0:
 							 %>     
@@ -310,63 +311,83 @@
 			</div>
 		</div>
 		
-		<hr/>
-		<div>
-			<table>
-				<tr>
-					<th colspan="5">평점</th>
-				</tr>
-				<tr>
-					<td>
-						<input type="radio" />1.0
-					</td>
-					<td>
-						<input type="radio" />2.0
-					</td>
-					<td>
-						<input type="radio" />3.0
-					</td>
-					<td>
-						<input type="radio" />4.0
-					</td>
-					<td>
-						<input type="radio" />5.0
-					</td>
-				</tr>
-				<tr>
-					<th colspan="5">댓글 쓰기</th>
-				</tr>
-				<tr>
-					<td colspan="5"><textarea rows="5" cols="90"></textarea></td>
-				</tr>
-				<tr>
-					<td>
-						<input type="button" value="등록" />
-					</td>
-				</tr>
-			</table>
-		</div>
-		
+<%-- 리뷰 -----------------------------------------------------------------------------------%>
 <%
 	ReviewVO[] r_ar = null;
+	int total = 0;
+	int avg = 0;
 	if(request.getAttribute("review_ar") != null ){
 		r_ar = (ReviewVO[])request.getAttribute("review_ar");
-		System.out.println(r_ar.length);
+		for(int i = 0 ; i < r_ar.length ; i++) {
+			total += Integer.parseInt(r_ar[i].getR_score());
+			System.out.println(total);
+		}
+		if(r_ar.length > 0) {
+			avg = total / r_ar.length;
+		}
+	}
+%>
+	<div>
+		<h3>평점</h3>
+		<h1><%=avg %>점</h1>
+	</div>
+<%
+	Object obj = session.getAttribute("mvo");
+	MemberVO mvo = null; 
+	if(obj != null) {
+		mvo = (MemberVO)session.getAttribute("mvo");
+	}
+	// (String b_idx)
+%>
+
+		<hr/>
+		<form action="r_write.inc" method="post" name="r_write">
+			<h5>평점</h5>
+			<input type="radio" name="r_score" id="score1" value="1"/>1.0
+			<input type="radio" name="r_score" id="score2" value="2"/>2.0
+			<input type="radio" name="r_score" id="score3" value="3"/>3.0
+			<input type="radio" name="r_score" id="score4" value="4"/>4.0
+			<input type="radio" name="r_score" id="score5" value="5"/>5.0
+
+			<h5>댓글 쓰기</h5>
+			<textarea rows="5" cols="90" id="r_content" name="r_content"></textarea>
+<%
+		if(mvo != null) {
+%>
+			<input type="hidden" name="m_idx" value='<%=mvo.getM_idx()%>'/>
+			<input type="hidden" name="type" value="<%=request.getParameter("type")%>"/>
+			<input type="hidden" name="b_idx" value='<%=b_idx%>'/>
+			<input type="button" value="등록" onclick="ans_write()"/>
+			
+<%
+		} else {
+%>	
+			<input type="button" value="등록" onclick="alert('로그인 후 이용해 주세요');"/>
+<%
+		}
+%>
+		</form>
+		
+<%
+	if(r_ar != null ){
 		for(int i = 0 ; i < r_ar.length ; i++) {
 %>
 			<hr/>
 			<form id="edit_frm<%=i%>" action="r_edit.inc" method="post">
-					<%=r_ar[i].getMvo().getM_name() %>(<%=r_ar[i].getR_date() %>)
-					<h6><%=r_ar[i].getR_score() %></h6>
-					<h6 id="content<%=i%>"><%=r_ar[i].getR_content() %></h6>
-					<input type="hidden" name="r_idx" value='<%=r_ar[i].getR_idx() %>'/>
-					<input type="hidden" name="type" value="<%=request.getParameter("type")%>"/>
-					<input type="hidden" name="b_idx" value='<%=r_ar[i].getB_idx() %>'/>
-
-					<button type=button id="ans_edit<%=i%>" onclick="ans_edit('<%=i%>', '<%=r_ar[i].getR_idx()%>', this.form)">수정</button>
-					<button type=button id="ans_del<%=i%>" onclick="ans_del('<%=r_ar[i].getR_idx() %>','<%=r_ar[i].getB_idx()%>')">삭제</button>
+				<%=r_ar[i].getMvo().getM_name() %>(<%=r_ar[i].getR_date() %>)
+				<h6>평점 : <%=r_ar[i].getR_score() %></h6>
+				<h6 id="content<%=i%>"><%=r_ar[i].getR_content() %></h6>
+				<input type="hidden" name="r_idx" value='<%=r_ar[i].getR_idx() %>'/>
+				<input type="hidden" name="type" value="<%=request.getParameter("type")%>"/>
+				<input type="hidden" name="b_idx" value='<%=r_ar[i].getB_idx() %>'/>
+			<%if(mvo != null){
+				if(r_ar[i].getMvo().getM_idx().equals(mvo.getM_idx())) { %>
+				<button type=button id="ans_edit<%=i%>" onclick="ans_edit('<%=i%>', '<%=r_ar[i].getR_idx()%>', this.form)">수정</button>
+				<button type=button id="ans_del<%=i%>" onclick="ans_del('<%=r_ar[i].getR_idx() %>','<%=r_ar[i].getB_idx()%>', '<%=request.getParameter("type")%>')">삭제</button>
+			<%}
+			}%>
 			</form>
-<%	
+<%
 		}
 	}
 %>
@@ -492,18 +513,41 @@
 			});	
 			
 			<%------------------------------------------------------------%>
+			function ans_write() {
+				if($(':radio[name="r_score"]:checked').length < 1){
+				    alert('평점을 선택해주세요');                        
+				    return;
+				}
+				if ($("#r_content").val().trim().length < 1) {
+					alert("내용을 입력하세요");
+					return;
+				}
+				
+				r_write.submit();
+			}
 			
-			function ans_del(r_idx,b_idx){
-				var Param ="type=ans_del&c_idx="+encodeURIComponent(c_idx);
+			function ans_del(r_idx, b_idx, type){
+				if (!(confirm('정말 삭제하시겠습니까?'))) {
+					return;
+				}
+
+				var Param ="r_idx="+encodeURIComponent(r_idx);
 				$.ajax({
-					url:"control",
-					type:"post",
-					data:Param,
+					url: "r_del.inc",
+					type: "post",
+					data: Param,
 					dataType:"json"
 				}).done(function(data){
-					//console.log(data.value)
-					if(data.value == "true"){
-						alert("댓글삭제 완료");
+					if(data.value == "1"){
+						if(type == "0") {
+							location.href = "view.inc?type=0&RESCUE_INST_TELNO=" + b_idx;
+						} else if(type == "1") {
+							location.href = "view.inc?type=1&LOCPLC_FACLT_TELNO=" + b_idx;
+						} else if(type == "2") {
+							location.href = "view.inc?type=2&LOCPLC_FACLT_TELNO=" + b_idx;
+						} else if(type == "3") {
+							location.href = "view.inc?type=3&ENTRPS_TELNO=" + b_idx;
+						}
 					} else {
 						alert("댓글삭제 실패");
 					}

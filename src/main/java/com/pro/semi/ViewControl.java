@@ -70,7 +70,7 @@ public class ViewControl {
 				}
 			}
 			review_ar = reviewDao.listReview(rvo.getRESCUE_INST_TELNO());
-			
+			mv.addObject("b_idx", rvo.getRESCUE_INST_TELNO());
 			break;
 		case 1:
 
@@ -112,7 +112,7 @@ public class ViewControl {
 				}
 			}
 			review_ar = reviewDao.listReview(hvo.getLOCPLC_FACLT_TELNO());
-			
+			mv.addObject("b_idx", hvo.getLOCPLC_FACLT_TELNO());
 			break;
 
 		case 2 :
@@ -153,7 +153,7 @@ public class ViewControl {
 				}
 			}
 			review_ar = reviewDao.listReview(svo.getLOCPLC_FACLT_TELNO());
-			
+			mv.addObject("b_idx", svo.getLOCPLC_FACLT_TELNO());
 			break;
 
 		default :
@@ -184,6 +184,7 @@ public class ViewControl {
 
 				}
 			}
+			mv.addObject("b_idx", pvo.getENTRPS_TELNO());
 			review_ar = reviewDao.listReview(pvo.getENTRPS_TELNO());
 		}
 

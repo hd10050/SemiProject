@@ -21,7 +21,7 @@ public class LoginAction {
 
 	@Autowired
 	HttpSession session;
-	
+
 	@Autowired
 	MemDAO m_dao;
 	
@@ -40,6 +40,7 @@ public class LoginAction {
 		Map<String, String>map = new HashMap<String, String>();
 		
 		MemberVO mvo = m_dao.login(m_pw, m_id);
+		System.out.println("mvo.getM_idx() = " + mvo.getM_idx());
 		
 		String chk = "0";
 		if(mvo != null) {

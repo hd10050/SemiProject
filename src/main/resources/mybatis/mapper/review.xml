@@ -18,6 +18,7 @@
 		select * from review_table
 		where b_idx = #{b_idx}
 		and r_status = 0
+		order by r_idx
 	</select>
 	
 	<!-- 리뷰 조회 -->
@@ -28,8 +29,8 @@
 
 	<!-- 리뷰 댓글 쓰기  -->
 	<insert id="writeReview" parameterType="com.data.vo.ReviewVO">
-		insert into review_table(r_idx, m_idx, b_idx, r_score, r_content, r_date, r_status)
-		values(review_table_sesq.NEXTVAL, #{m_idx}, #{b_idx}, #{r_score}, #{r_content}, #{r_date}, 0);
+		insert into review_table
+		values (review_table_sesq.NEXTVAL, #{m_idx}, #{b_idx}, #{r_content}, SYSDATE, 0, #{r_score})
 	</insert>
 
 	<!-- 리뷰 댓글 수정 -->
@@ -41,8 +42,7 @@
 
 	<!-- 댓글 삭제 -->
 	<update id="delReview" parameterType="String">
-		update review_table set status = 1 where r_idx = #{r_idx}
+		update review_table set r_status = 1 where r_idx = #{r_idx}
 	</update>
-
 
 </mapper>

@@ -7,6 +7,12 @@ public class ReviewVO {
 
 	// constructor
 	public ReviewVO() { }
+	public ReviewVO(String m_idx, String b_idx, String r_score, String r_content) {
+		this.m_idx = m_idx;
+		this.b_idx = b_idx;
+		this.r_score = r_score;
+		this.r_content = r_content;
+	}
 	public ReviewVO(String r_idx, String m_idx, String b_idx, String r_score, String r_content, String r_date,
 			String r_status, MemberVO mvo) {
 		this.r_idx = r_idx;
@@ -18,7 +24,7 @@ public class ReviewVO {
 		this.r_status = r_status;
 		this.mvo = mvo;
 	}
-	
+
 	// getter setter
 	public String getR_idx() { return r_idx; }
 	public void setR_idx(String r_idx) { this.r_idx = r_idx; } 
