@@ -1,9 +1,9 @@
+<%@page import="com.data.vo.MemberVO"%>
 <%@page import="com.data.vo.ProtectVO"%>
 <%@page import="com.data.vo.StoreVO"%>
 <%@page import="com.data.vo.HospitalVO"%>
 <%@page import="com.data.vo.RescueVO"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!DOCTYPE html>
 <html>
@@ -60,11 +60,38 @@
             <input type="button" value="동물 약국" onclick="bbs(2)" class="navbar-menu"/>
           </li>
            <li class="nav-item">
-            <input type="button" value="유기 동물 보호시설" onclick="bbs(3)" class="navbar-menu"/>
-            
+            <input type="button" value="유기 동물 보호시설" onclick="bbs(3)" class="navbar-menu"/> 
           </li>
-        </ul>
-      </div>
+<%
+	
+	Object obj_vo = session.getAttribute("mvo");
+		MemberVO mvo = (MemberVO)obj_vo;	
+	
+		if(obj_vo != null){
+%>          
+		  <li class="nav-item"><span class="navbar-menu"><%=mvo.getM_name() %>님 환영합니다.</span></li>
+		  <li class="nav-item">
+		    <input type="button" value="내정보" onclick="" class="navbar-menu"/> 
+		  </li>
+		  <li class="nav-item">
+		    <input type="button" value="로그아웃" onclick="logout()" class="navbar-menu"/> 
+		  </li>
+<%
+		}else{
+%>		  
+		  <li class="nav-item">
+		    <input type="button" value="회원가입" onclick="location.href='reg.inc'" class="navbar-menu"/> 
+		  </li>
+		  <li class="nav-item">
+		    <input type="button" value="로그인" onclick="location.href='login.inc'" class="navbar-menu"/> 
+		  </li>
+<%		
+		}
+%>
+		</ul>
+       </div> 
+   
+        
       
     </div>
   </nav>
@@ -276,6 +303,26 @@
   	
    <script src="resources/js/jquery-3.4.1.min.js"></script>
    <script>
+   		function logout() {
+			$.ajax({
+				
+				url:"logout.inc",
+				type:"post",
+				dataType:"json"
+				
+			}).done(function (res) {
+				if(res.chk == "1"){
+					alert("로그아웃 성공");
+					location.href="main.inc"
+				}else{
+					alert("로그아웃 실패")
+				}
+				
+			}).fail(function (err) {
+				console.log(err);
+			});
+		}
+   
    		function bbs(type) {
 			document.location.href="main.inc?s_type=" + type;
 		}
