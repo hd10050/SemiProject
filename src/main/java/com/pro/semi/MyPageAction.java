@@ -1,7 +1,5 @@
 package com.pro.semi;
 
-import java.lang.reflect.Member;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -45,6 +43,22 @@ public class MyPageAction {
 		}
 		return mv;
 	}
+	
+	@RequestMapping("/memdel")
+	public String del() {
+		
+		return "memdel";
+	}
+	
+	@RequestMapping(value="/memleave.inc", method=RequestMethod.POST,produces ="text/json;charset=utf-8")
+	@ResponseBody
+	public String leave(MemberVO vo) {
+		m_dao.delMem(vo);
+		return "main.inc";
+		
+	}
+	
+	
 	
 	
 	

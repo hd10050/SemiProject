@@ -94,7 +94,7 @@
 			}else if(val == 2){
 				$("#right_content").load("scrap.inc");	
 			}else{
-				$("#right_content").load("leave.jsp");
+				$("#right_content").load("memdel.inc");
 			}
 		}
 	
