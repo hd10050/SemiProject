@@ -193,7 +193,6 @@
 </style>
 </head>
 <body>
-
 	<div class="container">
 		<div class="card">
 			<div class="container-fliud">
@@ -315,7 +314,7 @@
 <%
 	ReviewVO[] r_ar = null;
 	int total = 0;
-	int avg = 0;
+	float avg = 0;
 	if(request.getAttribute("review_ar") != null ){
 		r_ar = (ReviewVO[])request.getAttribute("review_ar");
 		for(int i = 0 ; i < r_ar.length ; i++) {
@@ -323,7 +322,7 @@
 			System.out.println(total);
 		}
 		if(r_ar.length > 0) {
-			avg = total / r_ar.length;
+			avg = (float)total / r_ar.length;
 		}
 	}
 %>
