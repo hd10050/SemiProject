@@ -46,7 +46,11 @@
 	</select>
 	
 	
-	
+	 <select id="pwdCheck" resultType="int">
+        select count(*) from member_table 
+        where m_id=#{m_id} and m_pw=#{m_pw}
+    </select>
+
 	
 	
 
