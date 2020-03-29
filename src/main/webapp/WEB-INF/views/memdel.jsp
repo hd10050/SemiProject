@@ -17,10 +17,6 @@
 				<td><input type="password" name="pwd" id="pwd"></td>
 			</tr>
 			<tr>
-				<td>패스워드 확인</td>
-				<td><input type="password" name="pwdCheck" id="pwdCheck"></td>
-			</tr>
-			<tr>
 				<td colspan=2 align="center"><input type="button" value="탈퇴하기" id="button"></td>
 			</tr>
 		</table>
@@ -52,11 +48,17 @@
 					
 				}
 				
+				var pwd = $("#pwd").val();
+				
+				var param  = "pwd="+encodeURIComponent(pwd);
+				
+				
 				$.ajax({
 					
 					url : "memleave.inc",
 					type: "post",
 					dataType: "json",
+					data : param
 				
 					
 					

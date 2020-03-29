@@ -29,7 +29,7 @@
 				<!-- SIDEBAR USER TITLE -->
 				<div class="profile-usertitle">
 					<div class="profile-usertitle-name">
-						<h5>${m_id }님 안녕하세요!</h5>
+						<h5>${mvo.m_id }님 안녕하세요!</h5>
 					</div>
 				</div>
 				<!-- END SIDEBAR USER TITLE -->

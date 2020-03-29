@@ -83,8 +83,8 @@
 					return;
 				}
 				
-				var param = "m_name"+encodeURIComponent(name)+
-				"m_pw"+encodeURIComponent(pw)+"m_phone"+encodeURIComponent(phone)+"m_gender"+encodeURIComponent(gender);
+				var param = "m_name="+encodeURIComponent(name)+
+				"&m_pw="+encodeURIComponent(pw)+"&m_phone="+encodeURIComponent(phone)+"&m_gender="+encodeURIComponent(gender);
 				
 				console.log(param);
 				
