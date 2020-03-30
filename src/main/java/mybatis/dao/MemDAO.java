@@ -77,25 +77,6 @@ public class MemDAO {
 		return vo;
 	}
 	
-	//비밀번호 체크 
-	public boolean pwdCheck(String m_id, String m_pw) {
-        int result = 0;
-        try {
-            Map<String, String> map = new HashMap<String, String>();
-            map.put("m_id", m_id);
-            map.put("m_pw", m_pw);
- 
-            result = ss.selectOne("mem.pwdCheck", map);
-                //맞으면 1 리턴
-            if (result > 0)
-                return true;
-        } catch (Exception e) {
- 
-            e.printStackTrace();
-        }
- 
-        return false;
-    }
 
 
 

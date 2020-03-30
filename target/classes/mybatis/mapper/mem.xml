@@ -40,7 +40,7 @@
 	
 	<!-- 회원 탈퇴 -->
 	<update id="delMem" parameterType="com.data.vo.MemberVO">
-		update member_table set status = 1 where m_idx = #{m_idx} and m_pw = #{m_pw}
+		update member_table set m_status = 1 where m_idx = #{m_idx} and m_pw = #{m_pw}
 	</update>
 	
 	
@@ -50,11 +50,6 @@
 		where m_id = #{m_id} and m_pw = #{m_pw}
 	</select>
 	
-	
-	 <select id="pwdCheck" resultType="int">
-        select count(*) from member_table 
-        where m_id=#{m_id} and m_pw=#{m_pw}
-    </select>
 
 	
 	<!-- sns 회원 찾기 -->
