@@ -7,8 +7,8 @@
 
 	<!-- 회원 가입 -->
 	<insert id="joinMem" parameterType="com.data.vo.MemberVO">
-		insert into member_table(m_idx, m_id, m_pw, m_name, m_gender, m_status, m_phone) 
-		values(member_table_sesq.NEXTVAL, #{m_id}, #{m_pw}, #{m_name}, #{m_gender}, 0, #{m_phone})
+		insert into member_table(m_idx, m_id, m_pw, m_name, m_gender, m_status, m_phone, r_snscode) 
+		values(member_table_sesq.NEXTVAL, #{m_id}, #{m_pw}, #{m_name}, #{m_gender}, 0, #{m_phone}, #{r_snscode})
 	</insert>
 	
 	<!-- 회원 정보 수정 -->

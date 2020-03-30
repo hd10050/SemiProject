@@ -69,6 +69,7 @@
         <span class="bg-light">OR</span>
     </p>
 	<form>
+	<input type="hidden" id="snscode" value=""/>
 	<div class="form-group input-group">
 		<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
@@ -115,7 +116,7 @@
 <script src="resources/js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
 $("#sub_btn").click(function () {
-	
+	var snscode = $("#snscode").val().trim();
 	var name = $("#name").val().trim();
 	var id = $("#id").val().trim();
 	var pw = $("#pw").val().trim();
@@ -143,7 +144,8 @@ $("#sub_btn").click(function () {
 						"&m_id="+encodeURIComponent(id)+
 						"&m_pw="+encodeURIComponent(pw)+
 						"&m_phone="+encodeURIComponent(phone)+
-						"&m_gender="+encodeURIComponent(gender);
+						"&m_gender="+encodeURIComponent(gender)+
+						"&snscode="+encodeURIComponent(snscode);
 	// 비동기식 통신
 	$.ajax({
 		url: "memreg.inc",
@@ -153,7 +155,7 @@ $("#sub_btn").click(function () {
 				
 		}).done(function(res){
 			if(res.chk == "1") {
-				location.href="login.inc";	
+				location.href="login.inc";
 			} else {
 				alert("실패");
 			}

@@ -188,7 +188,7 @@
 	 .action{
 	 	padding-top: 20px;
 	 }
-	
+
 	/*# sourceMappingURL=style.css.map */
 </style>
 </head>
@@ -204,7 +204,7 @@
 							<%  String b_idx = (String)request.getAttribute("b_idx");
 						        switch( Integer.parseInt(request.getParameter("type")) ){
 							           case 0:
-							 %>     
+							 %>
 						  		<div class="tab-pane active" id="pic-1"><img src="resources/css/images/threecuties.jpg" /></div>
 						    <% 			
 										break;

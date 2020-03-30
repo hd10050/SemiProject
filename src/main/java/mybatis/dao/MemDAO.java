@@ -17,6 +17,9 @@ public class MemDAO {
 	//회원 가입 가능
 	public boolean join(MemberVO vo) {
 		boolean chk = false;
+		if(vo.getR_snscode() == null) {
+			vo.setR_snscode("0");
+		}
 		int cnt =  ss.insert("mem.joinMem", vo);
 	
 		if(cnt > 0) {
