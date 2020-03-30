@@ -26,6 +26,8 @@ public class MyPageAction {
 	@Autowired
 	HttpSession session;
 	
+	
+	//마이페이지 이동
 	@RequestMapping("/myPage.inc")
 	public ModelAndView myPage() {
 		
@@ -35,15 +37,52 @@ public class MyPageAction {
 		mv.setViewName("memview");
 		return mv;
 	}
+
 	
-	// Get방식
-	@RequestMapping("/editMem.inc")
-	public String myPage1(MemberVO vo) {
-		return "memedit";
+	//수정 패스워드 확인 페이지로 이동
+	@RequestMapping("/memchk.inc")
+	public String memchk1() {
+		return "memchk";
+	}
+
+
+	//수정 패스워드 확인 페이지에서 수정하기 버튼 눌렀을 시
+	@RequestMapping(value = "/editchk.inc" , method=RequestMethod.POST)
+	@ResponseBody
+	public Map<String, String> editchk(String pwd) {
+		
+		Map<String, String> map = new HashMap<String, String>();
+		MemberVO mvo = (MemberVO)session.getAttribute("mvo");
+		
+		System.out.println(pwd);
+		System.out.println(mvo.getM_pw());
+
+		if(mvo.getM_pw().equals(pwd)) {
+	
+			map.put("chk", "1");	
+			System.out.println("같다");
+			
+		}else {
+			map.put("chk", "2");	
+		}
+		return map;
 	}
 	
-	// 수정
-	@RequestMapping(value="/editMem1.inc", method=RequestMethod.POST)
+	//수정 jsp 이동
+	@RequestMapping("editmove.inc")
+	public ModelAndView editmove() {
+		
+		ModelAndView mv = new ModelAndView();
+		MemberVO mvo = (MemberVO)session.getAttribute("mvo");
+		mv.addObject("mvo",mvo);
+		mv.setViewName("memedit");
+		return mv;
+	}
+	
+	
+	
+	// 수정 기능
+	@RequestMapping(value="/editMem1.inc", method = {RequestMethod.POST, RequestMethod.GET})
 	@ResponseBody
 	public Map<String, String> EditMem(MemberVO vo) {
 		MemberVO mvo = (MemberVO)session.getAttribute("mvo");
@@ -62,7 +101,7 @@ public class MyPageAction {
 		return map;
 	}
 	
-
+	//탈퇴 jsp 이동
 	@RequestMapping("/memdel")
 	public ModelAndView del() {
 		ModelAndView mv = new ModelAndView();
@@ -71,7 +110,7 @@ public class MyPageAction {
 		return mv;
 	}
 	
-	//탈퇴
+	//탈퇴 기능
 	@RequestMapping(value="/memleave.inc",	method = {RequestMethod.POST, RequestMethod.GET})
 	@ResponseBody
 	public Map<String, String> leave(String pwd) {

@@ -1,3 +1,4 @@
+<%@page import="com.data.vo.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -7,10 +8,13 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<%-- 
 <jsp:include page="header.jsp"/><br/><br/><br/>
+ --%>
 <div class="col-md-9">
 
-            <div class="profile-content">
+            <div class="profile-content" wi>
 			    <form class="form-signin">
 							
 					        <div class="panel panel-primary" id="pri">
@@ -21,35 +25,46 @@
 					                        <div class="input-group">
 					                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span>
 					                            </span>
-					                            <input type="text" class="form-control" id="id" placeholder="${mvo.getM_id()}" readonly="readonly" />
+					                            <input type="text" class="form-control" id="id" value="${mvo.getM_id()}" readonly="readonly" />
 					                        </div>
 					                    </div>
 					                    
 					                    <div class="form-group">
 					                        <div class="input-group">
 					                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-					                            <input type="text" class="form-control" placeholder="${mvo.getM_name()} " id="name"/>
+					                            <input type="text" class="form-control" value="${mvo.getM_name()} " id="name"/>
 					                        </div>
 					                    </div>
 					                    
 					                     <div class="form-group">
 					                        <div class="input-group">
 					                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-					                            <input type="password" class="form-control" placeholder="새 비밀번호" id="pw"/>
+					                            <input type="password" class="form-control" value="${mvo.getM_pw() }" id="pw"/>
 					                        </div>
 					                    </div>
 					                    
 					                    <div class="form-group">
 					                        <div class="input-group">
 					                            <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
-					                            <input type="text" class="form-control" placeholder="${mvo.getM_phone()}" id="phone" />
+					                            <input type="text" class="form-control" value="${mvo.getM_phone()}" id="phone" />
 					                        </div>
 					                    </div>
 					                    <div class="form-group">
 					                        <div class="input-group">
 					                            <span class="input-group-addon"><span class="glyphicon glyphicon-heart"></span></span>
-					                       
-					                            <input type="text" class="form-control" placeholder="${mvo.getM_gender()}" id="gender" />
+					                       		<%
+					                       		Object obj = session.getAttribute("mvo");
+					                       		MemberVO mvo = (MemberVO)obj;    
+					                       		String gender = null;
+					                       		
+					                       		if(mvo.getM_gender() == "1"){
+					                       			gender = "여자";
+					                       		}else{
+					                       			gender = "남자";	
+					                       		}
+					                       		%>
+					                            <input type="text" class="form-control" value=<%= gender %> readonly="readonly">
+					                            <input type="hidden" value="${mvo.getM_gender()}" id="gender" />
 					                        </div>
 					                    </div>
 					                        <button class="btn btn-lg btn-primary btn-block" type="button" id="button">
