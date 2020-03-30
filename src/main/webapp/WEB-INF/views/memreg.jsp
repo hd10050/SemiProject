@@ -185,6 +185,8 @@ $(function () {
 								"&m_gender="+encodeURIComponent(gender)+
 								"&r_snscode="+encodeURIComponent(snscode);
 			
+			
+			
 			// 비동기식 통신
 			$.ajax({
 				url: "memreg.inc",
