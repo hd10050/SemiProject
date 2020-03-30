@@ -90,7 +90,7 @@
 			if(val == 0){
 				$("#right_content").load("memInfo.inc");
 			}else if(val == 1){
-				$("#right_content").load("editMem.inc");
+				$("#right_content").load("memchk.inc");
 			}else if(val == 2){
 				$("#right_content").load("scrap.inc");	
 			}else{
