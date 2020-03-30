@@ -21,14 +21,14 @@
 					                        <div class="input-group">
 					                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span>
 					                            </span>
-					                            <input type="text" class="form-control" id="id" placeholder="${m_id }" readonly="readonly" />
+					                            <input type="text" class="form-control" id="id" placeholder="${mvo.getM_id()}" readonly="readonly" />
 					                        </div>
 					                    </div>
 					                    
 					                    <div class="form-group">
 					                        <div class="input-group">
 					                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-					                            <input type="text" class="form-control" placeholder="이름" id="name"/>
+					                            <input type="text" class="form-control" placeholder="${mvo.getM_name()} " id="name"/>
 					                        </div>
 					                    </div>
 					                    
@@ -42,13 +42,14 @@
 					                    <div class="form-group">
 					                        <div class="input-group">
 					                            <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
-					                            <input type="text" class="form-control" placeholder="폰 번호" id="phone" />
+					                            <input type="text" class="form-control" placeholder="${mvo.getM_phone()}" id="phone" />
 					                        </div>
 					                    </div>
 					                    <div class="form-group">
 					                        <div class="input-group">
 					                            <span class="input-group-addon"><span class="glyphicon glyphicon-heart"></span></span>
-					                            <input type="text" class="form-control" placeholder="성별" id="gender" />
+					                       
+					                            <input type="text" class="form-control" placeholder="${mvo.getM_gender()}" id="gender" />
 					                        </div>
 					                    </div>
 					                        <button class="btn btn-lg btn-primary btn-block" type="button" id="button">
@@ -63,26 +64,18 @@
 	<script type="text/javascript">
 	
 			$("#button").bind("click" , function() {
-				
-				alert('hi');
-				
+
 				var name = $("#name").val().trim();
 				var pw = $("#pw").val().trim();
 				var phone = $("#phone").val().trim();
 				var gender = $("#gender").val().trim(); 
-				
-				console.log(name);
-				console.log(pw);
-				console.log(phone);
-				console.log(gender);
 				
 				//비밀번호 유효성 검사
 				if(pw.length < 1){
 					alert("비밀번호를 입력하세요!");
 					$("#pw").focus();
 					return;
-				}
-				
+				}	
 				var param = "m_name="+encodeURIComponent(name)+
 				"&m_pw="+encodeURIComponent(pw)+"&m_phone="+encodeURIComponent(phone)+"&m_gender="+encodeURIComponent(gender);
 				
@@ -96,16 +89,18 @@
 						
 				}).done(function(data) {
 					
-					alert("성공!");
-								
-		
+					if(data.chk == 1){
+						
+						alert("수정 성공!");
+						
+					}else{
+						
+						alert("실패!")
+					}
+					
 				}).fail(function(err) {
-					
-					alert("실패");
-					
+					console.log(err);
 				});
-				
-				
 			});
 			
 	

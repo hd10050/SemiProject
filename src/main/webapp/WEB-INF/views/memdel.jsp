@@ -29,64 +29,39 @@
 		$(function() {
 			
 			$("#button").bind("click", function() {
-				
+
 				//유효성 검사
 				if($("#pwd").val() == ""){
 					alert("비밀번호를 입력해주세요");
 					$("#pwd").focus();
 					return;
+				};	
 					
-				}else if($("#pwdCheck").val == ""){
-					alert("비밀번호를 입력해주세요");
-					$("#pwd").focus();
-					return;
-				}
-				
-				if($("#pwd").val() != $("#pwdCheck").val()){
-					alert("비밀번호가 일치하지 않습니다");
-					$("#pwdCheck").focus();
-					
-				}
-				
-				var pwd = $("#pwd").val();
-				
+				var pwd = $("#pwd").val();	
 				var param  = "pwd="+encodeURIComponent(pwd);
-				
-				
+
 				$.ajax({
-					
 					url : "memleave.inc",
 					type: "post",
-					dataType: "json",
-					data : param
-				
-					
-					
+					data : param,
+					dataType: "json"
+	
 				}).done(function(data) {
 					
+					if(data.chk == 1){
+						alert("탈퇴 되었습니다.");
+					
+						
+					}else{
+						alert("실패!");
+					}
 					
 				}).fail(function(err) {
 					
-					
+					console.log(err);
 				});
-				
-				
-				
-				
-				
-				
-				
-			});
-			
-			
-			
-			
-			
 		});
-
-		
-		
-		
-
+			
+		});		
 	</script>
 </html>

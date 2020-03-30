@@ -1,5 +1,8 @@
 package com.pro.semi;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.data.vo.MemberVO;
@@ -38,28 +42,27 @@ public class MyPageAction {
 		return "memedit";
 	}
 	
-	// Post방식
-	@RequestMapping(value="/editMem1.inc", method=RequestMethod.POST,produces ="text/json;charset=utf-8")
-	public ModelAndView EditMem(MemberVO vo) {
-		System.out.println("제발 들어오렴");
+	// 수정
+	@RequestMapping(value="/editMem1.inc", method=RequestMethod.POST)
+	@ResponseBody
+	public Map<String, String> EditMem(MemberVO vo) {
 		MemberVO mvo = (MemberVO)session.getAttribute("mvo");
 		mvo.setM_gender(vo.getM_gender());
 		mvo.setM_name(vo.getM_name());
 		mvo.setM_phone(vo.getM_phone());
 		mvo.setM_pw(vo.getM_pw());
-		
-		ModelAndView mv = new ModelAndView();
-		m_dao.updateMem(mvo);
+
+		Map<String, String> map = new HashMap<String, String>();
+		if (m_dao.updateMem(mvo)) {
+			map.put("chk","1");
+		} else {
+			map.put("chk","0");
+		}
 		session.setAttribute("mvo", mvo);
-		
-//		vo.setM_idx(mvo.getM_idx());
-//		vo.setM_id(mvo.getM_id());
-//		vo.setM_status(mvo.getM_status());
-//		m_dao.updateMem(vo);
-//		session.setAttribute("mvo", vo);
-		return mv;
+		return map;
 	}
 	
+
 	@RequestMapping("/memdel")
 	public ModelAndView del() {
 		ModelAndView mv = new ModelAndView();
@@ -68,27 +71,23 @@ public class MyPageAction {
 		return mv;
 	}
 	
-	@RequestMapping(value="/memleave.inc", method=RequestMethod.POST,produces ="text/json;charset=utf-8")
-	public ModelAndView leave(@RequestParam("pwd") String dd) {
-		ModelAndView mv = new ModelAndView();
-		
-		MemberVO mvo = (MemberVO)session.getAttribute("mvo");
-		
-		if(mvo.getM_pw().equals(dd)) {
-		
-			m_dao.delMem(mvo);
-			
-			session.removeAttribute("mvo");
-			
-			mv.addObject("result", true);
+	//탈퇴
+	@RequestMapping(value="/memleave.inc",	method = {RequestMethod.POST, RequestMethod.GET})
+	@ResponseBody
+	public Map<String, String> leave(String pwd) {
 
+		MemberVO mvo = (MemberVO)session.getAttribute("mvo");
+		Map<String, String> map = new HashMap<String, String>();
+
+		if(mvo.getM_pw().equals(pwd)) {
+				m_dao.delMem(mvo); 
+				map.put("chk", "1");	
+				session.removeAttribute("mvo");
+				
 		} else {
-			mv.addObject("result", false);
+			map.put("chk", "2");	
 		}
-		mv.setViewName("memdelresult");
-		
-		return mv;
-		
+		return map;
 	}
 	
 	
