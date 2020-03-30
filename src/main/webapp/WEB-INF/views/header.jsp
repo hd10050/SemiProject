@@ -63,7 +63,7 @@
 %>          
 		  <li class="nav-item"><span class="navbar-menu"><%=mvo.getM_name() %>님 환영합니다.</span></li>
 		  <li class="nav-item">
-		    <input type="button" value="내정보" onclick="" class="navbar-menu"/> 
+		    <input type="button" value="내정보" onclick="location.href='myPage.inc'" class="navbar-menu"/> 
 		  </li>
 		  <li class="nav-item">
 		    <input type="button" value="로그아웃" onclick="logout()" class="navbar-menu"/> 
