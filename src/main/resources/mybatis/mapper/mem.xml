@@ -4,6 +4,11 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mem">
 
+	<!-- 아이디 중복 체크 -->
+   <select id="idchk" parameterType="String" resultType="com.data.vo.MemberVO">
+      select * from member_table
+      where m_id=#{id}
+   </select>
 
 	<!-- 회원 가입 -->
 	<insert id="joinMem" parameterType="com.data.vo.MemberVO">

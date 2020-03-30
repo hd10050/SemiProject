@@ -13,6 +13,14 @@ public class MemDAO {
 	@Autowired
 	private SqlSessionTemplate ss;
 	
+   //아이디 중복 체크
+   public MemberVO idchk(String id) {
+      
+      MemberVO vo = ss.selectOne("mem.idchk", id);
+            
+      return vo;
+   }
+	
 	//sns코드 찾기
 	public MemberVO snslogin(String code) {
 		MemberVO vo = null;

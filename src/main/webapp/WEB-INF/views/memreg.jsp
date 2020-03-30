@@ -63,25 +63,28 @@
         <span class="bg-light">OR</span>
     </p>
 	<form>
-	<input type="hidden" id="snscode" value="${regist_vo.r_snscode }"/>
+	<input type="hidden" id="snscode" value=""/>
 	<div class="form-group input-group">
 		<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
 		 </div>
-        <input name="" class="form-control" placeholder="이름" type="text" id="name" value="${regist_vo.m_name }">
+        <input class="form-control" placeholder="이름" type="text" id="name">
     </div> <!-- form-group// -->
     <div class="form-group input-group">
 		<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
 		 </div>
-        <input name="" class="form-control" placeholder="아이디" type="text" id="id" value="${regist_vo.m_id }">
+        <input class="form-control" placeholder="아이디(4자 이상 입력하시오.)" type="text" id="id" name="id">
     </div> <!-- form-group// -->
+    
+    <div id="box"></div>
+    
     <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
 		</div>
 		
-    	<input name="" class="form-control" placeholder="전화번호('-'없이 붙여 쓰시오.)" type="text" id="phone" value="${regist_vo.m_phone }">
+    	<input class="form-control" placeholder="전화번호('-'없이 붙여 쓰시오.)" type="text" id="phone">
     </div> <!-- form-group// -->
     <div class="form-group input-group">
     	<div class="input-group-prepend">
@@ -102,64 +105,107 @@
     <div class="form-group">
         <button type="button" class="btn btn-primary btn-block" id="sub_btn"> Create Account </button>
     </div> <!-- form-group// -->      
-    <p class="text-center">기존 회원 이십니까? <a href="">로그인</a> </p>                                                                 
+    <p class="text-center" style="font-weight: bold;">기존 회원 이십니까? <a href="">로그인</a> </p>                                                                 
 </form>
 </article>
 </div> <!-- card.// -->
 
 <script src="resources/js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
-$("#sub_btn").click(function () {
-	var snscode = $("#snscode").val().trim();
-	var name = $("#name").val().trim();
-	var id = $("#id").val().trim();
-	var pw = $("#pw").val().trim();
-	var phone = $("#phone").val().trim();
-	var gender = $("#gender").val().trim(); //f or m
-	
-	//유효성 검사
-	if(id.length < 1){
-		alert("아이디를 입력하세요!");
-		$("#id").focus();
-		return;
-	}
-	if(pw.length < 1){
-		alert("비밀번호를 입력하세요!");
-		$("#pw").focus();
-		return;
-	}
-	if(name.length < 1){
-		alert("이름을 입력하세요!");
-		$("#name").focus();
-		return;
-	}
-	
-	var param = "m_name="+encodeURIComponent(name)+
-						"&m_id="+encodeURIComponent(id)+
-						"&m_pw="+encodeURIComponent(pw)+
-						"&m_phone="+encodeURIComponent(phone)+
-						"&m_gender="+encodeURIComponent(gender)+
-						"&r_snscode="+encodeURIComponent(snscode);
-	// 비동기식 통신
-	$.ajax({
-		url: "memreg.inc",
-		type: "post",
-		dataType: "json",
-		data: param
+$(function () {
+
+		//아이디 중복 체크
+		$("#id").bind("keyup",function(){
+				//사용자가 입력한 id값을 얻어낸다.
+				var str = $(this).val();
+				console.log(str);
 				
-		}).done(function(res){
-			if(res.chk == "1") {
-				location.href="login.inc";
-			} else {
-				alert("실패");
+				if(str.trim().length>3){
+				//id 4자이상 입력시 수행	
+					
+					$.ajax({
+						
+						url: "idchk.inc",
+						type: "post",
+						data: "id="+encodeURIComponent(str)
+						
+					}).done(function (data) {
+						if(data.chk==1){
+							//id가 중복일 때,
+							$("#box").html("<pre style='color:red; font-weight:bold; '>사용 불가능</pre>");
+						}else{
+							//id가 중복이 아닐 때,
+							$("#box").html("<pre style='color:green; font-weight:bold;'>사용 가능</pre>");
+						}
+						
+						
+					}).fail(function (err) {
+						console.log(err);
+					});
+					
+				}else{
+					$("#box").html("");
+				}
+			
+		});
+
+
+		//회원가입 기능
+		$("#sub_btn").click(function () {
+			
+			//입력값 받기
+			var snscode = $("#snscode").val().trim();
+			var name = $("#name").val().trim();
+			var id = $("#id").val().trim();
+			var pw = $("#pw").val().trim();
+			var phone = $("#phone").val().trim();
+			var gender = $("#gender").val().trim(); //1 or 2
+			
+			//유효성 검사
+			if(id.length < 1){
+				alert("아이디를 입력하세요!");
+				$("#id").focus();
+				return;
+			}
+			if(pw.length < 1){
+				alert("비밀번호를 입력하세요!");
+				$("#pw").focus();
+				return;
+			}
+			if(name.length < 1){
+				alert("이름을 입력하세요!");
+				$("#name").focus();
+				return;
 			}
 			
+			var param = "m_name="+encodeURIComponent(name)+
+								"&m_id="+encodeURIComponent(id)+
+								"&m_pw="+encodeURIComponent(pw)+
+								"&m_phone="+encodeURIComponent(phone)+
+								"&m_gender="+encodeURIComponent(gender)+
+								"&snscode="+encodeURIComponent(snscode);
 			
-		}).fail(function(err) {
-			console.log(err);
+			// 비동기식 통신
+			$.ajax({
+				url: "memreg.inc",
+				type: "post",
+				dataType: "json",
+				data: param
+						
+				}).done(function(res){
+					if(res.chk == "1") {
+						location.href="login.inc";
+					} else {
+						alert("실패");
+					}
+					
+					
+				}).fail(function(err) {
+					console.log(err);
+				});
+			
 		});
-	
-	
+
 });
 </script>
 </body>
