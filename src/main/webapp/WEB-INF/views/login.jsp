@@ -79,7 +79,7 @@
 				var idx = profile.getEmail().indexOf("@");
 				$("#m_id2").attr("value", profile.getEmail().substring(0, idx));
 				$("#m_name").attr("value", profile.getName());
-				$("#r_snscode").attr("value", profile.getId());
+				$("#r_snscode").attr("value", "G_" + profile.getId());
 				snsform.submit();
 			}
 		}

@@ -328,7 +328,7 @@
 %>
 	<div>
 		<h3>평점</h3>
-		<h1><%=avg %>점</h1>
+		<h1><%=(Math.round(avg*100)/100.0) %>점</h1>
 	</div>
 <%
 	Object obj = session.getAttribute("mvo");

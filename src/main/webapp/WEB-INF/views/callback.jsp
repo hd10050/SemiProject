@@ -58,8 +58,7 @@
 					var idx = naverLogin.user.getEmail().indexOf("@");
 					$("#m_id2").attr("value", naverLogin.user.getEmail().substring(0, idx));
 					$("#m_name").attr("value", naverLogin.user.getNickName());
-					$("#r_snscode").attr("value", naverLogin.user.getId());
-					alert($("#r_snscode").val());
+					$("#r_snscode").attr("value", "N_" + naverLogin.user.getId());
 					snsform.submit();
 				} else {
 					console.log("callback 처리에 실패하였습니다.");
