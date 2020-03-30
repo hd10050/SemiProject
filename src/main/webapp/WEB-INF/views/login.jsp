@@ -9,6 +9,7 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <meta charset="UTF-8">
+<meta name="google-signin-client_id" content="133953135897-7njkqdpmu7gu7os61f48lpii4jovdt1d.apps.googleusercontent.com">
 <title>Insert title here</title>
 <style type="text/css">
 
@@ -42,7 +43,7 @@
 			      	</form>
                       <hr/>
                     <center><h4>OR</h4></center>
-                    <a href="" class="btn btn-block btn-google"> <i class="fab fa-google"></i>  구글로 로그인</a>
+                    <div class="g-signin2" data-onsuccess="onSignIn"></div>
 					<a href="" class="btn btn-block btn-naver"> <img src="resources/css/images/naver_logo.png"></i>  네이버로 로그인</a>
 					<a href="" class="btn btn-block btn-kakao"> <img src="resources/css/images/naver_logo.png"></i>  카카오로 로그인</a>
 			    </div>
@@ -50,11 +51,46 @@
 		</div>
 	</div>
 </div>
+	<%-- 구글 로그인 --%>
+	<form action="snslogin.inc" method="post" name="snsform">
+		<input type="hidden" id="m_id2" name="m_id"/>
+		<input type="hidden" id="m_name" name="m_name"/>
+		<input type="hidden" id="m_gender" name="m_gender"/>
+		<input type="hidden" id="m_phone" name="m_phone"/>
+		<input type="hidden" id="r_snscode" name="r_snscode"/>
+	</form>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<script>
 
+		var isButtonClicked = false; 
+		document.querySelector('.g-signin2').addEventListener('click', function() { 
+		    isButtonClicked = true; 
+		});
+
+		function onSignIn(googleUser) {
+			if(isButtonClicked) {
+				var profile = googleUser.getBasicProfile();
+				console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+				console.log('Name: ' + profile.getName());
+				console.log('Image URL: ' + profile.getImageUrl());
+				console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+	
+				if (profile.getId() == null) {
+					return;
+				}
+				var idx = profile.getEmail().indexOf("@");
+				$("#m_id2").attr("value", profile.getEmail().substring(0, idx));
+				alert(profile.getEmail().substring(0, idx));
+				$("#m_name").attr("value", profile.getName());
+				$("#r_snscode").attr("value", profile.getId());
+				snsform.submit();
+			}
+		}
+	<%------------------%>
+	</script>
 	<script src="resources/js/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript">
 	
-		
 		$("#login_btn").click(function () {
 		
 				var m_id = $("#m_id").val().trim();

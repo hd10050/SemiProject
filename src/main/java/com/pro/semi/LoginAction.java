@@ -30,6 +30,23 @@ public class LoginAction {
 		return "login";
 	}
 	
+	@RequestMapping("/snslogin.inc")
+	public ModelAndView snsloginForm(MemberVO vo) {
+		ModelAndView mv = new ModelAndView();
+		
+		MemberVO mvo = m_dao.snslogin(vo.getR_snscode()); 
+		if(mvo != null) {
+			// 현재 r_snscode로 회원가입한 계정이 있는 경우
+			session.setAttribute("mvo", mvo);
+			mv.setViewName("redirect:main.inc");
+		} else {
+			// 현재 r_snscode로 회원가입한 계정이 없는 경우
+			mv.addObject("regist_vo", vo);
+			mv.setViewName("memreg");
+		}
+		return mv;
+	}
+	
 	@ResponseBody
 	@RequestMapping(value = "/login.inc", method = RequestMethod.POST)
 	public Map<String, String> login(String m_id, String m_pw){

@@ -13,7 +13,13 @@ public class MemDAO {
 	@Autowired
 	private SqlSessionTemplate ss;
 	
-	 
+	//sns코드 찾기
+	public MemberVO snslogin(String code) {
+		MemberVO vo = null;
+		vo = ss.selectOne("mem.sns_login", code);
+		return vo;
+	}
+	
 	//회원 가입 가능
 	public boolean join(MemberVO vo) {
 		boolean chk = false;

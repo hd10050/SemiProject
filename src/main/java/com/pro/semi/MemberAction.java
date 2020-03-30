@@ -28,7 +28,6 @@ public class MemberAction {
 	@RequestMapping("/memreg.inc")
 	public Map<String, String> memreg(MemberVO mvo) throws Exception{
 		Map<String, String> map = new HashMap<String, String>();
-		
 		String chk = "0";
 		if(m_dao.join(mvo)) {
 			chk = "1";

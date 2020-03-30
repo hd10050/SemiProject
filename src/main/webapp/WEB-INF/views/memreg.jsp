@@ -63,25 +63,25 @@
         <span class="bg-light">OR</span>
     </p>
 	<form>
-	<input type="hidden" id="snscode" value=""/>
+	<input type="hidden" id="snscode" value="${regist_vo.r_snscode }"/>
 	<div class="form-group input-group">
 		<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
 		 </div>
-        <input name="" class="form-control" placeholder="이름" type="text" id="name">
+        <input name="" class="form-control" placeholder="이름" type="text" id="name" value="${regist_vo.m_name }">
     </div> <!-- form-group// -->
     <div class="form-group input-group">
 		<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
 		 </div>
-        <input name="" class="form-control" placeholder="아이디" type="text" id="id">
+        <input name="" class="form-control" placeholder="아이디" type="text" id="id" value="${regist_vo.m_id }">
     </div> <!-- form-group// -->
     <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
 		</div>
 		
-    	<input name="" class="form-control" placeholder="전화번호('-'없이 붙여 쓰시오.)" type="text" id="phone">
+    	<input name="" class="form-control" placeholder="전화번호('-'없이 붙여 쓰시오.)" type="text" id="phone" value="${regist_vo.m_phone }">
     </div> <!-- form-group// -->
     <div class="form-group input-group">
     	<div class="input-group-prepend">
@@ -139,7 +139,7 @@ $("#sub_btn").click(function () {
 						"&m_pw="+encodeURIComponent(pw)+
 						"&m_phone="+encodeURIComponent(phone)+
 						"&m_gender="+encodeURIComponent(gender)+
-						"&snscode="+encodeURIComponent(snscode);
+						"&r_snscode="+encodeURIComponent(snscode);
 	// 비동기식 통신
 	$.ajax({
 		url: "memreg.inc",

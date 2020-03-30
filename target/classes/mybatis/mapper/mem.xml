@@ -52,7 +52,11 @@
     </select>
 
 	
-	
+	<!-- sns 회원 찾기 -->
+	<select id="sns_login" resultType="com.data.vo.MemberVO" parameterType="String">
+		select * from member_table
+		where r_snscode = #{r_snscode}
+	</select>
 
 
 
