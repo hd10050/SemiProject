@@ -63,18 +63,18 @@
         <span class="bg-light">OR</span>
     </p>
 	<form>
-	<input type="hidden" id="snscode" value=""/>
+	<input type="hidden" id="snscode" value="${regist_vo.r_snscode }"/>
 	<div class="form-group input-group">
 		<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
 		 </div>
-        <input class="form-control" placeholder="이름" type="text" id="name">
+        <input class="form-control" placeholder="이름" type="text" id="name" value="${regist_vo.m_name }">
     </div> <!-- form-group// -->
     <div class="form-group input-group">
 		<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
 		 </div>
-        <input class="form-control" placeholder="아이디(4자 이상 입력하시오.)" type="text" id="id" name="id">
+        <input class="form-control" placeholder="아이디(4자 이상 입력하시오.)" type="text" id="id" name="id" value="${regist_vo.m_id }">
     </div> <!-- form-group// -->
     
     <div id="box"></div>
@@ -183,7 +183,7 @@ $(function () {
 								"&m_pw="+encodeURIComponent(pw)+
 								"&m_phone="+encodeURIComponent(phone)+
 								"&m_gender="+encodeURIComponent(gender)+
-								"&snscode="+encodeURIComponent(snscode);
+								"&r_snscode="+encodeURIComponent(snscode);
 			
 			// 비동기식 통신
 			$.ajax({

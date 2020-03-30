@@ -29,6 +29,7 @@ public class MemberAction {
 	public Map<String, String> memreg(MemberVO mvo) throws Exception{
 		Map<String, String> map = new HashMap<String, String>();
 		String chk = "0";
+		System.out.println(mvo.getR_snscode());
 		if(m_dao.join(mvo)) {
 			chk = "1";
 		} 

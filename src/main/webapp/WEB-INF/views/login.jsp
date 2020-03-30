@@ -44,7 +44,7 @@
                       <hr/>
                     <center><h4>OR</h4></center>
                     <div class="g-signin2" data-onsuccess="onSignIn"></div>
-					<a href="" class="btn btn-block btn-naver"> <img src="resources/css/images/naver_logo.png"></i>  네이버로 로그인</a>
+                    <div id="naverIdLogin"></div>
 					<a href="" class="btn btn-block btn-kakao"> <img src="resources/css/images/naver_logo.png"></i>  카카오로 로그인</a>
 			    </div>
 			</div>
@@ -61,7 +61,6 @@
 	</form>
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
 	<script>
-
 		var isButtonClicked = false; 
 		document.querySelector('.g-signin2').addEventListener('click', function() { 
 		    isButtonClicked = true; 
@@ -72,7 +71,6 @@
 				var profile = googleUser.getBasicProfile();
 				console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
 				console.log('Name: ' + profile.getName());
-				console.log('Image URL: ' + profile.getImageUrl());
 				console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 	
 				if (profile.getId() == null) {
@@ -80,15 +78,48 @@
 				}
 				var idx = profile.getEmail().indexOf("@");
 				$("#m_id2").attr("value", profile.getEmail().substring(0, idx));
-				alert(profile.getEmail().substring(0, idx));
 				$("#m_name").attr("value", profile.getName());
 				$("#r_snscode").attr("value", profile.getId());
 				snsform.submit();
 			}
 		}
-	<%------------------%>
 	</script>
 	<script src="resources/js/jquery-3.4.1.min.js"></script>
+	<%------------------%>
+	<%--네이버로그인----%>
+	<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
+	<script type="text/javascript">
+		var isNButtonClicked = false; 
+		$("#naverIdLogin").click(function(){
+			isNButtonClicked = true;
+		});
+		
+		
+		var naverLogin = new naver.LoginWithNaverId(
+			{
+				clientId: "OL_B5mSm18YdFdSjpYol",
+				callbackUrl: "http://localhost:9090/semi/callback.inc",
+				isPopup: false, /* 팝업을 통한 연동처리 여부 */
+				loginButton: {color: "green", type: 3, height: 60} /* 로그인 버튼의 타입을 지정 */
+			}
+		);
+		
+		/* 설정정보를 초기화하고 연동을 준비 */
+		naverLogin.init();
+		
+		if(isNButtonClicked) {
+		naverLogin.getLoginStatus(function (status) {
+			if (status) {
+				var email = naverLogin.user.getEmail();
+				var name = naverLogin.user.getNickName();
+				var uniqId = naverLogin.user.getId();
+			} else {
+				console.log("AccessToken이 올바르지 않습니다.");
+			}
+		});
+		}
+	</script>
+	<%------------------%>
 	<script type="text/javascript">
 	
 		$("#login_btn").click(function () {

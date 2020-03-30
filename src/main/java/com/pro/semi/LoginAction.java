@@ -25,6 +25,11 @@ public class LoginAction {
 	@Autowired
 	MemDAO m_dao;
 	
+	@RequestMapping("/callback.inc")
+	public String callback() {
+		return "callback";
+	}
+	
 	@RequestMapping(value = "/login.inc", method = RequestMethod.GET)
 	public String loginForm() {
 		return "login";
