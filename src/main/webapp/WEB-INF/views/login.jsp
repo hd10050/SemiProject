@@ -45,13 +45,12 @@
                     <center><h4>OR</h4></center>
                     <div class="g-signin2" data-onsuccess="onSignIn"></div>
                     <div id="naverIdLogin"></div>
-					<a href="" class="btn btn-block btn-kakao"> <img src="resources/css/images/naver_logo.png"></i>  카카오로 로그인</a>
+					<a id="kakao-login-btn"></a>
 			    </div>
 			</div>
 		</div>
 	</div>
 </div>
-	<%-- 구글 로그인 --%>
 	<form action="snslogin.inc" method="post" name="snsform">
 		<input type="hidden" id="m_id2" name="m_id"/>
 		<input type="hidden" id="m_name" name="m_name"/>
@@ -59,6 +58,7 @@
 		<input type="hidden" id="m_phone" name="m_phone"/>
 		<input type="hidden" id="r_snscode" name="r_snscode"/>
 	</form>
+	<%-- 구글 로그인 --%>
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
 	<script>
 		var isButtonClicked = false; 
@@ -76,8 +76,11 @@
 				if (profile.getId() == null) {
 					return;
 				}
+
 				var idx = profile.getEmail().indexOf("@");
-				$("#m_id2").attr("value", profile.getEmail().substring(0, idx));
+				if(idx != -1) {
+					$("#m_id2").attr("value", profile.getEmail().substring(0, idx));
+				}
 				$("#m_name").attr("value", profile.getName());
 				$("#r_snscode").attr("value", "G_" + profile.getId());
 				snsform.submit();
@@ -94,7 +97,6 @@
 			isNButtonClicked = true;
 		});
 		
-		
 		var naverLogin = new naver.LoginWithNaverId(
 			{
 				clientId: "OL_B5mSm18YdFdSjpYol",
@@ -109,16 +111,65 @@
 		
 		if(isNButtonClicked) {
 		naverLogin.getLoginStatus(function (status) {
-			if (status) {
-				var email = naverLogin.user.getEmail();
-				var name = naverLogin.user.getNickName();
-				var uniqId = naverLogin.user.getId();
-			} else {
+			if (!status) {
+				//var email = naverLogin.user.getEmail();
+				//var name = naverLogin.user.getNickName();
+				//var uniqId = naverLogin.user.getId();
+			//} else {
 				console.log("AccessToken이 올바르지 않습니다.");
 			}
 		});
 		}
 	</script>
+	<%------------------%>
+	<%-- 카카오 로그인--%>
+	<%-- ><script src="https://developers.kakao.com/sdk/js/kakao.js" ></script>
+	<script>
+		Kakao.init('8bb713c7ad18de327b58ceaa4fd70c70');
+		Kakao.isInitialized();
+		
+		Kakao.Auth.authorize({
+			  redirectUri: "http://localhost:9090/semi/kakao.inc"
+		});
+		
+		Kakao.Auth.login({
+			success : function(response) {
+				console.log(response);
+			},
+			fail : function(error) {
+				console.log(error);
+			},
+		});
+		
+	</script> --%>
+	<script src="https://developers.kakao.com/sdk/js/kakao.js" ></script>
+	<script type='text/javascript'>
+		Kakao.init('8bb713c7ad18de327b58ceaa4fd70c70');
+
+		//카카오 로그인 버튼을 생성합니다. 
+		Kakao.Auth.createLoginButton({
+			container : '#kakao-login-btn',
+			success : function(authObj) {
+				Kakao.API.request({
+					url : '/v2/user/me',
+					success : function(res) {
+					console.log(res.id);
+					console.log(res.kaccount_email);
+					console.log(res.properties['nickname']); 
+					console.log(authObj.access_token);
+					$("#m_name").attr("value", res.properties['nickname']);
+					$("#r_snscode").attr("value", "K_" + res.id);
+					snsform.submit();
+					}
+				})
+			},
+			fail : function(error) {
+				alert(JSON.stringify(error));
+			}
+		});
+	</script>
+
+
 	<%------------------%>
 	<script type="text/javascript">
 	
