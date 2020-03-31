@@ -44,18 +44,17 @@
 	</update>
 	
 	
-		<!-- 회원 로그인 -->
+	<!-- 회원 로그인 -->
 	<select id="login" resultType="com.data.vo.MemberVO" parameterType="java.util.Map">
 		select * from member_table 
 		where m_id = #{m_id} and m_pw = #{m_pw}
 	</select>
 	
-
-	
 	<!-- sns 회원 찾기 -->
 	<select id="sns_login" resultType="com.data.vo.MemberVO" parameterType="String">
 		select * from member_table
 		where r_snscode = #{r_snscode}
+		and m_status = 0
 	</select>
 
 

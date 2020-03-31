@@ -74,7 +74,8 @@
 		<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
 		 </div>
-        <input class="form-control" placeholder="아이디(4자 이상 입력하시오.)" type="text" id="id" name="id" value="${regist_vo.m_id }">
+        <input class="form-control" placeholder="아이디(4자 이상 입력하시오.)" type="text" id="id" name="id" value="${regist_vo.
+ }">
     </div> <!-- form-group// -->
     
     <div id="box"></div>
