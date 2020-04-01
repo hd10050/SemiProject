@@ -156,7 +156,7 @@ public class ViewControl {
 			mv.addObject("b_idx", svo.getLOCPLC_FACLT_TELNO());
 			break;
 
-		default :
+		case 3 :
 			//유기 동물 보호시설
 			ProtectVO[] p_ar = (ProtectVO[])session.getAttribute("ar");
 
@@ -197,9 +197,6 @@ public class ViewControl {
 		mv.addObject("review_ar", review_ar);
 
 		mv.setViewName("view");
-		if(review_ar != null) {
-			System.out.println("댓글 수 : " + review_ar.length);
-		}
 		return mv;
 
 	}

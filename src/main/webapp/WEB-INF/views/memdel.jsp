@@ -50,7 +50,7 @@
 					
 					if(data.chk == 1){
 						alert("탈퇴 되었습니다.");
-						window.location.href = "main.inc";
+						location.href = "main.inc";
 						
 					}else{
 						alert("실패!");
