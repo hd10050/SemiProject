@@ -105,10 +105,8 @@
    </form>
    
   	 <div id = "buttons"> 
-	       <input type="button" value="야생동물 구조치료기관" onclick="bbs(0)" class="btn btn-xs btn-primary"/>
-		   <input type="button" value="동물 병원" onclick="bbs(1)" class="btn btn-xs btn-primary"/>
-		   <input type="button" value="동물 약국" onclick="bbs(2)" class="btn btn-xs btn-primary"/>
-		   <input type="button" value="유기 동물 보호시설" onclick="bbs(3)" class="btn btn-xs btn-primary"/>
+	       <input type="button" value="공지사항" onclick="bbs(4)" class="btn btn-xs btn-primary"/>
+		   <input type="button" value="자유게시판" onclick="bbs(5)" class="btn btn-xs btn-primary"/>
       </div> 
    </div>
    
@@ -267,7 +265,7 @@
 		}
    
    		function bbs(type) {
-			document.location.href="main.inc?s_type=" + type;
+			document.location.href="bbs.inc?type=" + type;
 		}
    		
 		function search() {

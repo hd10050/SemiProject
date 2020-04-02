@@ -35,4 +35,5 @@
 	<!-- DAO 생성 --> 
 	<bean id="memDao" class="mybatis.dao.MemDAO" />
 	<bean id="reviewDao" class="mybatis.dao.ReviewDAO" />
+	<bean id="bbsDao" class="mybatis.dao.BbsDAO" />
 </beans>

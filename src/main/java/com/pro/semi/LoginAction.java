@@ -46,7 +46,7 @@ public class LoginAction {
 		String chk = "0";
 		if(mvo != null) {
 			session.setAttribute("mvo", mvo);
-		}else {
+		} else {
 			chk = "1";
 		}
 

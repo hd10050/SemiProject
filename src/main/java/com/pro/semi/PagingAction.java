@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.data.vo.HospitalVO;
+import com.data.vo.MemberVO;
 import com.data.vo.ProtectVO;
 import com.data.vo.RescueVO;
 import com.data.vo.StoreVO;
@@ -88,7 +89,13 @@ public class PagingAction {
 		mv.setViewName("main");
 		request.setAttribute("type", type);
 		request.setAttribute("chk", "0");
-		
+		// ----------
+		Object obj = session.getAttribute("mvo");
+		if(obj != null) {
+			MemberVO mvo = (MemberVO)obj;
+			System.out.println("main.inc 로그인 계정 : " + mvo.getM_idx());
+		}
+		// -----------
 		return mv;
 	}
 	

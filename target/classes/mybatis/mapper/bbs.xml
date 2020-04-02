@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bbs">
+	<!-- 페이징 기법에 사용될 전체페이지 수를 구하기 위해 전체 게시물 수 구하기 -->
+	<select id="totalCount" resultType="int" parameterType="int">
+		SELECT count(*) from bbs_table
+		WHERE status = 0
+		AND type = #{reqnum}
+	</select>
+	
+	<!--******************************-->
+	<!-- 글의 목록을 만들기 위해 호출 -->
+	<resultMap type="com.data.vo.BbsVO" id="map">
+		<id column="b_idx" property="b_idx"/>
+		<collection property="r_list" ofType="com.data.vo.ReviewVO"
+			select="com" column="b_idx"/>
+	</resultMap>
+
+	<!-- 특정 글의 기본키를 조건으로 글의 댓글을 조회 / 댓글 작성자 정보 호출-->
+	<select id="com" resultType="com.data.vo.ReviewVO" parameterType="String" resultMap="get_ansrvo">
+		SELECT * FROM review_table
+		WHERE b_idx = #{b_idx} and r_status = 0
+		ORDER BY r_idx
+	</select>
+	
+	<resultMap type="com.data.vo.ReviewVO" id="get_ansrvo">
+		<association property="mvo" javaType="com.data.vo.MemberVO" select="ansrvo" column="m_idx"/>
+	</resultMap>
+	
+	<select id="ansrvo" resultType="com.data.vo.MemberVO" parameterType="String">
+		select * from regist_t
+		where m_idx = #{m_idx}
+	</select>
+
+	<select id="bbslist" resultMap="map" parameterType="java.util.Map">
+		SELECT * FROM (SELECT rownum r_num, a.*
+						FROM (SELECT * FROM bbs_table
+							  WHERE status = 0
+							  and type = #{reqnum}
+							  ORDER BY b_idx DESC) a
+		)
+		WHERE r_num BETWEEN #{begin} AND #{end} 
+	</select>
+	<!--******************************-->
+	
+	<!-- 기본키(b_idx)를 이용한 특정글 조회 -->
+	<resultMap type="com.data.vo.BbsVO" id="rvomap">
+		<id column="b_idx" property="b_idx"/>
+		<!-- 1:1 관계(has-a)를 가진 EmpVO의 dvo에 객체를 전달 / n:m 관계는 collection -->		
+		<association property="rvo" javaType="com.data.vo.MemberVO"
+			select="get_rvo" column="r_idx" />
+		<collection property="r_list" ofType="com.data.vo.ReviewVO"
+			select="com" column="b_idx"/>
+	</resultMap>
+	
+	<select id="get_rvo" resultType ="com.data.vo.MemberVO" parameterType="String">
+		SELECT * FROM member_table
+		WHERE r_idx = #{r_idx}
+	</select>
+	
+	<select id="view" resultMap ="rvomap" parameterType="String">
+		SELECT * FROM bbs_table
+		WHERE b_idx = #{b_idx}
+	</select>
+	<!--******************************-->
+	
+	<!-- 글쓰기 -->
+	<insert id="addBbs" parameterType="com.data.vo.BbsVO">
+		INSERT INTO BBS_TABLE 
+		VALUES (BBS_TABLE_SESQ.NEXTVAL, #{m_idx}, #{subject}, #{writer}, #{content}, #{file_name}, #{ori_name}, SYSDATE, 0, #{type}, 0)
+	</insert> 
+
+	<!-- 글 삭제 -->
+	<update id="del" parameterType="String">
+		update bbs_table
+		set status = 1
+		where b_idx = #{b_idx}
+	</update>
+	
+	<!-- 게시글 수정 
+	<update id="viewUpdate" parameterType="java.util.Map"> 
+     update inven_bbs
+     <set>
+     	write_date = sysdate,
+        <trim suffixOverrides=",">
+           <if test="subject != null">
+              subject = #{subject},
+           </if>
+           
+           <if test="content != null">
+              content = #{content},
+           </if>
+           
+           <if test="file_name != null">
+              file_name = #{file_name},
+           </if>
+           
+           <if test="ori_name != null">
+              ori_name = #{ori_name},
+           </if>
+           
+           <if test="ip != null">
+              ip = #{ip},
+           </if>
+           
+           <if test="pwd != null">
+              pwd = #{pwd},
+           </if>
+           
+        </trim>
+     </set>
+     where b_idx = #{b_idx}
+  </update>
+  -->
+	
+	<!-- Update를 이용한 댓글 삭제
+	<update id="c_del" parameterType="java.util.Map">
+		UPDATE inven_comment
+		SET status = 1
+		WHERE c_idx = #{c_idx}
+		AND	pwd = #{pwd}
+	</update> -->
+	<!--******************************-->
+	
+	<!-- 댓글 저장 
+	<insert id="c_add" parameterType="java.util.Map">
+		INSERT INTO inven_comment (C_IDX, WRITER, CONTENT, PWD, WRITE_DATE, IP, B_IDX, R_IDX, STATUS) 
+		VALUES (comment_t_seq.NEXTVAL, #{writer}, #{content}, #{pwd}, SYSDATE, #{ip}, #{b_idx}, #{r_idx}, #{status})
+	</insert>-->
+	<!--******************************-->
+	
+	<!-- 조회수 증가 
+	<update id="hit" parameterType="String">
+		UPDATE inven_bbs
+		SET hit = hit+1
+		WHERE b_idx = #{b_idx}
+	</update>-->
+
+</mapper>

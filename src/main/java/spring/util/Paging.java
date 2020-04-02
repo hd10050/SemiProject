@@ -74,10 +74,17 @@ public class Paging {
 		if(this.endPage < this.totalPage ) { this.isNextPage = true; }
 
 		// 페이지 기법에 사용할 코드 StringBuffer에 저장 ---------------------------
-		this.sb = new StringBuffer("<ol class='paging'>");
+		this.sb = new StringBuffer("");
+		if(!(this.type.equals("4") || this.type.equals("5"))) {
+			sb.append("<ol class='paging'>");
+		}
 
 		if(this.isPrePage) {
-			sb.append("<li><a href='main.inc?nowPage=");
+			if(this.type.equals("4") || this.type.equals("5")) {
+				sb.append("<li><a href='bbs.inc?nowPage=");
+			} else {
+				sb.append("<li><a href='main.inc?nowPage=");
+			}
 			if (this.nowPage - this.blockPage < 1) {
 				sb.append("1");
 			} else {
@@ -85,16 +92,20 @@ public class Paging {
 			}
 			sb.append("&s_type=" + this.type + "'>&lt;</a></li>");
 		} else { 
-			sb.append("<li class='disable'>&lt;</li>");
+			sb.append("<li class='disable'><a href='#'>&lt;</a></li>");
 		}
 
 		for(int i = this.startPage ; i <= endPage ; i++) {
 			if(i == this.nowPage) {
-				sb.append("<li class='now'>");
+				sb.append("<li class='now'><a href='#'>");
 				sb.append(i);
-				sb.append("</li>");
+				sb.append("</a></li>");
 			} else {
-				sb.append("<li><a href='main.inc?nowPage=");
+				if(this.type.equals("4") || this.type.equals("5")) {
+					sb.append("<li><a href='bbs.inc?nowPage=");
+				} else {
+					sb.append("<li><a href='main.inc?nowPage=");
+				}
 				sb.append(i);
 				sb.append("&s_type=" + this.type + "'>");
 				sb.append(i);
@@ -103,7 +114,11 @@ public class Paging {
 		}
 
 		if(this.isNextPage) {
-			sb.append("<li><a href='main.inc?nowPage=");
+			if(this.type.equals("4") || this.type.equals("5")) {
+				sb.append("<li><a href='bbs.inc?nowPage=");
+			} else {
+				sb.append("<li><a href='main.inc?nowPage=");
+			}
 			if(this.nowPage + this.blockPage > this.totalPage) {
 				sb.append(this.totalPage);
 			} else {
@@ -112,11 +127,12 @@ public class Paging {
 			
 			sb.append("&s_type=" + this.type + "'>&gt;</a></li>");
 		} else { 
-			sb.append("<li class='disable'>&gt;</li>");
+			sb.append("<li class='disable'><a href='#'>&gt;</a></li>");
 		}
 
-		this.sb.append("<li>");
-		this.sb.append("</ol>");
+		if(!(this.type.equals("4") || this.type.equals("5"))) {
+			this.sb.append("</ol>");
+		}
 	}
 
 }
