@@ -10,8 +10,155 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="resources/css/jquery-ui.min.css"/>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <style type="text/css">
-	
+/*****************textarea************/
+
+.panel-shadow {
+    box-shadow: rgba(0, 0, 0, 0.3) 7px 7px 7px;
+}
+.panel-white {
+  border: 1px solid #dddddd;
+}
+.panel-white  .panel-heading {
+  color: #333;
+  background-color: #fff;
+  border-color: #ddd;
+}
+.panel-white  .panel-footer {
+  background-color: #fff;
+  border-color: #ddd;
+}
+
+.post .post-heading {
+  height: 95px;
+  padding: 20px 15px;
+}
+.post .post-heading .avatar {
+  width: 60px;
+  height: 60px;
+  display: block;
+  margin-right: 15px;
+}
+.post .post-heading .meta .title {
+  margin-bottom: 0;
+}
+.post .post-heading .meta .title a {
+  color: black;
+}
+.post .post-heading .meta .title a:hover {
+  color: #aaaaaa;
+}
+.post .post-heading .meta .time {
+  margin-top: 8px;
+  color: #999;
+}
+.post .post-image .image {
+  width: 100%;
+  height: auto;
+}
+.post .post-description {
+  padding: 15px;
+}
+.post .post-description p {
+  font-size: 14px;
+}
+.post .post-description .stats {
+  margin-top: 20px;
+}
+.post .post-description .stats .stat-item {
+  display: inline-block;
+  margin-right: 15px;
+}
+.post .post-description .stats .stat-item .icon {
+  margin-right: 8px;
+}
+.post .post-footer {
+  border-top: 1px solid #ddd;
+  padding: 15px;
+}
+.post .post-footer .input-group-addon a {
+  color: #454545;
+}
+.post .post-footer .comments-list {
+  padding: 0;
+  margin-top: 20px;
+  list-style-type: none;
+}
+.post .post-footer .comments-list .comment {
+  display: block;
+  width: 100%;
+  margin: 20px 0;
+}
+.post .post-footer .comments-list .comment .avatar {
+  width: 35px;
+  height: 35px;
+}
+.post .post-footer .comments-list .comment .comment-heading {
+  display: block;
+  width: 100%;
+}
+.post .post-footer .comments-list .comment .comment-heading .user {
+  font-size: 14px;
+  font-weight: bold;
+  display: inline;
+  margin-top: 0;
+  margin-right: 10px;
+}
+.post .post-footer .comments-list .comment .comment-heading .time {
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 0;
+  display: inline;
+}
+.post .post-footer .comments-list .comment .comment-body {
+  margin-left: 50px;
+}
+.post .post-footer .comments-list .comment > .comments-list {
+  margin-left: 50px;
+}
+/*****************rating**************/
+*{
+    margin: 0;
+    padding: 0;
+}
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
 /*****************globals*************/
 	body {
 	  font-family: 'open sans';
@@ -326,7 +473,7 @@
 		}
 	}
 %>
-	<div>
+	<div style="margin-left: 90px">
 		<h3>평점</h3>
 		<h1><%=(Math.round(avg*100)/100.0) %>점</h1>
 	</div>
@@ -341,53 +488,72 @@
 
 		<hr/>
 		<form action="r_write.inc" method="post" name="r_write">
-			<h5>평점</h5>
-			<input type="radio" name="r_score" id="score1" value="1"/>1.0
-			<input type="radio" name="r_score" id="score2" value="2"/>2.0
-			<input type="radio" name="r_score" id="score3" value="3"/>3.0
-			<input type="radio" name="r_score" id="score4" value="4"/>4.0
-			<input type="radio" name="r_score" id="score5" value="5"/>5.0
-
-			<h5>댓글 쓰기</h5>
-			<textarea rows="5" cols="90" id="r_content" name="r_content"></textarea>
-<%
-		if(mvo != null) {
-%>
-			<input type="hidden" name="m_idx" value='<%=mvo.getM_idx()%>'/>
-			<input type="hidden" name="type" value="<%=request.getParameter("type")%>"/>
-			<input type="hidden" name="b_idx" value='<%=b_idx%>'/>
-			<input type="button" value="등록" onclick="ans_write()"/>
-			
-<%
-		} else {
-%>	
-			<input type="button" value="등록" onclick="alert('로그인 후 이용해 주세요');"/>
-<%
-		}
-%>
+				<div class="rate" style="margin-left: 80px;">
+				    <input type="radio" id="score5" name="r_score" value="5" />
+				    <label for="score5" title="text">5 stars</label>
+				    <input type="radio" id="score4" name="r_score" value="4" />
+				    <label for="score4" title="text">4 stars</label>
+				    <input type="radio" id="score3" name="r_score" value="3" />
+				    <label for="score3" title="text">3 stars</label>
+				    <input type="radio" id="score2" name="r_score" value="2" />
+				    <label for="score2" title="text">2 stars</label>
+				    <input type="radio" id="score1" name="r_score" value="1" />
+				    <label for="score1" title="text">1 star</label>
+				</div>
+			<div><br/><br/><br/>
+				<input class="form-control" name="r_content" id="r_content" placeholder="Add a comment" type="text" style="width: 500px; margin-left: 90px;"/>
+				<br/>
+				<%
+						if(mvo != null) {
+				%>
+							<input type="hidden" name="m_idx" value='<%=mvo.getM_idx()%>'/>
+							<input type="hidden" name="type" value="<%=request.getParameter("type")%>"/>
+							<input type="hidden" name="b_idx" value='<%=b_idx%>'/>
+							<button type=button class="btn btn-primary" onclick="ans_write()" style="margin-left: 90px">작성</button>
+				<%
+						} else {
+				%>			
+							<button type=button class="btn btn-primary" onclick="alert('로그인 후 이용해 주세요');" style="margin-left: 30px">작성</button>
+				<%
+						}
+				%>
+			</div>
 		</form>
-		
+		<br/>
 <%
 	if(r_ar != null ){
+%>
+		<ul class="comments-list">
+<%
 		for(int i = 0 ; i < r_ar.length ; i++) {
 %>
 			<hr/>
+			<li class="comment">
 			<form id="edit_frm<%=i%>" action="r_edit.inc" method="post">
-				<%=r_ar[i].getMvo().getM_name() %>(<%=r_ar[i].getR_date() %>)
-				<h6>평점 : <%=r_ar[i].getR_score() %></h6>
-				<h6 id="content<%=i%>"><%=r_ar[i].getR_content() %></h6>
+				<div class="comment-body" style="margin-left: 100px">
+					<div class="comment-heading">
+						<h4 class="user"><%=r_ar[i].getMvo().getM_name() %></h4>
+						<h5 class="time"><%=r_ar[i].getR_date() %></h5>
+						<h5 class="user">평점 : <%=r_ar[i].getR_score() %></h6>
+					</div>
+					<p id="content<%=i%>"><%=r_ar[i].getR_content() %></p>
 				<input type="hidden" name="r_idx" value='<%=r_ar[i].getR_idx() %>'/>
 				<input type="hidden" name="type" value="<%=request.getParameter("type")%>"/>
 				<input type="hidden" name="b_idx" value='<%=r_ar[i].getB_idx() %>'/>
 			<%if(mvo != null){
 				if(r_ar[i].getMvo().getM_idx().equals(mvo.getM_idx())) { %>
-				<button type=button id="ans_edit<%=i%>" onclick="ans_edit('<%=i%>', '<%=r_ar[i].getR_idx()%>', this.form)">수정</button>
-				<button type=button id="ans_del<%=i%>" onclick="ans_del('<%=r_ar[i].getR_idx() %>','<%=r_ar[i].getB_idx()%>', '<%=request.getParameter("type")%>')">삭제</button>
+				<button type=button class="btn btn-primary" id="ans_edit<%=i%>" onclick="ans_edit('<%=i%>', '<%=r_ar[i].getR_idx()%>', this.form)">수정</button>
+				<button type=button class="btn btn-danger" id="ans_del<%=i%>" onclick="ans_del('<%=r_ar[i].getR_idx() %>','<%=r_ar[i].getB_idx()%>', '<%=request.getParameter("type")%>')">삭제</button>
 			<%}
 			}%>
+			</div>
 			</form>
+			</li>
 <%
 		}
+%>
+			</ui>
+<%
 	}
 %>
 		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8d26b23142336a11ee181cc1c827a3ff"></script>
@@ -524,7 +690,7 @@
 				
 				r_write.submit();
 			}
-			
+
 			function ans_del(r_idx, b_idx, type){
 				if (!(confirm('정말 삭제하시겠습니까?'))) {
 					return;

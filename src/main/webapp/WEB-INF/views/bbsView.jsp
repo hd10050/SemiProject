@@ -324,7 +324,7 @@
 			function ans_edit(num, r_idx, frm){
 				var content = $("#content"+num).html();
 				
-				$("#content"+num).html("<input class='form-control' name='r_content' type='text' style='width: 500px' value='" + content + "'/>");
+				$("#content"+num).html("<input class='form-control' name='r_content' id='r_content' type='text' style='width: 500px' value='" + content + "'/>");
 				$("#ans_edit"+num).attr("onclick", "ans_editok("+ num +")", frm);
 			}
 
