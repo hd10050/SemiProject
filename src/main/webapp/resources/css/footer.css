@@ -1,0 +1,23 @@
+@charset "UTF-8";
+#footer{
+		margin-top: 100px;
+		margin-bottom: 0px;
+		padding-bottom: 0px;
+		background-color: #d9e1e8;
+		border-color: none;
+		height: 180px;
+	}
+	#footer .footerLogo{
+		float: left;
+		margin-left:16%;
+	}
+	#footer .addWrap{ 
+		foat: left; 
+		margin-left:25%;
+		font-size: 14px;
+		font-weight: bold;
+		padding: 0;
+	}
+	.auto{
+		padding-top: 50px;
+	}

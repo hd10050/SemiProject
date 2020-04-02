@@ -11,10 +11,7 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <link rel="stylesheet" href="resources/css/memview.css"/>
 <link rel="stylesheet" href="resources/css/editform.css"/>
-<style>
- 
 
-</style>
 </head>
 <body>
 <div class="container">
@@ -72,23 +69,22 @@
 			  <div id="right_content"></div>
             </div>
 		</div>
-		
-            </div><%--content end --%>
-
+	</div><%--content end --%>
 </div>
-
+<jsp:include page="footer.jsp"/><br/><br/>
+	
 <script type="text/javascript">
 		
 		
 		$(document).ready(function(){
-			$("#right_content").load("memdel");
+			$("#right_content").load("meminfo.inc");
 			
 			});
 				
 		
 		function changePage(val){
 			if(val == 0){
-				$("#right_content").load("memInfo.inc");
+				$("#right_content").load("meminfo.inc");
 			}else if(val == 1){
 				$("#right_content").load("memchk.inc");
 			}else if(val == 2){

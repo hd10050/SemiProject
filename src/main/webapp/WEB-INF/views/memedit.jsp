@@ -16,7 +16,10 @@
 
             <div class="profile-content" wi>
 			    <form class="form-signin">
-							
+				<div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">${mvo.getM_id() }님의 정보</h3>
+            </div>	
 					        <div class="panel panel-primary" id="pri">
 					            <h3 class="text-center">
 					                       회원 정보 수정</h3>
@@ -71,6 +74,7 @@
 								저장
 							</button>
 					      </div>
+					       </div>
 					       </div>
 					       </form>
 					        </div>     

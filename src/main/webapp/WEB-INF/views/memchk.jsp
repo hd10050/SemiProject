@@ -5,25 +5,73 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	.panel-body{
+		width: 300px;
+		margin: auto;
+		padding-top: 50px;
+	}
+	.text-center{
+		width: 400px;
+
+	body {}
+	    margin:0;
+	    padding:0;
+	    height:100%;
+	}
+
+	.btn1{
+		padding-left: 420px;
+		width : 120px;
+		height: 60px;
+	}
+	#col{
+		width: 100%;	
+	}
+	panel panel-info{
+		margin-left:  -50px;
+		margin-top:  50px;
+	}
+	#wrap{
+		margin: auto;
+		margin-right: 110px;
+	}
+	
+
+</style>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
 <body>
+	
+      
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h2><span class="fa fa-lock fa-1x">   ${mvo.getM_id() }님의 정보 수정</span></h2>
+            </div>
+     
+              <div class="panel-body">
+                <div class="text-center">
+                    <form id="register-form" role="form" autocomplete="off" class="form" method="post">
+                      <div id = "wrap">
+                      <div class="form-group">
+                        <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-lock color-blue"></i></span>
+                          <input id="email" name="email" placeholder="비밀번호를 입력하세요." class="form-control"  type="password">
+                        </div>
+                        <br/>
+                      <div class="form-group">
+                        <input name="recover-submit" class="btn btn-lg btn-primary btn-block" value="비밀번호 확인" type="submit" id="button">
+                      </div>
+                       </div>
+                    	</div>  
+                    </form>
+             		
+                </div>
+              </div>
+			
+          </div> 	
+     
 
-<h1>비밀번호 확인</h1>
-	<hr />
-	<form action="/memleave.inc"  method="post">
-		<table>
-			<tr>
-				<td>패스워드</td>
-				<td><input type="password" name="pwd" id="pwd"></td>
-			</tr>
-			<tr>
-				<td colspan=2 align="center"><input type="button" value="수정하기" id="button"></td>
-			</tr>
-		</table>
-	</form>
-	
-   
-	
 </body>
 	<script src="resources/js/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript">
