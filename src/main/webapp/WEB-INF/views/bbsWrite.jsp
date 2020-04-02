@@ -40,8 +40,8 @@
 			<input type="hidden" name="m_idx" value="${m_idx }"/>
 			<input type="hidden" name="type" value="${type }"/>
 	        <input type="hidden" name="nowPage" value="${nowPage }"/>
-			<button type="button" id="can_btn" class="btn btn-primary pull-right" style="margin-left: 10px;" onclick="sendData()">저장</button>
-			<button type="button" id="sub_btn" class="btn btn-white pull-right">목록</button>
+			<button type="button" id="save_btn" class="btn btn-primary pull-right" style="margin-left: 10px;" onclick="sendData()">저장</button>
+			<button type="button" id="list_btn" class="btn btn-white pull-right" onclick="go_list('${type }', '${nowPage }')">목록</button>
         </form>
     </div>
 </div>
@@ -105,6 +105,10 @@
 			}
 			
 			write_form.submit();
+		}
+		
+		function go_list(type, nowPage) {
+			location.href = "bbs.inc?type=" + type + "&nowPage=" + nowPage;
 		}
 	</script>
 </body>

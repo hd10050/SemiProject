@@ -30,7 +30,7 @@
 	</resultMap>
 	
 	<select id="ansrvo" resultType="com.data.vo.MemberVO" parameterType="String">
-		select * from regist_t
+		select * from member_table
 		where m_idx = #{m_idx}
 	</select>
 
@@ -79,41 +79,17 @@
 		where b_idx = #{b_idx}
 	</update>
 	
-	<!-- 게시글 수정 
-	<update id="viewUpdate" parameterType="java.util.Map"> 
-     update inven_bbs
-     <set>
-     	write_date = sysdate,
-        <trim suffixOverrides=",">
-           <if test="subject != null">
-              subject = #{subject},
-           </if>
-           
-           <if test="content != null">
-              content = #{content},
-           </if>
-           
-           <if test="file_name != null">
-              file_name = #{file_name},
-           </if>
-           
-           <if test="ori_name != null">
-              ori_name = #{ori_name},
-           </if>
-           
-           <if test="ip != null">
-              ip = #{ip},
-           </if>
-           
-           <if test="pwd != null">
-              pwd = #{pwd},
-           </if>
-           
-        </trim>
-     </set>
-     where b_idx = #{b_idx}
-  </update>
-  -->
+	<!-- 게시글 update -->
+	<update id="b_edit" parameterType="com.data.vo.BbsVO">
+		UPDATE bbs_table
+		SET subject = #{subject}, content = #{content}
+			<if test = "file_name != null">
+				,file_name = #{file_name}
+				,ori_name = #{ori_name}
+			</if>
+		WHERE b_idx = #{b_idx}
+	</update>
+	<!--******************************-->
 	
 	<!-- Update를 이용한 댓글 삭제
 	<update id="c_del" parameterType="java.util.Map">
