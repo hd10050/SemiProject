@@ -91,6 +91,13 @@
 	</update>
 	<!--******************************-->
 	
+	<!-- 조회수 증가 -->
+	<update id="hit" parameterType="String">
+		UPDATE bbs_table
+		SET hit = hit+1
+		WHERE b_idx = #{b_idx}
+	</update>
+	
 	<!-- Update를 이용한 댓글 삭제
 	<update id="c_del" parameterType="java.util.Map">
 		UPDATE inven_comment
@@ -107,11 +114,4 @@
 	</insert>-->
 	<!--******************************-->
 	
-	<!-- 조회수 증가 
-	<update id="hit" parameterType="String">
-		UPDATE inven_bbs
-		SET hit = hit+1
-		WHERE b_idx = #{b_idx}
-	</update>-->
-
 </mapper>

@@ -36,6 +36,9 @@ public class BbsViewAction {
 		BbsVO vo = bbsDao.view(b_idx);
 		ReviewVO[] review_ar = reviewDao.listReview(b_idx);
 		
+		vo.setHit(String.valueOf(Integer.parseInt(vo.getHit()) + 1));
+		bbsDao.hit(vo.getB_idx());
+		
 		session.setAttribute("vo", vo);
 		mv.addObject("review_ar", review_ar);
 		mv.addObject("vo", vo);
