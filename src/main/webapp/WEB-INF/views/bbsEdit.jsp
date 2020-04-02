@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,22 +28,25 @@
 <div class="container">
 <div class="col-md-5">
     <div class="form-area">  
-        <form action="write.inc" method="post" encType="multipart/form-data" name="write_form">
+        <form action="edit.inc" method="post" encType="multipart/form-data" name="write_form">
         <br style="clear:both">
 			<div class="form-group">
-				<input type="text" class="form-control" id="subject" name="subject" placeholder="제목" required>
+				<input type="text" class="form-control" id="subject" name="subject" placeholder="제목" value='${vo.subject }' required />
 			</div>
 			<div class="form-group">
 				<input type="file" name="file"/>
+				<c:if test="${vo.file_name != null and fn:length(vo.file_name) > 4 }">
+					&nbsp;&nbsp;${vo.file_name } (${vo.ori_name })
+				</c:if>
 			</div>
 			<div class="form-group">
-				<textarea class="form-control" type="textarea" id="content" name="content" maxlength="140" rows="7"></textarea>
+				<textarea class="form-control" type="textarea" id="content" name="content" maxlength="140" rows="7">${vo.content }</textarea>
 	        </div>
-			<input type="hidden" name="m_idx" value="${m_idx }"/>
+			<input type="hidden" name="b_idx" value="${b_idx }"/>
 			<input type="hidden" name="type" value="${type }"/>
 	        <input type="hidden" name="nowPage" value="${nowPage }"/>
-			<button type="button" id="can_btn" class="btn btn-primary pull-right" style="margin-left: 10px;" onclick="sendData()">저장</button>
-			<button type="button" id="sub_btn" class="btn btn-white pull-right" onclick="go_list('${type }', '${nowPage }')">목록</button>
+			<button type="button" id="save_btn" class="btn btn-primary pull-right" style="margin-left: 10px;" onclick="sendData()">저장</button>
+			<button type="button" id="list_btn" class="btn btn-white pull-right" onclick="go_list('${type }', '${nowPage }')">목록</button>
         </form>
     </div>
 </div>

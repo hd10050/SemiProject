@@ -41,5 +41,26 @@ public class ReviewEditAction {
 		mv.setViewName(str);
 		return mv;
 	}
+	
+	@RequestMapping("/c_edit.inc")
+	public ModelAndView c_edit(String r_idx, String b_idx, String r_content, String type, String nowPage) {
+		ModelAndView mv = new ModelAndView();
+		String str = "redirect:/main.inc";
+		ReviewVO rvo = reviewDao.getReview(r_idx);
+		
+		rvo.setR_content(r_content);
+		if(reviewDao.updateReview(rvo)) {
+			switch(Integer.parseInt(type)){
+			case 4:
+				str = "redirect:/bbs_view.inc?type=4&nowPage=" + nowPage + "&b_idx=" + b_idx ;
+				break;
+			case 5:
+				str = "redirect:/bbs_view.inc?type=5&nowPage=" + nowPage + "&b_idx=" + b_idx ;
+				break;
+			}
+		}
+		mv.setViewName(str);
+		return mv;
+	}
 }
 	

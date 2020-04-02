@@ -17,7 +17,7 @@ public class ReviewWriteAction {
 	private ReviewDAO reviewDao;
 	
 	@RequestMapping("/r_write.inc")
-	public ModelAndView r_edit(String m_idx, String b_idx, String r_content, String r_score, String type) {
+	public ModelAndView r_write(String m_idx, String b_idx, String r_content, String r_score, String type) {
 		ModelAndView mv = new ModelAndView();
 		String str = "redirect:/main.inc";
 		ReviewVO vo = new ReviewVO(m_idx, b_idx, r_score, r_content);
@@ -35,6 +35,27 @@ public class ReviewWriteAction {
 				break;
 			case 3:
 				str = "redirect:/view.inc?type=3&ENTRPS_TELNO=" + b_idx;
+				break;
+			}
+		}
+		
+		mv.setViewName(str);
+		return mv;
+	}
+	
+	@RequestMapping("/c_write.inc")
+	public ModelAndView c_write(String m_idx, String b_idx, String r_content, String type, String nowPage) {
+		ModelAndView mv = new ModelAndView();
+		String str = "redirect:/main.inc";
+		ReviewVO vo = new ReviewVO(m_idx, b_idx, "-1", r_content);
+		System.out.println(vo.getR_content());
+		if(reviewDao.writeReview(vo)) {
+			switch(Integer.parseInt(type)){
+			case 4:
+				str = "redirect:/bbs_view.inc?type=4&nowPage=" + nowPage + "&b_idx=" + b_idx ;
+				break;
+			case 5:
+				str = "redirect:/bbs_view.inc?type=5&nowPage=" + nowPage + "&b_idx=" + b_idx ;
 				break;
 			}
 		}

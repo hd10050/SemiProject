@@ -11,13 +11,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.data.vo.BbsVO;
+import com.data.vo.ReviewVO;
 
 import mybatis.dao.BbsDAO;
+import mybatis.dao.ReviewDAO;
 
 @Controller
 public class BbsViewAction {
 	
-
+	@Autowired
+	private ReviewDAO reviewDao;
 	@Autowired
 	private BbsDAO bbsDao;
 	@Autowired
@@ -28,16 +31,32 @@ public class BbsViewAction {
 	HttpSession session;
 	
 	@RequestMapping(value="/bbs_view.inc", method=RequestMethod.POST)
-	public ModelAndView sad(String type, String nowPage, String b_idx) {
+	public ModelAndView view(String type, String nowPage, String b_idx) {
 		ModelAndView mv = new ModelAndView();
 		BbsVO vo = bbsDao.view(b_idx);
-
+		ReviewVO[] review_ar = reviewDao.listReview(b_idx);
+		
+		vo.setHit(String.valueOf(Integer.parseInt(vo.getHit()) + 1));
+		bbsDao.hit(vo.getB_idx());
+		
 		session.setAttribute("vo", vo);
+		mv.addObject("review_ar", review_ar);
 		mv.addObject("vo", vo);
 		mv.addObject("type", type);
 		mv.addObject("nowPage", nowPage);
 		mv.addObject("b_idx", b_idx);
 		mv.setViewName("bbsView");
+		return mv;
+	}
+	
+	@RequestMapping(value="/bbs_view.inc", method=RequestMethod.GET)
+	public ModelAndView view2(String type, String nowPage, String b_idx) {
+		ModelAndView mv = new ModelAndView();
+
+		mv.addObject("type", type);
+		mv.addObject("nowPage", nowPage);
+		mv.addObject("b_idx", b_idx);
+		mv.setViewName("bbsView2");
 		return mv;
 	}
 
