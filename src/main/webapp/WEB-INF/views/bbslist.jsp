@@ -12,6 +12,7 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 <body>
+<br/><br/><br/><br/><br/><br/><br/><br/><jsp:include page="navbar.jsp"/><br/><br/>
 <%
 	Object obj = session.getAttribute("mvo");
 	MemberVO mvo = null;
@@ -59,20 +60,29 @@
 				</c:if>
 			</tbody>
 		</table>
+		<br/>
+		<div class="pagination" style="margin: 0 auto;">
+		    <ul>
+		        ${pageCode }
+		    </ul>
+		</div>
+		<c:if test="${type == 4}">
+		<%	if(mvo != null && (mvo.getM_level().equals("1") || mvo.getM_level().equals("2")))  {%>	
+			<div class="btn-toolbar">
+		    	<button class="btn btn-primary" onclick="write_btn()">글쓰기</button>
+			</div>
+		<%	} %>
+		</c:if>
+		
+		<c:if test="${type == 5}">
+		<%	if(mvo != null)  {%>	
+			<div class="btn-toolbar">
+		    	<button class="btn btn-primary" onclick="write_btn()">글쓰기</button>
+			</div>
+		<%	} %>
+		</c:if>
 	</div>
-	<br/>
-	<div class="pagination" style="margin: 0 auto;">
-	    <ul>
-	        ${pageCode }
-	    </ul>
-	</div>
-
-<%	if(mvo != null)  {%>	
-	<div class="btn-toolbar">
-    	<button class="btn btn-primary" onclick="write_btn()">글쓰기</button>
-	</div>
-<%	} %>
-
+	
 	<form action="write_form.inc" method="post" name="w_form">
 		<input type="hidden" name="type" value="${type }"/>
 		<input type="hidden" name="nowPage" value="${nowPage }"/>

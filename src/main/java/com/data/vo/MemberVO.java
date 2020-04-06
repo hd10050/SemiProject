@@ -2,12 +2,12 @@ package com.data.vo;
 
 public class MemberVO {
 	
-	private String m_idx, m_id, m_pw, m_name, m_gender, m_status, m_phone, r_snscode;
+	private String m_idx, m_id, m_pw, m_name, m_gender, m_status, m_phone, r_snscode, m_level;
 	
 	// constructor
 	public MemberVO() { }
 	public MemberVO(String m_idx, String m_id, String m_pw, String m_name, String m_gender, String m_status,
-			String m_phone, String r_snscode) {
+			String m_phone, String r_snscode, String m_level) {
 		this.m_idx = m_idx;
 		this.m_id = m_id;
 		this.m_pw = m_pw;
@@ -16,6 +16,7 @@ public class MemberVO {
 		this.m_status = m_status;
 		this.m_phone = m_phone;
 		this.r_snscode = r_snscode;
+		this.m_level = m_level;
 	}
 	
 	// getter setter
@@ -35,5 +36,7 @@ public class MemberVO {
 	public void setM_phone(String m_phone) { this.m_phone = m_phone; }
 	public String getR_snscode() { return r_snscode; }
 	public void setR_snscode(String r_snscode) { this.r_snscode = r_snscode; }
+	public String getM_level() { return m_level; }
+	public void setM_level(String m_level) { this.m_level = m_level; }
 	
 }

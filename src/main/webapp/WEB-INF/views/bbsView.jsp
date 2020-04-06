@@ -133,8 +133,9 @@
 </style>
 </head>
 <body>
+<br/><br/><br/><br/><br/><br/><br/><br/><jsp:include page="navbar.jsp"/><br/><br/>
 <div class="container">
-<div class="col-md-5" style="width: 750px;">
+<div class="col-md-5" style="width: 750px; margin: 0 auto;">
     <div class="form-area">  
         <br style="clear:both">
 			<div class="form-group">
@@ -164,12 +165,13 @@
 			BbsVO bvo = (BbsVO)session.getAttribute("vo");
 			if(obj != null) {
 				mvo = (MemberVO)obj;
-				if(bvo.getM_idx().equals(mvo.getM_idx())){
 %>
+<%				if(mvo != null && (mvo.getM_level().equals("1") || mvo.getM_level().equals("2")))  {%>
+					<button type="button" id="del_btn" class="btn btn-danger pull-right">삭제</button>
+<% 				} else if(bvo.getM_idx().equals(mvo.getM_idx())) { %>
 					<button type="button" id="del_btn" class="btn btn-danger pull-right">삭제</button>
 					<button type="button" id="edit_btn" class="btn btn-primary pull-right" style="margin-left: 10px; margin-right: 10px" onclick="sendData()">수정</button>
-<%
-				}
+<%				}
 			}
 %>
 			<button type="button" id="list_btn" class="btn btn-white pull-right">목록</button>
@@ -179,7 +181,7 @@
 
 <%-- 댓글 -----------------------------------------------------------------------------------%>
 <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-<div class="container">
+<div class="container" style="margin: 0 auto;">
     <div class="col-sm-8">
         <div class="panel panel-white post panel-shadow">
 	<div class="post-footer">
@@ -229,7 +231,9 @@
 					<input type="hidden" name="type" value="${type }"/>
 					<input type="hidden" name="nowPage" value="${nowPage }"/>
 					<input type="hidden" name="b_idx" value='<%=r_ar[i].getB_idx() %>'/>
-<%				if(mvo != null  && r_ar[i].getMvo().getM_idx().equals(mvo.getM_idx())){ %>
+<%				if(mvo != null && (mvo.getM_level().equals("1") || mvo.getM_level().equals("2")))  {%>
+					<button type=button class="btn btn-danger" id="ans_del<%=i%>" onclick="ans_del('<%=r_ar[i].getR_idx() %>','<%=r_ar[i].getB_idx()%>', '<%=request.getParameter("type")%>')">삭제</button>
+<%				} else if(mvo != null  && r_ar[i].getMvo().getM_idx().equals(mvo.getM_idx())){ %>
 					<button type=button class="btn btn-primary" id="ans_edit<%=i%>" onclick="ans_edit('<%=i%>', '<%=r_ar[i].getR_idx()%>', this.form)">수정</button>
 					<button type=button class="btn btn-danger" id="ans_del<%=i%>" onclick="ans_del('<%=r_ar[i].getR_idx() %>','<%=r_ar[i].getB_idx()%>', '<%=request.getParameter("type")%>')">삭제</button>
 <%				} %>
@@ -334,6 +338,5 @@
 				frm.submit();
 			}
 	</script>
-	<jsp:include page="footer.jsp"/><br/><br/><br/>
 </body>
 </html>

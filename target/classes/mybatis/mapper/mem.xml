@@ -18,10 +18,10 @@
 
 	<!-- 회원 가입 -->
 	<insert id="joinMem" parameterType="com.data.vo.MemberVO">
-		insert into member_table(m_idx, m_id, m_pw, m_name, m_gender, m_status, m_phone, r_snscode) 
-		values(member_table_sesq.NEXTVAL, #{m_id}, #{m_pw}, #{m_name}, #{m_gender}, 0, #{m_phone}, #{r_snscode})
+		insert into member_table(m_idx, m_id, m_pw, m_name, m_gender, m_status, m_phone, r_snscode, m_level) 
+		values(member_table_sesq.NEXTVAL, #{m_id}, #{m_pw}, #{m_name}, #{m_gender}, 0, #{m_phone}, #{r_snscode}, 0)
 	</insert>
-	
+
 	<!-- 회원 정보 수정 -->
 	<update id="updateMem" parameterType="com.data.vo.MemberVO">
 		update	member_table
