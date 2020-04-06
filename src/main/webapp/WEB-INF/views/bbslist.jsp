@@ -12,6 +12,7 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 <body>
+<br/><br/><br/><br/><br/><br/><br/><br/><jsp:include page="navbar.jsp"/><br/><br/>
 <%
 	Object obj = session.getAttribute("mvo");
 	MemberVO mvo = null;
