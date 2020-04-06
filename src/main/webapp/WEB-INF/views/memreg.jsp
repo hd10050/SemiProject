@@ -46,21 +46,21 @@
     background-color: green;
     color: #fff;
 }
-
+body{
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	padding-top: 160px;
+}
 </style>
 </head>
-<div class="container">
-<br>  <p class="text-center"> <a href="http://bootstrap-ecommerce.com/"> Bootstrap-ecommerce.com</a></p>
-<hr>
+<jsp:include page="navbar.jsp"/><br/><br/><br/>
 
 <body>
-
 <div class="card bg-light">
 <article class="card-body mx-auto" style="max-width: 400px;">
 	<h4 class="card-title mt-3 text-center">회 원 가 입</h4>
 	<p class="text-center"></p>
 	<p class="divider-text">
-        <span class="bg-light">OR</span>
+        <hr/>
     </p>
 	<form>
 	<input type="hidden" id="snscode" value="${regist_vo.r_snscode }"/>
@@ -74,19 +74,20 @@
 		<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
 		 </div>
-        <input class="form-control" placeholder="아이디(4자 이상 입력하시오.)" type="text" id="id" name="id" value="${regist_vo.
- }">
+        <input class="form-control" placeholder="아이디(4자 이상 입력하시오.)" type="text" id="id" name="id" value="${regist_vo.m_id }">
     </div> <!-- form-group// -->
     
     <div id="box"></div>
     
     <div class="form-group input-group">
     	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+		    <span class="input-group-text"> <i class="fas fa-mobile-alt"></i> </span>
 		</div>
-		
     	<input class="form-control" placeholder="전화번호('-'없이 붙여 쓰시오.)" type="text" id="phone">
     </div> <!-- form-group// -->
+    
+    <div id="box_p"></div>
+    
     <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
@@ -97,12 +98,21 @@
 			<option value="2">남자</option>
 		</select>
 	</div> <!-- form-group end.// -->
+	
     <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 		</div>
         <input class="form-control" placeholder="비밀번호" type="password" id="pw">
-    </div> <!-- form-group// -->                             
+    </div> <!-- form-group// -->
+    
+     <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"><i class="fa fa-lock"></i> </span>
+		</div>
+        <input class="form-control" placeholder="비밀번호 재확인" type="password" id="pw">
+    </div> <!-- form-group// -->        
+                             
     <div class="form-group">
         <button type="button" class="btn btn-primary btn-block" id="sub_btn"> Create Account </button>
     </div> <!-- form-group// -->      
@@ -114,6 +124,8 @@
 <script src="resources/js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
 $(function () {
+	
+		var chk = true;
 
 		//아이디 중복 체크
 		$("#id").bind("keyup",function(){
@@ -134,6 +146,8 @@ $(function () {
 						if(data.chk==1){
 							//id가 중복일 때,
 							$("#box").html("<pre style='color:red; font-weight:bold; '>사용 불가능</pre>");
+							chk = false;
+							
 						}else{
 							//id가 중복이 아닐 때,
 							$("#box").html("<pre style='color:green; font-weight:bold;'>사용 가능</pre>");
@@ -148,85 +162,115 @@ $(function () {
 					$("#box").html("");
 				}
 			
-		});
+		});//아이디 중복 체크의 끝
+		
+		//전화번호 중복 체크
+		$("#phone").bind("keyup",function(){
+				//사용자가 입력한 id값을 얻어낸다.
+				var str = $(this).val();
+				console.log(str);
+				
+				if(str.trim().length>10){
+				//phone 11자이상 입력시 수행	
+					
+					$.ajax({
+						
+						url: "telchk.inc",
+						type: "post",
+						data: "phone="+encodeURIComponent(str)
+						
+					}).done(function (data) {
+						if(data.chk==1){
+							//id가 중복일 때,
+							$("#box_p").html("<pre style='color:red; font-weight:bold; '>사용 불가능</pre>");
+						}else{
+							//id가 중복이 아닐 때,
+							$("#box_p").html("<pre style='color:green; font-weight:bold;'>사용 가능</pre>");
+						}
+						
+						
+					}).fail(function (err) {
+						console.log(err);
+					});
+					
+				}else{
+					$("#box").html("");
+				}
+			
+		});//전화번호 중복 체크의 끝
 
 
 		//회원가입 기능
 		$("#sub_btn").click(function () {
 			
-			//입력값 받기
-			var snscode = $("#snscode").val().trim();
-			var name = $("#name").val().trim();
-			var id = $("#id").val().trim();
-			var pw = $("#pw").val().trim();
-			var phone = $("#phone").val().trim();
-			var gender = $("#gender").val().trim(); //1 or 2
-			
-			//유효성 검사
-			if(id.length < 1){
-				alert("아이디를 입력하세요!");
-				$("#id").focus();
-				return;
-			}
-			if(pw.length < 1){
-				alert("비밀번호를 입력하세요!");
-				$("#pw").focus();
-				return;
-			}
-			if(name.length < 1){
-				alert("이름을 입력하세요!");
-				$("#name").focus();
-				return;
-			}
-			
-			var param = "m_name="+encodeURIComponent(name)+
-								"&m_id="+encodeURIComponent(id)+
-								"&m_pw="+encodeURIComponent(pw)+
-								"&m_phone="+encodeURIComponent(phone)+
-								"&m_gender="+encodeURIComponent(gender)+
-								"&r_snscode="+encodeURIComponent(snscode);
-			
-			
-			
-			// 비동기식 통신
-			$.ajax({
-				url: "memreg.inc",
-				type: "post",
-				dataType: "json",
-				data: param
-						
-				}).done(function(res){
-					if(res.chk == "1") {
-						location.href="login.inc";
-					} else {
-						alert("실패");
+			if(chk == true){
+
+					//입력값 받기
+					var snscode = $("#snscode").val().trim();
+					var name = $("#name").val().trim();
+					var id = $("#id").val().trim();
+					var pw = $("#pw").val().trim();
+					var phone = $("#phone").val().trim();
+					var gender = $("#gender").val().trim(); //1 or 2
+					
+					//유효성 검사
+					if(id.length < 1){
+						alert("아이디를 입력하세요");
+						$("#id").focus();
+						return;
+					}
+					if(pw.length < 1){
+						alert("비밀번호를 입력하세요");
+						$("#pw").focus();
+						return;
+					}
+					if(name.length < 1){
+						alert("이름을 입력하세요");
+						$("#name").focus();
+						return;
 					}
 					
+					var param = "m_name="+encodeURIComponent(name)+
+										"&m_id="+encodeURIComponent(id)+
+										"&m_pw="+encodeURIComponent(pw)+
+										"&m_phone="+encodeURIComponent(phone)+
+										"&m_gender="+encodeURIComponent(gender)+
+										"&r_snscode="+encodeURIComponent(snscode);
 					
-				}).fail(function(err) {
-					console.log(err);
-				});
-			
-		});
+					
+					
+					// 비동기식 통신
+					$.ajax({
+						url: "memreg.inc",
+						type: "post",
+						dataType: "json",
+						data: param
+								
+						}).done(function(res){
+							if(res.chk == "1") {
+								location.href="login.inc";
+							} else {
+								alert("실패");
+							}
+							
+							
+						}).fail(function(err) {
+							console.log(err);
+						});
+				
+			  }else{//중복일 때,
+				  	alert("아이디와 전화번호를 확인하세요.")			  
+				  
+			  }
+				
+		});//회원 가입의 끝
+
 
 });
 </script>
 </body>
+<jsp:include page="footer.jsp"/><br/><br/><br/>
 
-</div> 
-<!--container end.//-->
-
-<br><br>
-<article class="bg-secondary mb-3">  
-<div class="card-body text-center">
-    <h3 class="text-white mt-3">Bootstrap 4 UI KIT</h3>
-<p class="h5 text-white">Components and templates  <br> for Ecommerce, marketplace, booking websites 
-and product landing pages</p>   <br>
-<p><a class="btn btn-warning" target="_blank" href="http://bootstrap-ecommerce.com/"> Bootstrap-ecommerce.com  
- <i class="fa fa-window-restore "></i></a></p>
-</div>
-<br><br>
-</article>
 
 
 

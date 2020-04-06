@@ -16,7 +16,8 @@
 </style>
 </head>
 <body>
-<jsp:include page="header.jsp"/><br/><br/><br/>
+<jsp:include page="navbar.jsp"/><br/><br/><br/>
+
 <div class="container">
     <div class="row">
     	<div class="col-md-4 col-md-offset-4">
@@ -58,6 +59,9 @@
 		<input type="hidden" id="m_phone" name="m_phone"/>
 		<input type="hidden" id="r_snscode" name="r_snscode"/>
 	</form>
+	
+	
+	
 	<%-- 구글 로그인 --%>
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
 	<script>
@@ -218,4 +222,5 @@
 	</script>
 	
 </body>
+<jsp:include page="footer.jsp"/><br/><br/><br/>
 </html>

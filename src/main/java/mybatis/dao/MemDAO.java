@@ -20,6 +20,14 @@ public class MemDAO {
             
       return vo;
    }
+   
+   //전화번호 중복 체크
+   public MemberVO telchk(String phone) {
+      
+      MemberVO vo = ss.selectOne("mem.telchk", phone);
+            
+      return vo;
+   }
 	
 	//sns코드 찾기
 	public MemberVO snslogin(String code) {
@@ -68,6 +76,7 @@ public class MemDAO {
 	
 	//회원 로그인
 	public MemberVO login(String m_pw, String m_id) {
+		//System.out.println("DAO:"+m_pw+m_id);
 		
 		Map<String, String>map = new HashMap<String, String>();	
 		map.put("m_id", m_id);

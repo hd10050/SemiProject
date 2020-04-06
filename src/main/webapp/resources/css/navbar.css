@@ -1,0 +1,92 @@
+@charset "UTF-8";
+/* The navigation bar */
+.nanavbar_top {
+  width: 100%; /* Full width */
+  height: 46px;
+  overflow: hidden;
+  background-color: #333;
+  position: absolute; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  background-color: #fff;
+  text-align: right;
+  padding: 0 80px;
+}
+.nanavbar_middle {
+  width: 100%; /* Full width */
+  height: 70px;
+  overflow: hidden;
+  background-color: #333;
+  position: absolute; /* Set the navbar to fixed position */
+  top: 46px; /* Position the navbar at the top of the page */
+  background-color: #fff;
+  text-align: center;
+  padding: 14.25px 0px;
+}
+.nanavbar_last {
+  width: 100%; /* Full width */
+  height: 65px;
+  overflow: hidden;
+  background-color: #333;
+  position: absolute; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  top: 116px;
+  text-align: center;
+}
+
+
+/* Links inside the navbar */
+.nanav_menu_t{
+	border: none;
+	font-size: 13px;
+    color: #000;
+    padding: 14px 16px;
+    text-decoration: none;
+    background-color: #fff;
+}
+.nanav_menu_m{
+	border: 1px solid red;
+    background-color: #fff;
+    font-size: 15px;
+    width: 100px; 
+    height: 40px;
+    padding: 0px;
+}
+.nanav_menu_l{
+	border: none;
+	font-size: 15px;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 22px 100px;
+    background-color: #333;
+}
+.nanav_menu_logo{
+	position: absolute; 
+	top: 65px; 
+	left:40px; 
+	z-index: 1;
+	border: 1px solid red;
+    background-color: #fff;
+    font-size: 20px;
+}
+/* Change background on mouse-over */
+.nanav_menu_l:hover {
+    background: #ddd;
+    color: black;
+}
+.search123{
+    display: block;
+    width: 480px;
+    height: 50px;
+    border: 4px solid #333;
+    margin: -5px auto;
+    box-sizing: border-box;
+}
+.nanav_search_icon{
+	border: 1px solid red;
+    font-size: 15px;
+    width: 100px; 
+    height: 40px;
+    padding: 0px;
+    float: right;
+    cursor: pointer;
+}

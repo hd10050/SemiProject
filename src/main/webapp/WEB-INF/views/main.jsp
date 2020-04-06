@@ -33,13 +33,15 @@
 		background-color: transparent;
 		color: white;
 		border: none;
-	}
+		
+
+		
+	
 </style>
 
 </head>
-<jsp:include page="header.jsp"/><br/><br/><br/>
-
-<body style="padding-top: 80px;">
+<jsp:include page="navbar.jsp"/><br/><br/><br/>
+<body>
 <header>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
@@ -85,14 +87,6 @@
 
    
    <div id="wrap">
-   
-   <%-- 
-   <div id="mainImage" class="col-sm-12 pull-center well" >
-        메인 이미지 넣기 
-      <h1>이미지 </h1>
-   </div>
-   --%>
-   
    
    <div id="search" class="col-sm-12 pull-center well" >
    <form class="form-inline">
@@ -227,15 +221,15 @@
         
    </table>
    </div> 
-   </div>
+ 
 	
 	<form action="search.inc" method="post" name="search_form">
 		<input type="hidden" id="search_value" name="search_value"/>
 		<input type="hidden" id="search_type" name="search_type"/>
 		<input type="hidden" name="s_type" value='<%=request.getAttribute("type")%>'/>
 	</form>
-  	
-  	
+
+  	</div>
   	  <!-- Bootstrap core JavaScript -->
   <script src="resources/vendor/jquery/jquery.min.js"></script>
   <script src="resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -391,4 +385,5 @@
 			}
 		</script>
 </body>
+<jsp:include page="footer.jsp"/><br/><br/><br/>
 </html>
