@@ -49,7 +49,9 @@
 		width : 120px;
 		height: 60px;
 	}
-
+	#mid{
+		color: #122f82;
+	}
 	
 </style>
 </head>
@@ -59,11 +61,11 @@
       
           <div class="panel panel-info">
             <div class="panel-heading">
-              <h2>${mvo.getM_id() }님의 정보</h2>
+              <h2><span id=mid>${mvo.getM_id() }</span>님의 정보</h2>
             </div>
             <div class="panel-body">
               <div class="row">
-                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> </div>
+                <div class="col-md-3 col-lg-3" align="center"> <img alt="User Pic" src="resources/image/profile2.png" width="180"> </div>
                 
                 <!--<div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
                   <dl>

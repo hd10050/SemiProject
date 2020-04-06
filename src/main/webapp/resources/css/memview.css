@@ -5,20 +5,18 @@ A component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themefores
 Licensed under MIT
 ***/
 
-<<<<<<< HEAD
-body{
-	height: 100%;
+.container{
+	margin-top: 50px;
 	
 }
 
-html{
-	height: 100%;
+.row_profile{
+	background: #fff;
 	
-=======
-body, html {
-  height: 100%;
->>>>>>> refs/remotes/origin/master
+	
 }
+
+
 
 /* Profile container */
 .profile {
@@ -29,7 +27,11 @@ body, html {
 .profile-sidebar {
   padding: 20px 0 10px 0;
   background: #fff;
+  
 }
+
+
+
 
 .profile-userpic img {
   float: none;

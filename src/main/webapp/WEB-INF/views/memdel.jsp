@@ -36,6 +36,9 @@
 		margin: auto;
 		margin-right: 110px;
 	}
+	#mid{
+		color: #122f82;
+	}
 
 </style>
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -43,7 +46,7 @@
 <body>
           <div class="panel panel-info">
             <div class="panel-heading">
-              <h2><span class="fa fa-lock fa-1x">   ${mvo.getM_id() }님의 회원 탈퇴</span></h2>
+              <h2><span id="lock"><span class="fa fa-lock fa-1x"></span></span><span id=mid>   ${mvo.getM_id() }</span>님의 회원 탈퇴</h2>
             </div>
      
               <div class="panel-body">

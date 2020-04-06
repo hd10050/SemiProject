@@ -14,12 +14,11 @@
  --%>
 <div class="col-md-9">
 
-            <div class="profile-content" wi>
+            <div class="profile-content">
 			    <form class="form-signin">
 				<div class="panel panel-info">
-            <div class="panel-heading">
-              <h3 class="panel-title">${mvo.getM_id() }님의 정보</h3>
-            </div>	
+              <h3 class="panel-title"><span class="fa fa-lock fa-1x"></span><span id=mid>${mvo.getM_id() }</span>님의 정보</h3>
+           
 					        <div class="panel panel-primary" id="pri">
 					            <h3 class="text-center">
 					                       회원 정보 수정</h3>
