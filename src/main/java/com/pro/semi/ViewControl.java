@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.data.vo.HospitalVO;
@@ -32,11 +33,9 @@ public class ViewControl {
 	StoreVO svo = new StoreVO(); //동물약국
 	ProtectVO pvo = new ProtectVO(); //유기 동물 보호시설
 
-	@RequestMapping("/view.inc")
-	public ModelAndView view() throws Exception{
-
-		//타입
-		String type = Request.getParameter("type");
+	@RequestMapping(value="/view.inc", method=RequestMethod.POST)
+	public ModelAndView view(String type, String nowPage, String RESCUE_INST_TELNO,
+								String LOCPLC_FACLT_TELNO, String ENTRPS_TELNO) throws Exception {
 
 		ModelAndView mv = new ModelAndView();
 
@@ -47,7 +46,6 @@ public class ViewControl {
 			//System.out.println(r_ar.length);
 
 			for(RescueVO r : r_ar) {
-				String RESCUE_INST_TELNO = Request.getParameter("RESCUE_INST_TELNO");
 				// System.out.println("RESCUE_INST_TELNO="+RESCUE_INST_TELNO);
 
 				String RESCUE_INST_TELNO2 = r.getRESCUE_INST_TELNO();
@@ -78,7 +76,6 @@ public class ViewControl {
 			HospitalVO[] h_ar = (HospitalVO[])session.getAttribute("ar");
 
 			for(HospitalVO h : h_ar) {
-				String LOCPLC_FACLT_TELNO = Request.getParameter("LOCPLC_FACLT_TELNO");
 				String LOCPLC_FACLT_TELNO2 = h.getLOCPLC_FACLT_TELNO();
 
 				if(LOCPLC_FACLT_TELNO.equals(LOCPLC_FACLT_TELNO2)) {
@@ -120,7 +117,6 @@ public class ViewControl {
 			StoreVO[] s_ar = (StoreVO[])session.getAttribute("ar");
 
 			for(StoreVO s : s_ar) {
-				String LOCPLC_FACLT_TELNO = Request.getParameter("LOCPLC_FACLT_TELNO");
 				String LOCPLC_FACLT_TELNO2 = s.getLOCPLC_FACLT_TELNO();
 
 				if(LOCPLC_FACLT_TELNO.equals(LOCPLC_FACLT_TELNO2)) {
@@ -161,7 +157,6 @@ public class ViewControl {
 			ProtectVO[] p_ar = (ProtectVO[])session.getAttribute("ar");
 
 			for(ProtectVO p : p_ar) {
-				String ENTRPS_TELNO = Request.getParameter("ENTRPS_TELNO");
 				String ENTRPS_TELNO2 = p.getENTRPS_TELNO();
 
 				if(ENTRPS_TELNO.equals(ENTRPS_TELNO2)) {
@@ -195,10 +190,24 @@ public class ViewControl {
 		mv.addObject("svo", svo);
 		mv.addObject("pvo", pvo);
 		mv.addObject("review_ar", review_ar);
-
+		mv.addObject("nowPage", nowPage);
+		
 		mv.setViewName("view");
 		return mv;
 
+	}
+	
+	@RequestMapping(value="/view.inc", method=RequestMethod.GET)
+	public ModelAndView view2(String type, String nowPage) {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("type", type);
+		mv.addObject("nowPage", nowPage);
+		mv.addObject("RESCUE_INST_TELNO", Request.getParameter("RESCUE_INST_TELNO"));
+		mv.addObject("LOCPLC_FACLT_TELNO", Request.getParameter("LOCPLC_FACLT_TELNO"));
+		mv.addObject("ENTRPS_TELNO", Request.getParameter("ENTRPS_TELNO"));
+		mv.setViewName("view2");
+		
+		return mv;
 	}
 }
 
