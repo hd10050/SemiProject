@@ -93,7 +93,6 @@ public class PagingAction {
 		Object obj = session.getAttribute("mvo");
 		if(obj != null) {
 			MemberVO mvo = (MemberVO)obj;
-			System.out.println("main.inc 로그인 계정 : " + mvo.getM_idx());
 		}
 		// -----------
 		return mv;
@@ -112,7 +111,6 @@ public class PagingAction {
 		Element root = doc.getRootElement();		// XML문서의 RootElement
 		Element head = root.getChild("head");
 		Element cnt = head.getChild("list_total_count");	// 글갯수
-		System.out.println("글갯수:" + cnt.getText());
 		List<Element> i_list = root.getChildren("row");
 		// -------------------------------------------------------
 		RescueVO[] ar = new RescueVO[i_list.size()];
@@ -139,7 +137,6 @@ public class PagingAction {
 		Element root = doc.getRootElement();		// XML문서의 RootElement
 		Element head = root.getChild("head");
 		Element cnt = head.getChild("list_total_count");	// 글갯수
-		System.out.println("글갯수:" + cnt.getText());
 		List<Element> i_list = root.getChildren("row");
 		// -------------------------------------------------------
 		HospitalVO[] ar = new HospitalVO[i_list.size()];
@@ -171,7 +168,6 @@ public class PagingAction {
 		Element root = doc.getRootElement();		// XML문서의 RootElement
 		Element head = root.getChild("head");
 		Element cnt = head.getChild("list_total_count");	// 글갯수
-		System.out.println("글갯수:" + cnt.getText());
 		List<Element> i_list = root.getChildren("row");
 		// -------------------------------------------------------
 		StoreVO[] ar = new StoreVO[i_list.size()];
@@ -202,7 +198,6 @@ public class PagingAction {
 		Element root = doc.getRootElement();		// XML문서의 RootElement
 		Element head = root.getChild("head");
 		Element cnt = head.getChild("list_total_count");	// 글갯수
-		System.out.println("글갯수:" + cnt.getText());
 		List<Element> i_list = root.getChildren("row");
 		// -------------------------------------------------------
 		ProtectVO[] ar = new ProtectVO[i_list.size()];

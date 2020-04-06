@@ -59,8 +59,6 @@
 		<input type="hidden" id="r_snscode" name="r_snscode"/>
 	</form>
 	
-	
-	
 	<%-- 구글 로그인 --%>
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
 	<script>
