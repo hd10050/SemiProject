@@ -66,12 +66,22 @@
 	        ${pageCode }
 	    </ul>
 	</div>
-
-<%	if(mvo != null)  {%>	
-	<div class="btn-toolbar">
-    	<button class="btn btn-primary" onclick="write_btn()">글쓰기</button>
-	</div>
-<%	} %>
+	
+	<c:if test="${type == 4}">
+	<%	if(mvo != null && (mvo.getM_level().equals("1") || mvo.getM_level().equals("2")))  {%>	
+		<div class="btn-toolbar">
+	    	<button class="btn btn-primary" onclick="write_btn()">글쓰기</button>
+		</div>
+	<%	} %>
+	</c:if>
+	
+	<c:if test="${type == 5}">
+	<%	if(mvo != null)  {%>	
+		<div class="btn-toolbar">
+	    	<button class="btn btn-primary" onclick="write_btn()">글쓰기</button>
+		</div>
+	<%	} %>
+	</c:if>
 
 	<form action="write_form.inc" method="post" name="w_form">
 		<input type="hidden" name="type" value="${type }"/>
