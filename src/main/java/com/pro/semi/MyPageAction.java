@@ -64,14 +64,8 @@ public class MyPageAction {
 		Map<String, String> map = new HashMap<String, String>();
 		MemberVO mvo = (MemberVO)session.getAttribute("mvo");
 		
-		System.out.println(pwd);
-		System.out.println(mvo.getM_pw());
-
 		if(mvo.getM_pw().equals(pwd)) {
-	
 			map.put("chk", "1");	
-			System.out.println("같다");
-			
 		}else {
 			map.put("chk", "2");	
 		}

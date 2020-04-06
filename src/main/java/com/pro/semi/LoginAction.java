@@ -34,10 +34,6 @@ public class LoginAction {
 	@ResponseBody
 	@RequestMapping(value = "/login.inc", method = RequestMethod.POST)
 	public Map<String, String> login(String m_id, String m_pw){
-		System.out.println(m_id);
-		System.out.println(m_pw);
-		
-		
 		Map<String, String>map = new HashMap<String, String>();
 		
 		MemberVO mvo = m_dao.login(m_pw, m_id);

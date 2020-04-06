@@ -48,7 +48,6 @@ public class ReviewWriteAction {
 		ModelAndView mv = new ModelAndView();
 		String str = "redirect:/main.inc";
 		ReviewVO vo = new ReviewVO(m_idx, b_idx, "-1", r_content);
-		System.out.println(vo.getR_content());
 		if(reviewDao.writeReview(vo)) {
 			switch(Integer.parseInt(type)){
 			case 4:
