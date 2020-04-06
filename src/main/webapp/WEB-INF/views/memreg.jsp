@@ -125,8 +125,7 @@ body{
 				<option value="2">남자</option>
 			</select>
 		</div> <!-- 성별 -->
-		     
-	                             
+		                      
 	    <div class="form-group">
 	        <button type="button" class="btn btn-primary btn-block" id="sub_btn"> Create Account </button>
 	    </div> <!-- 회원가입 버튼 -->   
