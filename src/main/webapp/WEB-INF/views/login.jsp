@@ -205,9 +205,10 @@
 					data: param
 							
 					}).done(function(res){
+						console.log(res.chk);
 						
-						if(res.chk == "1") {
-							alert("로그인 실패");
+						if(res.chk == 1) {
+							alert("회원 정보가 없습니다.");
 						} else {
 							location.href="main.inc";	
 						}

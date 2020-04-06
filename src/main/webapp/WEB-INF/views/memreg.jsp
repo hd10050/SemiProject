@@ -232,8 +232,6 @@ $(function () {
 						if(data.chk==1){
 							//id가 중복일 때,
 							$("#box_p").html("<pre style='color:red;'>기존에 존재하는 전화번호 입니다.</pre>");
-							
-							chk = false;
 						}else{
 							//id가 중복이 아닐 때,
 							$("#box_p").html("<pre style='color:blue;'>사용 가능한 전화번호 입니다.</pre>");

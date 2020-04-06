@@ -24,20 +24,20 @@
 %>          
 				
 		    <span class="nanav_menu_t"><%=mvo.getM_name() %>님 환영합니다.</span>
-		    <input type="button" value="내정보" onclick="location.href='myPage.inc'" class="nanav_menu_t"/> 
-		    <input type="button" value="로그아웃" onclick="logout()" class="nanav_menu_t"/> 
+		    <i class="fas fa-user"></i><input type="button" value="내정보" onclick="location.href='myPage.inc'" class="nanav_menu_t"/> 
+		    <i class="fas fa-unlock-alt"></i><input type="button" value="로그아웃" onclick="logout()" class="nanav_menu_t"/> 
 <%
 		}else{
 %>		  
-		    <input type="button" value="회원가입" onclick="location.href='reg.inc'" class="nanav_menu_t"/> 
-		    <input type="button" value="로그인" onclick="location.href='login.inc'" class="nanav_menu_t"/> 
+		    <i class="fas fa-user-plus"></i><input type="button" value="회원가입" onclick="location.href='reg.inc'" class="nanav_menu_t"/> 
+		   <i class="fas fa-lock"></i><input type="button" value="로그인" onclick="location.href='login.inc'" class="nanav_menu_t"/> 
 <%		
 		}
 %>		
 	</div> 		
 	
 	<!-- 두번째 검색 기능 --> 
-	<input type="button" value="경기동물보호특공대" onclick="location.href='main.inc'" class="nanav_menu_logo"/> 
+	<input type="image" src="resources/image/logo.png" onclick="location.href='main.inc'" class="nav_logo"/> 
 	
 	<div class="nanavbar_middle"> 
 		<form class="#">
@@ -51,13 +51,14 @@
 			</span>
 		</form>	   
 	</div> 	
-	
 	<!-- 마지막 게시판 뷰 기능 -->
 	<div class="nanavbar_last" >     
             <input type="button" value="야생동물 구조치료기관" onclick="reviewbbs(0)" class="nanav_menu_l"/>
             <input type="button" value="동물 병원" onclick="reviewbbs(1)" class="nanav_menu_l" />
             <input type="button" value="동물 약국" onclick="reviewbbs(2)" class="nanav_menu_l"/>
             <input type="button" value="유기 동물 보호시설" onclick="reviewbbs(3)" class="nanav_menu_l"/> 
+            <input type="button" value="공지사항" onclick="" class="nanav_menu_l"/>
+            <input type="button" value="자유 게시판" onclick="" class="nanav_menu_l"/>
 	</div> 		
 	
 	<form action="reviewBbs.inc" method="post" name="r_form">
