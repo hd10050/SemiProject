@@ -71,7 +71,7 @@
 		</div>
 	</div><%--content end --%>
 </div>
-<jsp:include page="footer.jsp"/><br/><br/>
+
 	
 <script type="text/javascript">
 		
@@ -98,4 +98,5 @@
 
 </script>
 </body>
+<jsp:include page="footer.jsp"/><br/><br/>
 </html>

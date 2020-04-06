@@ -1,11 +1,12 @@
 @charset "UTF-8";
 #footer{
 		margin-top: 100px;
-		margin-bottom: 0px;
-		padding-bottom: 0px;
 		background-color: #d9e1e8;
 		border-color: none;
 		height: 180px;
+		position: absolute;
+		bottom: 0;
+		width: 100%
 	}
 	#footer .footerLogo{
 		float: left;

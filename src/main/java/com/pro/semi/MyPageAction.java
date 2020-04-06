@@ -38,13 +38,23 @@ public class MyPageAction {
 		return mv;
 	}
 
+	//마이페이지의 개인정보 뿌려주는 페이지 이동
+	@RequestMapping("/meminfo.inc")
+	public ModelAndView memInfo() { 
+		ModelAndView mv = new ModelAndView();
+		MemberVO mvo = (MemberVO)session.getAttribute("mvo");
+		mv.addObject("mvo",mvo);
+		mv.setViewName("memInfo");
+		return mv;
+	}
+	
+	
 	
 	//수정 패스워드 확인 페이지로 이동
 	@RequestMapping("/memchk.inc")
 	public String memchk1() {
 		return "memchk";
 	}
-
 
 	//수정 패스워드 확인 페이지에서 수정하기 버튼 눌렀을 시
 	@RequestMapping(value = "/editchk.inc" , method=RequestMethod.POST)
@@ -123,7 +133,7 @@ public class MyPageAction {
 				map.put("chk", "1");	
 				session.removeAttribute("mvo");
 				
-		} else {
+		} else { 
 			map.put("chk", "2");	
 		}
 		return map;
