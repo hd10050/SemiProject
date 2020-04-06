@@ -64,7 +64,7 @@ public class BbsWriteAction {
 			String path = application.getRealPath(uploadPath);
 			vo.setOri_name(mf.getOriginalFilename());
 			vo.setFile_name(FileRenameUtil.CheckFileName(path, vo.getOri_name()));
-			
+
 			// 파일 올리기
 			mf.transferTo(new File(path, vo.getFile_name()));
 		} else {

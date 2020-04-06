@@ -28,4 +28,8 @@ public class HomeController {
 		return mv;
 	}
 	
+	@RequestMapping("/main.inc")
+	public String main_jsp() { return "main"; }
+		
+	
 }

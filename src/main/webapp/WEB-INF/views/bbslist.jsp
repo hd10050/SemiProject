@@ -20,7 +20,7 @@
 		mvo = (MemberVO)obj;				
 	}
 %>
-	<div class="well" style="width: 600px; margin: 0 auto;">
+	<div class="well" style="width: 800px; margin: 0 auto;">
 		<table class="table">
 			<colgroup>
 				<col width="50px"/>			

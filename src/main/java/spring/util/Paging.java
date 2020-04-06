@@ -75,15 +75,12 @@ public class Paging {
 
 		// 페이지 기법에 사용할 코드 StringBuffer에 저장 ---------------------------
 		this.sb = new StringBuffer("");
-		if(!(this.type.equals("4") || this.type.equals("5"))) {
-			sb.append("<ol class='paging'>");
-		}
 
 		if(this.isPrePage) {
 			if(this.type.equals("4") || this.type.equals("5")) {
 				sb.append("<li><a href='bbs.inc?nowPage=");
 			} else {
-				sb.append("<li><a href='main.inc?nowPage=");
+				sb.append("<li><a href='reviewBbs.inc?nowPage=");
 			}
 			if (this.nowPage - this.blockPage < 1) {
 				sb.append("1");
@@ -104,7 +101,7 @@ public class Paging {
 				if(this.type.equals("4") || this.type.equals("5")) {
 					sb.append("<li><a href='bbs.inc?nowPage=");
 				} else {
-					sb.append("<li><a href='main.inc?nowPage=");
+					sb.append("<li><a href='reviewBbs.inc?nowPage=");
 				}
 				sb.append(i);
 				sb.append("&s_type=" + this.type + "'>");
@@ -117,7 +114,7 @@ public class Paging {
 			if(this.type.equals("4") || this.type.equals("5")) {
 				sb.append("<li><a href='bbs.inc?nowPage=");
 			} else {
-				sb.append("<li><a href='main.inc?nowPage=");
+				sb.append("<li><a href='reviewBbs.inc?nowPage=");
 			}
 			if(this.nowPage + this.blockPage > this.totalPage) {
 				sb.append(this.totalPage);
@@ -130,9 +127,6 @@ public class Paging {
 			sb.append("<li class='disable'><a href='#'>&gt;</a></li>");
 		}
 
-		if(!(this.type.equals("4") || this.type.equals("5"))) {
-			this.sb.append("</ol>");
-		}
 	}
 
 }

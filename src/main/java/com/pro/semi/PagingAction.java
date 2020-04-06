@@ -39,7 +39,7 @@ public class PagingAction {
 	@Autowired
 	private HttpSession session;
 	
-	@RequestMapping("/main.inc")
+	@RequestMapping("/reviewBbs.inc")
 	public ModelAndView list(String nowPage, String s_type) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
@@ -86,7 +86,7 @@ public class PagingAction {
 		mv.addObject("rowTotal", rowTotal);
 		mv.addObject("blockList", BLOCK_LIST);
 		mv.addObject("type", type);
-		mv.setViewName("main");
+		mv.setViewName("reviewBbs");
 		request.setAttribute("type", type);
 		request.setAttribute("chk", "0");
 		// ----------

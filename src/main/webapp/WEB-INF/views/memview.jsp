@@ -80,8 +80,8 @@
 			$("#right_content").load("meminfo.inc");
 			
 			});
-				
-		
+
+
 		function changePage(val){
 			if(val == 0){
 				$("#right_content").load("meminfo.inc");

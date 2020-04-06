@@ -134,7 +134,7 @@
 </head>
 <body>
 <div class="container">
-<div class="col-md-5">
+<div class="col-md-5" style="width: 750px;">
     <div class="form-area">  
         <br style="clear:both">
 			<div class="form-group">
@@ -155,7 +155,7 @@
 				<pre>이름 : ${vo.writer }</pre>
 	        </div>
 	        <div class="form-group">
-				<pre>${vo.content }</pre>
+				<pre style="height: auto;">${vo.content }</pre>
 	        </div>
 	        
 <%			
@@ -216,6 +216,7 @@
 <%
 		for(int i = 0 ; i < r_ar.length ; i++) {
 %>
+			<hr/>
 			<li class="comment">
 				<form id="edit_frm<%=i%>" action="c_edit.inc" method="post">
 				<div class="comment-body">
@@ -333,6 +334,6 @@
 				frm.submit();
 			}
 	</script>
+	<jsp:include page="footer.jsp"/><br/><br/><br/>
 </body>
-<jsp:include page="footer.jsp"/><br/><br/><br/>
 </html>

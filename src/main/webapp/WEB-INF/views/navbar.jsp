@@ -54,13 +54,23 @@
 	
 	<!-- 마지막 게시판 뷰 기능 -->
 	<div class="nanavbar_last" >     
-            <input type="button" value="야생동물 구조치료기관" onclick="bbs(0)" class="nanav_menu_l"/>
-            <input type="button" value="동물 병원" onclick="bbs(1)" class="nanav_menu_l" />
-            <input type="button" value="동물 약국" onclick="bbs(2)" class="nanav_menu_l"/>
-            <input type="button" value="유기 동물 보호시설" onclick="bbs(3)" class="nanav_menu_l"/> 
+            <input type="button" value="야생동물 구조치료기관" onclick="reviewbbs(0)" class="nanav_menu_l"/>
+            <input type="button" value="동물 병원" onclick="reviewbbs(1)" class="nanav_menu_l" />
+            <input type="button" value="동물 약국" onclick="reviewbbs(2)" class="nanav_menu_l"/>
+            <input type="button" value="유기 동물 보호시설" onclick="reviewbbs(3)" class="nanav_menu_l"/> 
 	</div> 		
 	
+	<form action="reviewBbs.inc" method="post" name="r_form">
+		<input type="hidden" name="s_type" id="s_type" />
+	</form>
 	
+	<script src="resources/js/jquery-3.4.1.min.js"></script>
+	<script>
+		function reviewbbs(num) {
+			$("#s_type").attr("value", num);
+			r_form.submit();
+		}
+	</script>
   
 </body>
 </html>
