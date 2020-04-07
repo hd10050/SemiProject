@@ -13,13 +13,14 @@
 <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
 </head>
 <body>
-<jsp:include page="navbar.jsp"/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<jsp:include page="navbar.jsp"/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <div id ="list" class="col-sm-12 pull-center well" >
    		<%-- 지도 --%>
    		<%if(request.getAttribute("chk").equals("1")){ %>
-   			<div id="map" style="width:500px;height:400px;"></div>
+   			<div id="map" style="width:500px;height:400px; margin: 0 auto;"></div><br/><br/>
    		<%} %>
    	<div class="well" style="width: 900px; margin: 0 auto;">
     <table class="table">
@@ -122,14 +123,26 @@
              
       <% }%>
    </table>
-   <div class="pagination" style="margin: 0 auto;">
+   <div class="pagination" >
 	    <ul>
 	        ${pageCode }
 	    </ul>
 	</div>
-   </div>
-   
-	
+	<div>
+		<select name="searchSelect" id="searchSelect" style="width: 100px;">   
+			<option value="0"> 지역</option>
+			<option value="1"> 시설명</option>
+		</select>
+		<input type="text" name="searchValue" id="searchValue" placeholder="search..." style="width: 250px;"/>
+        <button id="searchbt" onclick="search()" style="margin-bottom : 11px;"><i class="fas fa-search"></i></button>
+	</div>	
+
+	<form action="search.inc" method="post" name="search_form">
+		<input type="hidden" id="search_value" name="search_value"/>
+		<input type="hidden" id="search_type" name="search_type"/>
+		<input type="hidden" name="s_type" value='${type }'/>
+	</form>
+
    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8d26b23142336a11ee181cc1c827a3ff"></script>
    <script>
 			var container = document.getElementById('map');
@@ -238,6 +251,21 @@
 			    return function() {
 			        infowindow.close();
 			    };
+			}
+		</script>
+		
+		<script src="resources/js/jquery-3.4.1.min.js"></script>
+		<script>
+			function search() {
+				var val = $("#searchValue").val();
+				var index = $("#searchSelect option").index($("#searchSelect option:selected"));
+				if(val.trim().length < 1) {
+					alert("검색값을 입력해주세요.");
+					return;
+				}
+				$("#search_type").attr('value', index);
+				$("#search_value").attr('value', val);
+				search_form.submit();
 			}
 		</script>
 </body>

@@ -23,6 +23,7 @@ import org.jdom2.output.XMLOutputter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.data.vo.HospitalVO;
@@ -38,7 +39,7 @@ public class SearchAction {
 	@Autowired
 	HttpSession session;
 	
-	@RequestMapping(value = "/search.inc")
+	@RequestMapping(value = "/search.inc", method=RequestMethod.POST)
 	public ModelAndView data(String s_type, String search_value, String search_type) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		String type = null;
@@ -64,7 +65,7 @@ public class SearchAction {
 		}
 		// -------------------------------------------------------
 		request.setAttribute("chk", "1");
-		mv.setViewName("main");
+		mv.setViewName("reviewBbs");
 
 		return mv;
 	}
@@ -127,6 +128,7 @@ public class SearchAction {
 			mv.addObject("pageCode", "검색 결과 : " + r_ar.length + " 건");
 			session.setAttribute("ar", r_ar);
 			mv.addObject("length", r_ar.length);
+			
 			break;
 		case 1:
 			List<HospitalVO> h_l = new ArrayList<HospitalVO>();
