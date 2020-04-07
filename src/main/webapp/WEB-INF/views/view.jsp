@@ -541,12 +541,10 @@
 				<input type="hidden" name="r_idx" value='<%=r_ar[i].getR_idx() %>'/>
 				<input type="hidden" name="type" value="<%=request.getParameter("type")%>"/>
 				<input type="hidden" name="b_idx" value='<%=r_ar[i].getB_idx() %>'/>
-			<%if(mvo != null){
-				if(r_ar[i].getMvo().getM_idx().equals(mvo.getM_idx())) { %>
+<%			if(mvo != null && r_ar[i].getMvo().getM_idx().equals(mvo.getM_idx())) { %>
 				<button type=button class="btn btn-primary" id="ans_edit<%=i%>" onclick="ans_edit('<%=i%>', '<%=r_ar[i].getR_idx()%>', this.form)">수정</button>
 				<button type=button class="btn btn-danger" id="ans_del<%=i%>" onclick="ans_del('<%=r_ar[i].getR_idx() %>','<%=r_ar[i].getB_idx()%>', '<%=request.getParameter("type")%>')">삭제</button>
-			<%}
-			}%>
+<%			} %>
 			</div>
 			</form>
 			</li>

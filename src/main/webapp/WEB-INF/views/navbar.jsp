@@ -47,19 +47,23 @@
 				        <button id="searchbt" class="nanav_search_icon" onclick="search()"><i class="fas fa-search"></i></button>
 			</span>
 		</form>	   
-	</div> 	
+	</div>
+
 	<!-- 마지막 게시판 뷰 기능 -->
 	<div class="nanavbar_last" >     
             <input type="button" value="야생동물 구조치료기관" onclick="reviewbbs(0)" class="nanav_menu_l"/>
             <input type="button" value="동물 병원" onclick="reviewbbs(1)" class="nanav_menu_l" />
             <input type="button" value="동물 약국" onclick="reviewbbs(2)" class="nanav_menu_l"/>
             <input type="button" value="유기 동물 보호시설" onclick="reviewbbs(3)" class="nanav_menu_l"/> 
-            <input type="button" value="공지사항" onclick="" class="nanav_menu_l"/>
-            <input type="button" value="자유 게시판" onclick="" class="nanav_menu_l"/>
+            <input type="button" value="공지사항" onclick="bbs(4)" class="nanav_menu_l"/>
+            <input type="button" value="자유 게시판" onclick="bbs(5)" class="nanav_menu_l"/>
 	</div> 		
 	
 	<form action="reviewBbs.inc" method="post" name="r_form">
 		<input type="hidden" name="s_type" id="s_type" />
+	</form>
+	<form action="bbs.inc" method="post" name="b_form">
+		<input type="hidden" name="type" id="type" />
 	</form>
 	
 	<script src="resources/js/jquery-3.4.1.min.js"></script>
@@ -67,6 +71,10 @@
 		function reviewbbs(num) {
 			$("#s_type").attr("value", num);
 			r_form.submit();
+		}
+		function bbs(num) {
+			$("#type").attr("value", num);
+			b_form.submit();
 		}
 	</script>
   

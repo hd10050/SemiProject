@@ -26,7 +26,6 @@
 	border: 1px solid GREY;
 }
 <%------%>
-
 .panel-shadow {
     box-shadow: rgba(0, 0, 0, 0.3) 7px 7px 7px;
 }
@@ -42,7 +41,6 @@
   background-color: #fff;
   border-color: #ddd;
 }
-
 .post .post-heading {
   height: 95px;
   padding: 20px 15px;
@@ -273,18 +271,15 @@
 					go_form.submit();
 				}
 			});
-
 			$("#edit_btn").click(function() {
 				$("#go_form").attr("action", "edit_form.inc");
 				go_form.submit();
 			});
-
 			$("#list_btn").click(function() {
 				$("#go_form").attr("action", "bbs.inc");
 				go_form.submit();
 			});
 		});
-
 		function fDown(fname) {
 			document.go_form.action = "FileDownload";
 			document.go_form.f_name.value = fname;
@@ -304,7 +299,6 @@
 				if (!(confirm('정말 삭제하시겠습니까?'))) {
 					return;
 				}
-
 				var Param ="r_idx="+encodeURIComponent(r_idx);
 				$.ajax({
 					url: "r_del.inc",
@@ -325,18 +319,17 @@
 					console.log(err)
 				});
 			}
-
 			function ans_edit(num, r_idx, frm){
 				var content = $("#content"+num).html();
-				
+
 				$("#content"+num).html("<input class='form-control' name='r_content' id='r_content' type='text' style='width: 500px' value='" + content + "'/>");
 				$("#ans_edit"+num).attr("onclick", "ans_editok("+ num +")", frm);
 			}
-
 			function ans_editok(num){
 				var frm = $("#edit_frm"+num);
 				frm.submit();
 			}
 	</script>
+
 </body>
 </html>
