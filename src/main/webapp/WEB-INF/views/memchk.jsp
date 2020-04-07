@@ -37,6 +37,10 @@
 		margin-right: 110px;
 	}
 	
+	#mid2{
+		color: #122f82;
+	}
+	
 
 </style>
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -46,7 +50,7 @@
       
           <div class="panel panel-info">
             <div class="panel-heading">
-              <h2><span class="fa fa-lock fa-1x">   ${mvo.getM_id() }님의 정보 수정</span></h2>
+              <h2><span class="fa fa-lock fa-1x"></span><span id=mid2>    ${mvo.getM_id() }</span>님의 정보 수정</h2>
             </div>
      
               <div class="panel-body">
@@ -60,7 +64,7 @@
                         </div>
                         <br/>
                       <div class="form-group">
-                        <input name="recover-submit" class="btn btn-lg btn-primary btn-block" value="비밀번호 확인" type="submit" id="button">
+                        <input name="recover-submit" class="btn btn-lg btn-primary btn-block" value="수정하기" type="submit" id="button">
                       </div>
                        </div>
                     	</div>  
@@ -79,7 +83,7 @@
 		$(function() {
 			
 			$("#button").bind("click", function() {
-
+				
 				//유효성 검사
 				if($("#pwd").val() == ""){
 					alert("비밀번호를 입력해주세요");
@@ -105,7 +109,7 @@
 						
 					}else{
 						alert("실패!");
-					}
+					};
 					
 				}).fail(function(err) {
 					

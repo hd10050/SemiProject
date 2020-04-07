@@ -13,9 +13,11 @@
 <link rel="stylesheet" href="resources/css/editform.css"/>
 
 </head>
+<jsp:include page="navbar.jsp"/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <body>
+
 <div class="container">
-    <div class="row profile">
+    <div class="row_profile">
     	<div class="col-md-3">
 			<div class="profile-sidebar">
 				<!-- SIDEBAR USERPIC -->
