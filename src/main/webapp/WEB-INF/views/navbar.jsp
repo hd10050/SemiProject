@@ -7,7 +7,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-<link rel="stylesheet" href="resources/css/navbar.css">
+<link rel="stylesheet" href="resources/css/header.css">
+<style type="text/css">
+
+</style>
 </head>
 <body>
 	<!-- 첫번째 회원정보 -->
@@ -34,36 +37,24 @@
 	</div> 		
 	
 	<!-- 두번째 검색 기능 --> 
-	<input type="image" src="resources/image/logo.png" onclick="location.href='main.inc'" class="nav_logo"/> 
 	
 	<div class="nanavbar_middle"> 
-		<form class="#">
-			<span class="search123">
-				      <select name="searchSelect" id="searchSelect"  class="nanav_menu_m">   
-				         <option value=""> 지역</option>
-				         <option value=""> 시설명</option>
-				       </select>
-				        <input type="text"  class="nanav_menu_m" name="searchValue" id="searchValue" placeholder="search..." style="width: 250px;"/>
-				        <button id="searchbt" class="nanav_search_icon" onclick="search()"><i class="fas fa-search"></i></button>
-			</span>
-		</form>	   
+		<input type="image" src="resources/image/logo.png" onclick="location.href='main.inc'" class="nav_logo"/> 
 	</div>
-
+	 	
 	<!-- 마지막 게시판 뷰 기능 -->
+	
 	<div class="nanavbar_last" >     
             <input type="button" value="야생동물 구조치료기관" onclick="reviewbbs(0)" class="nanav_menu_l"/>
             <input type="button" value="동물 병원" onclick="reviewbbs(1)" class="nanav_menu_l" />
             <input type="button" value="동물 약국" onclick="reviewbbs(2)" class="nanav_menu_l"/>
             <input type="button" value="유기 동물 보호시설" onclick="reviewbbs(3)" class="nanav_menu_l"/> 
-            <input type="button" value="공지사항" onclick="bbs(4)" class="nanav_menu_l"/>
-            <input type="button" value="자유 게시판" onclick="bbs(5)" class="nanav_menu_l"/>
+            <input type="button" value="공지사항" onclick="" class="nanav_menu_l"/>
+            <input type="button" value="자유 게시판" onclick="" class="nanav_menu_l"/>
 	</div> 		
 	
 	<form action="reviewBbs.inc" method="post" name="r_form">
 		<input type="hidden" name="s_type" id="s_type" />
-	</form>
-	<form action="bbs.inc" method="post" name="b_form">
-		<input type="hidden" name="type" id="type" />
 	</form>
 	
 	<script src="resources/js/jquery-3.4.1.min.js"></script>
@@ -71,10 +62,6 @@
 		function reviewbbs(num) {
 			$("#s_type").attr("value", num);
 			r_form.submit();
-		}
-		function bbs(num) {
-			$("#type").attr("value", num);
-			b_form.submit();
 		}
 	</script>
   

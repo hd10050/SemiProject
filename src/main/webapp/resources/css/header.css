@@ -1,6 +1,5 @@
 @charset "UTF-8";
 .nav_logo{
-	border: 1px solid red;
 	position: absolute;
 	left: 850px;
 }
@@ -22,7 +21,6 @@
   top: 40px; /* Position the navbar at the top of the page */
   background-color: #fff;
   text-align: center;
-  border: 1px solid pink;
 }
 .nanavbar_last {
   width: 100%; /* Full width */

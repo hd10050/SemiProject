@@ -82,7 +82,7 @@ body{
 			<div class="input-group-prepend">
 			    <span class="input-group-text"><i class="fas fa-id-card"></i> </span>
 			 </div>
-	        <input class="form-control" placeholder="아이디(4자 이상 입력하시오.)" type="text" id="id" name="id" value="${regist_vo.m_id }">
+	        <input class="form-control" placeholder="아이디(4자 이상 입력하시오.)" type="text" id="id" value="${regist_vo.m_id }">
 	        <div id="box" class="box"></div>
 	    </div> <!-- 아이디 -->
 	    
@@ -111,7 +111,7 @@ body{
 	    	<div class="input-group-prepend">
 			    <span class="input-group-text"> <i class="fas fa-mobile-alt"></i> </span>
 			</div>
-	    	<input class="form-control" placeholder="전화번호('-'없이 붙여 쓰시오.)" type="text" id="phone"  maxlength="11">
+	    	<input class="form-control" placeholder="전화번호 (' - '없이 붙여 쓰시오.)" type="text" id="phone"  maxlength="11">
 	    	<div id="box_p" class="box"></div>
 	    </div> <!-- 전화번호 -->
 	    
@@ -126,11 +126,11 @@ body{
 			</select>
 		</div> <!-- 성별 -->
 		                      
-	    <div class="form-group">
-	        <button type="button" class="btn btn-primary btn-block" id="sub_btn"> Create Account </button>
+	    <div class="form-group" style="padding-top: 20px;">
+	        <button type="button" class="btn btn-primary btn-block" id="sub_btn" style="background: #286386;"> 등 록 </button>
 	    </div> <!-- 회원가입 버튼 -->   
   
-	    <p class="text-center" style="font-weight: bold;">기존 회원 이십니까? <a href="login.inc">로그인</a> </p>
+	    <p class="text-center" style="font-weight: bold; font-size: 13px; padding-top: 20px;">기존 회원 이십니까? <a href="login.inc">로그인</a> </p>
 	                                                                     
 </form>
 </article>
@@ -194,12 +194,12 @@ $(function () {
 					}).done(function (data) {
 						if(data.chk==1){
 							//id가 중복일 때,
-							$("#box").html("<pre style='color:red;'>기존에 존재하는 아이디 입니다.</pre>");
+							$("#box").html("<pre style='color: red;'>기존에 존재하는 아이디 입니다.</pre>");
 							chk = false;
 							
 						}else{
 							//id가 중복이 아닐 때,
-							$("#box").html("<pre style='color:blue;'>사용 가능한 아이디 입니다.</pre>");
+							$("#box").html("<pre style='color: blue;'>사용 가능한 아이디 입니다.</pre>");
 						}
 						
 						
