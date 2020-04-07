@@ -164,12 +164,14 @@
 			if(obj != null) {
 				mvo = (MemberVO)obj;
 %>
-<%				if(mvo != null && (mvo.getM_level().equals("1") || mvo.getM_level().equals("2")))  {%>
-					<button type="button" id="del_btn" class="btn btn-danger pull-right">삭제</button>
-<% 				} else if(bvo.getM_idx().equals(mvo.getM_idx())) { %>
+<%				if(bvo.getM_idx().equals(mvo.getM_idx())) {%>
 					<button type="button" id="del_btn" class="btn btn-danger pull-right">삭제</button>
 					<button type="button" id="edit_btn" class="btn btn-primary pull-right" style="margin-left: 10px; margin-right: 10px" onclick="sendData()">수정</button>
-<%				}
+<% 				} else {
+					if(bvo.getM_idx().equals(mvo.getM_idx())) { %>
+					<button type="button" id="del_btn" class="btn btn-danger pull-right">삭제</button>
+<%					}
+				}
 			}
 %>
 			<button type="button" id="list_btn" class="btn btn-white pull-right">목록</button>
@@ -229,12 +231,14 @@
 					<input type="hidden" name="type" value="${type }"/>
 					<input type="hidden" name="nowPage" value="${nowPage }"/>
 					<input type="hidden" name="b_idx" value='<%=r_ar[i].getB_idx() %>'/>
-<%				if(mvo != null && (mvo.getM_level().equals("1") || mvo.getM_level().equals("2")))  {%>
-					<button type=button class="btn btn-danger" id="ans_del<%=i%>" onclick="ans_del('<%=r_ar[i].getR_idx() %>','<%=r_ar[i].getB_idx()%>', '<%=request.getParameter("type")%>')">삭제</button>
-<%				} else if(mvo != null  && r_ar[i].getMvo().getM_idx().equals(mvo.getM_idx())){ %>
+<%				if(mvo != null  && r_ar[i].getMvo().getM_idx().equals(mvo.getM_idx())) {%>
 					<button type=button class="btn btn-primary" id="ans_edit<%=i%>" onclick="ans_edit('<%=i%>', '<%=r_ar[i].getR_idx()%>', this.form)">수정</button>
 					<button type=button class="btn btn-danger" id="ans_del<%=i%>" onclick="ans_del('<%=r_ar[i].getR_idx() %>','<%=r_ar[i].getB_idx()%>', '<%=request.getParameter("type")%>')">삭제</button>
-<%				} %>
+<%				} else {
+					if(mvo != null && (mvo.getM_level().equals("1") || mvo.getM_level().equals("2"))){ %>
+						<button type=button class="btn btn-danger" id="ans_del<%=i%>" onclick="ans_del('<%=r_ar[i].getR_idx() %>','<%=r_ar[i].getB_idx()%>', '<%=request.getParameter("type")%>')">삭제</button>
+<%					}
+				}%>
 				</div>
 				</form>
 			</li>
