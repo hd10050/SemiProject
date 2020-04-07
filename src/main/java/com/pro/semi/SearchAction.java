@@ -40,9 +40,6 @@ public class SearchAction {
 	
 	@RequestMapping(value = "/search.inc")
 	public ModelAndView data(String s_type, String search_value, String search_type) throws Exception {
-		System.out.println(s_type + " = s_type");
-		System.out.println(search_value + " = search_value");
-		System.out.println(search_type + " = search_type");
 		ModelAndView mv = new ModelAndView();
 		String type = null;
 		if(s_type == null) {
@@ -50,7 +47,6 @@ public class SearchAction {
 		} else {
 			type = s_type;
 		}
-		System.out.println(type);
 		request.setAttribute("type", type);
 		switch(Integer.parseInt(type)) {
 		case 0 :

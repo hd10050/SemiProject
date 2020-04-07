@@ -16,14 +16,13 @@
 </style>
 </head>
 <body>
-<jsp:include page="navbar.jsp"/><br/><br/><br/>
+<jsp:include page="navbar.jsp"/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
-<div class="container">
+<div class="container" style="width: 600px;">
     <div class="row">
-    	<div class="col-md-4 col-md-offset-4">
     		<div class="panel panel-default">
 			  	<div class="panel-heading">
-			    	<h3 class="panel-title">Login via site</h3>
+			    	<h3 class="panel-title">Login</h3>
 			 	</div>
 			  	<div class="panel-body">
 			    	<form accept-charset="UTF-8" role="form">
@@ -43,13 +42,13 @@
 			    	</fieldset>
 			      	</form>
                       <hr/>
-                    <center><h4>OR</h4></center>
-                    <div class="g-signin2" data-onsuccess="onSignIn"></div>
-                    <div id="naverIdLogin"></div>
-					<a id="kakao-login-btn"></a>
+                    <center><h4>OR</h4>
+                    <div class="g-signin2" data-onsuccess="onSignIn" style="width: 300px;"></div>
+                    <div id="naverIdLogin" style="width: 300px;"></div>
+					<a id="kakao-login-btn" style="width: 300px;"></a>
+					</center>
 			    </div>
 			</div>
-		</div>
 	</div>
 </div>
 	<form action="snslogin.inc" method="post" name="snsform">
@@ -59,8 +58,6 @@
 		<input type="hidden" id="m_phone" name="m_phone"/>
 		<input type="hidden" id="r_snscode" name="r_snscode"/>
 	</form>
-	
-	
 	
 	<%-- 구글 로그인 --%>
 	<script src="https://apis.google.com/js/platform.js" async defer></script>

@@ -14,7 +14,7 @@
 				<img src="" alt="회사 이름">
 			</span>
 			<div class="addWrap">
-				<a href="">개인정보처리방침</a>
+				<a href="#">개인정보처리방침</a>
 				<address>
 					서울특별시 금천구 가산디지털1로 186(가산동) 제이플라츠 8층, TEL: 1500-1500, FAX: 1500-1500,
 					<p class="copyright">Copyright(C) 2020 All Right Reserved.</p>
