@@ -22,8 +22,8 @@
 </style>
 </head>
 <body>
+<jsp:include page="navbar.jsp"/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <div class="container">
-<div class="col-md-5">
     <div class="form-area">  
         <form action="write.inc" method="post" encType="multipart/form-data" name="write_form">
         <br style="clear:both">
@@ -43,7 +43,6 @@
 			<button type="button" id="list_btn" class="btn btn-white pull-right" onclick="go_list('${type }', '${nowPage }')">목록</button>
         </form>
     </div>
-</div>
 </div>
 
 	<script src="resources/js/jquery-3.4.1.min.js"></script>
@@ -110,6 +109,7 @@
 			location.href = "bbs.inc?type=" + type + "&nowPage=" + nowPage;
 		}
 	</script>
+	<br/><br/><br/><br/><br/><br/><br/><br/>
+<jsp:include page="footer.jsp"/>
 </body>
-<jsp:include page="footer.jsp"/><br/><br/><br/>
 </html>
