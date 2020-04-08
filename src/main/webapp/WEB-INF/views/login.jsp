@@ -3,54 +3,130 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 <meta charset="UTF-8">
 <meta name="google-signin-client_id" content="133953135897-7njkqdpmu7gu7os61f48lpii4jovdt1d.apps.googleusercontent.com">
+
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+
 <title>Insert title here</title>
 <style type="text/css">
+.divider-text {
+    position: relative;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.divider-text span {
+    padding: 7px;
+    font-size: 12px;
+    position: relative;   
+    z-index: 2;
+}
+.divider-text:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    top: 55%;
+    left: 0;
+    z-index: 1;
+}
 
+.btn-facebook {
+    background-color: #405D9D;
+    color: #fff;
+}
+.btn-twitter {
+    background-color: #42AEEC;
+    color: #fff;
+}
+.btn-google {
+    background-color: red;
+    color: #fff;
+}
+.btn-naver {
+    background-color: green;
+    color: #fff;
+}
+body{
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	padding-top: 160px;
+}
+.box{
+	display: inline-block;
+	position: absolute;
+	left: 380px;
+	top: 9px;
+	font-size: 14px;
+	font-family: Georgia, "Times New Roman", serif;
+	font-weight: bold;
+}
+.input-group-text{
+	width: 40px;
+}
 </style>
 </head>
-<body>
-<jsp:include page="navbar.jsp"/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
-<div class="container" style="width: 600px;">
-    <div class="row">
-    		<div class="panel panel-default">
-			  	<div class="panel-heading">
-			    	<h3 class="panel-title">Login</h3>
-			 	</div>
-			  	<div class="panel-body">
-			    	<form accept-charset="UTF-8" role="form">
-                    <fieldset>
-			    	  	<div class="form-group">
-			    		    <input class="form-control" placeholder="아이디" name="m_id" id="m_id" type="text">
-			    		</div>
-			    		<div class="form-group">
-			    			<input class="form-control" placeholder="비밀번호" name="m_pw" id="m_pw" type="password" value="">
-			    		</div>
-			    		<div class="checkbox">
-			    	    	<label>
-			    	    		<input name="remember" type="checkbox" value="Remember Me"> Remember Me
-			    	    	</label>
-			    	    </div>
-			    		<input class="btn btn-lg btn-success btn-block" type="button" value="Login" id="login_btn">
-			    	</fieldset>
-			      	</form>
-                      <hr/>
-                    <center><h4>OR</h4>
-                    <div class="g-signin2" data-onsuccess="onSignIn" style="width: 300px;"></div>
-                    <div id="naverIdLogin" style="width: 300px;"></div>
-					<a id="kakao-login-btn" style="width: 300px;"></a>
-					</center>
-			    </div>
+<body>
+<jsp:include page="navbar.jsp"/><br/><br/><br/>
+
+<div class="">
+<article class="card-body mx-auto" style="max-width: 400px;">
+	<h4 class="card-title mt-3 text-center">LOGIN</h4>
+	<p class="text-center"></p>
+	<p class="divider-text">
+        <hr/>
+    </p>
+    
+	<form accept-charset="UTF-8" role="form">
+		<input type="hidden" id="snscode" value="${regist_vo.r_snscode }"/>
+		    
+	    <div class="form-group input-group">
+			<div class="input-group-prepend">
+			    <span class="input-group-text"><i class="fas fa-user"></i> </span>
+			 </div>
+	        <input class="form-control" placeholder="아이디" type="text" id="m_id" name="m_id"  value="${regist_vo.m_id }">
+	        <div id="box" class="box"></div>
+	    </div> <!-- 아이디 -->
+	    
+	    <div class="form-group input-group">
+	    	<div class="input-group-prepend">
+			    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 			</div>
+	        <input class="form-control" placeholder="비밀번호" type="password" id="m_pw" name="m_pw" value="${regist_vo.m_pw }">
+	    </div> <!-- 비밀번호 -->
+		
+		<div class="form-group" style="padding-top: 20px;">
+	        <button type="button" class="btn btn-primary btn-block" id="login_btn" style="background: #286386;"> 로그인 </button>
+	    </div> <!-- 회원가입 버튼 -->
+	</form>
+<!-- ======================================================================== -->
+	<hr/>
+    <center>
+    <h6 style="color: gray; font-weight: bold;">OR</h6>
+    
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+        <div id="naverIdLogin"></div>
+	    <a id="kakao-login-btn" ></a>
+	    
+	</center>
+	<!-- 
+	<p>		
+		<a href="" class="btn btn-block btn-twitter"  style="background: red;"> <i class="fab fa-google"></i> 구글 계정으로 로그인</a>
+		<a href="" class="btn btn-block btn-twitter" style="background: green;"> <img src="resources/css/images/naver_logo.png" alt="Avatar" class="image"> 네이버 계정으로 로그인</a>
+		<a href="" class="btn btn-block btn-facebook" style="background: #ffc107;"><i class="fas fa-comment"></i> 카카오 계정으로 로그인</a>
+	</p>
+	 -->
+	</article>
 	</div>
-</div>
+	
 	<form action="snslogin.inc" method="post" name="snsform">
 		<input type="hidden" id="m_id2" name="m_id"/>
 		<input type="hidden" id="m_name" name="m_name"/>
@@ -62,6 +138,7 @@
 	<%-- 구글 로그인 --%>
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
 	<script>
+	
 		var isButtonClicked = false;
 		document.querySelector('.g-signin2').addEventListener('click', function() { 
 		    isButtonClicked = true; 
@@ -220,5 +297,6 @@
 	</script>
 	
 </body>
-<jsp:include page="footer.jsp"/><br/><br/><br/>
+
+<br/><br/><br/><jsp:include page="footer.jsp"/>
 </html>
