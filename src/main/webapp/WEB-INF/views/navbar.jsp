@@ -156,23 +156,21 @@
             
 	</ul> 		
 
-	<form action="reviewBbs.inc" method="post" name="r_form">
+	<form action="reviewBbs.inc" method="post" name="r_form" id="r_form">
 		<input type="hidden" name="s_type" id="s_type" />
-	</form>
-	
-	<form action="bbs.inc" method="post" name="b_form">
-		<input type="hidden" name="type" id="type" />
 	</form>
 	
 	<script src="resources/js/jquery-3.4.1.min.js"></script>
 	<script>
 		function reviewbbs(num) {
 			$("#s_type").attr("value", num);
+			$("#r_form").attr("action", "reviewBbs.inc");
 			r_form.submit();
 		}
 		function bbs(num) {
-			$("#type").attr("value", num);
-			b_form.submit();
+			$("#s_type").attr("value", num);
+			$("#r_form").attr("action", "bbs.inc");
+			r_form.submit();
 		}
 		
 		//로그아웃 
