@@ -103,7 +103,7 @@
 	                       		Object obj = session.getAttribute("mvo");
 	                       		MemberVO mvo = (MemberVO)obj;    
 	                       		String gender = null;
-
+  
 	                       		if(mvo.getM_gender().equals("1")){
 	                       			gender = "여자";
 	                       			
