@@ -1,6 +1,8 @@
 package mybatis.dao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -12,6 +14,32 @@ public class MemDAO {
 	
 	@Autowired
 	private SqlSessionTemplate ss;
+	
+	// 회원 목록
+	public MemberVO[] mem_list() {
+		MemberVO[] ar = null;
+		
+		List<MemberVO> list = new ArrayList<MemberVO>();
+		list = ss.selectList("mem.mem_list");
+		if(list.size() > 0) {
+			ar = new MemberVO[list.size()];
+			ar = list.toArray(ar);
+		}
+		
+		return ar;
+	}
+	
+	// 권한 수정
+	public boolean mem_change(MemberVO vo) {
+		boolean chk = false;
+		
+		int i = ss.update("mem.mem_change", vo);
+		if(i > 0) {
+			chk = true;
+		}
+		
+		return chk;
+	}
 	
    //아이디 중복 체크
    public MemberVO idchk(String id) {

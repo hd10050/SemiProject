@@ -43,11 +43,13 @@ public class BbsAction {
 	private HttpSession session;
 	
 	@RequestMapping("/bbs.inc")
-	public ModelAndView list(String nowPage, String type) throws Exception {
+	public ModelAndView list(String nowPage, String s_type) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
 		if(nowPage == null) { this.nowPage = 1; }
 		else { this.nowPage = Integer.parseInt(nowPage); }
+		
+		String type = s_type;
 		
 		// ---------------------------------------
 		Paging page = null;

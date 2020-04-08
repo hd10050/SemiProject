@@ -12,7 +12,7 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 <body>
-<br/><br/><br/><br/><br/><br/><br/><br/><jsp:include page="navbar.jsp"/><br/><br/>
+<jsp:include page="navbar.jsp"/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <%
 	Object obj = session.getAttribute("mvo");
 	MemberVO mvo = null;
@@ -21,7 +21,8 @@
 		mvo = (MemberVO)obj;				
 	}
 %>
-	<div class="well" style="width: 800px; margin: 0 auto;">
+	<div class="col-sm-12 pull-center well">
+	<div class="well"  style="width: 800px; margin: 0 auto;">
 		<table class="table">
 			<colgroup>
 				<col width="50px"/>			
@@ -82,6 +83,7 @@
 		<%	} %>
 		</c:if>
 	</div>
+	</div>
 	
 	<form action="write_form.inc" method="post" name="w_form">
 		<input type="hidden" name="type" value="${type }"/>
@@ -109,5 +111,4 @@
 	</script>
 	
 </body>
-<jsp:include page="footer.jsp"/><br/><br/><br/>
 </html>

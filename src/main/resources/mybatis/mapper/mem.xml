@@ -3,7 +3,20 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mem">
-
+	
+	<!-- 회원 목록 -->
+	<select id="mem_list" resultType="com.data.vo.MemberVO">
+		select * from member_table
+		order by m_idx
+	</select>
+	
+	<!-- 회원 탈퇴 -->
+	<update id="mem_change" parameterType="com.data.vo.MemberVO">
+		update member_table
+		set m_level = #{m_level}
+		where m_idx = #{m_idx}
+	</update>
+	
 	<!-- 아이디 중복 체크 -->
    <select id="idchk" parameterType="String" resultType="com.data.vo.MemberVO">
       select * from member_table

@@ -514,7 +514,7 @@
 				<%
 						} else {
 				%>			
-							<button type=button class="btn btn-primary" onclick="alert('로그인 후 이용해 주세요');" style="margin-left: 30px">작성</button>
+							<button type=button class="btn btn-primary" onclick="alert('로그인 후 이용해 주세요');" style="margin-left: 90px">작성</button>
 				<%
 						}
 				%>
@@ -598,28 +598,24 @@
 			if(type == 0) {
 				positions = [
 				    {
-				    	title: '실험', 
 				    	latlng: new kakao.maps.LatLng($("#r_y").val(), $("#r_x").val())
 				    }
 				];
 			} else if(type == 1) {
 				positions = [
 				    {
-				    	title: '실험', 
 				    	latlng: new kakao.maps.LatLng($("#h_y").val(), $("#h_x").val())
 				    }
 				];
 			} else if(type == 2) {
 				positions = [
 				    {
-				    	title: '실험', 
 				    	latlng: new kakao.maps.LatLng($("#s_y").val(), $("#s_x").val())
 				    }
 				];
 			} else if(type == 3) {
 				positions = [
 				    {
-				    	title: '실험', 
 				    	latlng: new kakao.maps.LatLng($("#p_y").val(), $("#p_x").val())
 				    }
 				];

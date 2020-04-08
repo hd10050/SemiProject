@@ -89,7 +89,11 @@ public class Paging {
 			}
 			sb.append("&s_type=" + this.type + "'>&lt;</a></li>");
 		} else { 
-			sb.append("<li class='disable'><a href='#'>&lt;</a></li>");
+			if(this.type.equals("4") || this.type.equals("5")) {
+				sb.append("<li><a href='bbs.inc?nowPage=" + 1 + "&s_type=" + this.type + "'>&lt;</a></li>");
+			} else {
+				sb.append("<li><a href='reviewBbs.inc?nowPage=" + 1 + "&s_type=" + this.type + "'>&lt;</a></li>");
+			}
 		}
 
 		for(int i = this.startPage ; i <= endPage ; i++) {
@@ -124,7 +128,11 @@ public class Paging {
 			
 			sb.append("&s_type=" + this.type + "'>&gt;</a></li>");
 		} else { 
-			sb.append("<li class='disable'><a href='#'>&gt;</a></li>");
+			if(this.type.equals("4") || this.type.equals("5")) {
+				sb.append("<li><a href='bbs.inc?nowPage=" + this.totalPage + "&s_type=" + this.type + "'>&gt;</a></li>");
+			} else {
+				sb.append("<li><a href='reviewBbs.inc?nowPage=" + this.totalPage + "&s_type=" + this.type + "'>&gt;</a></li>");
+			}
 		}
 
 	}
