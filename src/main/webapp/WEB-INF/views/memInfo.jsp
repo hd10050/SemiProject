@@ -106,7 +106,7 @@
   
 	                       		if(mvo.getM_gender().equals("1")){
 	                       			gender = "여자";
-	                       			
+	                       			 
 	                       		}else if(mvo.getM_gender().equals("2")){
 	                       			gender = "남자";	
 	                       		};
