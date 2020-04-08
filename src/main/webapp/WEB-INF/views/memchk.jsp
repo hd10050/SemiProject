@@ -60,11 +60,11 @@
                       <div class="form-group">
                         <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-lock color-blue"></i></span>
-                          <input id="email" name="email" placeholder="비밀번호를 입력하세요." class="form-control"  type="password">
+                          <input id="pwd" name="pwd" placeholder="비밀번호를 입력하세요." class="form-control"  type="password">
                         </div>
                         <br/>
                       <div class="form-group">
-                        <input name="recover-submit" class="btn btn-lg btn-primary btn-block" value="수정하기" type="submit" id="button">
+                        <input name="recover-submit" class="btn btn-lg btn-primary btn-block" value="수정하기" type="button" id="button">
                       </div>
                        </div>
                     	</div>  
