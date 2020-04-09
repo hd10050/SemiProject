@@ -131,6 +131,6 @@
 			search_form.submit();
 		}
    </script>
-   <br/><br/><jsp:include page="footer.jsp"/><br/><br/><br/>
-</body>
+   <br/><br/><jsp:include page="footer.jsp"/>
+   </body>
 </html>

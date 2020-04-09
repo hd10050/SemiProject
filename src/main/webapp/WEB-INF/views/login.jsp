@@ -75,7 +75,7 @@ body{
 </head>
 
 <body>
-<jsp:include page="navbar.jsp"/><br/><br/><br/>
+<jsp:include page="navbar.jsp"/><br/><br/><br/><br/><br/>
 
 <div class="">
 <article class="card-body mx-auto" style="max-width: 400px;">
@@ -109,14 +109,16 @@ body{
 	</form>
 <!-- ======================================================================== -->
 	<hr/>
-    <center>
-    <h6 style="color: gray; font-weight: bold;">OR</h6>
-    
+    <h6 style="color: gray; font-weight: bold; text-align: center;">OR</h6>
+    <div style="margin: 0 auto;">
         <div class="g-signin2" data-onsuccess="onSignIn"></div>
         <div id="naverIdLogin"></div>
 	    <a id="kakao-login-btn" ></a>
 	    
-	</center>
+	    <button class="g-signin2" data-onsuccess="onSignIn" style="margin: 0 auto;"></button>
+	    <button id="naverIdLogin" styl></button>
+	    <button id="kakao-login-btn"></button>
+	</div>
 	<!-- 
 	<p>		
 		<a href="" class="btn btn-block btn-twitter"  style="background: red;"> <i class="fab fa-google"></i> 구글 계정으로 로그인</a>
@@ -298,5 +300,5 @@ body{
 	
 </body>
 
-<br/><br/><br/><jsp:include page="footer.jsp"/>
+<jsp:include page="footer.jsp"/>
 </html>

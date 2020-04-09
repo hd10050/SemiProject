@@ -6,6 +6,7 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+<html>
 <head>
 <style type="text/css">
 .divider-text {
@@ -64,7 +65,7 @@ body{
 }
 </style>
 </head>
-<jsp:include page="navbar.jsp"/><br/><br/><br/>
+<jsp:include page="navbar.jsp"/><br/><br/><br/><br/><br/>
 
 <body>
 <div class="">
@@ -333,7 +334,9 @@ $(function () {
 });
 </script>
 </body>
-<jsp:include page="footer.jsp"/><br/><br/><br/>
+<jsp:include page="footer.jsp"/>
+</html>
+
 
 
 
