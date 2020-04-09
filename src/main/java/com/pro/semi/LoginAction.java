@@ -54,6 +54,9 @@ public class LoginAction {
 	@RequestMapping("/callback.inc")
 	public String callback() { return "callback"; }
 	
+	@RequestMapping("/googlelogin.inc")
+	public String googlelogin() { return "googlelogin"; }
+	
 	@RequestMapping("/snslogin.inc")
 	public ModelAndView snsloginForm(MemberVO vo) {
 		ModelAndView mv = new ModelAndView();

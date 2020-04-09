@@ -81,30 +81,6 @@
   <script src="resources/vendor/jquery/jquery.min.js"></script>
   <script src="resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   	
-   <jsp:include page="footer.jsp"/>
-</body>
-  	
-  	
-   <script src="resources/js/jquery-3.4.1.min.js"></script>
-   <script> 
-   		
-   
-   		function bbs(type) {
-			document.location.href="bbs.inc?type=" + type;
-		}
-   		
-		function search() {
-			var val = $("#searchValue").val();
-			var index = $("#searchSelect option").index($("#searchSelect option:selected"));
-			if(val.trim().length < 1) {
-				alert("검색값을 입력해주세요.");
-				return;
-			}
-			$("#search_type").attr('value', index);
-			$("#search_value").attr('value', val);
-			search_form.submit();
-		}
-   </script>
-   <br/><br/><jsp:include page="footer.jsp"/>
+  	<jsp:include page="footer.jsp"/>
    </body>
 </html>
