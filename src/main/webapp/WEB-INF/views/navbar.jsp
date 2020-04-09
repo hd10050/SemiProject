@@ -99,7 +99,6 @@
     float: right;
     cursor: pointer;
 }
-
 </style>
 </head>
 <body>
