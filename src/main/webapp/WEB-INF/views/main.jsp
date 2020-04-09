@@ -23,11 +23,12 @@
 
   <!-- Custom styles for this template -->
   <link href="resources/css/modern-business.css" rel="stylesheet">
-</style>
+
 </head>
-<body>
 <jsp:include page="navbar.jsp"/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<body>
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="width: 350px;">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>

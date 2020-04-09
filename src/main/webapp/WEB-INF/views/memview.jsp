@@ -11,9 +11,11 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <link rel="stylesheet" href="resources/css/memview.css"/>
 <link rel="stylesheet" href="resources/css/editform.css"/>
+<style type="text/css">
 
+</style>
 </head>
-<jsp:include page="navbar.jsp"/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<jsp:include page="navbar.jsp"/><br/><br/><br/><br/><br/>
 <body>
 
 <div class="container">

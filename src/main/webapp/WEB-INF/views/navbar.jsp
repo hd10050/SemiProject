@@ -99,60 +99,224 @@
     float: right;
     cursor: pointer;
 }
+
+
+
+
+<!-- -->
+
+.menubar{
+	border:none;
+	border:0px;
+	margin: 0 auto;
+	padding:0px;
+	font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
+	font-size:14px;
+	font-weight:bold;
+	
+}
+
+
+.menubar ul{
+	background: #286386;;
+	height:50px;
+	list-style:none;
+	margin:0;
+	padding:0;
+	position: absolute;
+	width: 100%;
+	 
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: fixed;
+}
+
+.menubar li{
+	float:left;
+	padding:0px;
+	position: relative;
+}
+
+
+.menubar li a{
+	background: #286386;;
+	color: white;
+	display:block;
+	font-weight:normal;
+	line-height:50px;
+	margin:0px;
+	padding:0px 55px;
+	text-align:center;
+	text-decoration:none;
+
+}
+
+
+.menubar li a:hover, .menubar ul li:hover a{
+	background: rgb(71,71,71);
+	color:#FFFFFF;
+	text-decoration:none;
+}
+
+
+
+.menubar li ul{
+	background: #286386;
+	display:none; /* 평상시에는 드랍메뉴가 안보이게 하기 */
+	height:auto;
+	padding:0px;
+	margin:0px;
+	border:0px;
+	position:absolute;
+	
+	z-index:200;
+	/*top:1em;
+	/*left:0;*/
+}
+
+
+.menubar li:hover ul{
+	display:block; /* 마우스 커서 올리면 드랍메뉴 보이게 하기 */
+}
+
+
+
+.menubar li li {
+	background: #286386;
+	display:block;
+	float:none;
+	margin:0px;
+	padding:0px;
+
+}
+
+
+
+.menubar li:hover li a{
+	background:none;
+}
+
+
+.menubar li ul a{
+	display:block;
+	height:50px;
+	font-size:12px;
+	font-style:normal;
+	margin:0px;
+	padding:0px 10px 0px 15px;
+	text-align:center;
+
+}
+
+
+.menubar li ul a:hover, .menubar li ul li:hover a{
+background: rgb(71,71,71);
+border:0px;
+color: white;
+text-decoration:none;
+}
+
+.menubar p{
+clear:left;
+}
+
+@media (max-width: 1320px) {
+	.menubar ul{
+		overflow: hidden;
+	}
+}
+
+ul.barul {
+    padding-left: 150px;
+}
+
 </style>
 </head>
 <body>
 	<!-- 첫번째 회원정보 -->
-	<div class="nanavbar_top">     
+	<div class="nanavbar_top" style="height: 40px;">     
 <%
 	
 	Object obj_vo = session.getAttribute("mvo");
 		MemberVO mvo = (MemberVO)obj_vo;	
 	
 		if(obj_vo != null){
-%>
+%>          
+				
 		    <span class="nanav_menu_t"><%=mvo.getM_name() %>님 환영합니다.</span>
 		    <i class="fas fa-user"></i><input type="button" value="내정보" onclick="location.href='myPage.inc'" class="nanav_menu_t"/> 
 		    <i class="fas fa-unlock-alt"></i><input type="button" value="로그아웃" onclick="logout()" class="nanav_menu_t"/> 
 <%
 		}else{
-%>
+%>		  
 		    <i class="fas fa-user-plus"></i><input type="button" value="회원가입" onclick="location.href='reg.inc'" class="nanav_menu_t"/> 
 		   <i class="fas fa-lock"></i><input type="button" value="로그인" onclick="location.href='login.inc'" class="nanav_menu_t"/> 
-<%
-		}
-%>
+<%		
+		} 
+%>		
 	</div> 		
 	
 	<!-- 두번째 검색 기능 --> 
 	
-	<div class="nanavbar_middle"> 
+	<div class="nanavbar_middle" style="height: 180px;"> 
 		<input type="image" src="resources/image/logo.png" onclick="location.href='main.inc'" class="nav_logo"/> 
 	</div>
 	 	
 	<!-- 마지막 게시판 뷰 기능 -->
 
-	<ul class="nanavbar_last" >
-			<li>
-            	<input type="button" value="야생동물 구조치료기관" onclick="reviewbbs(0)" class="nanav_menu_l"/>
-            </li>
-            <li>
-            	<input type="button" value="동물 병원" onclick="reviewbbs(1)" class="nanav_menu_l" />
-            </li>
-            <li>
-            	<input type="button" value="동물 약국" onclick="reviewbbs(2)" class="nanav_menu_l"/>
-            </li>
-            <li>
-            	<input type="button" value="유기 동물 보호시설" onclick="reviewbbs(3)" class="nanav_menu_l"/>
-            </li>
-            <li> 
-            	<input type="button" value="공지사항" onclick="bbs(4)" class="nanav_menu_l"/>
-            </li>
-            <li>
-            	<input type="button" value="자유 게시판" onclick="bbs(5)" class="nanav_menu_l"/>
-            </li>
-            
-	</ul> 		
+	<div class="menubar" style= "padding-top: 150px;">
+		<ul class="barul">
+			 <li><a href="javascript:reviewbbs(0)">야생동물 구조치료기관</a>
+				 <ul>
+				     <li><a href="#">Test1</a></li>
+				     <li><a href="#">Test2</a></li>
+				     <li><a href="#">Test3</a></li>
+				     <li><a href="#">Test4</a></li>
+			    </ul></li>
+			 <li><a href="javascript:reviewbbs(1)">동물 병원</a>
+				<ul>
+				     <li><a href="#">Test1</a></li>
+				     <li><a href="#">Test2</a></li>
+				     <li><a href="#">Test3</a></li>
+				     <li><a href="#">Test4</a></li>
+			    </ul>
+			 </li>
+			 <li><a href="javascript:reviewbbs(2)">동물 약국</a>
+			 	<ul>
+				     <li><a href="#">Test1</a></li>
+				     <li><a href="#">Test2</a></li>
+				     <li><a href="#">Test3</a></li>
+				     <li><a href="#">Test4</a></li>
+			    </ul>
+			 </li>
+			 <li><a href="javascript:reviewbbs(3)">유기 동물 보호시설</a>
+				 <ul>
+				     <li><a href="#">Test1</a></li>
+				     <li><a href="#">Test2</a></li>
+				     <li><a href="#">Test3</a></li>
+				     <li><a href="#">Test4</a></li>
+				 </ul></li>
+			 <li><a href="javascript:reviewbbs(4)">공지사항</a>
+				 <ul>
+				     <li><a href="#">Test1</a></li>
+				     <li><a href="#">Test2</a></li>
+				     <li><a href="#">Test3</a></li>
+				     <li><a href="#">Test4</a></li>
+				</ul></li>
+			 <li><a href="javascript:reviewbbs(5)">자유 게시판</a>
+				 <ul>
+				     <li><a href="#">Test1</a></li>
+				     <li><a href="#">Test2</a></li>
+				     <li><a href="#">Test3</a></li>
+				     <li><a href="#">Test4</a></li>
+				</ul>
+			</li>
+		</ul>
+		</div>
+		
 
 	<form action="reviewBbs.inc" method="post" name="r_form" id="r_form">
 		<input type="hidden" name="s_type" id="s_type" />
