@@ -105,10 +105,19 @@ body{
 		
 		<div class="form-group" style="padding-top: 20px;">
 	        <button type="button" class="btn btn-primary btn-block" id="login_btn" style="background: #286386;"> 로그인 </button>
-	    </div> <!-- 회원가입 버튼 -->
+	    </div> <!-- 로그인 버튼 -->
 	</form>
 <!-- ======================================================================== -->
 	<hr/>
+	<p>
+	    <h6 style="color: gray; font-weight: bold;">OR</h6>
+	    <a href="googlelogin.inc" class="btn btn-block btn-twitter" > <i class="fab fa-google"></i> 구글 계정으로 로그인</a>
+        <!--<div id="google-login-btn" class="g-signin2" data-width="360" data-height="38" data-onsuccess="onSignIn"><i class="fab fa-google"></i> 구글 계정으로 로그인</div> -->
+        <!--<div id="naverIdLogin"></div>-->
+        <a href="javascript:location.href = naverLogin.generateAuthorizeUrl();" class="btn btn-block btn-twitter" style="background: green; text-decoration: none;"> <img src="resources/css/images/naver_logo.png" alt="Avatar" class="image"> 네이버 계정으로 로그인</a> 
+	    <!-- <a id="kakao-login-btn" ></a> -->
+	    <a id="kakao-loginbtn" class="btn btn-block btn-facebook" style="background: #ffc107;"></a>
+	</p> 
     <h6 style="color: gray; font-weight: bold; text-align: center;">OR</h6>
     <div style="margin: 0 auto;">
         <div class="g-signin2" data-onsuccess="onSignIn"></div>
@@ -137,36 +146,7 @@ body{
 		<input type="hidden" id="r_snscode" name="r_snscode"/>
 	</form>
 	
-	<%-- 구글 로그인 --%>
-	<script src="https://apis.google.com/js/platform.js" async defer></script>
-	<script>
 	
-		var isButtonClicked = false;
-		document.querySelector('.g-signin2').addEventListener('click', function() { 
-		    isButtonClicked = true; 
-		});
-
-		function onSignIn(googleUser) {
-			if(isButtonClicked) {
-				var profile = googleUser.getBasicProfile();
-				console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-				console.log('Name: ' + profile.getName());
-				console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-	
-				if (profile.getId() == null) {
-					return;
-				}
-
-				var idx = profile.getEmail().indexOf("@");
-				if(idx != -1) {
-					$("#m_id2").attr("value", profile.getEmail().substring(0, idx));
-				}
-				$("#m_name").attr("value", profile.getName());
-				$("#r_snscode").attr("value", "G_" + profile.getId());
-				snsform.submit();
-			}
-		}
-	</script>
 	<script src="resources/js/jquery-3.4.1.min.js"></script>
 	<%------------------%>
 	<%--네이버로그인----%>
@@ -182,7 +162,7 @@ body{
 				clientId: "OL_B5mSm18YdFdSjpYol",
 				callbackUrl: "http://localhost:9090/semi/callback.inc",
 				isPopup: false, /* 팝업을 통한 연동처리 여부 */
-				loginButton: {color: "green", type: 3, height: 60} /* 로그인 버튼의 타입을 지정 */
+				loginButton: {width: 360, height: 38} /* 로그인 버튼의 타입을 지정 */
 			}
 		);
 		
@@ -225,21 +205,21 @@ body{
 	<script src="https://developers.kakao.com/sdk/js/kakao.js" ></script>
 	<script type='text/javascript'>
 		Kakao.init('8bb713c7ad18de327b58ceaa4fd70c70');
-
+		
 		//카카오 로그인 버튼을 생성합니다. 
 		Kakao.Auth.createLoginButton({
-			container : '#kakao-login-btn',
+			container : '#kakao-loginbtn',
 			success : function(authObj) {
 				Kakao.API.request({
 					url : '/v2/user/me',
 					success : function(res) {
-					console.log(res.id);
-					console.log(res.kaccount_email);
-					console.log(res.properties['nickname']); 
-					console.log(authObj.access_token);
-					$("#m_name").attr("value", res.properties['nickname']);
-					$("#r_snscode").attr("value", "K_" + res.id);
-					snsform.submit();
+						//console.log(res.id);
+						//console.log(res.kaccount_email);
+						//console.log(res.properties['nickname']); 
+						//console.log(authObj.access_token);
+						$("#m_name").attr("value", res.properties['nickname']);
+						$("#r_snscode").attr("value", "K_" + res.id);
+						snsform.submit();
 					}
 				})
 			},
@@ -247,6 +227,10 @@ body{
 				alert(JSON.stringify(error));
 			}
 		});
+		$("#kakao-login-btn").attr("src", "");
+		//$("#kakao-loginbtn").attr("class", "btn btn-block btn-facebook");
+		//$("#kakao-loginbtn").attr("style", "background: #ffc107;");
+		$("#kakao-loginbtn").append("<i id='kakao-i' class='fas fa-comment'></i> 카카오 계정으로 로그인");
 	</script>
 
 
