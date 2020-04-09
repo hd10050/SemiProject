@@ -11,8 +11,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -25,15 +23,6 @@
 
   <!-- Custom styles for this template -->
   <link href="resources/css/modern-business.css" rel="stylesheet">
-
-<style type="text/css">
-.navbar-menu{
-	padding-left:30px;
-	font-size: 16px;
-	background-color: transparent;
-	color: white;
-	border: none;
-}
 </style>
 </head>
 <body>

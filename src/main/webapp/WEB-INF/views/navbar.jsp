@@ -110,19 +110,18 @@
 		MemberVO mvo = (MemberVO)obj_vo;	
 	
 		if(obj_vo != null){
-%>          
-				
+%>
 		    <span class="nanav_menu_t"><%=mvo.getM_name() %>님 환영합니다.</span>
 		    <i class="fas fa-user"></i><input type="button" value="내정보" onclick="location.href='myPage.inc'" class="nanav_menu_t"/> 
 		    <i class="fas fa-unlock-alt"></i><input type="button" value="로그아웃" onclick="logout()" class="nanav_menu_t"/> 
 <%
 		}else{
-%>		  
+%>
 		    <i class="fas fa-user-plus"></i><input type="button" value="회원가입" onclick="location.href='reg.inc'" class="nanav_menu_t"/> 
 		   <i class="fas fa-lock"></i><input type="button" value="로그인" onclick="location.href='login.inc'" class="nanav_menu_t"/> 
-<%		
+<%
 		}
-%>		
+%>
 	</div> 		
 	
 	<!-- 두번째 검색 기능 --> 

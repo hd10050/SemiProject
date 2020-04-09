@@ -7,12 +7,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" href="resources/css/pagecode.css"/>
 </head>
 <body>
-<jsp:include page="navbar.jsp"/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<jsp:include page="navbar.jsp"/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <%
 	Object obj = session.getAttribute("mvo");
 	MemberVO mvo = null;
@@ -63,7 +64,7 @@
 		</table>
 		<br/>
 		<div class="pagination" style="margin: 0 auto;">
-		    <ul>
+		    <ul style="padding: 0;">
 		        ${pageCode }
 		    </ul>
 		</div>

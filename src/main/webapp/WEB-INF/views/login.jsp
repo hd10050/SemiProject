@@ -111,7 +111,7 @@ body{
 	<hr/>
 	<p>
 	    <h6 style="color: gray; font-weight: bold; text-align: center;">OR</h6>
-	    <a href="googlelogin.inc" class="btn btn-block btn-twitter" > <i class="fab fa-google"></i> 구글 계정으로 로그인</a>
+	    <a href="googlelogin.inc" class="btn btn-block btn-twitter" ><i class="fab fa-google"></i> 구글 계정으로 로그인</a>
         <!--<div id="google-login-btn" class="g-signin2" data-width="360" data-height="38" data-onsuccess="onSignIn"><i class="fab fa-google"></i> 구글 계정으로 로그인</div> -->
         <!--<div id="naverIdLogin"></div>-->
         <a href="javascript:location.href = naverLogin.generateAuthorizeUrl();" class="btn btn-block btn-twitter" style="background: green; text-decoration: none;"> <img src="resources/css/images/naver_logo.png" alt="Avatar" class="image"> 네이버 계정으로 로그인</a> 
@@ -127,8 +127,7 @@ body{
 		<input type="hidden" id="m_phone" name="m_phone"/>
 		<input type="hidden" id="r_snscode" name="r_snscode"/>
 	</form>
-	
-	
+
 	<script src="resources/js/jquery-3.4.1.min.js"></script>
 	<%------------------%>
 	<%--네이버로그인----%>
