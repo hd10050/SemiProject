@@ -4,6 +4,8 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mem">
 	
+	
+	
 	<!-- 회원 목록 -->
 	<select id="mem_list" resultType="com.data.vo.MemberVO">
 		select * from member_table
@@ -31,8 +33,8 @@
 
 	<!-- 회원 가입 -->
 	<insert id="joinMem" parameterType="com.data.vo.MemberVO">
-		insert into member_table(m_idx, m_id, m_pw, m_name, m_gender, m_status, m_phone, r_snscode, m_level) 
-		values(member_table_sesq.NEXTVAL, #{m_id}, #{m_pw}, #{m_name}, #{m_gender}, 0, #{m_phone}, #{r_snscode}, 0)
+		insert into member_table(m_idx, m_id, m_pw, m_name, m_gender, m_status, m_phone, r_snscode, m_level, m_question, m_answer) 
+		values(member_table_sesq.NEXTVAL, #{m_id}, #{m_pw}, #{m_name}, #{m_gender}, 0, #{m_phone}, #{r_snscode}, 0, #{m_question}, #{m_answer})
 	</insert>
 
 	<!-- 회원 정보 수정 -->

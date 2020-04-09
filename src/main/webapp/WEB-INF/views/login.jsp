@@ -57,7 +57,6 @@
 }
 body{
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-	padding-top: 160px;
 }
 .box{
 	display: inline-block;
@@ -75,7 +74,7 @@ body{
 </head>
 
 <body>
-<jsp:include page="navbar.jsp"/><br/><br/><br/><br/><br/>
+<jsp:include page="navbar.jsp"/><br/><br/><br/>
 
 <div class="">
 <article class="card-body mx-auto" style="max-width: 400px;">

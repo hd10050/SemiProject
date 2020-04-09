@@ -22,7 +22,7 @@
 </style>
 </head>
 <body>
-<jsp:include page="navbar.jsp"/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<jsp:include page="navbar.jsp"/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <div class="container">
     <div class="form-area">  
         <form action="write.inc" method="post" encType="multipart/form-data" name="write_form">

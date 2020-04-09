@@ -49,7 +49,6 @@
 }
 body{
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-	padding-top: 160px;
 }
 .box{
 	display: inline-block;
@@ -65,12 +64,12 @@ body{
 }
 </style>
 </head>
-<jsp:include page="navbar.jsp"/><br/><br/><br/><br/><br/>
+<jsp:include page="navbar.jsp"/><br/><br/><br/>
 
 <body>
 <div class="">
 <article class="card-body mx-auto" style="max-width: 400px;">
-	<h4 class="card-title mt-3 text-center">회 원 가 입</h4>
+	<h4 class="card-title mt-3 text-center">SIGN IN</h4>
 	<p class="text-center"></p>
 	<p class="divider-text">
         <hr/>
@@ -126,13 +125,32 @@ body{
 				<option value="2">남자</option>
 			</select>
 		</div> <!-- 성별 -->
-		                      
+
+		<div class="form-group input-group">
+	    	<div class="input-group-prepend">
+			    <span class="input-group-text"> <i class="fas fa-question"></i> </span>
+			</div>
+	         <select id="m_question" name="m_question" class="form-control">
+						<option value="0">어린시절 별명은?</option>
+						<option value="1">살던 동네 이름은?</option>
+						<option value="2">보물 1호는?</option>
+						<option value="3">처음 키운 애완동물 이름은?</option>
+			 </select>
+	    </div> <!-- 힌트 질문 -->
+
+	     <div class="form-group input-group">
+	    	<div class="input-group-prepend">
+			    <span class="input-group-text"><i class="fas fa-pencil-alt"></i></span>
+			</div>
+	        <input class="form-control" placeholder="힌트 정답" type="text" id="m_answer" name="m_answer" />
+	    </div> <!-- 힌트 대답 -->       
+
 	    <div class="form-group" style="padding-top: 20px;">
 	        <button type="button" class="btn btn-primary btn-block" id="sub_btn" style="background: #286386;"> 등 록 </button>
 	    </div> <!-- 회원가입 버튼 -->   
-  
+
 	    <p class="text-center" style="font-weight: bold; font-size: 13px; padding-top: 20px;">기존 회원 이십니까? <a href="login.inc">로그인</a> </p>
-	                                                                     
+
 </form>
 </article>
 </div> <!-- card.// -->
@@ -140,14 +158,13 @@ body{
 <script src="resources/js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
 $(function () {
-	
 		//비밀번호 재입력 확인
 		$("#r_pw").bind("keyup",function(){
 			
 			//비밀번호 재입력란 값
 			var r_pw = $(this).val();
 			//console.log(r_pw);
-			
+
 			//비밀번호란 값
 			var pw = $("#pw").val();
 			
