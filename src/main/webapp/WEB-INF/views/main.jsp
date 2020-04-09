@@ -77,38 +77,12 @@
       </a>
     </div>
 
-
-
-   
-   <div id="wrap">
-	<div id="search" class="col-sm-12 pull-center well" >
-   <form class="form-inline">
-      <select name="searchSelect" id="searchSelect" class="form-control">   
-         <option value=""> 지역</option>
-         <option value=""> 시설명</option>
-        </select>
-        <input type="text"  class="form-control" size="20" name="searchValue" id="searchValue"/>
-        <input type="button" value="검색" id="searchbt" class="btn btn-default" onclick="search()"/>
-   </form>
-   
-  	 <div id = "buttons"> 
-	       <input type="button" value="공지사항" onclick="bbs(4)" class="btn btn-xs btn-primary"/>
-		   <input type="button" value="자유게시판" onclick="bbs(5)" class="btn btn-xs btn-primary"/>
-      </div> 
-   </div>
-   
-	
-	<form action="search.inc" method="post" name="search_form">
-		<input type="hidden" id="search_value" name="search_value"/>
-		<input type="hidden" id="search_type" name="search_type"/>
-		<input type="hidden" name="s_type" value='<%=request.getAttribute("type")%>'/>
-	</form>
-
-  	</div>
   	  <!-- Bootstrap core JavaScript -->
   <script src="resources/vendor/jquery/jquery.min.js"></script>
   <script src="resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   	
+   <jsp:include page="footer.jsp"/>
+</body>
   	
   	
    <script src="resources/js/jquery-3.4.1.min.js"></script>
