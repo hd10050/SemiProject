@@ -13,7 +13,7 @@
 
 
 <body>
-<div style="position: relative;">
+<div style="position: relative;"> 
 <jsp:include page="navbar.jsp"/><br/><br/><br/>
 </div>
 <div id="11" style="">
