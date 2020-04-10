@@ -9,10 +9,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="resources/js/jquery-3.4.1.min.js"></script>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <link rel="stylesheet" href="resources/css/memview.css"/>
 <link rel="stylesheet" href="resources/css/editform.css"/>
@@ -69,6 +67,7 @@
 										<th>Name</th>
 										<th>Level</th>
 										<th></th>
+										<th></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -88,6 +87,11 @@
 													<input type="button" value="변경" onclick="changeLevel('${vo.m_idx }','${vo.m_level }')"/>
 												</c:if>
 											</td>
+											<td>
+												<c:if test="${vo.m_level == 0 }">
+													<button type=button class="btn btn-danger" onclick="ban('${vo.m_idx }')">탈퇴</button>
+												</c:if>
+											</td>
 										</tr>
 									</c:forEach>
 								</tbody>
@@ -100,8 +104,8 @@
 	</div>
 </div>
 
-<form action="ad_changelv.inc" method="post" name="level_frm">
-	<input type="hidden" id="m_level" name="m_level" />
+<form action="" method="post" name="admin_frm" id="admin_frm">
+	<input type="hidden" id="m_level" name="m_level" value=" "/>
 	<input type="hidden" id="m_idx" name="m_idx" />
 </form>
 
@@ -109,6 +113,7 @@
 <script>
 	function changeLevel(m_idx, m_level) {
 		var index = $("#levelSelect option").index($("#levelSelect option:selected"));
+		$("#admin_frm").attr("action", "ad_changelv.inc");
 		$("#m_level").attr("value", index);
 		$("#m_idx").attr("value", m_idx);
 		
@@ -117,7 +122,17 @@
 			return;
 		}
 		
-		level_frm.submit();
+		admin_frm.submit();
+	}
+	
+	function ban(m_idx) {
+		$("#admin_frm").attr("action", "ad_ban.inc");
+		$("#m_idx").attr("value", m_idx);
+		
+		 if(!(confirm("탈퇴시키겠습니까?"))) {
+			 return;
+		 }
+		admin_frm.submit();
 	}
 	
 </script>

@@ -4,6 +4,13 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mem">
 	
+	<!-- 회원 검색 -->
+	<select id="get_mem" resultType="com.data.vo.MemberVO" parameterType="String">
+		select * from member_table
+		where m_idx = #{m_idx}
+		and m_status = 0
+	</select>
+
 	<!-- 아이디 찾기 -->
 	<select id="find_id" resultType="String" parameterType="java.util.Map">
 		select m_id from member_table
@@ -19,6 +26,7 @@
 	<!-- 회원 목록 -->
 	<select id="mem_list" resultType="com.data.vo.MemberVO">
 		select * from member_table
+		where m_status = 0
 		order by m_idx
 	</select>
 	
