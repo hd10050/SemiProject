@@ -150,6 +150,8 @@
 		<input type="hidden" id="search_type" name="search_type"/>
 		<input type="hidden" name="s_type" value='${type }'/>
 	</form>
+	</div>
+	</div>
 
    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8d26b23142336a11ee181cc1c827a3ff"></script>
    <script>
@@ -163,7 +165,7 @@
 			var map = new kakao.maps.Map(container, options);
 			
 			// -------------------------------------------------------------------
-			
+
 			// 마커를 표시할 위치와 title 객체 배열입니다
 			var positions = [
 				<%Object obj = session.getAttribute("ar");
@@ -271,6 +273,7 @@
 					alert("검색값을 입력해주세요.");
 					return;
 				}
+
 				$("#search_type").attr('value', index);
 				$("#search_value").attr('value', val);
 				search_form.submit();
