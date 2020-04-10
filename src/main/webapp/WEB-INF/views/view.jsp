@@ -673,7 +673,7 @@
 			});	
 			
 			$("#list_btn").click(function () {
-				location.href="main.inc";
+				location.href="reviewBbs.inc?nowPage=" + ${nowPage}+"&s_type="+${type};
 			});	
 			
 			<%------------------------------------------------------------%>
