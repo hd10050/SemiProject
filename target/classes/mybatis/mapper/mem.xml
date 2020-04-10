@@ -4,7 +4,17 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mem">
 	
+	<!-- 아이디 찾기 -->
+	<select id="find_id" resultType="String" parameterType="java.util.Map">
+		select m_id from member_table
+		where m_name = #{m_name} and m_phone = #{m_phone}
+	</select>
 	
+	<!-- 비밀번호 찾기 -->
+	<select id="find_pw" resultType="String" parameterType="java.util.Map">
+		select m_pw from member_table
+		where m_id = #{m_id} and m_question = #{m_question} and m_answer = #{m_answer}
+	</select>
 	
 	<!-- 회원 목록 -->
 	<select id="mem_list" resultType="com.data.vo.MemberVO">

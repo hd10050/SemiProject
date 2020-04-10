@@ -15,6 +15,29 @@ public class MemDAO {
 	@Autowired
 	private SqlSessionTemplate ss;
 	
+	//아이디 찾기
+	public String findID(String m_name, String m_phone){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("m_name", m_name);
+		map.put("m_phone", m_phone);
+		
+		String m_id = ss.selectOne("	mem.find_id", map);
+				
+		return m_id;
+	}	
+	
+	//비밀번호 찾기
+	public String findPW(String m_id, String m_question, String m_answer){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("m_id", m_id);
+		map.put("m_question", m_question);
+		map.put("m_answer", m_answer);
+		
+		String m_pw = ss.selectOne("mem.find_pw", map);
+				
+		return m_pw;
+	}
+	
 	// 회원 목록
 	public MemberVO[] mem_list() {
 		MemberVO[] ar = null;
