@@ -76,7 +76,7 @@ public class BbsWriteAction {
 		
 		bbsDao.add(vo);
 		
-		mv.setViewName("redirect:/bbs.inc?type=" + vo.getType());
+		mv.setViewName("redirect:/bbs.inc?s_type=" + vo.getType());
 		return mv;
 	}
 	

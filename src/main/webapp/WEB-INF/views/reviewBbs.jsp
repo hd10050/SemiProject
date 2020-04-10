@@ -277,7 +277,5 @@
 			}
 		</script>
 </body>
-<div style="width:100%">
 <jsp:include page="footer.jsp"/>
-</div>
 </html>
