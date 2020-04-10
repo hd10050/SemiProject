@@ -10,10 +10,13 @@
 <html>
 <head>
 </head>
-<jsp:include page="navbar.jsp"/><br/><br/><br/>
+
 
 <body>
-<div class="">
+<div style="position: relative;">
+<jsp:include page="navbar.jsp"/><br/><br/><br/>
+</div>
+<div id="11" style="">
 <article class="card-body mx-auto" style="max-width: 400px;">
 	<h4 class="card-title mt-3 text-center">SIGN IN</h4>
 	<p class="text-center"></p>
