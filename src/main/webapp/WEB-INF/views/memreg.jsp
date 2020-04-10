@@ -6,63 +6,9 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+<link rel="stylesheet" href="resources/css/memreg.css">
 <html>
 <head>
-<style type="text/css">
-.divider-text {
-    position: relative;
-    text-align: center;
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-.divider-text span {
-    padding: 7px;
-    font-size: 12px;
-    position: relative;   
-    z-index: 2;
-}
-.divider-text:after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    border-bottom: 1px solid #ddd;
-    top: 55%;
-    left: 0;
-    z-index: 1;
-}
-
-.btn-facebook {
-    background-color: #405D9D;
-    color: #fff;
-}
-.btn-twitter {
-    background-color: #42AEEC;
-    color: #fff;
-}
-.btn-google {
-    background-color: red;
-    color: #fff;
-}
-.btn-naver {
-    background-color: green;
-    color: #fff;
-}
-body{
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-}
-.box{
-	display: inline-block;
-	position: absolute;
-	left: 380px;
-	top: 9px;
-	font-size: 14px;
-	font-family: Georgia, "Times New Roman", serif;
-	font-weight: bold;
-}
-.input-group-text{
-	width: 40px;
-}
-</style>
 </head>
 <jsp:include page="navbar.jsp"/><br/><br/><br/>
 

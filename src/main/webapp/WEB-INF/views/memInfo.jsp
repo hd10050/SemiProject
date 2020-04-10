@@ -6,54 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
-<style>
-	.row1{
-		margin: auto;
-		margin-left: -278px;
-		padding-top: 13px;
-		width: 1350px; 
-		position:relative;
-
-    min-height:100%;
-		
-	}
-	
-	body {
-	    margin:0;
-	    padding:0;
-	    height:100%;
-
-	}
-	
-	.input-group-addon{
-		width: 450px;
-	}
-	
-	.tdc{
-		width: 150px;
-		height: 25px;
-	}
-	
-	.panel-body{
-		height: 240px;
-	}
-	
-	td{
-		padding: 8px;
-	}
-	.btn1{
-		padding: auto;
-		margin: auto;
-		padding-left: 420px;
-		width : 120px;
-		height: 60px;
-	}
-	#mid{
-		color: #122f82;
-	}
-	
-</style>
+<link rel="stylesheet" href="resources/css/meminfo.css">
+<link rel="stylesheet" href="resources/css/login.css">
 </head>
 <body>
 

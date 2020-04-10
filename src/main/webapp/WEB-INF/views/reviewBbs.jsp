@@ -14,15 +14,23 @@
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <link rel="stylesheet" href="resources/css/pagecode.css"/>
+<style>
+@media (min-width: 768px)
+ .col-sm-12 {
+    float: none !important;
+}
+</style>
+
+
 </head>
 <body>
 <jsp:include page="navbar.jsp"/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-<div id ="list" class="col-sm-12 pull-center well" >
+<div id ="list" class="col-sm-12 pull-center well" style="float: none;">
    		<%-- 지도 --%>
    		<%if(request.getAttribute("chk").equals("1")){ %>
    			<div id="map" style="width:500px;height:400px; margin: 0 auto;"></div><br/><br/>
    		<%} %>
-   	<div class="well" style="width: 900px; margin: 0 auto;">
+   	<div class="well" style="width: 900px; margin: 0 auto; float: none impor;">
     <table class="table">
       <colgroup>
          <col width="66px"/>
@@ -123,7 +131,7 @@
              
       <% }%>
    </table>
-   <div class="pagination" >
+   <div class="pagination">
 	    <ul style="padding: 0;">
 	        ${pageCode }
 	    </ul>
@@ -269,4 +277,7 @@
 			}
 		</script>
 </body>
+<div style="width:100%">
+<jsp:include page="footer.jsp"/>
+</div>
 </html>

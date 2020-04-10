@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="resources/css/footer.css"/>
 </head>
 <body>
-	<footer	 id="footer">
+	<footer	 id="footer" style="float:right;">
 		<div class ="auto">
 			<span class="footerLogo">
 				<img src="" alt="회사 이름">
