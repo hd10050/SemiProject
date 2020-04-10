@@ -1,3 +1,4 @@
+<%@page import="com.data.vo.BbsVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -86,6 +87,23 @@
         </div>
 
 
+		<!-- 공지사항 미리보기 -->
+		<div class="notice" style="border: 1px solid black; width: 300px; height: 300px;">
+				<h5>::공지사항::</h5>
+<% 
+		Object obj = session.getAttribute("ar");
+		if(obj != null){
+			BbsVO[] ar = (BbsVO[]) obj;
+		
+			for(BbsVO vo : ar){
+%>
+				<h6><a href="bbs_view.inc?type=4&b_idx=<%=vo.getB_idx() %>"><%=vo.getSubject() %></a></h6>
+				
+<%			
+			}
+		}
+%>	
+		</div>
 
 
 

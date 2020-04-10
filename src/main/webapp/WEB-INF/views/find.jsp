@@ -50,7 +50,6 @@
 }
 body{
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-	padding-top: 160px;
 }
 .box{
 	display: inline-block;
@@ -72,7 +71,7 @@ body{
 }
 </style>
 </head>
-<jsp:include page="navbar.jsp"/>
+<jsp:include page="navbar.jsp"/><br/><br/><br/>
 
 <body>
 <div class="">
@@ -105,24 +104,10 @@ body{
 	        	<button type="button" class="btn btn-primary btn-block" id="findid_btn" style="background: #286386;">아이디 찾기</button>
 	    	</div> <!-- 아이디 찾기 버튼 -->   
 	</form>
-	
-	<!-- 아이디 찾기 창 -->	
-	<div id="id_dialog">
-		<form>
-			<label>아이디:</label>
-			<p id="id_p"></p>
-			<br/>
-			<button type="button" id="close_bt">닫기</button>
-		</form>
-	</div>
 
-	<!-- 비밀번호 찾기 창 -->
-	<div class="pw_dialog" id="pw_dialog">
-		<h1>비밀번호 찾기</h1>
-		<p id="pw_p"></p>
-	</div>    
 	
 <!-- 비밀번호 찾기 -->	
+<div style="padding-top: 20px;">
 <h4 class="card-title mt-3 text-center">비밀번호 찾기</h4>
 	<p class="text-center"></p>
 	<p class="divider-text">
@@ -161,8 +146,26 @@ body{
 	        <button type="button" class="btn btn-primary btn-block" id="findpw_btn" style="background: #286386;">비밀번호 찾기</button>
 	    </div> <!-- 비밀번호 찾기 버튼 -->   
 	</form>
+</div>	
 </article>
 </div> <!-- card.// -->
+
+	
+	<!-- 아이디 찾기 창 -->	
+	<div id="id_dialog">
+		<form>
+			<label>아이디:</label>
+			<p id="id_p"></p>
+			<br/>
+			<button type="button" id="close_bt">닫기</button>
+		</form>
+	</div>
+
+	<!-- 비밀번호 찾기 창 -->
+	<div class="pw_dialog" id="pw_dialog">
+		<h1>비밀번호 찾기</h1>
+		<p id="pw_p"></p>
+	</div>    
 
 <script src="resources/js/jquery-3.4.1.min.js"></script>
 <script src="resources/js/jquery-ui.min.js"></script>
@@ -237,4 +240,6 @@ body{
 	});
 </script>
 </body>
+<jsp:include page="footer.jsp"/>
 </html>
+

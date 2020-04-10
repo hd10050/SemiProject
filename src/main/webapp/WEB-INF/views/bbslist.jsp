@@ -17,7 +17,7 @@
 </style>
 </head>
 <body>
-<jsp:include page="navbar.jsp"/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<jsp:include page="navbar.jsp"/><br/><br/><br/><br/>
 <%
 	Object obj = session.getAttribute("mvo");
 	MemberVO mvo = null;

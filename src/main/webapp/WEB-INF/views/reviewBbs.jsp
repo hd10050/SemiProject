@@ -24,7 +24,7 @@
 
 </head>
 <body>
-<jsp:include page="navbar.jsp"/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<jsp:include page="navbar.jsp"/><br/><br/><br/><br/>
 <div id ="list" class="col-sm-12 pull-center well" style="float: none;">
    		<%-- 지도 --%>
    		<%if(request.getAttribute("chk").equals("1")){ %>

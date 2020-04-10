@@ -455,8 +455,7 @@
 	      			</div>
 	      			
 				</div>
-			</div>
-		</div>
+	
 		
 <%-- 리뷰 -----------------------------------------------------------------------------------%>
 <%
@@ -559,6 +558,8 @@
 <%
 	}
 %>
+		</div>
+		</div>
 		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8d26b23142336a11ee181cc1c827a3ff"></script>
 		<script src="resources/js/jquery-3.4.1.min.js"></script>
 		<script src="resources/js/jquery-ui.min.js"></script>
