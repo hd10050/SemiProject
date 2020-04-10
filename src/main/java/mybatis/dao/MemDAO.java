@@ -21,23 +21,25 @@ public class MemDAO {
 	//아이디 찾기
 	public String findID(String m_name, String m_phone){
 		Map<String, String> map = new HashMap<String, String>();
+		
 		map.put("m_name", m_name);
 		map.put("m_phone", m_phone);
 		
-		String m_id = ss.selectOne("	mem.find_id", map);
+		String m_id = ss.selectOne("mem.find_id", map);
 				
 		return m_id;
 	}	
 	
 	//비밀번호 찾기
-	public String findPW(String m_id, String m_question, String m_answer){
+	public String findPW(String m_id, String question, String answer){
+		System.out.println(m_id + " " + question + " " + answer);
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("m_id", m_id);
-		map.put("m_question", m_question);
-		map.put("m_answer", m_answer);
+		map.put("question", question);
+		map.put("answer", answer);
 		
 		String m_pw = ss.selectOne("mem.find_pw", map);
-				
+		
 		return m_pw;
 	}
 	

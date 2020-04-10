@@ -20,7 +20,7 @@
 	<!-- 비밀번호 찾기 -->
 	<select id="find_pw" resultType="String" parameterType="java.util.Map">
 		select m_pw from member_table
-		where m_id = #{m_id} and m_question = #{m_question} and m_answer = #{m_answer}
+		where m_id = #{m_id} and question = #{question} and answer = #{answer}
 	</select>
 	
 	<!-- 회원 목록 -->
