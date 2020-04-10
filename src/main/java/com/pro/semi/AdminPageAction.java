@@ -17,11 +17,7 @@ import mybatis.dao.MemDAO;
 public class AdminPageAction {
 
 	@Autowired
-	private HttpSession session;
-	@Autowired
 	private MemDAO memDao;
-	@Autowired
-	private HttpServletRequest Request;
 	
 	@RequestMapping(value="/ad_page.inc", method=RequestMethod.GET)
 	public ModelAndView adminPage() {
@@ -35,13 +31,27 @@ public class AdminPageAction {
 	}
 	
 	@RequestMapping(value="/ad_changelv.inc", method=RequestMethod.POST)
-	public ModelAndView changeLevel(MemberVO vo) {
+	public ModelAndView ad_changeLevel(MemberVO vo) {
+		System.out.println("ad_changeLevel.inc");
 		ModelAndView mv = new ModelAndView();
 		memDao.mem_change(vo);
 		
 		mv.setViewName("redirect:/ad_page.inc");
 		return mv;
 	}
+	
+	@RequestMapping(value="/ad_ban.inc", method=RequestMethod.POST)
+	public ModelAndView ad_ban(String m_idx) {
+		System.out.println("ad_ban.inc");
+		ModelAndView mv = new ModelAndView();
+		MemberVO vo = memDao.get_mem(m_idx);
+		memDao.delMem(vo);
+		
+		mv.setViewName("redirect:/ad_page.inc");
+		return mv;
+	}
+	
+	
 	
 	
 }

@@ -21,6 +21,15 @@ public class FindAction {
 		return "find";
 	}
 	
+	@RequestMapping(value = "/find_id.inc", method=RequestMethod.POST)
+	public ModelAndView find_id() {
+		ModelAndView mv = new ModelAndView();
+		
+		
+		
+		return mv;
+	} 
+	
 	@RequestMapping(value = "/find_pw.inc", method=RequestMethod.POST)
 	public ModelAndView find_pw() {
 		ModelAndView mv = new ModelAndView();
