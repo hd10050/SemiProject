@@ -262,7 +262,7 @@
 	<form action="" method="post" id="go_form" name="go_form">
         <input type="hidden" name="b_idx" value="${b_idx }"/>
         <input type="hidden" name="nowPage" value="${nowPage }"/>
-		<input type="hidden" name="type" value="${type }"/>
+		<input type="hidden" name="s_type" value="${type }"/>
 		<input type="hidden" name="f_name"/>
 	</form>
 
