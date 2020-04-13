@@ -52,10 +52,18 @@ public class HomeController {
 		int end = 5;
 		BbsVO[] ar = null;
 		
-		ar = b_dao.getList(begin, end, type);
+		String type_f = "5";
+		int begin_f = 1;
+		int end_f = 5;
+		BbsVO[] ar_f = null;
 		
+		ar_f = b_dao.getList(begin_f, end_f, type_f);
+		session.setAttribute("ar_f", ar_f);
+		
+		ar = b_dao.getList(begin, end, type);
 		session.setAttribute("ar", ar);
 		mv.addObject("ar", ar);
+		
 		mv.setViewName("main");
 		
 		return mv;
