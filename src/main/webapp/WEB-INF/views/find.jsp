@@ -151,7 +151,7 @@ body{
 </div> <!-- card.// -->
 
 	
-	<!-- 아이디 찾기 창 -->	
+	<!-- 아이디 dialog  -->	
 	<div id="id_dialog">
 		<form>
 			<label>아이디:</label>
@@ -161,7 +161,7 @@ body{
 		</form>
 	</div>
 
-	<!-- 비밀번호 찾기 창 -->
+	<!-- 비밀번호 dialog -->
 	<div class="pw_dialog" id="pw_dialog">
 		<h1>비밀번호 찾기</h1>
 		<p id="pw_p"></p>

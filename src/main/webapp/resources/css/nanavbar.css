@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .nav_logo{
 	margin: 0 auto;
 	
@@ -115,7 +116,7 @@
 	padding:0;
 	position: absolute;
 	width: 100%;
-	 
+	text-align: center;
 }
 
 html, body {
@@ -125,9 +126,9 @@ html, body {
 }
 
 .menubar li{
-	float:left;
 	padding:0px;
 	position: relative;
+	display: inline-block;
 }  
 
 
@@ -218,11 +219,4 @@ clear:left;
 		overflow: hidden;
 	}
 }
-
-ul.barul {
-    padding-left: 150px;
-}
-
-
-
 

@@ -7,8 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-<link rel="stylesheet" href="resources/css/header.css">
-<link rel="stylesheet" href="resources/css/navbar.css"/>
+<link rel="stylesheet" href="resources/css/nanavbar.css">
 <style type="text/css">
 
 </style>
