@@ -11,7 +11,9 @@
 }
 </style>
 </head>
-<body>
+
+<body style="margin: 0px;">
+<jsp:include page="navbar.jsp"/><br/><br/><br/>
 		<!-- HTML -->
 		<h1>야생동물 보호기관 경기도 현황</h1>
 		<div id="chartdiv"></div>

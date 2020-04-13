@@ -49,49 +49,30 @@
 		<ul class="barul">
 			 <li><a href="javascript:reviewbbs(0)">야생동물 구조치료기관</a>
 				 <ul>
-				     <li><a href="#">Test1</a></li>
-				     <li><a href="#">Test2</a></li>
-				     <li><a href="#">Test3</a></li>
-				     <li><a href="#">Test4</a></li>
-			    </ul></li>
+				     <li><a href="javascript:reviewbbs(0)">게시판</a></li>
+				     <li><a href="rescueChart.inc">차트</a></li>
+				 </ul>
+			 </li>
 			 <li><a href="javascript:reviewbbs(1)">동물 병원</a>
 				<ul>
-				     <li><a href="#">Test1</a></li>
-				     <li><a href="#">Test2</a></li>
-				     <li><a href="#">Test3</a></li>
-				     <li><a href="#">Test4</a></li>
-			    </ul>
+				     <li><a href="javascript:reviewbbs(1)">게시판</a></li>
+				     <li><a href="hospChart.inc">차트</a></li>
+				 </ul>
 			 </li>
 			 <li><a href="javascript:reviewbbs(2)">동물 약국</a>
 			 	<ul>
-				     <li><a href="#">Test1</a></li>
-				     <li><a href="#">Test2</a></li>
-				     <li><a href="#">Test3</a></li>
-				     <li><a href="#">Test4</a></li>
-			    </ul>
+				     <li><a href="javascript:reviewbbs(2)">게시판</a></li>
+				     <li><a href="#">차트</a></li>
+				 </ul>
 			 </li>
 			 <li><a href="javascript:reviewbbs(3)">유기 동물 보호시설</a>
 				 <ul>
-				     <li><a href="#">Test1</a></li>
-				     <li><a href="#">Test2</a></li>
-				     <li><a href="#">Test3</a></li>
-				     <li><a href="#">Test4</a></li>
-				 </ul></li>
-			 <li><a href="javascript:bbs(4)">공지사항</a>
-				 <ul>
-				     <li><a href="#">Test1</a></li>
-				     <li><a href="#">Test2</a></li>
-				     <li><a href="#">Test3</a></li>
-				     <li><a href="#">Test4</a></li>
-				</ul></li>
-			 <li><a href="javascript:bbs(5)">자유 게시판</a>
-				 <ul>
-				     <li><a href="#">Test1</a></li>
-				     <li><a href="#">Test2</a></li>
-				     <li><a href="#">Test3</a></li>
-				     <li><a href="#">Test4</a></li>
-				</ul>
-			</li>
+				     <li><a href="javascript:reviewbbs(3)">게시판</a></li>
+				     <li><a href="#">차트</a></li>
+				 </ul>
+			 </li>
+			 <li><a href="javascript:bbs(4)">공지사항</a></li>
+			 <li><a href="javascript:bbs(5)">자유 게시판</a></li>
 		</ul>
 		</div>
 		
@@ -102,6 +83,7 @@
 	
 	<script src="resources/js/jquery-3.4.1.min.js"></script>
 	<script>
+		
 		function reviewbbs(num) {
 			$("#s_type").attr("value", num);
 			$("#r_form").attr("action", "reviewBbs.inc");

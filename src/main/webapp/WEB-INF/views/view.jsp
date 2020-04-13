@@ -14,111 +14,7 @@
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <style type="text/css">
-/*****************textarea************/
 
-.panel-shadow {
-    box-shadow: rgba(0, 0, 0, 0.3) 7px 7px 7px;
-}
-.panel-white {
-  border: 1px solid #dddddd;
-}
-.panel-white  .panel-heading {
-  color: #333;
-  background-color: #fff;
-  border-color: #ddd;
-}
-.panel-white  .panel-footer {
-  background-color: #fff;
-  border-color: #ddd;
-}
-
-.post .post-heading {
-  height: 95px;
-  padding: 20px 15px;
-}
-.post .post-heading .avatar {
-  width: 60px;
-  height: 60px;
-  display: block;
-  margin-right: 15px;
-}
-.post .post-heading .meta .title {
-  margin-bottom: 0;
-}
-.post .post-heading .meta .title a {
-  color: black;
-}
-.post .post-heading .meta .title a:hover {
-  color: #aaaaaa;
-}
-.post .post-heading .meta .time {
-  margin-top: 8px;
-  color: #999;
-}
-.post .post-image .image {
-  width: 100%;
-  height: auto;
-}
-.post .post-description {
-  padding: 15px;
-}
-.post .post-description p {
-  font-size: 14px;
-}
-.post .post-description .stats {
-  margin-top: 20px;
-}
-.post .post-description .stats .stat-item {
-  display: inline-block;
-  margin-right: 15px;
-}
-.post .post-description .stats .stat-item .icon {
-  margin-right: 8px;
-}
-.post .post-footer {
-  border-top: 1px solid #ddd;
-  padding: 15px;
-}
-.post .post-footer .input-group-addon a {
-  color: #454545;
-}
-.post .post-footer .comments-list {
-  padding: 0;
-  margin-top: 20px;
-  list-style-type: none;
-}
-.post .post-footer .comments-list .comment {
-  display: block;
-  width: 100%;
-  margin: 20px 0;
-}
-.post .post-footer .comments-list .comment .avatar {
-  width: 35px;
-  height: 35px;
-}
-.post .post-footer .comments-list .comment .comment-heading {
-  display: block;
-  width: 100%;
-}
-.post .post-footer .comments-list .comment .comment-heading .user {
-  font-size: 14px;
-  font-weight: bold;
-  display: inline;
-  margin-top: 0;
-  margin-right: 10px;
-}
-.post .post-footer .comments-list .comment .comment-heading .time {
-  font-size: 12px;
-  color: #aaa;
-  margin-top: 0;
-  display: inline;
-}
-.post .post-footer .comments-list .comment .comment-body {
-  margin-left: 50px;
-}
-.post .post-footer .comments-list .comment > .comments-list {
-  margin-left: 50px;
-}
 /*****************rating**************/
 *{
     margin: 0;
@@ -160,192 +56,17 @@
     color: #c59b08;
 }
 /*****************globals*************/
-	body {
-	  font-family: 'open sans';
-	  overflow-x: hidden; }
-	
-	img {
-	  max-width: 100%; }
-	
-	.preview {
-	  display: -webkit-box;
-	  display: -webkit-flex;
-	  display: -ms-flexbox;
-	  display: flex;
-	  -webkit-box-orient: vertical;
-	  -webkit-box-direction: normal;
-	  -webkit-flex-direction: column;
-	      -ms-flex-direction: column;
-	          flex-direction: column; }
-	  @media screen and (max-width: 996px) {
-	    .preview {
-	      margin-bottom: 20px; } }
-	
-	.preview-pic {
-	  -webkit-box-flex: 1;
-	  -webkit-flex-grow: 1;
-	      -ms-flex-positive: 1;
-	          flex-grow: 1; }
-	
-	.preview-thumbnail.nav-tabs {
-	  border: none;
-	  margin-top: 15px; }
-	  .preview-thumbnail.nav-tabs li {
-	    width: 18%;
-	    margin-right: 2.5%; }
-	    .preview-thumbnail.nav-tabs li img {
-	      max-width: 100%;
-	      display: block; }
-	    .preview-thumbnail.nav-tabs li a {
-	      padding: 0;
-	      margin: 0; }
-	    .preview-thumbnail.nav-tabs li:last-of-type {
-	      margin-right: 0; }
-	
-	.tab-content {
-	  overflow: hidden; }
-	  .tab-content img {
-	    width: 100%;
-	    -webkit-animation-name: opacity;
-	            animation-name: opacity;
-	    -webkit-animation-duration: .3s;
-	            animation-duration: .3s; }
-	
-	.card {
-	  margin-top: 130px;
-	  background: #eee;
-	  padding: 3em;
-	  line-height: 1.5em;
-	 }
-	
-	@media screen and (min-width: 997px) {
-	  .wrapper {
-	    display: -webkit-box;
-	    display: -webkit-flex;
-	    display: -ms-flexbox;
-	    display: flex; } }
-	
-	.details {
-	  display: -webkit-box;
-	  display: -webkit-flex;
-	  display: -ms-flexbox;
-	  display: flex;
-	  -webkit-box-orient: vertical;
-	  -webkit-box-direction: normal;
-	  -webkit-flex-direction: column;
-	      -ms-flex-direction: column;
-	          flex-direction: column; }
-	
-	.colors {
-	  -webkit-box-flex: 1;
-	  -webkit-flex-grow: 1;
-	      -ms-flex-positive: 1;
-	          flex-grow: 1; }
-	
-	.product-title, .price, .sizes, .colors {
-	  text-transform: UPPERCASE;
-	  font-weight: bold; }
-	
-	.checked, .price span {
-	  color: #ff9f1a; }
-	
-	.product-title, .rating, .product-description, .price, .vote, .sizes {
-	  margin-bottom: 15px; }
-	
-	.product-title {
-	  margin-top: 0; }
-	
-	.size {
-	  margin-right: 10px; }
-	  .size:first-of-type {
-	    margin-left: 40px; }
-	
-	.color {
-	  display: inline-block;
-	  vertical-align: middle;
-	  margin-right: 10px;
-	  height: 2em;
-	  width: 2em;
-	  border-radius: 2px; }
-	  .color:first-of-type {
-	    margin-left: 20px; }
-	
-	.add-to-cart, .like {
-	  background: #ff9f1a;
-	  padding: 1.2em 1.5em;
-	  border: none;
-	  text-transform: UPPERCASE;
-	  font-weight: bold;
-	  color: #fff;
-	  -webkit-transition: background .3s ease;
-	          transition: background .3s ease; }
-	  .add-to-cart:hover, .like:hover {
-	    background: #b36800;
-	    color: #fff; }
-	
-	.not-available {
-	  text-align: center;
-	  line-height: 2em; }
-	  .not-available:before {
-	    font-family: fontawesome;
-	    content: "\f00d";
-	    color: #fff; }
-	
-	.orange {
-	  background: #ff9f1a; }
-	
-	.green {
-	  background: #85ad00; }
-	
-	.blue {
-	  background: #0076ad; }
-	
-	.tooltip-inner {
-	  padding: 1.3em; }
-	
-	@-webkit-keyframes opacity {
-	  0% {
-	    opacity: 0;
-	    -webkit-transform: scale(3);
-	            transform: scale(3); }
-	  100% {
-	    opacity: 1;
-	    -webkit-transform: scale(1);
-	            transform: scale(1); } }
-	
-	@keyframes opacity {
-	  0% {
-	    opacity: 0;
-	    -webkit-transform: scale(3);
-	            transform: scale(3); }
-	  100% {
-	    opacity: 1;
-	    -webkit-transform: scale(1);
-	            transform: scale(1); } }        
-	 #map{
-	 	display: none;
-	 }  
-	 #pic-1{
-	 	padding-left: 400px;
-	 }
-	 #detail{
-	 	padding-left: 100px;
-	 	padding-top: 100px;
-	 }
-	 .action{
-	 	padding-top: 20px;
-	 }
 
 	/*# sourceMappingURL=style.css.map */
 </style>
 </head>
 <body>
 <jsp:include page="navbar.jsp"/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-	<div class="container">
+	<div class="container" style="width: 1000px; border: 1px solid red;">
 		<div class="card">
 			<div class="container-fliud">
 			
-				<div id="wrapper row" class="wrapper row">
+				<div id="wrapper row" class="wrapper row" style="background: gray;">
 				
 					<div class="preview col-md-6">
 						<div class="preview-pic tab-content">
@@ -353,44 +74,43 @@
 						        switch( Integer.parseInt(request.getParameter("type")) ){
 							           case 0:
 							 %>
-						  		<div class="tab-pane active" id="pic-1"><img src="resources/css/images/threecuties.jpg" /></div>
+						  		<div class="img"><img src="resources/css/images/three.png" /></div>
 						    <% 			
 										break;
 											
 										case 1:
 							%>
-								<div class="tab-pane active" id="pic-1"><img src="resources/css/images/twocuties.jpg" /></div>
+								<div class="img"><img src="resources/css/images/twocuties.jpg" /></div>
 							<% 		
 										break;
 											
 										case 2:
 							%>	
-								<div class="tab-pane active" id="pic-1"><img src="resources/css/images/dog.jpg" /></div>
+								<div class="img"><img src="resources/css/images/dog.jpg" /></div>
 							<%
 										break;
 								
 										default:
 							%>
-								<div class="tab-pane active" id="pic-1"><img src="resources/css/images/cat.png" /></div>
+								<div class="img"><img src="resources/css/images/cat.png" /></div>
 							<%			
 								}
 						     %>
 						</div>
 					</div>
 					
-					<div class="details col-md-6" id="detail">
+					<div class="details col-md-6" id="detail" style="text-align: left;">
 					
 							  <input type="hidden" id="type" name="type" value="<%=request.getParameter("type")%>"/>
 						      <% 
 						        switch( Integer.parseInt(request.getParameter("type")) ){
 							           case 0:
 							   %>     	   
-											<h3 class="product-title">야생동물 구조치료기관</h3>
-												<h4 class="price">지역명: <span>${rvo.SIGUN_NM }</span></h4>
-												<h4 class="price">보호소명 : ${rvo.RESCUE_INST_NM }</h4>
-												<h4 class="price">전화번호 : ${rvo.RESCUE_INST_TELNO } </h4>
-												<h4 class="price">주소 : ${rvo.REFINE_LOTNO_ADDR }</h4>
-											<div id="map" style="width:500px;height:400px;"></div>
+											<h3 class="product-title"> ${rvo.RESCUE_INST_NM }</h3><hr/>
+												<h4 class="price">::지역명:: <span>${rvo.SIGUN_NM }</span></h4>
+												<h4 class="price">::전화번호:: ${rvo.RESCUE_INST_TELNO } </h4>
+												<h4 class="price">::주소:: ${rvo.REFINE_LOTNO_ADDR }</h4>
+											
 											
 											<input type="hidden" id="r_y" value="${rvo.REFINE_WGS84_LAT }"/>
 											<input type="hidden" id="r_x" value="${rvo.REFINE_WGS84_LOGT }"/>
@@ -436,7 +156,7 @@
 												보호소명 : ${pvo.ENTRPS_NM }
 												전화번호 : ${pvo.ENTRPS_TELNO } 
 												주소 : ${pvo.REFINE_LOTNO_ADDR }
-											<div id="map" ></div>
+											
 											
 											<input type="hidden" id="p_y" value="${pvo.REFINE_WGS84_LAT }"/>
 											<input type="hidden" id="p_x" value="${pvo.REFINE_WGS84_LOGT }"/>
@@ -455,6 +175,7 @@
 	      			</div>
 	      			
 				</div>
+				<div id="map" style="width:500px;height:400px;"></div>
 	
 		
 <%-- 리뷰 -----------------------------------------------------------------------------------%>
@@ -668,11 +389,12 @@
 			    };
 			}
 			
+			<%--
 			$("#map_btn").click(function () {
 				$("#map").dialog({width: 500, height: 400 });
 				$("#map").css("display", "block");
 			});	
-			
+			--%>
 			$("#list_btn").click(function () {
 				location.href="reviewBbs.inc?nowPage=" + ${nowPage}+"&s_type="+${type};
 			});	
@@ -733,5 +455,4 @@
 			}
 		</script>
 </body>
-<jsp:include page="footer.jsp"/>
 </html>
