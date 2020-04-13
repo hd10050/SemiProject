@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="resources/css/pagecode.css"/>
 
 </head>
-<jsp:include page="navbar.jsp"/><br/><br/><br/><br/>
+<jsp:include page="navbar.jsp"/>
 <body>
 <%
 	Object obj = session.getAttribute("mvo");
