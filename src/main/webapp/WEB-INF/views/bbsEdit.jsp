@@ -25,8 +25,8 @@
 </style>
 </head>
 <body>
+<jsp:include page="navbar.jsp"/><br/><br/><br/><br/>
 <div class="container">
-<div class="col-md-5">
     <div class="form-area">  
         <form action="edit.inc" method="post" encType="multipart/form-data" name="write_form">
         <br style="clear:both">
@@ -43,13 +43,12 @@
 				<textarea class="form-control" type="textarea" id="content" name="content" maxlength="140" rows="7">${vo.content }</textarea>
 	        </div>
 			<input type="hidden" name="b_idx" value="${b_idx }"/>
-			<input type="hidden" name="type" value="${type }"/>
+			<input type="hidden" name="type" value="${param.s_type }"/>
 	        <input type="hidden" name="nowPage" value="${nowPage }"/>
 			<button type="button" id="save_btn" class="btn btn-primary pull-right" style="margin-left: 10px;" onclick="sendData()">저장</button>
-			<button type="button" id="list_btn" class="btn btn-white pull-right" onclick="go_list('${type }', '${nowPage }')">목록</button>
+			<button type="button" id="list_btn" class="btn btn-white pull-right" onclick="go_list('${param.s_type }', '${nowPage }')">목록</button>
         </form>
     </div>
-</div>
 </div>
 
 	<script src="resources/js/jquery-3.4.1.min.js"></script>
@@ -113,7 +112,7 @@
 		}
 		
 		function go_list(type, nowPage) {
-			location.href = "bbs.inc?type=" + type + "&nowPage=" + nowPage;
+			location.href = "bbs.inc?s_type=" + type + "&nowPage=" + nowPage;
 		}
 	</script>
 </body>

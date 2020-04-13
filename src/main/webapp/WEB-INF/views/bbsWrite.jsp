@@ -106,7 +106,7 @@
 		}
 		
 		function go_list(type, nowPage) {
-			location.href = "bbs.inc?type=" + type + "&nowPage=" + nowPage;
+			location.href = "bbs.inc?s_type=" + type + "&nowPage=" + nowPage;
 		}
 	</script>
 	<br/><br/><br/><br/><br/><br/><br/><br/>

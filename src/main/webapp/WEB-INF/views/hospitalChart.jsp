@@ -23,7 +23,7 @@
 
 <script>
 		$(function() {
-			
+				
 			$.ajax({
 				
 				url: "http://localhost:5000/hospChart",
@@ -63,9 +63,7 @@
 				
 				series.columns.template.tooltipText = "[bold]{valueY}[/]"; //막대 가리켰을 때 값 뜨게 하기
 				//series.columns.template.tooltipText = 	"[bold]{categoryX}[/]";
-				series.columns.template.fill = am4core.color('#6e6eff') //막대 색깔
 				series.columns.template.fillOpacity = 0.7; //막대 투명도
-				series.columns.template.stroke = am4core.color('#ff0000'); //막대 테두리 색깔
 				
 				var columnTemplate = series.columns.template;
 				columnTemplate.strokeWidth = 2; //막대 테두리 두께

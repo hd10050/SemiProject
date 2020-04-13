@@ -131,7 +131,7 @@
 </style>
 </head>
 <body>
-<jsp:include page="navbar.jsp"/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<jsp:include page="navbar.jsp"/><br/><br/><br/><br/>
 <div class="container">
 <div class="col-md-5" style="width: 750px; margin: 0 auto;">
     <div class="form-area">  
