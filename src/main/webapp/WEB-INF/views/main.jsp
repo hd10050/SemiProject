@@ -114,6 +114,14 @@
 %>
 			</div>
 <%
+		}else{
+%>
+			<ul class="ulul">
+				<li>
+					<span> 작성된 글이 없습니다. </span>
+				</li>
+			</ul>	
+<%					
 		}
 %>	
 	</div>
@@ -135,16 +143,24 @@
 				<h6><a href="bbs_view.inc?type=4&nowPage=1&b_idx=<%=vo.getB_idx() %>"><%=vo.getSubject() %></a></h6>				
 			</li>
 		</ul>	
-<%
+<%			
 			}
+%>
+			</div>
+<%
+		}else{
+%>
+			<ul class="ulul">
+				<li>
+					<span> 작성된 글이 없습니다. </span>
+				</li>
+			</ul>	
+<%					
 		}
-%>		
-	</div>
-		
-		
-		
+%>	
+		</div>
        </div>
-        </div>
+
     
 
   
