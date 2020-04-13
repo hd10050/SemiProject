@@ -4,6 +4,22 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mem">
 	
+	<!-- 페이징 -->
+	<select id="memlist" resultType="com.data.vo.MemberVO" parameterType="java.util.Map">
+		SELECT * FROM (SELECT rownum r_num, a.*
+						FROM (SELECT * FROM member_table
+							  WHERE m_status = 0
+							  ORDER BY m_idx DESC) a
+		)
+		WHERE r_num BETWEEN #{begin} AND #{end} 
+	</select>
+	
+	<!-- 전체 회원 수 -->
+	<select id="totalCount" resultType="int" >
+		SELECT count(*) from member_table
+		WHERE m_status = 0
+	</select>
+	
 	<!-- 회원 검색 -->
 	<select id="get_mem" resultType="com.data.vo.MemberVO" parameterType="String">
 		select * from member_table

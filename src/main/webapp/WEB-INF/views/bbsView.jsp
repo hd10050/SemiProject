@@ -128,33 +128,40 @@
 .post .post-footer .comments-list .comment > .comments-list {
   margin-left: 50px;
 }
+
+.pre {
+	display: inline-block;
+	width: 300px;
+	float: left;
+	margin-left: 0px;
+	
+}
 </style>
 </head>
 <body>
 <jsp:include page="navbar.jsp"/><br/><br/><br/><br/>
 <div class="container">
-<div class="col-md-5" style="width: 750px; margin: 0 auto;">
-    <div class="form-area">  
+<div class="col-md-5">
+    <div class="form-area" style="width: 1000px; margin-right: 0;">  
         <br style="clear:both">
 			<div class="form-group">
-				<pre>제목 : ${vo.subject }</pre>
-			</div>
-			<div class="form-group">
-				<pre>조회수 : ${vo.hit }</pre>
-			</div>
-			<div class="form-group">
+				<pre>
+				<span class="pre"><strong>제목</strong> : ${vo.subject }</span>
+				
+				
+				<span class="pre"><strong>조회수</strong> : ${vo.hit }</span>
 			<c:if test="${vo.file_name != null and fn:length(vo.file_name) > 4 }"> 
-				<pre>첨부파일 :	<a href="javascript: fDown('${vo.file_name }')">${vo.file_name } (${vo.ori_name }) </a></pre>
+				<span class="pre"><strong>첨부파일</strong> :	<a href="javascript: fDown('${vo.file_name }')">${vo.file_name } (${vo.ori_name }) </a></span>
 			</c:if>
 			<c:if test="${vo.file_name == null and fn:length(vo.file_name) <= 4 }">
-			 	<pre>첨부파일이 없습니다.</pre>
+			 	<span class="pre"><strong>첨부파일이 없습니다.</strong></span>
 			</c:if>
+			
+				<span class="pre"><strong>이름</strong> : ${vo.writer }</span></pre>
 	        </div>
 	        <div class="form-group">
-				<pre>이름 : ${vo.writer }</pre>
-	        </div>
-	        <div class="form-group">
-				<pre style="height: auto;">${vo.content }</pre>
+				<pre style="height: auto;">${vo.content }
+				</pre>
 	        </div>
 	        
 <%			
@@ -175,15 +182,11 @@
 			}
 %>
 			<button type="button" id="list_btn" class="btn btn-white pull-right">목록</button>
-    </div>
-</div>
-</div>
-
 <%-- 댓글 -----------------------------------------------------------------------------------%>
 <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-<div class="container" style="margin: 0 auto;">
+<div class="container" style="margin-top: 70px; margin-left: 0px; padding-left:0; width: 1000px;">
     <div class="col-sm-8">
-        <div class="panel panel-white post panel-shadow">
+        <div class="post">
 	<div class="post-footer">
 		<div class="input-group">
 			<form action="c_write.inc" method="post" name="r_write">
@@ -258,6 +261,12 @@
 	</div>
 	</div>
 	</div>
+    </div>
+    
+</div>
+</div>
+
+
 
 	<form action="" method="post" id="go_form" name="go_form">
         <input type="hidden" name="b_idx" value="${b_idx }"/>

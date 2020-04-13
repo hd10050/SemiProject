@@ -8,12 +8,33 @@ import java.util.Map;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.data.vo.BbsVO;
 import com.data.vo.MemberVO;
 
 public class MemDAO {
 	
 	@Autowired
 	private SqlSessionTemplate ss;
+	
+	
+	// 회원 페이징
+	public MemberVO[] getList(int begin, int end) {
+		MemberVO[] ar = null;
+
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("begin", begin);
+		map.put("end", end);
+		List<BbsVO> list = ss.selectList("mem.memlist", map);
+
+		if(list.size() > 0) {
+			ar = new MemberVO[list.size()];
+			ar = list.toArray(ar);
+		}
+		return ar;
+	}
+
+	// 회원수
+	public int getTotalCount() { return ss.selectOne("mem.totalCount"); }
 	
 	// 회원 검색
 	public MemberVO get_mem(String m_idx) { return ss.selectOne("mem.get_mem", m_idx);  }

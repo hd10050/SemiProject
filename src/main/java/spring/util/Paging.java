@@ -25,6 +25,17 @@ public class Paging {
 		makeHTML();
 	}
 	
+	public Paging(int nowPage, int rowTotal, int blockList, int blockPage) {
+		this.nowPage = nowPage;
+		this.rowTotal = rowTotal;
+		this.blockList = blockList;
+		this.blockPage = blockPage;
+		this.isPrePage = false;
+		this.isNextPage = false;
+		
+		makememHTML();
+	}
+	
 	// Getter Setter -----------------------------------------------------------------------
 	public int getNowPage() { return nowPage; }
 	public String getType() { return type; }
@@ -136,5 +147,69 @@ public class Paging {
 		}
 
 	}
+	
+	// *******************************************************************************
+	
+	public void makememHTML() {
+		// 총 게시물 수를 통해 페이지 수를 구한다
+		this.totalPage = (int)Math.ceil((double)rowTotal/blockList);
 
+		if(nowPage > totalPage) { this.nowPage = totalPage; }
+
+		// 현재 블럭의 시작페이지 값과 마지막 페이지 값
+		this.startPage = ((int)((nowPage-1)/blockPage)*blockPage) + 1 ;
+		this.endPage = this.startPage + blockPage - 1;
+		if(endPage > totalPage) { this.endPage = this.totalPage; }
+
+		// 현재 페이지의 시작 게시물의 행번호, 마지막 게시물의 행번호 지정
+		this.begin = (nowPage - 1)*blockList + 1;
+		this.end = this.begin + blockList - 1;
+
+		// 이전, 다음 기능 활성화/비활성화
+		if(this.startPage > 1) { this.isPrePage = true; }
+		if(this.endPage < this.totalPage ) { this.isNextPage = true; }
+
+		// 페이지 기법에 사용할 코드 StringBuffer에 저장 ---------------------------
+		this.sb = new StringBuffer("");
+
+		if(this.isPrePage) {
+			sb.append("<li><a href='ad_page.inc?nowPage=");
+			if (this.nowPage - this.blockPage < 1) {
+				sb.append("1");
+			} else {
+				sb.append(this.nowPage - this.blockPage);
+			}
+			sb.append("'>&lt;</a></li>");
+		} else { 
+			sb.append("<li><a href='ad_page.inc?nowPage=" + 1 + "'>&lt;</a></li>");
+		}
+
+		for(int i = this.startPage ; i <= endPage ; i++) {
+			if(i == this.nowPage) {
+				sb.append("<li class='now'><a href='#'>");
+				sb.append(i);
+				sb.append("</a></li>");
+			} else {
+				sb.append("<li><a href='ad_page.inc?nowPage=");
+				sb.append(i);
+				sb.append("'>");
+				sb.append(i);
+				sb.append("</a></li>");
+			}
+		}
+
+		if(this.isNextPage) {
+			sb.append("<li><a href='ad_page.inc?nowPage=");
+			if(this.nowPage + this.blockPage > this.totalPage) {
+				sb.append(this.totalPage);
+			} else {
+				sb.append(this.nowPage + this.blockPage);
+			}
+			
+			sb.append("'>&gt;</a></li>");
+		} else { 
+			sb.append("<li><a href='ad_page.inc?nowPage=" + this.totalPage + "'>&gt;</a></li>");
+		}
+
+	}
 }

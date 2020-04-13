@@ -14,6 +14,7 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <link rel="stylesheet" href="resources/css/memview.css"/>
 <link rel="stylesheet" href="resources/css/editform.css"/>
+<link rel="stylesheet" href="resources/css/pagecode.css"/>
 
 </head>
 <jsp:include page="navbar.jsp"/>
@@ -96,6 +97,11 @@
 									</c:forEach>
 								</tbody>
 							</table>
+							<div class="pagination" style="margin: 0 auto;">
+							    <ul style="padding: 0;">
+							        ${pageCode }
+								</ul>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -103,7 +109,6 @@
 		</div>
 	</div>
 </div>
-
 <form action="" method="post" name="admin_frm" id="admin_frm">
 	<input type="hidden" id="m_level" name="m_level" value=" "/>
 	<input type="hidden" id="m_idx" name="m_idx" />
@@ -134,8 +139,9 @@
 		 }
 		admin_frm.submit();
 	}
-	
+
 </script>
 
 </body>
+<jsp:include page="footer.jsp"/>
 </html>

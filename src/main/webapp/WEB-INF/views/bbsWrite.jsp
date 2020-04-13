@@ -22,13 +22,14 @@
 </style>
 </head>
 <body>
-<jsp:include page="navbar.jsp"/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-<div class="container">
-    <div class="form-area">  
+<jsp:include page="navbar.jsp"/><br/><br/><br/><br/>
+<div class="container" style="margin: 0 auto; width: 900px;">
+    <div class="form-area" style="width: 900px">  
+    <div style="margin: 0 auto; width: 700px;">
         <form action="write.inc" method="post" encType="multipart/form-data" name="write_form">
         <br style="clear:both">
 			<div class="form-group">
-				<input type="text" class="form-control" id="subject" name="subject" placeholder="제목" required>
+				<input type="text" class="form-control" id="subject" name="subject" placeholder="제목" required style="width: 700px">
 			</div>
 			<div class="form-group">
 				<input type="file" name="file"/>
@@ -42,6 +43,7 @@
 			<button type="button" id="save_btn" class="btn btn-primary pull-right" style="margin-left: 10px;" onclick="sendData()">저장</button>
 			<button type="button" id="list_btn" class="btn btn-white pull-right" onclick="go_list('${type }', '${nowPage }')">목록</button>
         </form>
+        </div>
     </div>
 </div>
 
@@ -52,7 +54,7 @@
 		$(function(){
 			$("#content").summernote({
 				height: 300,
-				width: 450,
+				width: 700,
 				lang: "ko-KR",
 				callbacks:{
 					onImageUpload: function(files, editor){
@@ -109,7 +111,6 @@
 			location.href = "bbs.inc?s_type=" + type + "&nowPage=" + nowPage;
 		}
 	</script>
-	<br/><br/><br/><br/><br/><br/><br/><br/>
 <jsp:include page="footer.jsp"/>
 </body>
 </html>
