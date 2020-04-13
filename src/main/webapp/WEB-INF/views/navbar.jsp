@@ -23,7 +23,7 @@
 		if(obj_vo != null){
 %>          
 				
-		    <span class="nanav_menu_t"><%=mvo.getM_name() %>님 환영합니다.</span>
+			<span class="nanav_menu_t" onclick="ad_page('<%=mvo.getM_level()%>')"><%=mvo.getM_name() %>님 환영합니다.</span>
 		    <i class="fas fa-user"></i><input type="button" value="내정보" onclick="location.href='myPage.inc'" class="nanav_menu_t"/> 
 		    <i class="fas fa-unlock-alt"></i><input type="button" value="로그아웃" onclick="logout()" class="nanav_menu_t"/> 
 <%
@@ -114,6 +114,12 @@
 			}).fail(function (err) {
 				console.log(err);
 			});
+		}
+		
+		function ad_page(lv) {
+			if(lv == 1 || lv == 2) {
+				location.href = "ad_page.inc";
+			}
 		}
 	</script>
   

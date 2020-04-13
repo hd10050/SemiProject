@@ -158,7 +158,7 @@ public class PagingAction {
 	private StoreVO[] getSto(int nowPage2, String s_type) throws Exception {
 		URL url = new URL("https://openapi.gg.go.kr/AnimalPharmacy?KEY=3c4f29c142804973bb865407b581dd9b&pSize=" + BLOCK_LIST + "&pIndex=" + nowPage2);
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();	// 연결 객체
-		
+
 		conn.setRequestProperty("Content-Type", "application/xml");	// conn으로 부터 결과를 받는 contentType 설정
 		conn.connect();
 		// -------------------------------------------------------
