@@ -32,7 +32,7 @@
 				dataType: "json"				
 				
 			}).done(function(data){
-				viewChar4t(data);
+				viewChart(data);
 			});
 			
 				
