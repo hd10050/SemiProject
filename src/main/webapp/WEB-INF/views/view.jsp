@@ -11,6 +11,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="resources/css/jquery-ui.min.css"/>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="resources/css/bootstrap.min.css" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <style type="text/css">
@@ -55,77 +56,233 @@
 .rate > label:hover ~ input:checked ~ label {
     color: #c59b08;
 }
-/*****************globals*************/
 
-	/*# sourceMappingURL=style.css.map */
+/*********total**********/
+.container{
+	width: 1000px; 
+	border-top: 5px solid rgba(40,99,134, 0.8);
+	border-bottom: 5px solid rgba(40,99,134, 0.8);
+	padding: 50px 0;
+}
+.images{
+	width: 370px; 
+	margin-bottom: 50px; 
+	margin-top: 25px;
+	padding-left: 50px;
+}
+table td{
+	padding: 15px 10px;;
+	border: 1px solid rgba(119, 136, 153, 0.3);
+}
+table td:nth-child(1){
+	padding-left: 10px;
+	background: rgba(0, 139, 139,0.4);
+}
+table td:nth-child(2){
+	padding-left: 30px;
+	background: #fff;
+}
+table span{
+	font-size: 15px;
+}
+table tr td:nth-child(1) span{
+	font-weight: bold;
+}
+.images {
+    animation: fadein 2s;
+    -moz-animation: fadein 2s;
+    /* Firefox */
+    -webkit-animation: fadein 2s;
+    /* Safari and Chrome */
+    -o-animation: fadein 2s;
+    /* Opera */
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadein {
+
+    /* Firefox */
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadein {
+
+    /* Safari and Chrome */
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadein {
+
+    /* Opera */
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+.product-title{
+	font-weight: bold; 
+	padding-left: 80px;
+}
+.details123 hr{
+	margin-left: 50px;
+}
+table{
+	margin-left: 80px;
+	width: 450px;
+}
+.action{
+	width:70px; 
+	padding-left: 450px;
+}
+.details123{
+	flex: 1;
+}
+.detail123{
+	margin-top: 60px; 
+	margin-left: 50px;
+}
+.wrapper{
+	width:100%; 
+	margin-bottom: 70px; 
+	display: flex; 
+}
+.review{
+	margin-bottom: 50px;
+}
 </style>
 </head>
 <body>
 <jsp:include page="navbar.jsp"/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-	<div class="container" style="width: 1000px; border: 1px solid red;">
-		<div class="card">
-			<div class="container-fliud">
+	<div class="container"><!-- 가장 바깥 테두리 -->
+		<hr style="color: rgba(40,99,134, 0.8);"/>
+			<div id="wrapper" class="wrapper" ><!-- 이미지+상세설명 -->
 			
-				<div id="wrapper row" class="wrapper row" style="background: gray;">
-				
-					<div class="preview col-md-6">
-						<div class="preview-pic tab-content">
+					<div class="images"><!-- 이미지 -->
 							<%  String b_idx = (String)request.getAttribute("b_idx");
 						        switch( Integer.parseInt(request.getParameter("type")) ){
 							           case 0:
 							 %>
-						  		<div class="img"><img src="resources/css/images/three.png" /></div>
+						  		<img src="resources/css/images/three.png" />
 						    <% 			
 										break;
 											
 										case 1:
 							%>
-								<div class="img"><img src="resources/css/images/twocuties.jpg" /></div>
+								<img src="resources/css/images/two.png" />
 							<% 		
 										break;
 											
 										case 2:
 							%>	
-								<div class="img"><img src="resources/css/images/dog.jpg" /></div>
+								<img src="resources/css/images/dog.png" />
 							<%
 										break;
 								
 										default:
 							%>
-								<div class="img"><img src="resources/css/images/cat.png" /></div>
+								<img src="resources/css/images/cat.png" style="width: 370px; height: 340px;"/>
 							<%			
 								}
 						     %>
-						</div>
 					</div>
 					
-					<div class="details col-md-6" id="detail" style="text-align: left;">
-					
-							  <input type="hidden" id="type" name="type" value="<%=request.getParameter("type")%>"/>
+							
+					<div class="details123" id="details123"><!-- 상세설명 -->
+							<div class="detail123">
+							  <input type="hidden" id="type" name="type" value="<%=request.getParameter("type")%>" />
 						      <% 
 						        switch( Integer.parseInt(request.getParameter("type")) ){
 							           case 0:
 							   %>     	   
-											<h3 class="product-title"> ${rvo.RESCUE_INST_NM }</h3><hr/>
-												<h4 class="price">::지역명:: <span>${rvo.SIGUN_NM }</span></h4>
-												<h4 class="price">::전화번호:: ${rvo.RESCUE_INST_TELNO } </h4>
-												<h4 class="price">::주소:: ${rvo.REFINE_LOTNO_ADDR }</h4>
-											
+							   				<h1 class="product-title"><img alt="icon" src="resources/css/images/icon.png"></img>
+											${rvo.RESCUE_INST_NM }</h1><br/><hr/><br/>
+												<table>
+													<tr>
+														<td>
+															<span>지역명</span>
+														</td>
+														<td>
+															<span>${rvo.SIGUN_NM }</span>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<span>전화번호</span>
+														</td>
+														<td>
+															<span>${rvo.RESCUE_INST_TELNO }</span>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<span>주소</span>
+														</td>
+														<td>
+															<span>${rvo.REFINE_LOTNO_ADDR }</span>
+														</td>
+													</tr>
+												</table>
 											
 											<input type="hidden" id="r_y" value="${rvo.REFINE_WGS84_LAT }"/>
 											<input type="hidden" id="r_x" value="${rvo.REFINE_WGS84_LOGT }"/>
 											<input type="hidden" id="r_name" value="${rvo.RESCUE_INST_NM }"/>
-								<% 			
+								<%			
 											break;
 											
 										case 1:
 								%>			
-											<h1>동물병원</h1>
-												지역명: ${hvo.SIGUN_NM }
-												보호소명 : ${hvo.BIZPLC_NM }
-												전화번호 : ${hvo.LOCPLC_FACLT_TELNO } 
-												주소 : ${hvo.REFINE_LOTNO_ADDR }
-											<div id="map" style="width:500px;height:400px;"></div>	
+												<h1 class="product-title"><img alt="icon" src="resources/css/images/icon.png"></img>
+												 ${hvo.BIZPLC_NM }</h1><br/><hr/><br/>
+												<table>
+													<tr>
+														<td>
+															<span>지역명</span>
+														</td>
+														<td>
+															<span>${hvo.SIGUN_NM }</span>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<span>전화번호</span>
+														</td>
+														<td>
+															<span>${hvo.LOCPLC_FACLT_TELNO }</span>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<span>주소</span>
+														</td>
+														<td>
+															<span>${hvo.REFINE_LOTNO_ADDR }</span>
+														</td>
+													</tr>
+												</table>
 											
 											<input type="hidden" id="h_y" value="${hvo.REFINE_WGS84_LAT }"/>
 											<input type="hidden" id="h_x" value="${hvo.REFINE_WGS84_LOGT }"/>
@@ -135,12 +292,34 @@
 											
 										case 2:
 								%>				
-											<h1>동물약국</h1>
-												지역명: ${svo.SIGUN_NM }
-												보호소명 : ${svo.BIZPLC_NM }
-												전화번호 : ${svo.LOCPLC_FACLT_TELNO } 
-												주소 : ${svo.REFINE_LOTNO_ADDR }
-											<div id="map" style="width:500px;height:400px;"></div>
+											<h1 class="product-title"><img alt="icon" src="resources/css/images/icon.png"></img>
+											${svo.BIZPLC_NM }</h1><br/><hr/><br/>
+												<table>
+													<tr>
+														<td>
+															<span>지역명</span>
+														</td>
+														<td>
+															<span> ${svo.SIGUN_NM }</span>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<span>전화번호</span>
+														</td>
+														<td>
+															<span>${svo.LOCPLC_FACLT_TELNO }</span>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<span>주소</span>
+														</td>
+														<td>
+															<span>${svo.REFINE_LOTNO_ADDR }</span>
+														</td>
+													</tr>
+												</table>
 											
 											<input type="hidden" id="s_y" value="${svo.REFINE_WGS84_LAT }"/>
 											<input type="hidden" id="s_x" value="${svo.REFINE_WGS84_LOGT }"/>
@@ -151,11 +330,34 @@
 								
 										default:
 								%>				
-											<h1>유기동물 보호시설</h1>
-												지역명: ${pvo.SIGUN_NM }
-												보호소명 : ${pvo.ENTRPS_NM }
-												전화번호 : ${pvo.ENTRPS_TELNO } 
-												주소 : ${pvo.REFINE_LOTNO_ADDR }
+											<h1 class="product-title"><img alt="icon" src="resources/css/images/icon.png"></img>
+											${pvo.ENTRPS_NM }</h1><br/><hr/><br/>
+												<table>
+													<tr>
+														<td>
+															<span>지역명</span>
+														</td>
+														<td>
+															<span>${pvo.SIGUN_NM }</span>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<span>전화번호</span>
+														</td>
+														<td>
+															<span>${pvo.ENTRPS_TELNO }</span>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<span>주소</span>
+														</td>
+														<td>
+															<span>${pvo.REFINE_LOTNO_ADDR }</span>
+														</td>
+													</tr>
+												</table>
 											
 											
 											<input type="hidden" id="p_y" value="${pvo.REFINE_WGS84_LAT }"/>
@@ -165,20 +367,22 @@
 								 }
 						         %>
       				
-      						<div class="action">
-								<button class="add-to-cart btn btn-default" type="button" id="list_btn">목록으로</button>
-								<button class="add-to-cart btn btn-default" type="button" id="map_btn">지도</button>
+      						<div class="action" >
+								<button class="Tolist" type="button" id="Tolist" style="margin-top:20px; width: 70px; height: 40px; font-size: 12px; border-radius: 5px;">목록으로</button>
 							</div>
+							</div>
+							
 							
       					</div>
       					
-	      			</div>
+					</div>
 	      			
-				</div>
-				<div id="map" style="width:500px;height:400px;"></div>
+	      			
+				<div id="map" style="width:998px;height:400px; margin-bottom: 150px;"></div>
 	
 		
 <%-- 리뷰 -----------------------------------------------------------------------------------%>
+<div class="review">
 <%
 	ReviewVO[] r_ar = null;
 	int total = 0;
@@ -195,8 +399,7 @@
 	}
 %>
 	<div style="margin-left: 90px">
-		<h3>평점</h3>
-		<h1><%=(Math.round(avg*100)/100.0) %>점</h1>
+		<h1>평균 평점</h1><h2><%=(Math.round(avg*100)/100.0) %>점</h2>
 	</div>
 <%
 	Object obj = session.getAttribute("mvo");
@@ -249,7 +452,7 @@
 		for(int i = 0 ; i < r_ar.length ; i++) {
 %>
 			<hr/>
-			<li class="comment">
+			<li class="comment" style="list-style: none;">
 			<form id="edit_frm<%=i%>" action="r_edit.inc" method="post">
 				<div class="comment-body" style="margin-left: 100px">
 					<div class="comment-heading">
@@ -279,8 +482,10 @@
 <%
 	}
 %>
+			</div>
+			<hr/>
 		</div>
-		</div>
+		
 		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8d26b23142336a11ee181cc1c827a3ff"></script>
 		<script src="resources/js/jquery-3.4.1.min.js"></script>
 		<script src="resources/js/jquery-ui.min.js"></script>
@@ -395,7 +600,7 @@
 				$("#map").css("display", "block");
 			});	
 			--%>
-			$("#list_btn").click(function () {
+			$("#Tolist").click(function () {
 				location.href="reviewBbs.inc?nowPage=" + ${nowPage}+"&s_type="+${type};
 			});	
 			
@@ -455,4 +660,5 @@
 			}
 		</script>
 </body>
+<jsp:include page="footer.jsp"/>
 </html>
