@@ -1,5 +1,8 @@
 package com.pro.semi;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -36,9 +39,31 @@ public class BbsViewAction {
 		BbsVO vo = bbsDao.view(b_idx);
 		ReviewVO[] review_ar = reviewDao.listReview(b_idx);
 		
-		vo.setHit(String.valueOf(Integer.parseInt(vo.getHit()) + 1));
-		bbsDao.hit(vo.getB_idx());
 		
+		// 조회수 관련 처리 ----------
+		Object obj = session.getAttribute("read_list");
+		List<String> read_list = (ArrayList)obj;
+		if (read_list == null || read_list.size() < 1) {
+			read_list = new ArrayList<String>();
+		}
+
+		boolean chk = false;
+		for(int i = 0 ; i < read_list.size() ; i++) {
+			if(read_list.get(i).equals(vo.getB_idx())) {
+				chk = true;
+				break; 
+			}
+		}
+		if(!chk) {
+			int hit = Integer.parseInt(vo.getHit());
+			vo.setHit(String.valueOf(Integer.parseInt(vo.getHit()) + 1));
+			bbsDao.hit(vo.getB_idx());
+
+			read_list.add(vo.getB_idx());
+		}
+		session.setAttribute("read_list", read_list);
+		// ------------------------------*/
+				
 		session.setAttribute("vo", vo);
 		mv.addObject("review_ar", review_ar);
 		mv.addObject("vo", vo);
