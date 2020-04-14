@@ -26,7 +26,7 @@
 			
 			$.ajax({
 				
-				url: "http://localhost:5000/hospChart",
+				url: "http://192.168.0.186:5000/hospChart",
 				type: "post",
 				dataType: "json"				
 				

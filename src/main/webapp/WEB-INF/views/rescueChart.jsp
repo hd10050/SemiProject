@@ -31,7 +31,7 @@ $(function() {
 	
 	$.ajax({
 		
-		url: "http://localhost:5000/rescueChart",
+		url: "http://192.168.0.186:5000/rescueChart",
 		type: "post",
 		dataType: "json"				
 		
