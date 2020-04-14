@@ -204,7 +204,7 @@ table{
 								
 										default:
 							%>
-								<img src="resources/css/images/cat.png" />
+								<img src="resources/css/images/cat.png" style="width: 370px; height: 340px;"/>
 							<%			
 								}
 						     %>
