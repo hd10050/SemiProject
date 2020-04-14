@@ -55,7 +55,7 @@
       <c:forEach var="vo" items="${ar}">
          <tr>
             <td>${vo.SIGUN_NM}</td>
-            <td><a href="view.inc?RESCUE_INST_TELNO=${vo.RESCUE_INST_TELNO}&type=${requestScope.type}&nowPage=${nowPage }">${vo.RESCUE_INST_NM}</a></td>
+            <td><a href="view.inc?RESCUE_INST_TELNO=${vo.RESCUE_INST_TELNO}&type=${requestScope.type}&nowPage=${nowPage }&RESCUE_INST_NM=${vo.RESCUE_INST_NM}">${vo.RESCUE_INST_NM}</a></td>
             <td>${vo.REFINE_LOTNO_ADDR}</td>
             <td>${vo.RESCUE_INST_TELNO}</td>
          </tr>
@@ -76,7 +76,7 @@
       <c:forEach var="vo" items="${ar}">
          <tr>
             <td>${vo.SIGUN_NM}</td>
-            <td><a href="view.inc?LOCPLC_FACLT_TELNO=${vo.LOCPLC_FACLT_TELNO}&type=${requestScope.type}&nowPage=${nowPage }">${vo.BIZPLC_NM}</a></td>
+            <td><a href="view.inc?LOCPLC_FACLT_TELNO=${vo.LOCPLC_FACLT_TELNO}&type=${requestScope.type}&nowPage=${nowPage }&BIZPLC_NM=${vo.BIZPLC_NM}">${vo.BIZPLC_NM}</a></td>
             <td>${vo.REFINE_LOTNO_ADDR}</td>
             <td>${vo.LOCPLC_FACLT_TELNO}</td>
          </tr>
@@ -98,7 +98,7 @@
       <c:forEach var="vo" items="${ar}">
          <tr>
             <td>${vo.SIGUN_NM}</td>
-            <td><a href="view.inc?LOCPLC_FACLT_TELNO=${vo.LOCPLC_FACLT_TELNO}&type=${requestScope.type}&nowPage=${nowPage }">${vo.BIZPLC_NM}</a></td>
+            <td><a href="view.inc?LOCPLC_FACLT_TELNO=${vo.LOCPLC_FACLT_TELNO}&type=${requestScope.type}&nowPage=${nowPage }&BIZPLC_NM=${vo.BIZPLC_NM}">${vo.BIZPLC_NM}</a></td>
             <td>${vo.REFINE_LOTNO_ADDR}</td>
             <td>${vo.LOCPLC_FACLT_TELNO}</td>
          </tr>
@@ -120,7 +120,7 @@
       <c:forEach var="vo" items="${ar}">
          <tr>
             <td>${vo.SIGUN_NM}</td>
-            <td><a href="view.inc?ENTRPS_TELNO=${vo.ENTRPS_TELNO}&type=${requestScope.type}&nowPage=${nowPage }">${vo.ENTRPS_NM}</a></td>
+            <td><a href="view.inc?ENTRPS_TELNO=${vo.ENTRPS_TELNO}&type=${requestScope.type}&nowPage=${nowPage }&ENTRPS_NM=${vo.ENTRPS_NM}">${vo.ENTRPS_NM}</a></td>
             <td>${vo.REFINE_LOTNO_ADDR}</td>
             <td>${vo.ENTRPS_TELNO}</td>
          </tr>
@@ -164,7 +164,6 @@
 				};
 			var map = new kakao.maps.Map(container, options);
 			
-			// -------------------------------------------------------------------
 
 			// 마커를 표시할 위치와 title 객체 배열입니다
 			var positions = [

@@ -17,6 +17,9 @@
 		<input type="hidden" id= "RESCUE_INST_TELNO" name="RESCUE_INST_TELNO" value="${RESCUE_INST_TELNO }"/>
 		<input type="hidden" id= "LOCPLC_FACLT_TELNO" name="LOCPLC_FACLT_TELNO" value="${LOCPLC_FACLT_TELNO }"/>
 		<input type="hidden" id= "ENTRPS_TELNO" name="ENTRPS_TELNO" value="${ENTRPS_TELNO }"/>
+		<input type="hidden" id= "RESCUE_INST_NM" name="RESCUE_INST_NM" value="${RESCUE_INST_NM }"/>
+		<input type="hidden" id= "BIZPLC_NM" name="BIZPLC_NM" value="${BIZPLC_NM }"/>
+		<input type="hidden" id= "ENTRPS_NM" name="ENTRPS_NM" value="${ENTRPS_NM }"/>
 	</form>
 
 	<script src="resources/js/jquery-3.4.1.min.js"></script>

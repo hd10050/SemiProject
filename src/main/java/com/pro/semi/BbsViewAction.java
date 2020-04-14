@@ -39,7 +39,6 @@ public class BbsViewAction {
 		BbsVO vo = bbsDao.view(b_idx);
 		ReviewVO[] review_ar = reviewDao.listReview(b_idx);
 		
-		
 		// 조회수 관련 처리 ----------
 		Object obj = session.getAttribute("read_list");
 		List<String> read_list = (ArrayList)obj;

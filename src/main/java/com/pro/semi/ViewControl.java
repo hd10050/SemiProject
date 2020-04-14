@@ -35,7 +35,8 @@ public class ViewControl {
 
 	@RequestMapping(value="/view.inc", method=RequestMethod.POST)
 	public ModelAndView view(String type, String nowPage, String RESCUE_INST_TELNO,
-								String LOCPLC_FACLT_TELNO, String ENTRPS_TELNO) throws Exception {
+								String LOCPLC_FACLT_TELNO, String ENTRPS_TELNO, String RESCUE_INST_NM,
+								String BIZPLC_NM, String ENTRPS_NM) throws Exception {
 
 		ModelAndView mv = new ModelAndView();
 
@@ -49,9 +50,10 @@ public class ViewControl {
 				// System.out.println("RESCUE_INST_TELNO="+RESCUE_INST_TELNO);
 
 				String RESCUE_INST_TELNO2 = r.getRESCUE_INST_TELNO();
+				String RESCUE_INST_NM2 = r.getRESCUE_INST_NM();
 				//System.out.println("RESCUE_INST_TELNO2="+RESCUE_INST_TELNO2);
 
-				if(RESCUE_INST_TELNO.equals(RESCUE_INST_TELNO2)) {
+				if(RESCUE_INST_TELNO.equals(RESCUE_INST_TELNO2) && RESCUE_INST_NM.equals(RESCUE_INST_NM2)) {
 
 					rvo.setSUM_YM(r.getSUM_YM());
 					//System.out.println(r.getSIGUN_NM());
@@ -77,8 +79,9 @@ public class ViewControl {
 
 			for(HospitalVO h : h_ar) {
 				String LOCPLC_FACLT_TELNO2 = h.getLOCPLC_FACLT_TELNO();
+				String BIZPLC_NM2 = h.getBIZPLC_NM();
 
-				if(LOCPLC_FACLT_TELNO.equals(LOCPLC_FACLT_TELNO2)) {
+				if(LOCPLC_FACLT_TELNO.equals(LOCPLC_FACLT_TELNO2) && BIZPLC_NM.equals(BIZPLC_NM2)) {
 
 					hvo.setSIGUN_CD(h.getSIGUN_CD());
 					hvo.setSIGUN_NM(h.getSIGUN_NM());
@@ -118,8 +121,9 @@ public class ViewControl {
 
 			for(StoreVO s : s_ar) {
 				String LOCPLC_FACLT_TELNO2 = s.getLOCPLC_FACLT_TELNO();
+				String BIZPLC_NM2 = s.getBIZPLC_NM();
 
-				if(LOCPLC_FACLT_TELNO.equals(LOCPLC_FACLT_TELNO2)) {
+				if(LOCPLC_FACLT_TELNO.equals(LOCPLC_FACLT_TELNO2) && BIZPLC_NM.equals(BIZPLC_NM2)) {
 
 					svo.setSIGUN_CD(s.getSIGUN_CD()); 	//	시군코드
 					svo.setSIGUN_NM(s.getSIGUN_NM()); //	시군명
@@ -158,8 +162,9 @@ public class ViewControl {
 
 			for(ProtectVO p : p_ar) {
 				String ENTRPS_TELNO2 = p.getENTRPS_TELNO();
+				String ENTRPS_NM2 = p.getENTRPS_NM();
 
-				if(ENTRPS_TELNO.equals(ENTRPS_TELNO2)) {
+				if(ENTRPS_TELNO.equals(ENTRPS_TELNO2) && ENTRPS_NM2.equals(ENTRPS_NM)) {
 
 					pvo.setSUM_YY(p.getSUM_YY());	//	집계년도
 					pvo.setSIGUN_NM(p.getSIGUN_NM()); //	시군명
@@ -198,13 +203,17 @@ public class ViewControl {
 	}
 	
 	@RequestMapping(value="/view.inc", method=RequestMethod.GET)
-	public ModelAndView view2(String type, String nowPage) {
+	public ModelAndView view2(String type, String nowPage, String RESCUE_INST_NM,
+			String BIZPLC_NM, String ENTRPS_NM) {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("type", type);
 		mv.addObject("nowPage", nowPage);
 		mv.addObject("RESCUE_INST_TELNO", Request.getParameter("RESCUE_INST_TELNO"));
 		mv.addObject("LOCPLC_FACLT_TELNO", Request.getParameter("LOCPLC_FACLT_TELNO"));
 		mv.addObject("ENTRPS_TELNO", Request.getParameter("ENTRPS_TELNO"));
+		mv.addObject("RESCUE_INST_NM", Request.getParameter("RESCUE_INST_NM"));
+		mv.addObject("BIZPLC_NM", Request.getParameter("BIZPLC_NM"));
+		mv.addObject("ENTRPS_NM", Request.getParameter("ENTRPS_NM"));
 		mv.setViewName("view2");
 		
 		return mv;

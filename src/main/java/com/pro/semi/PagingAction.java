@@ -49,8 +49,16 @@ public class PagingAction {
 		} else {
 			type = s_type;
 		}
-		if(nowPage == null) { this.nowPage = 1; }
-		else { this.nowPage = Integer.parseInt(nowPage); }
+		if(nowPage == null ) {
+			this.nowPage = 1;
+		}
+		else {
+			try {
+				this.nowPage = Integer.parseInt(nowPage);
+			} catch (Exception e) {
+				this.nowPage = 1;
+			}
+		}
 		// ---------------------------------------
 		switch(Integer.parseInt(type)) {
 		case 0:
@@ -118,6 +126,7 @@ public class PagingAction {
 			Element e = i_list.get(i);
 			RescueVO vo = new RescueVO(e.getChildText("SUM_YM"), e.getChildText("SIGUN_NM"), e.getChildText("SIGUN_CD"), e.getChildText("RESCUE_INST_NM"), e.getChildText("RESCUE_INST_TELNO"),
 					e.getChildText("REFINE_ZIP_CD"), e.getChildText("REFINE_LOTNO_ADDR"), e.getChildText("REFINE_ROADNM_ADDR"), e.getChildText("REFINE_WGS84_LAT"), e.getChildText("REFINE_WGS84_LOGT"));
+			
 			ar[i] = vo;
 		}
 		this.rowTotal = Integer.parseInt(cnt.getText());
