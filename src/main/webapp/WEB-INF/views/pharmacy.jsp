@@ -28,7 +28,7 @@
 	$(function(){
 		
 		$.ajax({
-			url: "http://localhost:5000/protect",
+			url: "http://192.168.0.186:5000/protect",
 			type: 'post',
 			dataType: 'json'
 		}).done(function(data){
