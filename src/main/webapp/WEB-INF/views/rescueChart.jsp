@@ -99,4 +99,5 @@ function viewChart(json_data) {
 	
 	
 </body>
+<jsp:include page="footer.jsp"/>
 </html>

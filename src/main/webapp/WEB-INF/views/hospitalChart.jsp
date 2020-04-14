@@ -12,6 +12,7 @@
 </style>
 </head>
 <body>
+<jsp:include page="navbar.jsp"/><br/><br/><br/><br/>
 
 		<h1>동물병원 경기도 현황</h1>
 		<div id="chart_div"></div>
@@ -72,4 +73,5 @@
 </script>
 		
 </body>
+<jsp:include page="footer.jsp"/>
 </html>
