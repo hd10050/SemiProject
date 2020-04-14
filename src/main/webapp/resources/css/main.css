@@ -14,7 +14,6 @@
 
 .middle{
  background-color: #ededee;		
-  margin-top: 20px;
   width: 100%;
   height: 800px;
   position: relative;
@@ -23,61 +22,89 @@
   position: absolute;
   top: 50px;
   width: 600px;
-  left: 250px; 
+  left: 72.5px; 
    
+}
+.top{
+	background-color: #ededee;
+	
+	padding-top: 40px;
 }
 .middle-right{
   position: absolute;
   top: 50px;
-  left: 780px;
+  left: 570px;
   width: 380px;
-  height: 500px;
+  height: 300px;
 }
 .middle-right-notice{
-  border: 1px 
+  border: 1px; 
   margin-top: 10px;
-  width: 380px;
-  height: 150px;
+  width: 480px;
+  height: 420px;
   background-color: white;
-  border: 0.5px solid #286386;
+  border: 1px solid #d0d9e7;
 }
 .middle-right-free{
-  border: 0.5px solid #286386;
+  border: 1px solid #d0d9e7;
   margin-top: 10px;
-  width: 380px;
-  height: 150px;
+  width: 480px;
+  height: 420px;
   background-color: white;
 }
 
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 
-.sp{
+ .sp{
 	font-family: Spoqa Han Sans;
 	color:#286386;
 	font-weight: bold;
 	margin-bottom: 5px;
+	margin-top: 150px;
+	padding-left: 167px;
 }
 
+.ico{
+	margin-left: 172px;
+	margin-top: 50px;
+	margin-bottom: 51px;
+}
 
-
- .title1{
-	border-bottom: 1px solid #286386;
-    margin-bottom: 10px;
-    padding-top: 10px;
+.moreicon{
+	position: absolute;
+	margin-left: 90px;
 	
 }
+
+.cl{
+	color: #666;
+	text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+
 .title1 .sp{
+	font-size: 32px;
 	width:160px;
-	border-bottom: 3px solid #286386;
-	margin: 0;
+	color:black;
 	padding-left: 15px; 
 	padding-right: 15px; 
 }
+
+.title1{
+		margin: 0 143px 0 143px;
+		padding-top: 30px;
+		padding-bottom: 11px;
+		text-align: center;
+}
+
 
 .row {
     border: 5px dashed #286386;
     width: 510px;
 }
+
 
 .middle-right ul li{
 	font-size: 14px;
@@ -89,7 +116,8 @@
 }
 
 .ulul{	
-	list-style-image: url("resources/image/bullet02.jpg");
+	font-size: 14px;
+	
 }
 
 col-md-8 mr-auto ml-auto .mr-auto{

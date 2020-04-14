@@ -49,12 +49,12 @@ public class HomeController {
 		nowPage = "1";
 		String type = "4";
 		int begin = 1;
-		int end = 3;
+		int end = 5;
 		BbsVO[] ar = null;
 		
 		String type_f = "5";
 		int begin_f = 1;
-		int end_f = 3;
+		int end_f = 5;
 		BbsVO[] ar_f = null;
 		
 		ar_f = b_dao.getList(begin_f, end_f, type_f);

@@ -16,4 +16,16 @@ public class ChartController {
 			return "hospitalChart";
 		}
 		
+		@RequestMapping("/protect.inc")
+		public String protect() {
+			
+			return "protect";
+		}
+		
+		@RequestMapping("/pharmacy.inc")
+		public String phar() {
+			
+			return "pharmacy";
+		}
+		
 }
