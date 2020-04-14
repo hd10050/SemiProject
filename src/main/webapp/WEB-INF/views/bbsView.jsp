@@ -15,6 +15,7 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <link rel="stylesheet" href="resources/css/listStyle.css"/>
 <link rel="stylesheet" href="resources/css/summernote-lite.css"/>
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 <style>
 .red {
     color:red;
@@ -129,141 +130,142 @@
   margin-left: 50px;
 }
 
-.pre {
-	display: inline-block;
-	width: 300px;
-	float: left;
-	margin-left: 0px;
-	
-}
 </style>
 </head>
 <body>
 <jsp:include page="navbar.jsp"/><br/><br/><br/><br/>
 <div class="container">
-<div class="col-md-5">
-    <div class="form-area" style="width: 1000px; margin-right: 0;">  
-        <br style="clear:both">
-			<div class="form-group">
-				<pre>
-				<span class="pre"><strong>제목</strong> : ${vo.subject }</span>
-				
-				
-				<span class="pre"><strong>조회수</strong> : ${vo.hit }</span>
-			<c:if test="${vo.file_name != null and fn:length(vo.file_name) > 4 }"> 
-				<span class="pre"><strong>첨부파일</strong> :	<a href="javascript: fDown('${vo.file_name }')">${vo.file_name } (${vo.ori_name }) </a></span>
-			</c:if>
-			<c:if test="${vo.file_name == null and fn:length(vo.file_name) <= 4 }">
-			 	<span class="pre"><strong>첨부파일이 없습니다.</strong></span>
-			</c:if>
-			
-				<span class="pre"><strong>이름</strong> : ${vo.writer }</span></pre>
-	        </div>
-	        <div class="form-group">
-				<pre style="height: auto;">${vo.content }
-				</pre>
-	        </div>
-	        
-<%			
-			Object obj = session.getAttribute("mvo");
-			MemberVO mvo = null;
-			BbsVO bvo = (BbsVO)session.getAttribute("vo");
-			if(obj != null) {
-				mvo = (MemberVO)obj;
-%>
-<%				if(bvo.getM_idx().equals(mvo.getM_idx())) {%>
-					<button type="button" id="del_btn" class="btn btn-danger pull-right">삭제</button>
-					<button type="button" id="edit_btn" class="btn btn-primary pull-right" style="margin-left: 10px; margin-right: 10px" onclick="sendData()">수정</button>
-<% 				} else {
-					if(bvo.getM_idx().equals(mvo.getM_idx())) { %>
-					<button type="button" id="del_btn" class="btn btn-danger pull-right">삭제</button>
-<%					}
-				}
-			}
-%>
-			<button type="button" id="list_btn" class="btn btn-white pull-right">목록</button>
-<%-- 댓글 -----------------------------------------------------------------------------------%>
-<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-<div class="container" style="margin-top: 70px; margin-left: 0px; padding-left:0; width: 1000px;">
-    <div class="col-sm-8">
-        <div class="post">
-	<div class="post-footer">
-		<div class="input-group">
-			<form action="c_write.inc" method="post" name="r_write">
-				<input class="form-control" name="r_content" id="r_content" placeholder="Add a comment" type="text" style="width: 500px"/>
-				<span class="input-group-addon"> 
-				<%-- 등록버튼 --%>
-<%
-				if(mvo != null) {
-%>
-					<input type="hidden" name="m_idx" value='<%=mvo.getM_idx()%>'/>
-					<input type="hidden" name="b_idx" value='<%=bvo.getB_idx()%>'/>
-					<input type="hidden" name="type" value="${type }"/>
-					<input type="hidden" name="nowPage" value="${nowPage }"/>
-					<a href="javascript:ans_write()"><i class="fa fa-edit"></i></a>
-<%
-				} else {
-%>
-					<a href="javascript:alert('로그인 후 이용해 주세요');"><i class="fa fa-edit"></i></a>
-<%
-				}
-%>
-				</span>	
-			</form>
-		</div>
-		
-<%
-	ReviewVO[] r_ar = null;
-	if(request.getAttribute("review_ar") != null ){
-		r_ar = (ReviewVO[])request.getAttribute("review_ar");
-%>
-		<ul class="comments-list">
-<%
-		for(int i = 0 ; i < r_ar.length ; i++) {
-%>
-			<hr/>
-			<li class="comment">
-				<form id="edit_frm<%=i%>" action="c_edit.inc" method="post">
-				<div class="comment-body">
-					<div class="comment-heading">
-						<h4 class="user"><%=r_ar[i].getMvo().getM_name() %></h4>
-						<h5 class="time"><%=r_ar[i].getR_date() %></h5>
+    <div style="width: 1000px; margin-right: 0;">  
+	    <table style="width: 900px; margin: 0 auto;">
+			<colgroup>
+				<col width="200px"/>
+				<col width="*"/>
+				<col width="200px"/>
+				<col width="200px"/>
+				<col width="200px"/>
+			</colgroup>
+			<tr>
+			</tr>
+			<tr style="border-top: 5px solid rgba(40, 99, 134, 1.0);">
+				<td colspan="2" style="text-align: center; height: 50px;"> <b>제목</b> </td>
+				<td style="text-align: center;"> <b>작성자</b> </td>
+				<td style="text-align: center;"> <b>작성일</b> </td>
+				<td style="text-align: center;"> <b>조회수</b> </td>
+			</tr>
+			<tr style="border-top: 1px solid rgba(40, 99, 134, 1.0);">
+				<td colspan="2" style="text-align: center; height: 50px;"><b> ${vo.subject } </b></td>
+				<td style="text-align: center;"> ${vo.writer } </td>
+				<td style="text-align: center;"> ${vo.write_date } </td>
+				<td style="text-align: center;"> ${vo.hit } </td>
+			</tr>
+			<tr>
+			</tr>
+			<tr style="border-top: 1px solid rgba(204, 204, 204, 0.5);">
+				<td colspan="5" >
+					<div style="margin: 50px 50px;">
+						${vo.content }
 					</div>
-					<p id="content<%=i%>"><%=r_ar[i].getR_content() %></p>
-					<input type="hidden" name="r_idx" value='<%=r_ar[i].getR_idx() %>'/>
-					<input type="hidden" name="type" value="${type }"/>
-					<input type="hidden" name="nowPage" value="${nowPage }"/>
-					<input type="hidden" name="b_idx" value='<%=r_ar[i].getB_idx() %>'/>
-<%				if(mvo != null  && r_ar[i].getMvo().getM_idx().equals(mvo.getM_idx())) {%>
-					<button type=button class="btn btn-primary" id="ans_edit<%=i%>" onclick="ans_edit('<%=i%>', '<%=r_ar[i].getR_idx()%>', this.form)">수정</button>
-					<button type=button class="btn btn-danger" id="ans_del<%=i%>" onclick="ans_del('<%=r_ar[i].getR_idx() %>','<%=r_ar[i].getB_idx()%>', '<%=request.getParameter("type")%>')">삭제</button>
-<%				} else {
-					if(mvo != null && (mvo.getM_level().equals("1") || mvo.getM_level().equals("2"))){ %>
-						<button type=button class="btn btn-danger" id="ans_del<%=i%>" onclick="ans_del('<%=r_ar[i].getR_idx() %>','<%=r_ar[i].getB_idx()%>', '<%=request.getParameter("type")%>')">삭제</button>
-<%					}
-				}%>
-				</div>
-				</form>
-			</li>
+				</td>
+			</tr>
+			<tr style="height: 50px; border-top: 1px solid rgba(204, 204, 204, 0.5);" >
+				<th style="text-align: center;">
+					첨부파일
+				</th>
+				<td colspan="2">
+					<c:if test="${vo.file_name != null and fn:length(vo.file_name) > 4 }"> 
+						<b><a href="javascript: fDown('${vo.file_name }')">${vo.file_name } (${vo.ori_name }) </a></b>
+					</c:if>
+					<c:if test="${vo.file_name == null and fn:length(vo.file_name) <= 4 }">
+					 	<b>첨부파일이 없습니다.</b>
+					</c:if>
+				</td>
+				<td colspan="2">
+					<div>
+<%						Object obj = session.getAttribute("mvo");
+						MemberVO mvo = null;
+						BbsVO bvo = (BbsVO)session.getAttribute("vo");
+						if(obj != null) {
+							mvo = (MemberVO)obj; %>
+<%							if(bvo.getM_idx().equals(mvo.getM_idx())) {%>
+								<button type="button" id="del_btn" class="btn btn-danger pull-right">삭제</button>
+								<button type="button" id="edit_btn" class="btn btn-primary pull-right" style="margin-left: 10px; margin-right: 10px" onclick="sendData()">수정</button>
+<%			 				} else {
+								if(bvo.getM_idx().equals(mvo.getM_idx())) { %>
+								<button type="button" id="del_btn" class="btn btn-danger pull-right">삭제</button>
+<%								}
+							}
+						} %>
+						<button type="button" id="list_btn" class="btn btn-white pull-right">목록</button>
+					</div>
+				</td>
+			</tr>
+			<tr style="height: 30px; border-top: 1px solid rgba(204, 204, 204, 0.5);">
+				<td colspan="5">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4">
+					<div>
+						<form action="c_write.inc" method="post" name="r_write" style="width: 600px;">
+							<input class="form-control" name="r_content" id="r_content" placeholder="Add a comment" type="text" style="width: 500px; margin-left: 50px; display: inline-block;"/>
+							<%-- 등록버튼 --%>
+<%							if(mvo != null) { %>
+								<button type="button" onclick="ans_write()" class="btn btn-white pull-right" style="margin-left:0;"><i class="fa fa-edit"></i></button>
+								<input type="hidden" name="m_idx" value='<%=mvo.getM_idx()%>'/>
+								<input type="hidden" name="b_idx" value='<%=bvo.getB_idx()%>'/>
+								<input type="hidden" name="type" value="${type }"/>
+								<input type="hidden" name="nowPage" value="${nowPage }"/>
+<%							} else { %>
+								<button type="button" onclick="javascript:alert('로그인 후 이용해 주세요');" class="btn btn-white pull-right"><i class="fa fa-edit"></i></button>
+<%							} %>
+						</form>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="5">
+					<div >
+<%						ReviewVO[] r_ar = null;
+						if(request.getAttribute("review_ar") != null ){
+							r_ar = (ReviewVO[])request.getAttribute("review_ar"); %>
+							<ul class="comments-list" style="list-style: none;" style="margin-left: 50px;">
+<%							for(int i = 0 ; i < r_ar.length ; i++) { %>
+								<li class="comment" >
+									<form id="edit_frm<%=i%>" action="c_edit.inc" method="post">
+										<div class="comment-body">
+											<div class="comment-heading">
+												<hr/>
+												<h4 class="user"><%=r_ar[i].getMvo().getM_name() %></h4>
+												<h5 class="time"><%=r_ar[i].getR_date() %></h5>
+											</div>
+											<p id="content<%=i%>"><%=r_ar[i].getR_content() %></p>
+											<input type="hidden" name="r_idx" value='<%=r_ar[i].getR_idx() %>'/>
+											<input type="hidden" name="type" value="${type }"/>
+											<input type="hidden" name="nowPage" value="${nowPage }"/>
+											<input type="hidden" name="b_idx" value='<%=r_ar[i].getB_idx() %>'/>
+	<%										if(mvo != null  && r_ar[i].getMvo().getM_idx().equals(mvo.getM_idx())) {%>
+												<button type=button class="btn btn-primary" id="ans_edit<%=i%>" onclick="ans_edit('<%=i%>', '<%=r_ar[i].getR_idx()%>', this.form)">수정</button>
+												<button type=button class="btn btn-danger" id="ans_del<%=i%>" onclick="ans_del('<%=r_ar[i].getR_idx() %>','<%=r_ar[i].getB_idx()%>', '<%=request.getParameter("type")%>')">삭제</button>
+	<%										} else {
+												if(mvo != null && (mvo.getM_level().equals("1") || mvo.getM_level().equals("2"))){ %>
+													<button type=button class="btn btn-danger" id="ans_del<%=i%>" onclick="ans_del('<%=r_ar[i].getR_idx() %>','<%=r_ar[i].getB_idx()%>', '<%=request.getParameter("type")%>')">삭제</button>
+	<%											}
+											}%>
+										</div>
+									</form>
+								</li>
 		
-<%
-		}
-%>
-		</ul>
-<%
-	}
-%>
-	
+<%								} %>
+							</ul>
+<%						} %>
+					</div>
+				</td>
+			</tr>
+		</table>
+
+<%-- 댓글 -----------------------------------------------------------------------------------%>
 		
-			
-	
-	</div>
-	</div>
-	</div>
-	</div>
     </div>
-    
-</div>
 </div>
 
 
