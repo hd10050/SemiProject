@@ -14,6 +14,7 @@
 </head>
 <jsp:include page="navbar.jsp"/><br/><br/><br/>
 <body>
+	<div id="mainbody">
 	<div class="top">
 	<div class="container">
 	<div id="carousel" class="carousel slide carousel-fade" style="border: 4px dashed #d0d9e7;" data-ride="carousel">
@@ -127,7 +128,7 @@
 		</div>
 		</div><!-- s_middle의 끝 -->
        </div>
-
+	</div>
     
 
   

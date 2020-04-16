@@ -62,13 +62,13 @@
 			 <li><a href="javascript:reviewbbs(2)">동물 약국</a>
 			 	<ul>
 				     <li><a href="javascript:reviewbbs(2)">게시판</a></li>
-				     <li><a href="#">차트</a></li>
+				     <li><a href="pharmacy.inc">차트</a></li>
 				 </ul>
 			 </li>
 			 <li><a href="javascript:reviewbbs(3)">유기 동물 보호시설</a>
 				 <ul>
 				     <li><a href="javascript:reviewbbs(3)">게시판</a></li>
-				     <li><a href="#">차트</a></li>
+				     <li><a href="protect.inc">차트</a></li>
 				 </ul>
 			 </li>
 			 <li><a href="javascript:bbs(4)">공지사항</a></li>
