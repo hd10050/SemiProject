@@ -27,7 +27,7 @@
     <div class="carousel-inner" role="listbox">
         <div class="carousel-item active">
             <div class="view">
-                <img class="d-block w-100" src="resources/image/carousel1.png" alt="First slide">
+                <a target="_blank" href="https://www.animal.go.kr/front/community/show.do?boardId=contents&seq=66&menuNo=2000000016"><img class="d-block w-100" src="resources/image/carousel1.png" alt="First slide"></a>
                 <div class="mask rgba-black-light"></div>
             </div>
             <div class="carousel-caption">
@@ -37,7 +37,7 @@
         <div class="carousel-item">
             <!--Mask color-->
             <div class="view">
-                <img class="d-block w-100" src="resources/image/carousel2.png" alt="Second slide">
+                <a  target="_blank" href="https://apms.epis.or.kr/wilddog/IndexMain3"><img class="d-block w-100" src="resources/image/carousel2.png" alt="Second slide"></a>
                 <div class="mask rgba-black-strong"></div>
             </div>
             <div class="carousel-caption">
@@ -47,7 +47,7 @@
         <div class="carousel-item">
             <!--Mask color-->
             <div class="view">
-                <img class="d-block w-100" src="resources/image/carousel3.png" alt="Third slide">
+                <a target="_blank" href="http://www.mafra.go.kr/mafra/355/subview.do;jsessionid=X31CHBZ8iATuQsXT2kBqvvV2.inst21?enc=Zm5jdDF8QEB8JTJGYmJzJTJGbWFmcmElMkY2NCUyRjMxOTA2MyUyRmFydGNsVmlldy5kbyUzRg%3D%3D"><img class="d-block w-100" src="resources/image/carousel3.png" alt="Third slide"></a>
                 <div class="mask rgba-black-slight"></div>
             </div>
             <div class="carousel-caption">
@@ -67,7 +67,9 @@
     </a>
     <!--/.Controls-->
 </div>
-	</div>	
+</div><!-- top의 끝 -->	
+
+
 	
 	<div class="middle" >
     <div class="middle-left" style="left: 230px;">
@@ -82,13 +84,13 @@
 		if(obj != null){
 			BbsVO[] ar = (BbsVO[]) obj;
 %>
-			<div>
+			<div class="uldiv">
 <%		
 			for(BbsVO vo : ar){
 %>
 			<ul class="ulul">
 				<li>
-				<h6 style="font-size: 21px;"><a href="bbs_view.inc?type=4&nowPage=1&b_idx=<%=vo.getB_idx() %>"><span class="cl"><%=vo.getSubject() %></span></a></h6>
+				<h6 style="font-size: 15px;"><a href="bbs_view.inc?type=4&nowPage=1&b_idx=<%=vo.getB_idx() %>"><span class="cl"><%=vo.getSubject() %></span></a></h6>
 				</li>
 			</ul>	
 <%			
@@ -120,12 +122,14 @@
 <%	Object obj_f = session.getAttribute("ar_f");
 		if(obj_f != null){
 			BbsVO[] ar_f = (BbsVO[]) obj_f;
-			
+%>
+			<div class="uldiv">
+<% 			
 			for(BbsVO vo : ar_f){
 %>
 		<ul>
 			<li>
-				<h6 style="font-size: 21px;"><a href="bbs_view.inc?type=4&nowPage=1&b_idx=<%=vo.getB_idx() %>"><span class="cl"><%=vo.getSubject() %></span></a></h6>				
+				<h6 style="font-size: 15px;"><a href="bbs_view.inc?type=4&nowPage=1&b_idx=<%=vo.getB_idx() %>"><span class="cl"><%=vo.getSubject() %></span></a></h6>				
 			</li>
 		</ul>	
 <%			
@@ -146,13 +150,40 @@
 		</div>
 		</div><!-- s_middle의 끝 -->
        </div>
-	</div>
-    
-
+	
+	<div id="bottom">
+		<ul class="main-link">
+			<li>
+				<div>
+					<h3 class="t3"><span>동물판매업자 등의</span>
+					<span style="font-size:12px">동물판매, 미용, 운송 등 영업자</span>
+					인터넷교육 동영상</h3>
+					<img src="resources/image/main1.png" alt="">
+					<a href="http://apms.epis.or.kr/petseller/IndexMain2" class="btn_l">시청하기</a>
+				</div>
+			</li>
+			<li>
+				<div>
+					<h3 class="t3"><span>동물보호 명예감시원</span> 인터넷교육 동영상</h3>
+					<img src="resources/image/main2.png" alt="">
+					
+					<a href="http://apms.epis.or.kr/warden/IndexMain3" class="btn_l">시청하기</a>
+				</div>
+			</li>
+			<li id="wild">
+				<div>
+					<h3 class="t3"><span>맹견 소유자</span> 인터넷교육 동영상</h3>
+					<img src="resources/image/main3.png" alt="">
+					<a href="http://apms.epis.or.kr/wilddog/IndexMain3" class="btn_l">시청하기</a>
+				</div>
+			</li>
+		</ul>
+	
+	
   
 	
-	
-	
+	</div>
+</div>	
 </body>
 <jsp:include page="footer.jsp"/><br/><br/><br/>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
