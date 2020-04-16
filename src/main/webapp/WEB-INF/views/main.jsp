@@ -8,48 +8,66 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet"href="resources/css/main.css">
-<link rel="stylesheet" href="resources/css/carousel.css">
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
 
 </head>
 <jsp:include page="navbar.jsp"/><br/><br/><br/>
 <body>
 	<div id="mainbody">
 	<div class="top">
-	<div class="container">
-	<div id="carousel" class="carousel slide carousel-fade" style="border: 4px dashed #d0d9e7;" data-ride="carousel">
+	<div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel" style="width:1200px; height: 400px; margin-left: 340px;">
+    <!--Indicators-->
     <ol class="carousel-indicators">
-        <li data-target="#carousel" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel" data-slide-to="1"></li>
-        <li data-target="#carousel" data-slide-to="2"></li>
+        <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-2" data-slide-to="1"></li>
+        <li data-target="#carousel-example-2" data-slide-to="2"></li>
     </ol>
-    <!-- Carousel items -->
-    <div class="carousel-inner carousel-zoom">
-        <div class="active item"><img class="img-responsive" src="https://images.unsplash.com/photo-1419064642531-e575728395f2?crop=entropy&fit=crop&fm=jpg&h=400&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1200">
-          <div class="carousel-caption">
-            <h2>Title</h2>
-            <p>Description</p>
-          </div>
+    <!--/.Indicators-->
+    <!--Slides-->
+    <div class="carousel-inner" role="listbox">
+        <div class="carousel-item active">
+            <div class="view">
+                <img class="d-block w-100" src="resources/image/carousel1.png" alt="First slide">
+                <div class="mask rgba-black-light"></div>
+            </div>
+            <div class="carousel-caption">
+               
+            </div>
         </div>
-        <div class="item"><img class="img-responsive" src="https://images.unsplash.com/photo-1445280471656-618bf9abcfe0?crop=entropy&fit=crop&fm=jpg&h=400&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1200">
-          <div class="carousel-caption">
-            <h2>Title</h2>
-            <p>Description</p>
-          </div>
+        <div class="carousel-item">
+            <!--Mask color-->
+            <div class="view">
+                <img class="d-block w-100" src="resources/image/carousel2.png" alt="Second slide">
+                <div class="mask rgba-black-strong"></div>
+            </div>
+            <div class="carousel-caption">
+                
+            </div>
         </div>
-        <div class="item"><img class="img-responsive" src="https://images.unsplash.com/photo-1445462657202-a0893228a1e1?crop=entropy&fit=crop&fm=jpg&h=400&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1200">
-          <div class="carousel-caption">
-            <h2>Title</h2>
-            <p>Description</p>
-          </div>
+        <div class="carousel-item">
+            <!--Mask color-->
+            <div class="view">
+                <img class="d-block w-100" src="resources/image/carousel3.png" alt="Third slide">
+                <div class="mask rgba-black-slight"></div>
+            </div>
+            <div class="carousel-caption">
+               
+            </div>
         </div>
-       </div>
-    <!-- Carousel nav -->
-    <a class="carousel-control left" href="#carousel" data-slide="prev">‹</a>
-    <a class="carousel-control right" href="#carousel" data-slide="next">›</a>
+    </div>
+    <!--/.Slides-->
+    <!--Controls-->
+    <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+    <!--/.Controls-->
 </div>
-</div>
-</div>	
+	</div>	
 	
 	<div class="middle" >
     <div class="middle-left" style="left: 230px;">
@@ -137,6 +155,12 @@
 	
 </body>
 <jsp:include page="footer.jsp"/><br/><br/><br/>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+$('.carousel').carousel({
+	  interval: 3000
+	})
+</script>
 </html>
