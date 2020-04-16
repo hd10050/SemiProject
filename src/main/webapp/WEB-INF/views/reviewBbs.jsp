@@ -265,6 +265,12 @@
 		
 		<script src="resources/js/jquery-3.4.1.min.js"></script>
 		<script>
+			$("#searchValue").keydown(function(key) {
+	            if (key.keyCode == 13) {
+	            	search();
+	            }
+	        });
+
 			function search() {
 				var val = $("#searchValue").val();
 				var index = $("#searchSelect option").index($("#searchSelect option:selected"));

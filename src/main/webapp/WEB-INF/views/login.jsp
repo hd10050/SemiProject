@@ -161,48 +161,60 @@
 
 	<%------------------%>
 	<script type="text/javascript">
-	
-		$("#login_btn").click(function () {
+		$("#m_id").keydown(function(key) {
+	        if (key.keyCode == 13) {
+	        	login();
+	        }
+	    });
+		$("#m_pw").keydown(function(key) {
+	        if (key.keyCode == 13) {
+	        	login();
+	        }
+	    });
 		
-				var m_id = $("#m_id").val().trim();
-				var m_pw = $("#m_pw").val().trim();
-				
-				//유효성 검사
-				if(m_id.length < 1){
-					alert("아이디를 입력하세요!");
-					$("#id").focus();
-					return;
-				}
-				if(m_pw.length < 1){
-					alert("비밀번호를 입력하세요!");
-					$("#pw").focus();
-					return;
-				}
-				
-				var param = "m_id="+encodeURIComponent(m_id)+
-								  "&m_pw="+encodeURIComponent(m_pw);
-				
-				// 비동기식 통신
-				$.ajax({
-					url: "login.inc",
-					type: "post",
-					dataType: "json",
-					data: param
-							
-					}).done(function(res){
-						console.log(res.chk);
+		$("#login_btn").click(function () {
+			login();
+	    });
+		
+		function login() {
+			var m_id = $("#m_id").val().trim();
+			var m_pw = $("#m_pw").val().trim();
+			
+			//유효성 검사
+			if(m_id.length < 1){
+				alert("아이디를 입력하세요!");
+				$("#m_id").focus();
+				return;
+			}
+			if(m_pw.length < 1){
+				alert("비밀번호를 입력하세요!");
+				$("#m_pw").focus();
+				return;
+			}
+			
+			var param = "m_id="+encodeURIComponent(m_id)+
+							  "&m_pw="+encodeURIComponent(m_pw);
+			
+			// 비동기식 통신
+			$.ajax({
+				url: "login.inc",
+				type: "post",
+				dataType: "json",
+				data: param
 						
-						if(res.chk == 1) {
-							alert("회원 정보가 없습니다.");
-						} else {
-							location.href="main.inc";	
-						}
-						
-					}).fail(function(err) {
-						console.log(err);
-					});
-				
-		    });
+				}).done(function(res){
+					console.log(res.chk);
+					
+					if(res.chk == 1) {
+						alert("회원 정보가 없습니다.");
+					} else {
+						location.href="main.inc";	
+					}
+					
+				}).fail(function(err) {
+					console.log(err);
+				});
+		}
 		
 		
 	</script>
