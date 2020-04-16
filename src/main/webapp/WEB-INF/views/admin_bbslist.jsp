@@ -17,23 +17,23 @@
 </style>
 </head>
 <body>
-<jsp:include page="navbar.jsp"/><br/><br/><br/><br/>
 <%
 	Object obj = session.getAttribute("mvo");
-	MemberVO mvo = null;
+	MemberVO mvo = (MemberVO)obj;
 
-	if(obj != null) {
-		mvo = (MemberVO)obj;				
+	if(mvo == null || !(mvo.getM_level().equals("1"))) {
+%>
+		<script>
+			alert("허가되지 않은 접근");
+			location.href = "main.inc";
+		</script>
+<%
 	}
 %>
+<jsp:include page="navbar.jsp"/><br/><br/><br/><br/>
 	<div class="col-sm-12 pull-center well">
 	<div class="well"  style="width: 800px; margin: 0 auto;">
-		<c:if test="${type == 4}">
-			<h3>공지 게시판</h3>
-		</c:if>
-		<c:if test="${type == 5}">
-			<h3>자유 게시판</h3>
-		</c:if>
+		<h3>${mvo.m_id }(${mvo.m_name })님 게시글</h3>
 		<table class="table">
 			<colgroup>
 				<col width="50px"/>			
@@ -46,7 +46,7 @@
 				<tr>
 					<th>#</th>
 					<th>제목</th>
-					<th>이름</th>
+					<th>게시판</th>
 					<th>작성일</th>
 					<th>조회수</th>
 				</tr>
@@ -57,9 +57,14 @@
 					<tr>
 						<td>${rowTotal - ((nowPage-1) * blockList + st.index) }</td>
 						<td>
-							<a href="javascript:bbs_view('${vo.b_idx }')">${vo.subject }</a>
+							<a href="javascript:bbs_view('${vo.b_idx }', '${vo.type}')">${vo.subject }</a>
 						</td>
-						<td>${vo.writer }</td>
+						<c:if test="${vo.type == 4}">
+							<td>공지</td>
+						</c:if>
+						<c:if test="${vo.type == 5}">
+							<td>자유</td>
+						</c:if>
 						<td>${fn:substring(vo.write_date, 0, 10) }</td>
 						<td>${vo.hit }</td>
 					</tr>
@@ -78,45 +83,18 @@
 		        ${pageCode }
 		    </ul>
 		</div>
-		<c:if test="${type == 4}">
-		<%	if(mvo != null && (mvo.getM_level().equals("1") || mvo.getM_level().equals("2")))  {%>	
-			<div class="btn-toolbar">
-		    	<button class="btn btn-primary" onclick="write_btn()">글쓰기</button>
-			</div>
-		<%	} %>
-		</c:if>
-		
-		<c:if test="${type == 5}">
-		<%	if(mvo != null)  {%>	
-			<div class="btn-toolbar">
-		    	<button class="btn btn-primary" onclick="write_btn()">글쓰기</button>
-			</div>
-		<%	} %>
-		</c:if>
 	</div>
 	</div>
-	
-	<form action="write_form.inc" method="post" name="w_form">
-		<input type="hidden" name="type" value="${type }"/>
-		<input type="hidden" name="nowPage" value="${nowPage }"/>
-		<%if(mvo != null) { %>
-		<input type="hidden" name="m_idx" value="<%=mvo.getM_idx()%>"/>
-		<%} %>
-	</form>
 	
 	<form action="bbs_view.inc" method="post" name="v_form">
-		<input type="hidden" name="type" value="${type }"/>
-		<input type="hidden" name="nowPage" value="${nowPage }"/>
 		<input type="hidden" id= "bidx" name="b_idx" value=""/>
+		<input type="hidden" id= "type" name="type" value=""/>
 	</form>
 
 	<script>
-		function write_btn() {
-			w_form.submit();
-		}
-		
-		function bbs_view(b_idx) {
+		function bbs_view(b_idx, type) {
 			$("#bidx").attr("value", b_idx);
+			$("#type").attr("value", type);
 			v_form.submit();
 		}
 	</script>

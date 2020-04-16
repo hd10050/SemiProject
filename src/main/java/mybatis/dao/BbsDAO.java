@@ -70,6 +70,29 @@ public class BbsDAO {
 		}
 		return chk;
 	}
+	
+	// *********************************************************
+	
+	public int getAd_totalCount(String m_idx) {
+		int cnt = ss.selectOne("admin_bbs.totalCount", m_idx);
+		return cnt;
+	}
+
+	public BbsVO[] getAd_list(int begin, int end, String m_idx) {
+		BbsVO[] ar = null;
+
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("begin", String.valueOf(begin));
+		map.put("end", String.valueOf(end));
+		map.put("m_idx", m_idx);
+		List<BbsVO> list = ss.selectList("admin_bbs.bbslist", map);
+
+		if(list.size() > 0) {
+			ar = new BbsVO[list.size()];
+			ar = list.toArray(ar);
+		}
+		return ar;
+	}
 
 }
 
