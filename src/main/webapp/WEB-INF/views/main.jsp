@@ -50,8 +50,8 @@
 </div>
 </div>	
 	
-	<div class="middle">
-    <div class="middle-left">
+	<div class="middle" >
+    <div class="middle-left" style="left: 230px;">
     	<div class="middle-right-notice"> 
       	<!-- 공지사항 미리보기 -->
 				<div class="title1">
@@ -90,7 +90,7 @@
 	</div>
     </div>
 
-    <div class="middle-right">
+    <div class="middle-right" style="left:730px;">
       <div class="middle-right-free">
       	<!-- 자유게시판 미리보기 -->
 				<div class="title1">
@@ -125,6 +125,7 @@
 		}
 %>	
 		</div>
+		</div><!-- s_middle의 끝 -->
        </div>
 
     
