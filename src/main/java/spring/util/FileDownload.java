@@ -22,9 +22,6 @@ public class FileDownload extends HttpServlet {
 		String filename = request.getParameter("f_name");
 		String path = getServletContext().getRealPath("resources/upload");
 		
-		System.out.println(filename);
-		System.out.println(path);
-		
 		// 절대경로를 파일명과 연결
 		String fullPath = path + System.getProperty("file.separator") + filename;
 		File f = new File(fullPath);
