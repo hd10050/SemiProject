@@ -75,7 +75,9 @@
 									<c:forEach var="vo" items="${ar}">
 										<tr>
 											<td>${vo.m_idx }</td>
-											<td>${vo.m_id }</td>
+											<td>
+												<a href="javascript:searchBbs('${vo.m_idx }')">${vo.m_id }</a>
+											</td>
 											<td>${vo.m_name }</td>
 											<td>${vo.m_level }</td>
 											<td>
@@ -137,6 +139,12 @@
 		 if(!(confirm("탈퇴시키겠습니까?"))) {
 			 return;
 		 }
+		admin_frm.submit();
+	}
+	
+	function searchBbs(m_idx) {
+		$("#admin_frm").attr("action", "ad_bbs.inc");
+		$("#m_idx").attr("value", m_idx);
 		admin_frm.submit();
 	}
 
