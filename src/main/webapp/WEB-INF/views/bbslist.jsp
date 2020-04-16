@@ -37,7 +37,7 @@
 		<table class="table">
 			<colgroup>
 				<col width="50px"/>			
-				<col width="*"/>			
+				<col width="*"/>
 				<col width="100px"/>			
 				<col width="100px"/>			
 				<col width="100px"/>			

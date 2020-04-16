@@ -36,12 +36,12 @@ public class BbsDelAction {
 	HttpSession session;
 
 	@RequestMapping(value="/bbs_del.inc", method=RequestMethod.POST)
-	public ModelAndView write(String nowPage, String type, String b_idx) throws Exception {
+	public ModelAndView write(String nowPage, String s_type, String b_idx) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
 		bbsDao.delBbs(b_idx);
 		
-		mv.setViewName("redirect:/bbs.inc?type=" + type + "&nowPage=" + nowPage);
+		mv.setViewName("redirect:/bbs.inc?s_type=" + s_type + "&nowPage=" + nowPage);
 		return mv;
 	}
 	
