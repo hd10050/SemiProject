@@ -9,7 +9,7 @@
 		SELECT * FROM (SELECT rownum r_num, a.*
 						FROM (SELECT * FROM member_table
 							  WHERE m_status = 0
-							  ORDER BY m_idx DESC) a
+							  ORDER BY m_idx ASC) a
 		)
 		WHERE r_num BETWEEN #{begin} AND #{end} 
 	</select>
