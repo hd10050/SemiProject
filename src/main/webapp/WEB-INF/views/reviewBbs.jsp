@@ -19,6 +19,7 @@
  .col-sm-12 {
     float: none !important;
 }
+.active>span{background-color:#286386;color:#999999;cursor:default;}
 </style>
 
 

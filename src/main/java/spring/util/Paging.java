@@ -109,9 +109,9 @@ public class Paging {
 
 		for(int i = this.startPage ; i <= endPage ; i++) {
 			if(i == this.nowPage) {
-				sb.append("<li class='now'><a href='#'>");
+				sb.append("<li><span style='color:#ffffff;cursor:default;background-color:#286386;'>");
 				sb.append(i);
-				sb.append("</a></li>");
+				sb.append("</span></li>");
 			} else {
 				if(this.type.equals("4") || this.type.equals("5")) {
 					sb.append("<li><a href='bbs.inc?nowPage=");
@@ -186,9 +186,9 @@ public class Paging {
 
 		for(int i = this.startPage ; i <= endPage ; i++) {
 			if(i == this.nowPage) {
-				sb.append("<li class='now'><a href='#'>");
+				sb.append("<li><span style='color:#ffffff;cursor:default;background-color:#286386;'>");
 				sb.append(i);
-				sb.append("</a></li>");
+				sb.append("</span></li>");
 			} else {
 				sb.append("<li><a href='ad_page.inc?nowPage=");
 				sb.append(i);

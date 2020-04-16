@@ -267,9 +267,6 @@
 		
     </div>
 </div>
-
-
-
 	<form action="" method="post" id="go_form" name="go_form">
         <input type="hidden" name="b_idx" value="${b_idx }"/>
         <input type="hidden" name="nowPage" value="${nowPage }"/>
