@@ -91,7 +91,7 @@
 	</div>
     </div>
 
-    <div class="middle-right" style="left:730px;">
+    <div class="middle-right"  style="left:730px;">
       <div class="middle-right-free">
       	<!-- 자유게시판 미리보기 -->
 				<div class="title1">
