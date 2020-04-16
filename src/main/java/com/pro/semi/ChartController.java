@@ -8,24 +8,24 @@ public class ChartController {
 
 		@RequestMapping("/rescueChart.inc")
 		public String rescue() {
-			return "rescueChart";
+			return "chart_rescue";
 		}
 		
 		@RequestMapping("/hospChart.inc")
 		public String hospital() {
-			return "hospitalChart";
+			return "chart_hospital";
 		}
 		
 		@RequestMapping("/protect.inc")
 		public String protect() {
 			
-			return "protect";
+			return "chart_protect";
 		}
 		
 		@RequestMapping("/pharmacy.inc")
 		public String phar() {
 			
-			return "pharmacy";
+			return "chart_pharmacy";
 		}
 		
 }

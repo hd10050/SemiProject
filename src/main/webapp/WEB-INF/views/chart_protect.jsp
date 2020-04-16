@@ -13,6 +13,7 @@
 </style>
 </head>
 <body>
+<jsp:include page="navbar.jsp"/><br/><br/><br/><br/>
 
 	<h1>유기 동물 보호 시설 현황</h1>
 	<div id="chartdiv"></div>
@@ -84,6 +85,7 @@ function viewChart(json_data) {
  // end am4core.ready()
 </script>
 </body>
+<jsp:include page="footer.jsp"/>
 </html>
 
 

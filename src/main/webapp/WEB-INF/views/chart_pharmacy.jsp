@@ -12,6 +12,7 @@
 </style>
 </head>
 <body>
+<jsp:include page="navbar.jsp"/><br/><br/><br/><br/>
 
       <!-- HTML -->
       <h1>경기도 동물 약국 현황</h1>
@@ -99,4 +100,5 @@ categoryAxis.sortBySeries = series;
 
    
 </body>
+<jsp:include page="footer.jsp"/>
 </html>
