@@ -190,8 +190,8 @@
 								<button type="button" id="del_btn" class="btn btn-danger pull-right">삭제</button>
 								<button type="button" id="edit_btn" class="btn btn-primary pull-right" style="margin-left: 10px; margin-right: 10px" onclick="sendData()">수정</button>
 <%			 				} else {
-								if(bvo.getM_idx().equals(mvo.getM_idx())) { %>
-								<button type="button" id="del_btn" class="btn btn-danger pull-right">삭제</button>
+								if(mvo != null && (mvo.getM_level().equals("1") || mvo.getM_level().equals("2"))) { %>
+								<button type="button" id="del_btn" class="btn btn-danger pull-right" style="margin-left: 10px">삭제</button>
 <%								}
 							}
 						} %>
