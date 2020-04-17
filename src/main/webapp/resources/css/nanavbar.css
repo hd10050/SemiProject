@@ -90,7 +90,11 @@
     cursor: pointer;
 }
 
-
+a{
+	
+	font-size: 19.5px;
+	
+}
 
 
 <!-- -->
@@ -109,7 +113,7 @@
 
 .menubar ul{
 	background: #286386;;
-	height:50px;
+	height:70px;
 	list-style:none;
 	margin:0;
 	padding:0;
@@ -134,7 +138,7 @@ html, body {
 	color: white;
 	display:block;
 	font-weight:normal;
-	line-height:50px;
+	line-height:68px;
 	margin:0px;
 	padding:0px 55px;
 	text-align:center;
