@@ -147,7 +147,6 @@ $(function () {
 		$("#m_id").bind("keyup",function(){
 				//사용자가 입력한 id값을 얻어낸다.
 				var str = $(this).val();
-				console.log(str);
 				
 				if(str.trim().length>3){
 				//id 4자이상 입력시 수행	
@@ -184,7 +183,6 @@ $(function () {
 		$("#phone").bind("keyup",function(){
 				//사용자가 입력한 id값을 얻어낸다.
 				var str = $(this).val();
-				console.log(str);
 				
 				if(str.trim().length>10){
 				//phone 11자이상 입력시 수행	
@@ -276,7 +274,6 @@ $(function () {
 										"&r_snscode="+encodeURIComponent(snscode)+
 										"&question="+encodeURIComponent(question)+
 										"&answer="+encodeURIComponent(answer);
-					console.log("param : " + param);
 					
 					if(chk == true){
 					
