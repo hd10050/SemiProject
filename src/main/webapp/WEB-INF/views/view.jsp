@@ -414,7 +414,7 @@ table{
 	</div>
 
 		<hr/>
-		<form action="r_write.inc" method="post" name="r_write">
+		<form method="post" name="r_write" id="r_write">
 				<div class="rate" style="margin-left: 80px;">
 				    <input type="radio" id="score5" name="r_score" value="5" />
 				    <label for="score5" title="text">5 stars</label>
@@ -612,6 +612,13 @@ table{
 			});	
 			
 			<%------------------------------------------------------------%>
+			$("#r_content").keydown(function(key) {
+	            if (key.keyCode == 13) {
+	            	 event.preventDefault();
+	            	 ans_write();
+	            }
+	        });
+			
 			function ans_write() {
 				if($(':radio[name="r_score"]:checked').length < 1){
 				    alert('평점을 선택해주세요');                        
@@ -621,7 +628,7 @@ table{
 					alert("내용을 입력하세요");
 					return;
 				}
-				
+				r_write.attr("action", "r_write.inc");
 				r_write.submit();
 			}
 

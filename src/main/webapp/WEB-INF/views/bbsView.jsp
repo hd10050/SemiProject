@@ -332,6 +332,11 @@
 					console.log(err)
 				});
 			}
+			$("#r_content").keydown(function(key) {
+	            if (key.keyCode == 13) {
+	            	 event.preventDefault();
+	            }
+	        });
 			function ans_edit(num, r_idx, frm){
 				var content = $("#content"+num).html();
 
