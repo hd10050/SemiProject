@@ -400,7 +400,6 @@ table{
 			total += Integer.parseInt(r_ar[i].getR_score());
 			if(!(isAdd) && mvo != null && r_ar[i].getMvo().getM_idx().equals(mvo.getM_idx())) {
 				isAdd = true;
-				System.out.println("a들");
 			}
 		}
 		if(r_ar.length > 0) {
@@ -408,6 +407,7 @@ table{
 		}
 	}
 %>
+
 	<div style="margin-left: 90px">
 		<h1>평균 평점</h1><h2><%=(Math.round(avg*100)/100.0) %>점</h2>
 	</div>
