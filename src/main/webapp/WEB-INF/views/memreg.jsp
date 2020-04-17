@@ -31,7 +31,7 @@
 			<div class="input-group-prepend">
 			    <span class="input-group-text"><i class="fas fa-id-card"></i> </span>
 			 </div>
-	        <input class="form-control" placeholder="아이디(4자 이상 입력하시오.)" type="text" id="id" value="${regist_vo.m_id }">
+	        <input class="form-control" placeholder="아이디(4자 이상 입력하시오.)" type="text" id="m_id" value="${regist_vo.m_id }">
 	        <div id="box" class="box"></div>
 	    </div> <!-- 아이디 -->
 	    
@@ -79,7 +79,7 @@
 	    	<div class="input-group-prepend">
 			    <span class="input-group-text"> <i class="fas fa-question"></i> </span>
 			</div>
-	         <select id="m_question" name="m_question" class="form-control">
+	         <select id="question" name="question" class="form-control">
 						<option value="0">어린시절 별명은?</option>
 						<option value="1">살던 동네 이름은?</option>
 						<option value="2">보물 1호는?</option>
@@ -91,7 +91,7 @@
 	    	<div class="input-group-prepend">
 			    <span class="input-group-text"><i class="fas fa-pencil-alt"></i></span>
 			</div>
-	        <input class="form-control" placeholder="힌트 정답" type="text" id="m_answer" name="m_answer" />
+	        <input class="form-control" placeholder="힌트 정답" type="text" id="answer" name="answer" />
 	    </div> <!-- 힌트 대답 -->       
 
 	    <div class="form-group" style="padding-top: 20px;">
@@ -144,7 +144,7 @@ $(function () {
 		
 		//아이디 중복 체크
 		
-		$("#id").bind("keyup",function(){
+		$("#m_id").bind("keyup",function(){
 				//사용자가 입력한 id값을 얻어낸다.
 				var str = $(this).val();
 				console.log(str);
@@ -224,15 +224,17 @@ $(function () {
 					//입력값 받기
 					var snscode = $("#snscode").val().trim();
 					var name = $("#name").val().trim();
-					var id = $("#id").val().trim();
+					var s_id = $("#m_id").val().trim();
 					var pw = $("#pw").val().trim();
 					var phone = $("#phone").val().trim();
 					var gender = $("#gender").val().trim(); //1 or 2
+					var question = $("#question").val().trim();
+					var answer = $("#answer").val().trim();
 					
 					//유효성 검사
-					if(id.length < 1){
+					if(s_id.length < 1){
 						alert("아이디를 입력하세요");
-						$("#id").focus();
+						$("#m_id").focus();
 						return;
 					}
 					if(pw.length < 1){
@@ -260,13 +262,21 @@ $(function () {
 						$("#gender").focus();
 						return;
 					}
+					if(answer.length < 1){
+						alert("답변을 입력하세요");
+						$("#answer").focus();
+						return;
+					}
 					
 					var param = "m_name="+encodeURIComponent(name)+
-										"&m_id="+encodeURIComponent(id)+
+										"&m_id="+encodeURIComponent(s_id)+
 										"&m_pw="+encodeURIComponent(pw)+
 										"&m_phone="+encodeURIComponent(phone)+
 										"&m_gender="+encodeURIComponent(gender)+
-										"&r_snscode="+encodeURIComponent(snscode);
+										"&r_snscode="+encodeURIComponent(snscode)+
+										"&question="+encodeURIComponent(question)+
+										"&answer="+encodeURIComponent(answer);
+					console.log("param : " + param);
 					
 					if(chk == true){
 					

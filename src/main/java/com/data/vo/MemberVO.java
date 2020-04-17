@@ -2,11 +2,26 @@ package com.data.vo;
 
 public class MemberVO {
 	
-	private String m_idx, m_id, m_pw, m_name, m_gender, m_status, m_phone, r_snscode, m_level, m_question, m_answer;
+	private String m_idx, m_id, m_pw, m_name, m_gender, m_status, m_phone, r_snscode, m_level, question, answer;
 	
 	// constructor
 	public MemberVO() { }
-    
+	public MemberVO(String m_idx, String m_id, String m_pw, String m_name, String m_gender, String m_status,
+			String m_phone, String r_snscode, String m_level, String question, String answer) {
+		super();
+		this.m_idx = m_idx;
+		this.m_id = m_id;
+		this.m_pw = m_pw;
+		this.m_name = m_name;
+		this.m_gender = m_gender;
+		this.m_status = m_status;
+		this.m_phone = m_phone;
+		this.r_snscode = r_snscode;
+		this.m_level = m_level;
+		this.question = question;
+		this.answer = answer;
+	}
+
 	// getter setter
 	public String getM_idx() { return m_idx; }
 	public void setM_idx(String m_idx) { this.m_idx = m_idx; }
@@ -26,9 +41,9 @@ public class MemberVO {
 	public void setR_snscode(String r_snscode) { this.r_snscode = r_snscode; }
 	public String getM_level() { return m_level; }
 	public void setM_level(String m_level) { this.m_level = m_level; }
-	public String getM_question() { return m_question; }
-	public void setM_question(String m_question) { this.m_question = m_question; }
-	public String getM_answer() { return m_answer; }
-	public void setM_answer(String m_answer) { this.m_answer = m_answer; }
+	public String getQuestion() { return question; }
+	public void setQuestion(String question) { this.question = question; }
+	public String getAnswer() { return answer; }
+	public void setAnswer(String answer) { this.answer = answer; }
 	
 }
