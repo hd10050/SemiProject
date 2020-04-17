@@ -125,7 +125,7 @@
 			BbsVO[] ar_f = (BbsVO[]) obj_f;
 %>
 			<div class="uldiv">
-<% 			
+<% 			 
 			for(BbsVO vo : ar_f){
 %>
 		<ul>
