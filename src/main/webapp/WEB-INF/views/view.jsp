@@ -383,7 +383,14 @@ table{
 		
 <%-- 리뷰 -----------------------------------------------------------------------------------%>
 <div class="review">
-<%
+<%	
+	boolean isAdd = false;
+	Object obj = session.getAttribute("mvo");
+	MemberVO mvo = null; 
+	if(obj != null) {
+		mvo = (MemberVO)session.getAttribute("mvo");
+	}
+
 	ReviewVO[] r_ar = null;
 	int total = 0;
 	float avg = 0;
@@ -391,7 +398,10 @@ table{
 		r_ar = (ReviewVO[])request.getAttribute("review_ar");
 		for(int i = 0 ; i < r_ar.length ; i++) {
 			total += Integer.parseInt(r_ar[i].getR_score());
-			System.out.println(total);
+			if(!(isAdd) && mvo != null && r_ar[i].getMvo().getM_idx().equals(mvo.getM_idx())) {
+				isAdd = true;
+				System.out.println("a들");
+			}
 		}
 		if(r_ar.length > 0) {
 			avg = (float)total / r_ar.length;
@@ -401,14 +411,6 @@ table{
 	<div style="margin-left: 90px">
 		<h1>평균 평점</h1><h2><%=(Math.round(avg*100)/100.0) %>점</h2>
 	</div>
-<%
-	Object obj = session.getAttribute("mvo");
-	MemberVO mvo = null; 
-	if(obj != null) {
-		mvo = (MemberVO)session.getAttribute("mvo");
-	}
-	// (String b_idx)
-%>
 
 		<hr/>
 		<form action="r_write.inc" method="post" name="r_write">
@@ -428,14 +430,18 @@ table{
 				<input class="form-control" name="r_content" id="r_content" placeholder="Add a comment" type="text" style="width: 500px; margin-left: 90px;"/>
 				<br/>
 				<%
-						if(mvo != null) {
+						if(isAdd) {
+				%>
+							<button type=button class="btn btn-primary" onclick="alert('리뷰는 한번만 등록할 수 있습니다.');" style="margin-left: 90px">작성</button>
+				<%
+						} else if(mvo != null) {
 				%>
 							<input type="hidden" name="m_idx" value='<%=mvo.getM_idx()%>'/>
 							<input type="hidden" name="type" value="<%=request.getParameter("type")%>"/>
 							<input type="hidden" name="b_idx" value='<%=b_idx%>'/>
 							<button type=button class="btn btn-primary" onclick="ans_write()" style="margin-left: 90px">작성</button>
 				<%
-						} else {
+						} else {				
 				%>			
 							<button type=button class="btn btn-primary" onclick="alert('로그인 후 이용해 주세요');" style="margin-left: 90px">작성</button>
 				<%
