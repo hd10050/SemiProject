@@ -180,6 +180,19 @@
 			</li>
 		</ul>
 	
+		<div id="hing">
+				   <ul class="quickBtn4">
+                    <li><a  target="_blank" href="https://www.animal.go.kr/front/community/index.do?boardId=boardID03&menuNo=7000000005" class="quickBtn4-1">정보공개</a></li>
+                    <li><a  target="_blank" href="https://www.animal.go.kr/front/community/show.do?boardId=contents&seq=170&menuNo=3000000019" class="quickBtn4-2" title="인증제절차">동물복지농장 인증절차</a></li>
+                </ul>
+                <span class="quickBtn5">
+                    <dl>
+                        <dt>동물보호 상담센터</dt>
+                        <dd>1577-0954</dd>
+                    </dl>
+                    <p>상담시간 : 평일 09:00 ~ 18:00</p>
+                </span>
+		</div>	
 	
   
 	

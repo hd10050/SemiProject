@@ -162,7 +162,7 @@ body{
     margin: 0 auto;
     display: inline-block;
     text-align: center;
-	
+	float: left;
 }
 
 .main-link > li:first-child {
@@ -210,5 +210,128 @@ body{
     line-height: 24px;
     color: #fff !important;
 }
+
+
+
+#hing{
+	position: absolute;
+	top: 0px;
+	width: 350px;
+	left: 1020.5px;
+	height: 330px; 
+	width: 23.5%;
+    margin-left: 2%;
+    display: inline-block;
+
+}
+
+
+.mainQuick .quickBtn4 li a {
+    display: block;
+    height: 140px;
+    background-repeat: no-repeat;
+    background-position: center 40px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: normal;
+    color: #ffffff;
+    
+}
+
+
+#hing .quickBtn4 {
+	margin-bottom: 20px;
+    display: block;
+    width: 100%;
+    list-style: none;
+    marin:0 0 20px;
+    padding:0;
+}
+
+#hing .quickBtn4-1{
+	width: 150px;
+	float: left;
+	
+}
+
+
+#hing .quickBtn4 li a {
+    display: inline-block;
+    height: 140px;
+    background-repeat: no-repeat;
+    background-position: center 40px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: normal;
+    color: #ffffff;
+    padding: 30px 20px;
+}
+
+#hing .quickBtn4 li a.quickBtn4-1 {
+    background-color: #286386;
+    padding-top: 40px;
+    width: 200px;
+    
+}
+
+#hing .quickBtn4 li a.quickBtn4-1:before {
+    content: "";
+    width: 40px;
+    height: 32px;
+    background: url(http://www.animal.go.kr/front/images/main/mainQuick-quickBtn4-1.png) no-repeat;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 10px;
+}
+
+#hing .quickBtn4 li a.quickBtn4-2 {
+    background-color: #40a3b3;
+    width: 200px;
+    margin-left: 6px;
+}
+
+#hing .quickBtn4 li a.quickBtn4-2:before {
+    content: "";
+    width: 34px;
+    height: 40px;
+    margin: 0 auto;
+    background: url(http://www.animal.go.kr/front/images/main/mainQuick-quickBtn4-2.png) no-repeat;
+    display: block;
+    margin-bottom: 10px;
+}
+
+#hing .quickBtn5 {
+    display: block;
+    border: 1px solid #dcddde;
+    padding: 30px 20px 30px 86px;
+    height: 170px;
+    width: 407px;
+    background: url(http://www.animal.go.kr/front/images/main/callCenter-bg.png) no-repeat 24px center;
+    box-sizing: border-box;
+    background-color: #ffffff;
+}
+
+#hing .quickBtn5 dl dt {
+  margin-left: 5px;
+  font-size: 24px;
+  text-align: center;
+}
+
+#hing .quickBtn5 dl dd {
+	 text-align: center;
+	margin-left: 5px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #194b82;
+}
+
+#hing .quickBtn5 p {
+	 text-align: center;
+    font-size: 15px;
+    font-weight: 300;
+    color: #58595b;
+    font-family: 'Nanum Gothic';
+}
+
 
 
