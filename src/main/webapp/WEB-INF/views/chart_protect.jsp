@@ -14,7 +14,7 @@
 </head>
 <body>
 <jsp:include page="navbar.jsp"/><br/><br/><br/><br/>
-
+<jsp:include page="top.jsp"/>
 	<h1>유기 동물 보호 시설 현황</h1>
 	<div id="chartdiv"></div>
 	

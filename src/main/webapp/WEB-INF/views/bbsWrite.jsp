@@ -19,10 +19,14 @@
 	margin: 10px 0px 60px;
 	border: 1px solid GREY;
 }
+input[id="chk"]:checked + label {
+	color: #00f;
+}
 </style>
 </head>
 <body>
 <jsp:include page="navbar.jsp"/><br/><br/><br/><br/>
+<jsp:include page="top.jsp"/>
 <div class="container" style="margin: 0 auto; width: 900px;">
     <div class="form-area" style="width: 900px">  
     <div style="margin: 0 auto; width: 700px;">
@@ -31,6 +35,14 @@
 			<div class="form-group">
 				<input type="text" class="form-control" id="subject" name="subject" placeholder="제목" required style="width: 700px">
 			</div>
+			
+			<!-- 비밀글 -->
+			<div style="margin-bottom: 10px; text-align: right;">
+				<input type="checkbox" id="chk" name="chk"/>
+				<label for="chk">비밀글</label>
+			</div>
+			
+			
 			<div class="form-group">
 				<input type="file" name="file"/>
 			</div>
@@ -40,6 +52,7 @@
 			<input type="hidden" name="m_idx" value="${m_idx }"/>
 			<input type="hidden" name="type" value="${type }"/>
 	        <input type="hidden" name="nowPage" value="${nowPage }"/>
+	        <input type="hidden" id="status" name="status"/>
 			<button type="button" id="save_btn" class="btn btn-primary pull-right" style="margin-left: 10px;" onclick="sendData()">저장</button>
 			<button type="button" id="list_btn" class="btn btn-white pull-right" onclick="go_list('${type }', '${nowPage }')">목록</button>
         </form>
@@ -104,7 +117,16 @@
 				return;
 			}
 			
+			if($("input[id='chk']").is(':checked')){
+				//체크 했을 때, true
+				$("#status").val("2");
+			}else{
+				//체크 안 했을 때, false
+				$("#status").val("0");
+			}
+
 			write_form.submit();
+			
 		}
 		
 		function go_list(type, nowPage) {

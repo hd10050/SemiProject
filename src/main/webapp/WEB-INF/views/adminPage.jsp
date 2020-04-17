@@ -18,6 +18,7 @@
 
 </head>
 <jsp:include page="navbar.jsp"/>
+<jsp:include page="top.jsp"/>
 <body>
 <%
 	Object obj = session.getAttribute("mvo");

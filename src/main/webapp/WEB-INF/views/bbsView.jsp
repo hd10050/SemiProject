@@ -134,8 +134,9 @@
 </head>
 <body>
 <jsp:include page="navbar.jsp"/><br/><br/><br/><br/>
+<jsp:include page="top.jsp"/>
 <div class="container">
-    <div style="width: 1000px; margin-right: 0;">  
+    <div style="margin-right: 0;">  
 	    <table style="width: 900px; margin: 0 auto;">
 			<colgroup>
 				<col width="200px"/>

@@ -26,6 +26,7 @@
 </head>
 <body>
 <jsp:include page="navbar.jsp"/><br/><br/><br/><br/>
+<jsp:include page="top.jsp"/>
 <div class="container" style="margin: 0 auto; width: 900px;">
     <div class="form-area" style="width: 900px">  
     <div style="margin: 0 auto; width: 700px;">

@@ -12,6 +12,7 @@
 
 </head>
 <jsp:include page="navbar.jsp"/><br/><br/><br/>
+<jsp:include page="top.jsp"/>
 <body>
 	<div id="mainbody">
 	<div class="top">

@@ -13,6 +13,7 @@ p<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="U
 </head>
 <body>
 <jsp:include page="navbar.jsp"/><br/><br/><br/><br/>
+<jsp:include page="top.jsp"/>
 
 		<h1>동물병원 경기도 현황</h1>
 		<div id="chart_div"></div>

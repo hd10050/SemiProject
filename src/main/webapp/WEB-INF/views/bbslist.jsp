@@ -1,3 +1,4 @@
+<%@page import="com.data.vo.BbsVO"%>
 <%@page import="com.data.vo.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
@@ -18,6 +19,7 @@
 </head>
 <body>
 <jsp:include page="navbar.jsp"/><br/><br/><br/><br/>
+<jsp:include page="top.jsp"/>
 <%
 	Object obj = session.getAttribute("mvo");
 	MemberVO mvo = null;
@@ -53,18 +55,53 @@
 			</thead>
 			<tbody>
 				<c:if test="${fn:length(ar) > 0}">
-					<c:forEach var="vo" items="${ar}" varStatus="st">
-					<tr>
-						<td>${rowTotal - ((nowPage-1) * blockList + st.index) }</td>
-						<td>
-							<a href="javascript:bbs_view('${vo.b_idx }')">${vo.subject }</a>
-						</td>
-						<td>${vo.writer }</td>
-						<td>${fn:substring(vo.write_date, 0, 10) }</td>
-						<td>${vo.hit }</td>
-					</tr>
-					</c:forEach>
-				</c:if>
+<%
+	BbsVO[] ar = (BbsVO[])request.getAttribute("ar");
+	int rowTotal = (Integer)request.getAttribute("rowTotal");
+	int nowPage = (Integer)request.getAttribute("nowPage");
+	int blockList = (Integer)request.getAttribute("blockList");
+	
+	for(int i=0; i<ar.length; i++){
+		int num = rowTotal-((nowPage-1)*blockList + (i+1));
+%>		
+				<tr>
+					<td><%= num%></td>
+
+<%
+	if(ar[i].getStatus().equals("2")){//비밀글일 때,
+		if((mvo !=null &&mvo.getM_level().equals("1")) || (mvo !=null && mvo.getM_name().equals(ar[i].getWriter()))){ //admin or 본인 일 때,
+%>		
+					<td>
+						<a href="javascript:bbs_view('<%=ar[i].getB_idx()%>')"><%=ar[i].getSubject() %></a><i class="fas fa-lock"></i>
+					</td>
+<%
+		}else{//admin or 본인이 아닐 때,
+%>			
+					<td>
+						 비밀글 입니다.<i class="fas fa-lock"></i>
+					</td>
+<%		
+		}
+%>
+
+<%		
+	}else{// 일반글 일 때,
+%>		
+					<td>
+						<a href="javascript:bbs_view('<%=ar[i].getB_idx()%>')"><%=ar[i].getSubject() %></a>
+					</td>
+<%		
+	}
+%>
+					<td><%=ar[i].getWriter() %></td>
+					<td><%=ar[i].getWrite_date() %></td>
+					<td><%=ar[i].getHit() %></td>
+				</tr>	
+<%		
+	}
+%>
+</c:if>
+
 				<c:if test="${fn:length(ar) < 1}">
 					<tr>
 						<td colspan="6">등록된 글이 없습니다.</td>

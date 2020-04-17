@@ -177,6 +177,7 @@ table{
 </head>
 <body>
 <jsp:include page="navbar.jsp"/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<jsp:include page="top.jsp"/>
 	<div class="container"><!-- 가장 바깥 테두리 -->
 		<hr style="color: rgba(40,99,134, 0.8);"/>
 			<div id="wrapper" class="wrapper" ><!-- 이미지+상세설명 -->

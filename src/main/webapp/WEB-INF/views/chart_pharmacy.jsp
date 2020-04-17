@@ -13,7 +13,7 @@
 </head>
 <body>
 <jsp:include page="navbar.jsp"/><br/><br/><br/><br/>
-
+<jsp:include page="top.jsp"/>
       <!-- HTML -->
       <h1>경기도 동물 약국 현황</h1>
       <div id="chartdiv"></div>
