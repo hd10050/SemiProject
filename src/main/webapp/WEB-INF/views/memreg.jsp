@@ -232,13 +232,13 @@ $(function () {
 					var answer = $("#answer").val().trim();
 					
 					//유효성 검사
-					if(s_id.length < 1){
-						alert("아이디를 입력하세요");
+					if(s_id.length < 4){
+						alert("아이디를 4자 이상 입력하세요");
 						$("#m_id").focus();
 						return;
 					}
-					if(pw.length < 1){
-						alert("비밀번호를 입력하세요");
+					if(pw.length < 4){
+						alert("비밀번호를 4자 이상 입력하세요");
 						$("#pw").focus();
 						return;
 					}
