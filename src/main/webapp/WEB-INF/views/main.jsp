@@ -1,3 +1,4 @@
+<%@page import="com.data.vo.MemberVO"%>
 <%@page import="com.data.vo.BbsVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -14,6 +15,14 @@
 <jsp:include page="navbar.jsp"/><br/><br/><br/>
 <jsp:include page="top.jsp"/>
 <body>
+<%
+	Object mobj = session.getAttribute("mvo");
+	MemberVO mvo = null;
+
+	if(mobj != null) {
+		mvo = (MemberVO)mobj;				
+	}
+%>
 	<div id="mainbody">
 	<div class="top">
 	<div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel" style="width:1200px; height: 400px; margin-left: 340px;">
@@ -91,7 +100,7 @@
 %>
 			<ul class="ulul">
 				<li>
-				<h6 style="font-size: 13px;"><a href="bbs_view.inc?type=4&nowPage=1&b_idx=<%=vo.getB_idx() %>"><span class="cl"><%=vo.getSubject() %></span></a></h6>
+				<h6 style="font-size: 15px;"><a href="bbs_view.inc?type=4&nowPage=1&b_idx=<%=vo.getB_idx() %>"><span class="cl"><%=vo.getSubject() %></span></a></h6>
 				</li>
 			</ul>	
 <%			
@@ -127,13 +136,36 @@
 			<div class="uldiv">
 <% 			 
 			for(BbsVO vo : ar_f){
-%>
-		<ul>
-			<li>
-				<h6 style="font-size: 13px;"><a href="bbs_view.inc?type=4&nowPage=1&b_idx=<%=vo.getB_idx() %>"><span class="cl"><%=vo.getSubject() %></span></a></h6>				
-			</li>
-		</ul>	
-<%			
+				if(vo.getStatus().equals("2")){//비밀글일 때,
+					if((mvo !=null &&mvo.getM_level().equals("1")) || (mvo !=null && mvo.getM_name().equals(vo.getWriter()))){ //admin or 본인 일 때,
+			%>		
+								<ul>
+									<li>
+										<h6 style="font-size: 15px;"><a href="javascript:bbs_view('<%=vo.getB_idx()%>')"><span class="cl" style="font-size: 15px;"><%=vo.getSubject() %> <i class="fas fa-lock"></i></span></a></h6>
+									</li>
+								</ul>
+			<%
+					}else{//admin or 본인이 아닐 때,
+			%>			
+						<ul>
+							<li>
+								<h6><span class="cl" style="font-size: 15px;">비밀글 입니다. <i class="fas fa-lock"></i></span></h6>
+							</li>
+						</ul>
+			<%		
+					}
+			%>
+			
+			<%		
+				}else{// 일반글 일 때,
+			%>		
+					<ul>
+						<li>
+							<h6><a href="javascript:bbs_view('<%=vo.getB_idx()%>')"><span class="cl" style="font-size: 15px;"><%=vo.getSubject() %></span></a></h6>				
+						</li>
+					</ul>
+			<%		
+				}	
 			}
 %>
 			</div>
@@ -197,7 +229,20 @@
   
 	
 	</div>
-</div>	
+</div>
+	<form action="bbs_view.inc" method="post" name="v_form">
+		<input type="hidden" name="type" value="${type }"/>
+		<input type="hidden" name="nowPage" value="${nowPage }"/>
+		<input type="hidden" id= "bidx" name="b_idx" value=""/>
+	</form>
+
+	<script>		
+		function bbs_view(b_idx) {
+			$("#bidx").attr("value", b_idx);
+			v_form.submit();
+		}
+	</script>
+	
 </body>
 <jsp:include page="footer.jsp"/><br/><br/><br/>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
