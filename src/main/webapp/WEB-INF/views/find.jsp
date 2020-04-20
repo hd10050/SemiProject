@@ -172,73 +172,99 @@ body{
 <script src="resources/js/jquery-ui.min.js"></script>
 <script>
 	$(function () {
+		$("#m_phone").keydown(function(key) {
+	        if (key.keyCode == 13) {
+	        	find_id();
+	        }
+	    });
 		
-		//아이디 찾기 버튼 눌렀을 때,
+		$("#m_answer").keydown(function(key) {
+	        if (key.keyCode == 13) {
+	        	find_pw();
+	        }
+	    });
+		
 		$("#findid_btn").bind("click", function () {
-			
-			var m_name = $("#m_name").val();
-			var m_phone = $("#m_phone").val();
-			
-			var param = "m_name="+encodeURI(m_name)+
-								"&m_phone="+encodeURI(m_phone);
-			
-			$.ajax({
-				
-				url: "find_id.inc",
-				type: "post",
-				data: param,
-				dataType: "json"				
-				
-			}).done(function(data) {
-				
-				//console.log(data.m_id);
-				$("#id_p").html(data.m_id);
-				$("#id_dialog").css("display", "block");
-				$("#id_dialog").dialog();
-				
-				
-			}).fail(function(err) {
-				console.log(err);
-			});
-			
-			
-		});//아이디 찾기 끝
+			find_id();
+		});
 
+		$("#findpw_btn").bind("click", function () {
+			find_pw();
+		});
+		
 		$("#close_bt").bind("click",function(){
-			
 			$("#id_dialog").dialog("close");
 		});
 		
-		//비밀번호 찾기 버튼 눌렀을 때,
-		$("#findpw_btn").bind("click", function () {
+	});
+	
+	//아이디 찾기 버튼 눌렀을 때,
+	function find_id() {
+		var m_name = $("#m_name").val();
+		var m_phone = $("#m_phone").val();
+		var param = "m_name="+encodeURI(m_name)+
+							"&m_phone="+encodeURI(m_phone);
+		
+		$.ajax({
 			
-			var id = $("#id").val();
-			var question = $("#m_question").val();
-			var answer = $("#m_answer").val();
+			url: "find_id.inc",
+			type: "post",
+			data: param,
+			dataType: "json"				
+			
+		}).done(function(data) {
+			
+			if(data.chk == 1) {
+				$("#m_name").val("");
+				$("#m_phone").val("");
+				alert("일치하는 정보가 없습니다.");
+				$("#m_name").focus();
+			} else {
+				$("#m_name").val("");
+				$("#m_phone").val("");
+				$("#id_p").html(data.m_id);
+				$("#id_dialog").css("display", "block");
+				$("#id_dialog").dialog();
+			}
+		}).fail(function(err) {
+			console.log(err);
+		});
+	}//아이디 찾기 끝
+	
+	//비밀번호 찾기 버튼 눌렀을 때,
+	function find_pw() {
+		var id = $("#id").val();
+		var question = $("#m_question").val();
+		var answer = $("#m_answer").val();
 
-			var param = "m_id="+encodeURI(id)+
-								"&question="+encodeURI(question)+
-								"&answer="+encodeURI(answer);
+		var param = "m_id="+encodeURI(id)+
+							"&question="+encodeURI(question)+
+							"&answer="+encodeURI(answer);
+		
+		$.ajax({
+			url: "find_pw.inc",
+			type: "post",
+			data: param,
+			dataType: "json"
 			
-			$.ajax({
-				
-				url: "find_pw.inc",
-				type: "post",
-				data: param,
-				dataType: "json"				
-				
-			}).done(function(data) {
-				
+		}).done(function(data) {
+			if(data.chk == 1) {
+				$("#id").val("");
+				$("#m_answer").val("");
+				alert("일치하는 정보가 없습니다.");
+				$("#id").focus();
+			} else {
+				$("#id").val("");
+				$("#m_answer").val("");
 				$("#pw_p").html(data.m_pw);
 				$("#pw_dialog").dialog();
 				$("#pw_dialog").css("display", "block");
-				
-			}).fail(function(err) {
-				console.log(err);
-			});
+			}
 			
+		}).fail(function(err) {
+			console.log(err);
 		});
-	});
+	}
 </script>
 </body>
 <jsp:include page="footer.jsp"/>
