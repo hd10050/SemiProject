@@ -128,7 +128,7 @@ $(function () {
 					}else{
 						
 						$(".fa-check").css("color", "red");
-										
+										   
 					}
 			
 			//재입력란 길이가 비밀번호란 길이보다 길 때,
