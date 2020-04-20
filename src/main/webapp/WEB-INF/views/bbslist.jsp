@@ -69,7 +69,7 @@
 
 <%
 	if(ar[i].getStatus().equals("2")){//비밀글일 때,
-		if((mvo !=null &&mvo.getM_level().equals("1")) || (mvo !=null && mvo.getM_name().equals(ar[i].getWriter()))){ //admin or 본인 일 때,
+		if((mvo !=null &&mvo.getM_level().equals("1")) || (mvo !=null && mvo.getM_idx().equals(ar[i].getM_idx()))){ //admin or 본인 일 때,
 %>		
 					<td>
 						<a href="javascript:bbs_view('<%=ar[i].getB_idx()%>')"><%=ar[i].getSubject() %></a><i class="fas fa-lock"></i>

@@ -55,12 +55,12 @@
 	<hr/>
 	<p>
 	    <h6 style="color: gray; font-weight: bold; text-align: center;">OR</h6>
-	    <a href="googlelogin.inc" class="btn btn-block btn-twitter" ><i class="fab fa-google"></i> 구글 계정으로 로그인</a>
-        <!--<div id="google-login-btn" class="g-signin2" data-width="360" data-height="38" data-onsuccess="onSignIn"><i class="fab fa-google"></i> 구글 계정으로 로그인</div> -->
-        <!--<div id="naverIdLogin"></div>-->
-        <a href="javascript:location.href = naverLogin.generateAuthorizeUrl();" class="btn btn-block btn-twitter" style="background: green; text-decoration: none;"> <img src="resources/css/images/naver_logo.png" alt="Avatar" class="image"> 네이버 계정으로 로그인</a> 
-	    <!-- <a id="kakao-login-btn" ></a> -->
+	    <a href="googlelogin.inc" class="btn btn-block btn-facebook" style="text-decoration: none; color: black; border: 1px solid #286386;"><i class="fab fa-google"></i> 구글 계정으로 로그인</a>
+        <a href="javascript:location.href = naverLogin.generateAuthorizeUrl();" class="btn btn-block btn-facebook" style="background: green; text-decoration: none; color: white;"> <img src="resources/css/images/naver_logo.png" alt="Avatar" class="image"> 네이버 계정으로 로그인</a> 
 	    <a id="kakao-loginbtn" class="btn btn-block btn-facebook" style="background: #ffc107;"></a>
+	    <!--<div id="google-login-btn" class="g-signin2" data-width="360" data-height="38" data-onsuccess="onSignIn"><i class="fab fa-google"></i> 구글 계정으로 로그인</div> -->
+        <!--<div id="naverIdLogin"></div>-->
+        <!-- <a id="kakao-login-btn" ></a> -->
 	</article>
 	</div>
 	
@@ -155,7 +155,7 @@
 		$("#kakao-login-btn").attr("src", "");
 		//$("#kakao-loginbtn").attr("class", "btn btn-block btn-facebook");
 		//$("#kakao-loginbtn").attr("style", "background: #ffc107;");
-		$("#kakao-loginbtn").append("<i id='kakao-i' class='fas fa-comment'></i> 카카오 계정으로 로그인");
+		$("#kakao-loginbtn").append("<i id='kakao-i' class='fas fa-comment'></i> <span style='text-decoration: none; color: black;'>카카오 계정으로 로그인</span>");
 	</script>
 
 

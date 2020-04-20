@@ -137,7 +137,7 @@
 <% 			 
 			for(BbsVO vo : ar_f){
 				if(vo.getStatus().equals("2")){//비밀글일 때,
-					if((mvo !=null &&mvo.getM_level().equals("1")) || (mvo !=null && mvo.getM_name().equals(vo.getWriter()))){ //admin or 본인 일 때,
+					if((mvo !=null &&mvo.getM_level().equals("1")) || (mvo !=null && mvo.getM_idx().equals(vo.getM_idx()))){ //admin or 본인 일 때,
 			%>		
 								<ul>
 									<li>

@@ -166,6 +166,7 @@ $(function () {
 						}else{
 							//id가 중복이 아닐 때,
 							$("#box").html("<pre style='color: blue;'>사용 가능한 아이디 입니다.</pre>");
+							chk = true;
 						}
 						
 						
@@ -179,6 +180,7 @@ $(function () {
 			
 		});//아이디 중복 체크의 끝
 		
+		var tel_chk = true;
 		//전화번호 중복 체크
 		$("#phone").bind("keyup",function(){
 				//사용자가 입력한 id값을 얻어낸다.
@@ -197,9 +199,11 @@ $(function () {
 						if(data.chk==1){
 							//id가 중복일 때,
 							$("#box_p").html("<pre style='color:red;'>기존에 존재하는 전화번호 입니다.</pre>");
+							tel_chk = false;
 						}else{
 							//id가 중복이 아닐 때,
 							$("#box_p").html("<pre style='color:blue;'>사용 가능한 전화번호 입니다.</pre>");
+							tel_chk = true;
 						}
 						
 						
@@ -216,8 +220,6 @@ $(function () {
 
 		//회원가입 기능
 		$("#sub_btn").click(function () {
-			
-			
 
 					//입력값 받기
 					var snscode = $("#snscode").val().trim();
@@ -230,13 +232,13 @@ $(function () {
 					var answer = $("#answer").val().trim();
 					
 					//유효성 검사
-					if(s_id.length < 1){
-						alert("아이디를 입력하세요");
+					if(s_id.length < 4){
+						alert("아이디를 4자 이상 입력하세요");
 						$("#m_id").focus();
 						return;
 					}
-					if(pw.length < 1){
-						alert("비밀번호를 입력하세요");
+					if(pw.length < 4){
+						alert("비밀번호를 4자 이상 입력하세요");
 						$("#pw").focus();
 						return;
 					}
@@ -248,6 +250,11 @@ $(function () {
 					if(name.length < 1){
 						alert("이름을 입력하세요");
 						$("#name").focus();
+						return;
+					}
+					if(phone.length < 1){
+						alert("전화번호를 입력하세요");
+						$("#phone").focus();
 						return;
 					}
 					if(pw.length < 1){
@@ -275,7 +282,7 @@ $(function () {
 										"&question="+encodeURIComponent(question)+
 										"&answer="+encodeURIComponent(answer);
 					
-					if(chk == true){
+					if(chk && tel_chk){
 					
 					// 비동기식 통신
 					$.ajax({
@@ -290,15 +297,12 @@ $(function () {
 							} else {
 								alert("실패");
 							}
-							
-							
 						}).fail(function(err) {
 							console.log(err);
 						});
 				
 			  }else{//중복일 때,
-				  	alert("아이디와 전화번호를 확인하세요.")			  
-				  
+					alert("아이디와 전화번호를 확인하세요.");		  
 			  }
 				
 		});//회원 가입의 끝
