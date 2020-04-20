@@ -91,7 +91,7 @@
 %>
 			<ul class="ulul">
 				<li>
-				<h6 style="font-size: 15px;"><a href="bbs_view.inc?type=4&nowPage=1&b_idx=<%=vo.getB_idx() %>"><span class="cl"><%=vo.getSubject() %></span></a></h6>
+				<h6 style="font-size: 13px;"><a href="bbs_view.inc?type=4&nowPage=1&b_idx=<%=vo.getB_idx() %>"><span class="cl"><%=vo.getSubject() %></span></a></h6>
 				</li>
 			</ul>	
 <%			
@@ -130,7 +130,7 @@
 %>
 		<ul>
 			<li>
-				<h6 style="font-size: 15px;"><a href="bbs_view.inc?type=4&nowPage=1&b_idx=<%=vo.getB_idx() %>"><span class="cl"><%=vo.getSubject() %></span></a></h6>				
+				<h6 style="font-size: 13px;"><a href="bbs_view.inc?type=4&nowPage=1&b_idx=<%=vo.getB_idx() %>"><span class="cl"><%=vo.getSubject() %></span></a></h6>				
 			</li>
 		</ul>	
 <%			

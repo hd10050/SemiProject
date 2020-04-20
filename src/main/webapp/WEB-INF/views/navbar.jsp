@@ -47,32 +47,32 @@
 
 	<div class="menubar" style= "padding-top: 150px;">
 		<ul class="barul">
-			 <li><a href="javascript:reviewbbs(0)">야생동물 구조치료기관</a>
+			 <li><a href="javascript:reviewbbs(0)" class="menu_a">야생동물 구조치료기관</a>
 				 <ul>
 				     <li><a href="javascript:reviewbbs(0)">게시판</a></li>
 				     <li><a href="rescueChart.inc">차트</a></li>
 				 </ul>
 			 </li>
-			 <li><a href="javascript:reviewbbs(1)">동물 병원</a>
+			 <li><a href="javascript:reviewbbs(1)" class="menu_a">동물 병원</a>
 				<ul>
 				     <li><a href="javascript:reviewbbs(1)">게시판</a></li>
 				     <li><a href="hospChart.inc">차트</a></li>
 				 </ul>
 			 </li>
-			 <li><a href="javascript:reviewbbs(2)">동물 약국</a>
+			 <li><a href="javascript:reviewbbs(2)" class="menu_a">동물 약국</a>
 			 	<ul>
-				     <li><a href="javascript:reviewbbs(2)">게시판</a></li>
+				     <li><a href="javascript:reviewbbs(2)" class="menu_a">게시판</a></li>
 				     <li><a href="pharmacy.inc">차트</a></li>
 				 </ul>
 			 </li>
-			 <li><a href="javascript:reviewbbs(3)">유기 동물 보호시설</a>
+			 <li><a href="javascript:reviewbbs(3)" class="menu_a">유기 동물 보호시설</a>
 				 <ul>
 				     <li><a href="javascript:reviewbbs(3)">게시판</a></li>
 				     <li><a href="protect.inc">차트</a></li>
 				 </ul>
 			 </li>
-			 <li><a href="javascript:bbs(4)">공지사항</a></li>
-			 <li><a href="javascript:bbs(5)">자유 게시판</a></li>
+			 <li><a href="javascript:bbs(4)" class="menu_a">공지사항</a></li>
+			 <li><a href="javascript:bbs(5)" class="menu_a">자유 게시판</a></li>
 		</ul>
 		</div>
 		
