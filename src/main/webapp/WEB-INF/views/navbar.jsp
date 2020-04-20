@@ -8,7 +8,15 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 <link rel="stylesheet" href="resources/css/nanavbar.css">
+
 <style type="text/css">
+@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+.menu_a, .menu_drop{ 
+	
+	font-size: 19.5px;
+		
+	font-family: 'Jeju Gothic', serif;
+}
 
 </style>
 </head>
@@ -40,35 +48,35 @@
 	<!-- 두번째 검색 기능 --> 
 	
 	<div class="nanavbar_middle" style="height: 180px;"> 
-		<input type="image" src="resources/image/logo.png" onclick="location.href='main.inc'" class="nav_logo"/> 
+		<input type="image" src="resources/image/logo5.png" onclick="location.href='main.inc'" class="nav_logo"/> 
 	</div>
 	 	
 	<!-- 마지막 게시판 뷰 기능 -->
 
-	<div class="menubar" style= "padding-top: 150px;">
+	<div class="menubar" style= "padding-top: 190px;">
 		<ul class="barul">
 			 <li><a href="javascript:reviewbbs(0)" class="menu_a">야생동물 구조치료기관</a>
 				 <ul>
-				     <li><a href="javascript:reviewbbs(0)">게시판</a></li>
-				     <li><a href="rescueChart.inc">차트</a></li>
+				     <li><a href="javascript:reviewbbs(0)" class="menu_drop">게시판</a></li>
+				     <li><a href="rescueChart.inc" class="menu_drop">차트</a></li>
 				 </ul>
 			 </li>
 			 <li><a href="javascript:reviewbbs(1)" class="menu_a">동물 병원</a>
 				<ul>
-				     <li><a href="javascript:reviewbbs(1)">게시판</a></li>
-				     <li><a href="hospChart.inc">차트</a></li>
+				     <li><a href="javascript:reviewbbs(1)" class="menu_drop">게시판</a></li>
+				     <li><a href="hospChart.inc" class="menu_drop">차트</a></li>
 				 </ul>
 			 </li>
 			 <li><a href="javascript:reviewbbs(2)" class="menu_a">동물 약국</a>
 			 	<ul>
-				     <li><a href="javascript:reviewbbs(2)" class="menu_a">게시판</a></li>
-				     <li><a href="pharmacy.inc">차트</a></li>
+				     <li><a href="javascript:reviewbbs(2)" class="menu_drop">게시판</a></li>
+				     <li><a href="pharmacy.inc" class="menu_drop">차트</a></li>
 				 </ul>
 			 </li>
 			 <li><a href="javascript:reviewbbs(3)" class="menu_a">유기 동물 보호시설</a>
 				 <ul>
-				     <li><a href="javascript:reviewbbs(3)">게시판</a></li>
-				     <li><a href="protect.inc">차트</a></li>
+				     <li><a href="javascript:reviewbbs(3)" class="menu_drop">게시판</a></li>
+				     <li><a href="protect.inc" class="menu_drop">차트</a></li>
 				 </ul>
 			 </li>
 			 <li><a href="javascript:bbs(4)" class="menu_a">공지사항</a></li>
