@@ -29,11 +29,22 @@
 		MemberVO mvo = (MemberVO)obj_vo;	
 	
 		if(obj_vo != null){
+			if(mvo.getM_level().equals("1") || mvo.getM_level().equals("2")){
+%>
+			<i class="fas fa-file-archive"></i><span class="nanav_menu_t" onclick="location.href='ad_page.inc'">관리자 모드</span>
+		    <i class="fas fa-user"></i><input type="button" value="내정보" onclick="location.href='myPage.inc'" class="nanav_menu_t"/> 
+		    <i class="fas fa-unlock-alt"></i><input type="button" value="로그아웃" onclick="logout()" class="nanav_menu_t"/>
+<%				
+			}else{
+%>
+			<span class="nanav_menu_t"><%=mvo.getM_name() %>님 환영합니다.</span>
+		    <i class="fas fa-user"></i><input type="button" value="내정보" onclick="location.href='myPage.inc'" class="nanav_menu_t"/> 
+		    <i class="fas fa-unlock-alt"></i><input type="button" value="로그아웃" onclick="logout()" class="nanav_menu_t"/>
+<%				
+			}
 %>          
 				
-			<span class="nanav_menu_t" onclick="ad_page('<%=mvo.getM_level()%>')"><%=mvo.getM_name() %>님 환영합니다.</span>
-		    <i class="fas fa-user"></i><input type="button" value="내정보" onclick="location.href='myPage.inc'" class="nanav_menu_t"/> 
-		    <i class="fas fa-unlock-alt"></i><input type="button" value="로그아웃" onclick="logout()" class="nanav_menu_t"/> 
+			 
 <%
 		}else{
 %>		  
@@ -123,12 +134,13 @@
 				console.log(err);
 			});
 		}
-		
+	/*
 		function ad_page(lv) {
 			if(lv == 1 || lv == 2) {
 				location.href = "ad_page.inc";
 			}
 		}
+	*/	
 	</script>
   
 </body>
