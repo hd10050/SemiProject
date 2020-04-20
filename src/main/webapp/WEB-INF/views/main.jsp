@@ -9,7 +9,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="resources/css/main2.css">
+<style>
+@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+span , .sp, .t3, h3{
+	font-family: 'Jeju Gothic', serif;
+}
 
+</style>
 
 </head>
 <jsp:include page="navbar.jsp"/><br/><br/><br/>
@@ -25,7 +31,7 @@
 %>
 	<div id="mainbody">
 	<div class="top">
-	<div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel" style="width:1200px; height: 400px; margin-left: 340px;">
+	<div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel" style="width:1500px; height: 500px; margin-left: 240px;">
     <!--Indicators-->
     <ol class="carousel-indicators">
         <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
@@ -100,7 +106,7 @@
 %>
 			<ul class="ulul">
 				<li>
-				<h6 style="font-size: 15px;"><a href="bbs_view.inc?type=4&nowPage=1&b_idx=<%=vo.getB_idx() %>"><span class="cl"><%=vo.getSubject() %></span></a></h6>
+				<h6 style="font-size: 17px;"><a href="bbs_view.inc?type=4&nowPage=1&b_idx=<%=vo.getB_idx() %>"><span class="cl"><%=vo.getSubject() %></span></a></h6>
 				</li>
 			</ul>	
 <%			
@@ -137,11 +143,11 @@
 <% 			 
 			for(BbsVO vo : ar_f){
 				if(vo.getStatus().equals("2")){//비밀글일 때,
-					if((mvo !=null &&mvo.getM_level().equals("1")) || (mvo !=null && mvo.getM_idx().equals(vo.getM_idx()))){ //admin or 본인 일 때,
+					if((mvo !=null &&mvo.getM_level().equals("1")) || (mvo !=null && mvo.getM_name().equals(vo.getWriter()))){ //admin or 본인 일 때,
 			%>		
 								<ul>
 									<li>
-										<h6 style="font-size: 15px;"><a href="javascript:bbs_view('<%=vo.getB_idx()%>')"><span class="cl" style="font-size: 15px;"><%=vo.getSubject() %> <i class="fas fa-lock"></i></span></a></h6>
+										<h6 style="font-size: 17px;"><a href="javascript:bbs_view('<%=vo.getB_idx()%>')"><span class="cl" style="font-size: 15px;"><%=vo.getSubject() %> <i class="fas fa-lock"></i></span></a></h6>
 									</li>
 								</ul>
 			<%
@@ -149,7 +155,7 @@
 			%>			
 						<ul>
 							<li>
-								<h6><span class="cl" style="font-size: 15px;">비밀글 입니다. <i class="fas fa-lock"></i></span></h6>
+								<h6><span class="cl" style="font-size: 17px;">비밀글 입니다. <i class="fas fa-lock"></i></span></h6>
 							</li>
 						</ul>
 			<%		
@@ -161,7 +167,7 @@
 			%>		
 					<ul>
 						<li>
-							<h6><a href="javascript:bbs_view('<%=vo.getB_idx()%>')"><span class="cl" style="font-size: 15px;"><%=vo.getSubject() %></span></a></h6>				
+							<h6><a href="javascript:bbs_view('<%=vo.getB_idx()%>')"><span class="cl" style="font-size: 17px;"><%=vo.getSubject() %></span></a></h6>				
 						</li>
 					</ul>
 			<%		
@@ -190,14 +196,14 @@
 				<div>
 					<h3 class="t3"><span>동물판매업자 등의</span>
 					<span style="font-size:12px">동물판매, 미용, 운송 등 영업자</span>
-					인터넷교육 동영상</h3>
+					<span>인터넷교육 동영상</span></h3>
 					<img src="resources/image/main1.png" alt="">
 					<a href="http://apms.epis.or.kr/petseller/IndexMain2" class="btn_l">시청하기</a>
 				</div>
 			</li>
 			<li>
 				<div>
-					<h3 class="t3"><span>동물보호 명예감시원</span> 인터넷교육 동영상</h3>
+					<h3 class="t3"><span>동물보호 명예감시원</span><span>인터넷교육 동영상</span></h3>
 					<img src="resources/image/main2.png" alt="">
 					
 					<a href="http://apms.epis.or.kr/warden/IndexMain3" class="btn_l">시청하기</a>
@@ -205,7 +211,7 @@
 			</li>
 			<li id="wild">
 				<div>
-					<h3 class="t3"><span>맹견 소유자</span> 인터넷교육 동영상</h3>
+					<h3 class="t3"><span>맹견 소유자</span><span>인터넷교육 동영상</span></h3>
 					<img src="resources/image/main3.png" alt="">
 					<a href="http://apms.epis.or.kr/wilddog/IndexMain3" class="btn_l">시청하기</a>
 				</div>
