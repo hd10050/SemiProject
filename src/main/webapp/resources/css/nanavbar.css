@@ -1,7 +1,8 @@
 @charset "UTF-8";
 .nav_logo{
 	margin: 0 auto;
-	
+	width: 440px;
+	height: 161.7px;
 }
 .nanavbar_top {
   width: 100%; /* Full width */
@@ -35,13 +36,15 @@
   list-style: none;
 }
 /* Links inside the navbar */
+@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
 .nanav_menu_t{
 	border: none;
-	font-size: 13px;
+	font-size: 16px;
     color: #000;
     padding: 14px 16px;
     text-decoration: none;
     background-color: #fff;
+    font-family: 'Jeju Gothic', serif;
 }
 .nanav_menu_m{
     background-color: #fff;
@@ -90,10 +93,13 @@
     cursor: pointer;
 }
 
-.menu_a{
+
+
+@import url(http://fonts.googleapis.com/earlyaccess/jejuhallasan.css);
+.menu_a, .menu_drop{ 
 	
 	font-size: 19.5px;
-	
+	font-family: 'Jeju Hallasan', serif;
 }
 
 

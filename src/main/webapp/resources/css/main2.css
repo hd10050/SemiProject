@@ -171,7 +171,7 @@ body{
 
 .main-link > li {
     display: inline-block;
-    padding: 0 50px;
+    padding: 0 70px;
     border-left: 2px solid #d6d6d6;
     float: left;
 }
@@ -189,9 +189,10 @@ body{
     font-size: 24px;
     color: #24486a;
 }
-
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 .main-link .t3 {
     height: 80px;
+ 	font-family: 'Nanum Gothic', serif;
 }
 
 .main-link img {
