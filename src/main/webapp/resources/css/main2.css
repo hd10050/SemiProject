@@ -13,7 +13,6 @@
 }
 
 .middle{
- background-color: #ededee;		
   width: 100%;
   height: 530px;
   position: relative;
@@ -33,8 +32,6 @@
 
 
 .top{
-	background-color: #ededee;
-	
 	padding-top: 40px;
 }
 .middle-right{

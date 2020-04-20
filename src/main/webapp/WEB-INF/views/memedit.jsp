@@ -58,8 +58,8 @@
 					                       		Object obj = session.getAttribute("mvo");
 					                       		MemberVO mvo = (MemberVO)obj;    
 					                       		String gender = null;
-					                       		
-					                       		if(mvo.getM_gender() == "1"){
+					                       		System.out.println(mvo.getM_gender());
+					                       		if(mvo.getM_gender().equals("1")){
 					                       			gender = "여자";
 					                       		}else{
 					                       			gender = "남자";	
