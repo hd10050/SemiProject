@@ -32,10 +32,10 @@
    		<%if(request.getAttribute("chk").equals("1")){ %>
    			<div id="map" style="width:500px;height:400px; margin: 0 auto;"></div><br/><br/>
    		<%} %>
-   	<div class="well" style="width: 900px; margin: 0 auto; float: none impor;">
+   	<div class="well" style="width: 900px; margin: 0 auto; float: none impor; background: #fff;">
     <table class="table">
       <colgroup>
-         <col width="66px"/>
+         <col width="80px"/>
          <col width="165px"/>
          <col width="*"/>
          <col width="105px"/>
@@ -138,14 +138,22 @@
 	        ${pageCode }
 	    </ul>
 	</div>
-	<div>
-		<select name="searchSelect" id="searchSelect" style="width: 100px;">   
-			<option value="0"> 지역</option>
-			<option value="1"> 시설명</option>
-		</select>
-		<input type="text" name="searchValue" id="searchValue" placeholder="search..." style="width: 250px;"/>
-        <button id="searchbt" onclick="search()" style="margin-bottom : 11px;"><i class="fas fa-search"></i></button>
-	</div>	
+	<table>
+		<tr>
+			<td>
+				<select name="searchSelect" id="searchSelect" style="width: 100%; height: 26px;">   
+					<option value="0"> 지역</option>
+					<option value="1"> 시설명</option>
+				</select>
+			 </td>
+			 <td>
+				<input type="text" name="searchValue" id="searchValue" placeholder="search..." style="width: 250px; display: inline-block;"/>
+			 </td>
+			 <td>
+        		<button id="searchbt" onclick="search()"><i class="fas fa-search"></i></button>
+        	 </td>
+        </tr>
+	</table>
 
 	<form action="search.inc" method="post" name="search_form">
 		<input type="hidden" id="search_value" name="search_value"/>

@@ -128,7 +128,7 @@ $(function () {
 					}else{
 						
 						$(".fa-check").css("color", "red");
-					
+										
 					}
 			
 			//재입력란 길이가 비밀번호란 길이보다 길 때,
@@ -217,7 +217,7 @@ $(function () {
 			
 		});//전화번호 중복 체크의 끝
 
-
+		
 		//회원가입 기능
 		$("#sub_btn").click(function () {
 
@@ -230,6 +230,8 @@ $(function () {
 					var gender = $("#gender").val().trim(); //1 or 2
 					var question = $("#question").val().trim();
 					var answer = $("#answer").val().trim();
+					//비밀번호 재입력란 값
+					var r_pw = $("#r_pw").val().trim();
 					
 					//유효성 검사
 					if(s_id.length < 4){
@@ -247,6 +249,26 @@ $(function () {
 						$("#r_pw").focus();
 						return;
 					}
+					
+					var pw_chk = false;
+					
+					//재입력란과 비밀번호란 값의 길이가 같을 때,
+					if(r_pw.trim().length == pw.trim().length){
+							
+							//값이 같을 때,
+							if(r_pw.trim()==pw.trim()){
+								pw_chk = true;
+							//값이 다를 때,
+							}else{
+								pw_chk = false;
+												
+							}
+					
+					
+					}
+					
+					
+					
 					if(name.length < 1){
 						alert("이름을 입력하세요");
 						$("#name").focus();
@@ -282,31 +304,35 @@ $(function () {
 										"&question="+encodeURIComponent(question)+
 										"&answer="+encodeURIComponent(answer);
 					
-					if(chk && tel_chk){
+					if(chk && tel_chk && pw_chk){
 					
-					// 비동기식 통신
-					$.ajax({
-						url: "memreg.inc",
-						type: "post",
-						dataType: "json",
-						data: param
-								
-						}).done(function(res){
-							if(res.chk == "1") {
-								location.href="login.inc";
-							} else {
-								alert("실패");
-							}
-						}).fail(function(err) {
-							console.log(err);
-						});
+							// 비동기식 통신
+							$.ajax({
+								url: "memreg.inc",
+								type: "post",
+								dataType: "json",
+								data: param
+										
+								}).done(function(res){
+									if(res.chk == "1") {
+										location.href="login.inc";
+									} else {
+										alert("실패");
+									}
+								}).fail(function(err) {
+									console.log(err);
+								});
 				
-			  }else{//중복일 때,
-					alert("아이디와 전화번호를 확인하세요.");		  
-			  }
+					  }else if(!chk){//아이디 중복일 때,
+						  alert("아이디 중복을 확인하세요");
+					  }else if(!tel_chk){//전화번호 중복일 때,
+						  alert("전화번호 중복을 확인하세요");
+					  }else if(!pw_chk){//비번 중복일 때,
+						  alert("비밀번호 중복을 확인하세요");
+					  }
 				
 		});//회원 가입의 끝
-
+		
 
 });
 </script>

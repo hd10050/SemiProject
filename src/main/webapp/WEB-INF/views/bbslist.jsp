@@ -29,7 +29,7 @@
 	}
 %>
 	<div class="col-sm-12 pull-center well">
-	<div class="well"  style="width: 800px; margin: 0 auto;">
+	<div class="well"  style="width: 800px; margin: 0 auto; background: #fff;">
 		<c:if test="${type == 4}">
 			<h3>공지 게시판</h3>
 		</c:if>
