@@ -5,13 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="resources/css/footer.css"/>
+<link rel="stylesheet" href="resources/css/footer2.css"/>
 </head>
 <body>
 	<footer	 id="footer" style="float:right;">
 		<div class ="auto">
 			<span class="footerLogo">
-				<img src="" alt="회사 이름">
+				<img src="" alt="경기보호동물특공대">
 			</span>
 			<div class="addWrap">
 				<a href="#">개인정보처리방침</a>
