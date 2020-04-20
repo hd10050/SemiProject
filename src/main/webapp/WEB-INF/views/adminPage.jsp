@@ -41,14 +41,14 @@
 				<div class="profile-usermenu">
 					<ul class="nav">
 						<li>
-							<a href="javascript:changePage(1)">
+							<a href="javascript:location.href='ad_page.inc'">
 							<i class="glyphicon glyphicon-pencil"></i>
 							회원 권한 수정 </a>
 						</li>
 							<li>
-							<a href="javascript:changePage(2)">
+							<a href="javascript:location.href='ad_ad.inc'">
 							<i class="glyphicon glyphicon-inbox"></i>
-							회원 목록</a>
+							배너 관리</a>
 						</li>
 					</ul>
 				</div>

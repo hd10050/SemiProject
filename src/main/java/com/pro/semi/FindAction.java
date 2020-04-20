@@ -30,9 +30,13 @@ public class FindAction {
 		Map<String, String> map = new HashMap<String, String>();
 		
 		String m_id = m_dao.findID(m_name, m_phone);
-		
 		if(m_id != null) {
-			map.put("m_id", m_id);
+			StringBuffer sb = new StringBuffer(m_id);
+			for(int i = 0 ; i < (m_id.length() / 2) ; i++) {
+				sb.setCharAt((m_id.length() / 2) + (i-1), '*');
+			}
+			
+			map.put("m_id", sb.toString());
 		}else {
 			map.put("chk", "1");
 		}
@@ -47,7 +51,11 @@ public class FindAction {
 		String m_pw = m_dao.findPW(m_id, question, answer);
 		
 		if(m_pw != null) {
-			map.put("m_pw", m_pw);
+			StringBuffer sb = new StringBuffer(m_pw);
+			for(int i = 0 ; i < (m_id.length() / 2) ; i++) {
+				sb.setCharAt((m_id.length() / 2) + (i-1), '*');
+			}
+			map.put("m_pw", sb.toString());
 		}else {
 			map.put("chk", "1");
 		}
