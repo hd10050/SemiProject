@@ -87,7 +87,6 @@ public class BbsAction {
 		mv.addObject("rowTotal", rowTotal);
 		mv.addObject("blockList", BLOCK_LIST);
 		mv.addObject("type", type);
-		
 		mv.setViewName("bbslist");
 		return mv;
 	}

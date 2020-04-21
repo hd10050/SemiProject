@@ -99,7 +99,7 @@
 												</c:if>
 												<c:if test="${vo.m_status == 1 }">
 													<button type=button class="btn btn-success" onclick="re('${vo.m_idx }')">복구</button>
-												</c:if>
+												</c:if> 
 											</td>
 										</tr>
 									</c:forEach>

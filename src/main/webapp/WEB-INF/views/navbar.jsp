@@ -61,7 +61,7 @@
 	<div class="nanavbar_middle" style="height: 180px;"> 
 		<input type="image" src="resources/image/logo5.png" onclick="location.href='main.inc'" class="nav_logo"/> 
 	</div>
-	 	
+
 	<!-- 마지막 게시판 뷰 기능 -->
 
 	<div class="menubar" style= "padding-top: 190px;">

@@ -57,47 +57,10 @@
 		<div class="col-md-9">
 	    	<div class="profile-content">
 				<div id="right_content">
-					<h1>배너 관리</h1>
-					<table class="table">
-						<thead>
-							<tr>
-								<th>IDX</th>
-								<th>TITLE</th>
-								<th>COMPANY</th>
-								<th>LOCATION</th>
-								<th>START_DATE</th>
-								<th>END_DATE</th>
-								<th>STATUS</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:if test="${fn:length(ad_ar) > 0}">
-								<c:forEach var="avo" items="${ad_ar}">
-									<tr>
-										<td>${avo.idx }</td>
-										<td>${avo.title }</td>
-										<td>${avo.company }</td>
-										<td>${avo.location }</td>
-										<td>${avo.start_date }</td>
-										<td>${avo.end_date }</td>
-										<td>${avo.status }</td>
-									</tr>
-								</c:forEach>
-							</c:if>
-							<c:if test="${fn:length(ad_ar) < 1}">
-								<tr>
-									<td colspan="7">등록된 배너가 없습니다.</td>
-								</tr>
-							</c:if>
-						</tbody>
-					</table>
-					<div class="pagination" style="margin: 0 auto;">
-					    <ul style="padding: 0;">
-					        ${pageCode }
-						</ul>
-					</div>
+					<!-- title company content start_date end_date link location -->
+					
 				</div>
-					<button class="btn btn-primary" onclick="javascript:location.href='ad_write_form.inc'">등록</button>
+					<button class="btn btn-primary" onclick="">등록</button>
 			</div>
 		</div>
 	</div>
