@@ -38,7 +38,7 @@
 	}
 	
 	#mid2{
-		color: #122f82;
+		color: rgb(8, 104, 172);
 	}
 	
 
@@ -50,7 +50,7 @@
       
           <div class="panel panel-info">
             <div class="panel-heading">
-              <h2><span class="fa fa-lock fa-1x"></span><span id=mid2>    ${mvo.getM_id() }</span>님의 정보 수정</h2>
+              <h2 style="font-size: 35px"><span class="fa fa-lock fa-1x"></span><span id=mid2>    ${mvo.getM_id() }</span>님의 정보 수정</h2>
             </div>
      
               <div class="panel-body">
@@ -60,7 +60,7 @@
                       <div class="form-group">
                         <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-lock color-blue"></i></span>
-                          <input id="pwd" name="pwd" placeholder="비밀번호를 입력하세요." class="form-control"  type="password">
+                          <input id="pwd" name="pwd" style="font-size: 20px" placeholder="비밀번호를 입력하세요." class="form-control"  type="password">
                         </div>
                         <br/>
                       <div class="form-group">
@@ -108,7 +108,7 @@
 						$("#right_content").load("editmove.inc");
 						
 					}else{
-						alert("실패!");
+						alert("비밀번호가 틀렸습니다.");
 					};
 					
 				}).fail(function(err) {

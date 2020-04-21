@@ -30,36 +30,26 @@
 				<!-- SIDEBAR USER TITLE -->
 				<div class="profile-usertitle">
 					<div class="profile-usertitle-name">
-						<h5>${mvo.m_id }님 안녕하세요!</h5>
+						<h5 style="font-size:20px">${mvo.m_id }님<br/> 안녕하세요!</h5>
 					</div>
 				</div>
 				<!-- END SIDEBAR USER TITLE -->
-				<!-- SIDEBAR BUTTONS -->
-				<div class="profile-userbuttons">
-					<button type="button" class="btn btn-success btn-sm">F</button>
-					<button type="button" class="btn btn-danger btn-sm">M</button>
-				</div>
-				<!-- END SIDEBAR BUTTONS -->
+		
 				<!-- SIDEBAR MENU -->
-				<div class="profile-usermenu">
+				<div class="sidebar">
 					<ul class="nav">
 						<li class="active">
-							<a href="javascript:changePage(0)">
+							<a href="javascript:changePage(0)" class="side side1" id="s_top">
 							<i class="glyphicon glyphicon-home"></i>
 							Home </a>
 						</li>
 						<li>
-							<a href="javascript:changePage(1)">
+							<a href="javascript:changePage(1)"  class="side side2">
 							<i class="glyphicon glyphicon-pencil"></i>
 							개인 정보 수정 </a>
 						</li>
-							<li>
-							<a href="javascript:changePage(2)">
-							<i class="glyphicon glyphicon-inbox"></i>
-							스크랩</a>
-						</li>
 						<li>
-							<a href="javascript:changePage(3)">
+							<a href="javascript:changePage(3)" class="side side3">
 							<i class="glyphicon glyphicon-remove"></i>
 							탈퇴</a>
 						</li>

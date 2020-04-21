@@ -15,7 +15,7 @@
       
           <div class="panel panel-info">
             <div class="panel-heading">
-              <h2><span id=mid>${mvo.getM_id() }</span>님의 정보</h2>
+              <h2 style="font-size: 35px"><span class="fa fa-user fa-1x"></span><span id=mid>&nbsp;${mvo.getM_id() }</span>님의 정보</h2>
             </div>
             <div class="panel-body">
               <div class="row">
@@ -37,22 +37,22 @@
                   <table class="table table-user-information">
                     <tbody>
                       <tr>
-                        <td class="tdc"><span class="input-group-addon"><span class="glyphicon glyphicon-user">     아이디 :</span>
+                        <td class="tdc"><span class="input-group-addon" style="text-align: left;"><span class="glyphicon glyphicon-user" style="font-size: 19px">&nbsp;아이디</span>
 					                            </span></td>
                         <td>${mvo.getM_id() }</td>
                       </tr>
                       <tr>
-                        <td class="tdc"><span class="input-group-addon"><span class="glyphicon glyphicon-user">     이름  :</span></span></td>
+                        <td class="tdc"><span class="input-group-addon" style="text-align: left;"><span class="glyphicon glyphicon-user" style="font-size: 19px">&nbsp;이름</span></span></td>
                         <td>${mvo.getM_name() }</td>
                       </tr>
                       <tr>
-                        <td class="tdc"><span class="input-group-addon"><span class="glyphicon glyphicon-phone"> 연락처 :</span></span></td>
+                        <td class="tdc"><span class="input-group-addon" style="text-align: left;"><span class="glyphicon glyphicon-phone"  style="font-size: 19px">&nbsp;연락처</span></span></td>
                         <td>${mvo.getM_phone() }</td>
                       </tr>
                    
                          <tr>
                              <tr>
-                        <td class="tdc"><span class="input-group-addon"><span class="glyphicon glyphicon-heart">    성별  :</span></span></td>
+                        <td class="tdc"><span class="input-group-addon" style="text-align: left;"><span class="glyphicon glyphicon-heart"  style="font-size: 19px">&nbsp;성별</span></span></td>
                        	<%
 	                       		Object obj = session.getAttribute("mvo");
 	                       		MemberVO mvo = (MemberVO)obj;    
@@ -76,7 +76,7 @@
               </div>
             </div>
             <div class="btn1">
-            <a href="#" id="modibtn" class="btn btn-primary">수정하기</a>
+            <a href="#" id="modibtn" class="btn btn-primary" style="font-size: 22px; position: absolute; left:650px;">수정하기</a>
             </div>
           </div> 	
       

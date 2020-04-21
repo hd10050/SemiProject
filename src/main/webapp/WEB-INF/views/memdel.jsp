@@ -37,7 +37,9 @@
 		margin-right: 110px;
 	}
 	#mid{
-		color: #122f82;
+		color: rgb(8, 104, 172);
+		
+		
 	}
 
 </style>
@@ -46,7 +48,7 @@
 <body>
           <div class="panel panel-info">
             <div class="panel-heading">
-              <h2><span id="lock"><span class="fa fa-lock fa-1x"></span></span><span id=mid>   ${mvo.getM_id() }</span>님의 회원 탈퇴</h2>
+              <h2 style="font-size: 35px"><span id="lock"><span class="fa fa-lock fa-1x"></span></span><span id=mid>   ${mvo.getM_id() }</span>님의 회원 탈퇴</h2>
             </div>
      
               <div class="panel-body">
@@ -56,7 +58,7 @@
                       <div class="form-group">
                         <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-lock color-blue"></i></span>
-                          <input id="pwd" name="pwd" placeholder="비밀번호를 입력하세요." class="form-control"  type="password">
+                          <input id="pwd" name="pwd"  style="font-size: 20px" placeholder="비밀번호를 입력하세요." class="form-control"  type="password">
                         </div>
                         <br/>
                       <div class="form-group">
@@ -73,6 +75,9 @@
 	<script src="resources/js/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript">
 				
+		
+	
+	
 		$(function() {
 			
 			$("#button").bind("click", function() {

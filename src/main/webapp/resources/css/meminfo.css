@@ -18,6 +18,12 @@
 
 	}
 	
+	.nav_a{
+	font-size: 19px;
+	
+	}
+	
+	
 	.input-group-addon{
 		width: 450px;
 	}
@@ -33,6 +39,7 @@
 	
 	td{
 		padding: 8px;
+		font-size: 19px;
 	}
 	.btn1{
 		padding: auto;
@@ -42,6 +49,17 @@
 		height: 60px;
 	}
 	#mid{
-		color: #122f82;
+		color: rgb(8, 104, 172);
+	}
+	
+	
+	.span.glyphicon.glyphicon-user{
+	 	padding: auto;
+	 	line-height: 0;
+	 	top: 0 !important;
+	}
+	
+	.table>tbody>tr>td{
+		vertical-align: middle !important;
 	}
 	

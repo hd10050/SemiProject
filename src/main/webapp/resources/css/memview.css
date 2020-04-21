@@ -34,6 +34,24 @@ Licensed under MIT
   
 }
 
+.side{
+	font-size: 20px;
+
+	
+}
+
+.nav{
+	margin-top: 30px;
+	
+}
+
+
+.nav>li>a:hover, .nav>li>a:focus {
+    text-decoration: none;
+    background-color: rgb(78, 179, 211);
+    color: white; 
+    border-left: 5px solid rgb(43, 140, 190);  
+}
 
 
 
@@ -96,7 +114,7 @@ Licensed under MIT
 
 .profile-usermenu ul li a {
   color: #93a3b5;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 400;
 }
 
@@ -127,6 +145,7 @@ Licensed under MIT
   background: #fff;
   min-height: 460px;
   margin-top: 50px;
+  margin-left: 50px;
 }
 
 

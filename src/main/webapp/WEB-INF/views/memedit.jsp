@@ -6,54 +6,64 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+
+#panel panel-info{
+	width: 733.021px;
+	height: 388.768px;
+}
+.span.input-group-addon{
+	width: 120px !important;
+}
+
+</style>
+
 </head>
 <body>
 
 <%-- 
 <jsp:include page="header.jsp"/><br/><br/><br/>
  --%>
-<div class="col-md-9">
 
-            <div class="profile-content">
-			    <form class="form-signin">
-				<div class="panel panel-info">
-              <h3 class="panel-title"><span class="fa fa-lock fa-1x"></span><span id=mid>${mvo.getM_id() }</span>님의 정보</h3>
-           
-					        <div class="panel panel-primary" id="pri">
-					            <h3 class="text-center">
-					                       회원 정보 수정</h3>
+	   <div class="panel panel-info" id="panel panel-info" style="width:703px;">
+            <div class="panel-heading" style="width:703px;">
+              <h2 style="font-size: 35px"><span class="fa fa-lock fa-1x"></span><span id=mid2>    ${mvo.getM_id() }</span>님의 정보 수정</h2>
+            </div>
+     			  <div class="profile-content1" style="padding:0;">
+			   
+
 					        <div class="panel-body">
-					                    <div class="form-group">
+					                    <div class="form-group" style="padding-left: 111px">
 					                        <div class="input-group">
-					                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span>
+					                            <span class="input-group-addon" style="width:120px;"><span class="glyphicon glyphicon-user">&nbsp;아이디</span>
 					                            </span>
-					                            <input type="text" class="form-control" id="id" value="${mvo.getM_id()}" readonly="readonly" />
+					                            <input type="text" style="width:350px; font-size: 19px;" class="form-control" id="id" value="${mvo.getM_id()}" readonly="readonly" />
 					                        </div>
 					                    </div>
 					                    
-					                    <div class="form-group">
+					                    <div class="form-group" style="padding-left: 111px">
 					                        <div class="input-group">
-					                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-					                            <input type="text" class="form-control" value="${mvo.getM_name()} " id="name"/>
+					                            <span class="input-group-addon" style="width:120px;"><span class="glyphicon glyphicon-user">&nbsp;이름</span></span>
+					                            <input type="text" style="width:350px; font-size: 19px;" class="form-control" value="${mvo.getM_name()} " id="name"/>
 					                        </div>
 					                    </div>
 					                    
-					                     <div class="form-group">
+					                     <div class="form-group" style="padding-left: 111px">
 					                        <div class="input-group">
-					                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-					                            <input type="password" class="form-control" value="${mvo.getM_pw() }" id="pw"/>
+					                            <span class="input-group-addon" style="width:120px;"><span class="glyphicon glyphicon-lock">&nbsp;비밀번호</span></span>
+					                            <input type="password" style="width:350px; font-size: 19px;" class="form-control"  value="${mvo.getM_pw() }" id="pw" style="font-size: 18px;"/>
 					                        </div>
 					                    </div>
 					                    
-					                    <div class="form-group">
+					                    <div class="form-group" style="padding-left: 111px">
 					                        <div class="input-group">
-					                            <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
-					                            <input type="text" class="form-control" value="${mvo.getM_phone()}" id="phone" />
+					                            <span class="input-group-addon" style="width:120px;"><span class="glyphicon glyphicon-phone">&nbsp;전화번호</span></span>
+					                            <input type="text" style="width:350px; font-size: 19px;" class="form-control"  value="${mvo.getM_phone()}" id="phone" />
 					                        </div>
 					                    </div>
-					                    <div class="form-group">
+					                    <div class="form-group" style="padding-left: 111px">
 					                        <div class="input-group">
-					                            <span class="input-group-addon"><span class="glyphicon glyphicon-heart"></span></span>
+					                            <span class="input-group-addon" style="width:120px; font-size: 19px;"><span class="glyphicon glyphicon-heart">&nbsp;성별</span></span>
 					                       		<%
 					                       		Object obj = session.getAttribute("mvo");
 					                       		MemberVO mvo = (MemberVO)obj;    
@@ -65,19 +75,20 @@
 					                       			gender = "남자";	
 					                       		}
 					                       		%>
-					                            <input type="text" class="form-control" value=<%= gender %> readonly="readonly">
+					                            <input type="text" style="width:350px; font-size: 19px;" class="form-control" value=<%= gender %> readonly="readonly">
 					                            <input type="hidden" value="${mvo.getM_gender()}" id="gender" />
 					                        </div>
 					                    </div>
-					                        <button class="btn btn-lg btn-primary btn-block" type="button" id="button">
+					                        <button class="btn btn-lg btn-primary btn-block" type="button" id="button" style="width:472px; margin-left: 111px;">
 								저장
 							</button>
 					      </div>
 					       </div>
 					       </div>
-					       </form>
-					        </div>     
-					    </div>
+					    
+					   
+             
+          
 	<script src="resources/js/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript">
 	
