@@ -72,7 +72,7 @@
 		if((mvo !=null &&mvo.getM_level().equals("1")) || (mvo !=null && mvo.getM_idx().equals(ar[i].getM_idx()))){ //admin or 본인 일 때,
 %>		
 					<td>
-						<a href="javascript:bbs_view('<%=ar[i].getB_idx()%>')"><%=ar[i].getSubject() %></a><i class="fas fa-lock"></i>
+						<a href="javascript:bbs_view('<%=ar[i].getB_idx()%>')" style="color: #000;"><%=ar[i].getSubject() %></a><i class="fas fa-lock"></i>
 					</td>
 <%
 		}else{//admin or 본인이 아닐 때,
@@ -88,7 +88,7 @@
 	}else{// 일반글 일 때,
 %>		
 					<td>
-						<a href="javascript:bbs_view('<%=ar[i].getB_idx()%>')"><%=ar[i].getSubject() %></a>
+						<a href="javascript:bbs_view('<%=ar[i].getB_idx()%>')" style="color: #000;"><%=ar[i].getSubject() %></a>
 					</td>
 <%		
 	}
