@@ -8,7 +8,6 @@
 	<select id="memlist" resultType="com.data.vo.MemberVO" parameterType="java.util.Map">
 		SELECT * FROM (SELECT rownum r_num, a.*
 						FROM (SELECT * FROM member_table
-							  WHERE m_status = 0
 							  ORDER BY m_idx ASC) a
 		)
 		WHERE r_num BETWEEN #{begin} AND #{end} 
@@ -98,6 +97,10 @@
 		update member_table set m_status = 1 where m_idx = #{m_idx} and m_pw = #{m_pw}
 	</update>
 	
+	<!-- 회원 복구 -->
+	<update id="reMem" parameterType="String">
+		update member_table set m_status = 0 where m_idx = #{m_idx}
+	</update>
 	
 	<!-- 회원 로그인 -->
 	<select id="login" resultType="com.data.vo.MemberVO" parameterType="java.util.Map">

@@ -92,8 +92,13 @@
 												</c:if>
 											</td>
 											<td>
-												<c:if test="${vo.m_level == 0 }">
-													<button type=button class="btn btn-danger" onclick="ban('${vo.m_idx }')">탈퇴</button>
+												<c:if test="${vo.m_status == 0 }">
+													<c:if test="${vo.m_level == 0 }">
+														<button type=button class="btn btn-danger" onclick="ban('${vo.m_idx }')">탈퇴</button>
+													</c:if>
+												</c:if>
+												<c:if test="${vo.m_status == 1 }">
+													<button type=button class="btn btn-success" onclick="re('${vo.m_idx }')">복구</button>
 												</c:if>
 											</td>
 										</tr>
@@ -138,6 +143,16 @@
 		$("#m_idx").attr("value", m_idx);
 		
 		 if(!(confirm("탈퇴시키겠습니까?"))) {
+			 return;
+		 }
+		admin_frm.submit();
+	}
+	
+	function re(m_idx) {
+		$("#admin_frm").attr("action", "ad_re.inc");
+		$("#m_idx").attr("value", m_idx);
+		
+		 if(!(confirm("복구시키겠습니까?"))) {
 			 return;
 		 }
 		admin_frm.submit();

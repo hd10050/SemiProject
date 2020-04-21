@@ -74,5 +74,14 @@ public class AdminPageAction {
 		mv.setViewName("redirect:/ad_page.inc");
 		return mv;
 	}
+	
+	@RequestMapping(value="/ad_re.inc", method=RequestMethod.POST)
+	public ModelAndView ad_re(String m_idx) {
+		ModelAndView mv = new ModelAndView();
+		memDao.reMem(m_idx);
+		
+		mv.setViewName("redirect:/ad_page.inc");
+		return mv;
+	}
 
 }

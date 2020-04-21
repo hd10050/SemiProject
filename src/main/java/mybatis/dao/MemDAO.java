@@ -150,6 +150,17 @@ public class MemDAO {
 		return chk;
 	}
 	
+	//회원 복구
+	public boolean reMem(String m_idx) {
+		boolean chk = false;
+		int cnt = ss.update("mem.reMem", m_idx);
+		
+		if(cnt>0) {
+			chk = true;
+		}
+		return chk;
+	}
+	
 	
 	//회원 수정
 	public boolean updateMem(MemberVO vo) {
