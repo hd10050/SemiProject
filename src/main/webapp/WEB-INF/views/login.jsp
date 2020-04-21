@@ -55,7 +55,8 @@
 	<hr/>
 	<p>
 	    <h6 style="color: gray; font-weight: bold; text-align: center;">OR</h6>
-	    <a href="googlelogin.inc" class="btn btn-block btn-facebook" style="text-decoration: none; color: black; border: 1px solid #286386;"><i class="fab fa-google"></i> 구글 계정으로 로그인</a>
+	    <div id="google-login-btn" class="g-signin2" data-width="0" data-height="0" data-onsuccess="onSignIn"></div>
+	    <a href="#" id="google_btn" class="btn btn-block btn-facebook" style="text-decoration: none; color: black; border: 1px solid #286386;"><i class="fab fa-google"></i> 구글 계정으로 로그인</a>
         <a href="javascript:location.href = naverLogin.generateAuthorizeUrl();" class="btn btn-block btn-facebook" style="background: green; text-decoration: none; color: white;"> <img src="resources/css/images/naver_logo.png" alt="Avatar" class="image"> 네이버 계정으로 로그인</a> 
 	    <a id="kakao-loginbtn" class="btn btn-block btn-facebook" style="background: #ffc107;"></a>
 	    <!--<div id="google-login-btn" class="g-signin2" data-width="360" data-height="38" data-onsuccess="onSignIn"><i class="fab fa-google"></i> 구글 계정으로 로그인</div> -->
@@ -74,6 +75,31 @@
 
 	<script src="resources/js/jquery-3.4.1.min.js"></script>
 	<%------------------%>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<script>
+		var isGButtonClicked = false; 
+		$("#google-login-btn").click(function(){
+			isGButtonClicked = true;
+		});
+		$("#google_btn").click(function(){
+			isGButtonClicked = true;
+			$('.abcRioButton').trigger("click");
+		});
+	
+		function onSignIn(googleUser) {
+			if(isGButtonClicked) {
+				var profile = googleUser.getBasicProfile();
+				var idx = profile.getEmail().indexOf("@");
+				if(idx != -1) {
+					$("#m_id2").attr("value", profile.getEmail().substring(0, idx));
+				}
+				$("#m_name").attr("value", profile.getName());
+				$("#r_snscode").attr("value", "G_" + profile.getId());
+				
+				snsform.submit();
+			}
+		}
+	</script>
 	<%--네이버로그인----%>
 	<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
 	<script type="text/javascript">
