@@ -60,9 +60,15 @@
 	int rowTotal = (Integer)request.getAttribute("rowTotal");
 	int nowPage = (Integer)request.getAttribute("nowPage");
 	int blockList = (Integer)request.getAttribute("blockList");
+	String type = (String)request.getAttribute("type");
 	
 	for(int i=0; i<ar.length; i++){
-		int num = rowTotal-((nowPage-1)*blockList + (i+1));
+		int num;
+		if(type.equals("4")) {
+			num = rowTotal-((nowPage-1)*blockList + (i+2));
+		} else {
+			num = rowTotal-((nowPage-1)*blockList + (i+1));
+		}
 %>		
 				<tr>
 					<td><%= num%></td>
@@ -76,7 +82,7 @@
 					</td>
 <%
 		}else{//admin or 본인이 아닐 때,
-%>			
+%>
 					<td>
 						 비밀글 입니다.<i class="fas fa-lock"></i>
 					</td>
