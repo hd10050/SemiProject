@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="resources/css/main2.css">
+<link rel="stylesheet" href="resources/css/main3.css">
 <style>
 @import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
 span , .sp, .t3, h3{
@@ -31,7 +31,7 @@ span , .sp, .t3, h3{
 %>
 	<div id="mainbody">
 	<div class="top">
-	<div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel" style="width:1500px; height: 500px; margin-left: 240px;">
+	<div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel" style="width:1400px; height: 500px; margin-left: 240px;" >
     <!--Indicators-->
     <ol class="carousel-indicators">
         <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
