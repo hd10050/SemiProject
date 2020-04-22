@@ -55,6 +55,7 @@
   width: 480px;
   height: 420px;
   background-color: white;
+  float: left;
 }
 
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
@@ -329,6 +330,20 @@ body{
     font-weight: 300;
     color: #58595b;
     font-family: 'Nanum Gothic';
+}
+
+
+.banner{
+	position: absolute;
+  	
+ 	left: 560px;
+	border: 1px solid #d0d9e7;
+    margin-top: 10px;
+    width: 400px;
+    height: 400px;
+    background-color: white;
+	
+	
 }
 
 

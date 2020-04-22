@@ -187,6 +187,10 @@ span , .sp, .t3, h3{
 		}
 %>	
 		</div>
+		<div class="banner">
+			
+		</div>
+		
 		</div><!-- s_middle의 끝 -->
        </div>
 	
