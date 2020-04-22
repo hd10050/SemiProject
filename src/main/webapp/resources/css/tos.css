@@ -1,0 +1,264 @@
+@charset "UTF-8";
+
+body {
+	font-size: 18px;
+	font-family: 'NanumBarunGothic',Arial,sans-serif;
+	background-color: #fff;
+	z-index: 0;
+}
+
+.tos_stitle{
+		
+	margin-bottom: 12px;
+}
+
+
+#tos_title{
+		
+	margin: 12px;
+	text-align: center;
+	
+}
+
+
+a {
+	color: #000;
+	text-decoration: none;
+
+}
+a:hover {
+	text-decoration: none;
+	color: #f67001;
+}
+a:focus {
+	outline: none;
+}
+h1 {
+	text-align: left;
+	margin-left: 10px;
+	font-family:"KoreanPDSRR";
+	cursor: default;
+	font-size:20px;
+}
+h2 {
+	text-align: left;
+	font-family:'NanumBarunGothic';
+	cursor: default;
+	font-size:12px;
+}
+/* END demo styling */
+
+/*검색*/
+input[name="search"] {
+  box-sizing: border-box;
+}
+
+input[name="search"] {
+  border: 0px;
+  border-bottom: 1px solid #000;
+  font-size: 10px;
+  height: 20px;
+  padding: 0px 5px;
+  width: 10px;
+  color: #cecece;
+}
+input[name="search"]:focus {
+  outline: none;
+}
+
+button[class="btn btn-search"] {
+  text-align: center;
+}
+button[class="btn btn-search"]:focus {
+  outline: none;
+}
+button[class="btn btn-search"].btn-search {
+  border: none;
+  height: 20px;
+  font-size: 8px;
+  padding: 4px 4px 4px 4px;
+  width: 20px;
+}
+
+.sample {
+  float: center;
+  height: 20px;
+  margin: 0;
+  width: 160px;
+}
+.sample.eight input {
+  margin-right: -10px;
+  width: 110px;
+}
+.sample.eight input:focus {
+  width: 110px;
+}
+.sample.eight input:focus ~ button.btn-search {
+  background: #fff;
+  color: #000;
+  left: 220px;
+  border-bottom: 1px solid #000;
+}
+.sample.eight button.btn-search {
+  background: #fff;
+  left: 100px;
+  border-bottom: 1px solid #000;
+  border-radius: 0 0 0 0em;
+}
+
+
+
+
+
+/*위생관리*/
+.hrsu{
+  font-size: 26px;
+  color: #a4a4a4;
+}
+
+
+#hygimta
+{
+  border: 1px #cecece solid;
+  font-size: 16px;
+  width: 280px;
+  height:  220px;
+  margin: 20px 10px 20px 0;
+}
+
+@import url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css');
+
+a[class="dosirak"] {
+  text-decoration:none; 
+  font-family: 'NanumBarunGothic', sans-serif;
+  font-size:18px;
+  font-weight:normal;
+  color:#cecece;
+}
+
+a[class="dosirak"]:visited, a[class="dosirak"]:link, a[class="dosirak"]:active {
+   
+  font-family: 'NanumBarunGothic', sans-serif;
+  font-size:18px;
+  font-weight:normal;
+  color:#cecece;
+}
+   
+a[class="dosirak"]:hover{
+
+  font-family: 'NanumBarunGothic', sans-serif;
+  font-size:18px;
+  font-weight:normal;
+   
+  color:#f67001;
+
+}
+
+
+
+
+.btn {
+
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.btn_rufwo{
+
+  font-family: 'NanumBarunGothic', sans-serif;
+  border:dotted 0px white; 
+  background:#f67001;color:#fff;    
+  border-radius:10px 10px 10px 10px;  
+  width:155px; height:50px;   
+  font-size: 20px;
+}
+
+
+.btn_cancel{
+
+  font-family: 'NanumBarunGothic', sans-serif;
+  border:dotted 0px white;
+  background:#cecece;
+  color:#fff;    
+  border-radius:10px 10px 10px 10px;  
+  width:155px; 
+  height:50px; 
+  font-size: 20px;
+}
+
+#btn_order{ 
+
+  font-family: 'NanumBarunGothic', sans-serif;
+  border:dotted 0px white; 
+  background:#f67001;
+  color:#fff;    
+  border-radius:7px 7px 7px 7px;  
+  width:115px; height:34px;   
+  font-size: 15px;
+}
+
+.btn_cancel1{
+  font-family: 'NanumBarunGothic', sans-serif;
+border:dotted 0px white; background:#cecece;color:#fff;    border-radius:7px 7px 7px 7px;   width:115px; height:34px;  font-size: 15px;
+}
+
+.btn_submit{
+
+  font-family: 'NanumBarunGothic', sans-serif;
+border:dotted 0px white; background:#f67001;color:#fff;    border-radius:4px 4px 4px 4px;   width:79px; height:24px;  font-size: 12px;
+}
+
+.btn_cancel2{
+  font-family: 'NanumBarunGothic', sans-serif;
+border:dotted 0px white; background:#cecece;color:#fff;    border-radius:4px 4px 4px 4px;   width:79px; height:24px;  font-size: 12px;
+ }
+
+.btn_select{
+  font-family: 'NanumBarunGothic', sans-serif;
+border:dotted 0px white; background:#f67001;color:#fff;    border-radius:4px 4px 4px 4px;   width:65px; height:26px;  font-size: 8.86px;
+}
+
+
+ .btn_cancel3{
+  font-family: 'NanumBarunGothic', sans-serif;
+border:dotted 0px white; background:#cecece;color:#fff;    border-radius:4px 4px 4px 4px;   width:65px; height:26px;  font-size: 8.86px;
+}
+
+ .btn_login{
+
+font-family: "FranklinGothicMedium";
+border:dotted 0px white; background:#f67001;color:#fff;    border-radius:10px 10px 10px 10px;   width:96px; height:76px;  font-size: 18px;
+
+}
+
+.btn_cancel:hover,
+.btn_cancel1:hover,
+.btn_cancel2:hover,
+.btn_cancel3:hover{
+  background:#f67001;
+}
+
+#wrap{
+	padding: 30px;
+	display: block;
+    text-align: -webkit-center;
+}
+
+
+

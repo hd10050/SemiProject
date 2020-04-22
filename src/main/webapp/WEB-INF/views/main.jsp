@@ -31,7 +31,7 @@ span , .sp, .t3, h3{
 %>
 	<div id="mainbody">
 	<div class="top">
-	<div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel" style="width:1400px; height: 500px; margin-left: 240px;" >
+	<div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel" style="width:1500px; height: 500px; margin-left: 240px;" >
     <!--Indicators-->
     <ol class="carousel-indicators">
         <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
@@ -43,7 +43,7 @@ span , .sp, .t3, h3{
     <div class="carousel-inner" role="listbox">
         <div class="carousel-item active">
             <div class="view">
-                <a target="_blank" href="${m1_href }"><img class="d-block w-100" src="${m1_src }" alt="First slide" style="width: 1200px; height: 400px;"></a>
+                <a target="_blank" href="${m1_href }"><img class="d-block w-100" src="${m1_src }" alt="First slide" ></a>
                 <div class="mask rgba-black-light"></div>
             </div>
             <div class="carousel-caption">
@@ -53,7 +53,7 @@ span , .sp, .t3, h3{
         <div class="carousel-item">
             <!--Mask color-->
             <div class="view">
-                <a  target="_blank" href="${m2_href }"><img class="d-block w-100" src="${m2_src }" alt="Second slide" style="width: 1200px; height: 400px;"></a>
+                <a  target="_blank" href="${m2_href }"><img class="d-block w-100" src="${m2_src }" alt="Second slide" ></a>
                 <div class="mask rgba-black-strong"></div>
             </div>
             <div class="carousel-caption">
@@ -63,7 +63,7 @@ span , .sp, .t3, h3{
         <div class="carousel-item">
             <!--Mask color-->
             <div class="view">
-                <a target="_blank" href="${m3_href }"><img class="d-block w-100" src="${m3_src }" alt="Third slide" style="width: 1200px; height: 400px;"></a>
+                <a target="_blank" href="${m3_href }"><img class="d-block w-100" src="${m3_src }" alt="Third slide" ></a>
                 <div class="mask rgba-black-slight"></div>
             </div>
             <div class="carousel-caption">
@@ -258,8 +258,6 @@ span , .sp, .t3, h3{
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
-$('.carousel').carousel({
-	  interval: 3000
-	})
+
 </script>
 </html>
