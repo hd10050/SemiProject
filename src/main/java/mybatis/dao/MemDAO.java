@@ -115,11 +115,12 @@ public class MemDAO {
 	
 	//회원 가입 가능
 	public boolean join(MemberVO mvo) {
+		
 		boolean chk = false;
 		if(mvo.getR_snscode() == null) {
 			mvo.setR_snscode("0");
 		}
-		System.out.println("DAO : " + mvo.getM_id());
+		//System.out.println("DAO : " + mvo.getM_id());
 		Map<String, String> map = new HashMap<String, String>();
 		
 		map.put("m_id", mvo.getM_id());
@@ -136,6 +137,7 @@ public class MemDAO {
 			chk = true;
 		}
 		return chk;
+		
 	}
 	
 	

@@ -99,7 +99,6 @@
 	    </div> <!-- 회원가입 버튼 -->   
 
 	    <p class="text-center" style="font-weight: bold; font-size: 13px; padding-top: 20px;">기존 회원 이십니까? <a href="login.inc">로그인</a> </p>
-
 </form>
 </article>
 </div> <!-- card.// -->
