@@ -43,7 +43,7 @@ span , .sp, .t3, h3{
     <div class="carousel-inner" role="listbox">
         <div class="carousel-item active">
             <div class="view">
-                <a target="_blank" href="https://www.animal.go.kr/front/community/show.do?boardId=contents&seq=66&menuNo=2000000016"><img class="d-block w-100" src="resources/image/carousel1.png" alt="First slide"></a>
+                <a target="_blank" href="${m1_href }"><img class="d-block w-100" src="${m1_src }" alt="First slide" style="width: 1200px; height: 400px;"></a>
                 <div class="mask rgba-black-light"></div>
             </div>
             <div class="carousel-caption">
@@ -53,7 +53,7 @@ span , .sp, .t3, h3{
         <div class="carousel-item">
             <!--Mask color-->
             <div class="view">
-                <a  target="_blank" href="https://apms.epis.or.kr/wilddog/IndexMain3"><img class="d-block w-100" src="resources/image/carousel2.png" alt="Second slide"></a>
+                <a  target="_blank" href="${m2_href }"><img class="d-block w-100" src="${m2_src }" alt="Second slide" style="width: 1200px; height: 400px;"></a>
                 <div class="mask rgba-black-strong"></div>
             </div>
             <div class="carousel-caption">
@@ -63,7 +63,7 @@ span , .sp, .t3, h3{
         <div class="carousel-item">
             <!--Mask color-->
             <div class="view">
-                <a target="_blank" href="http://www.mafra.go.kr/mafra/355/subview.do;jsessionid=X31CHBZ8iATuQsXT2kBqvvV2.inst21?enc=Zm5jdDF8QEB8JTJGYmJzJTJGbWFmcmElMkY2NCUyRjMxOTA2MyUyRmFydGNsVmlldy5kbyUzRg%3D%3D"><img class="d-block w-100" src="resources/image/carousel3.png" alt="Third slide"></a>
+                <a target="_blank" href="${m3_href }"><img class="d-block w-100" src="${m3_src }" alt="Third slide" style="width: 1200px; height: 400px;"></a>
                 <div class="mask rgba-black-slight"></div>
             </div>
             <div class="carousel-caption">
@@ -95,7 +95,7 @@ span , .sp, .t3, h3{
 					<span class="sp">공지사항</span><a href="javascript:bbs(4)" ><img src="resources/css/images/ico-more.png" class="moreicon"></a>      
 	  			</div>
 	  			<span class="ico"><img src="resources/css/images/notice.jpg" class="p1"></span>
-<% 
+<%
 		Object obj = session.getAttribute("ar");
 		if(obj != null){
 			BbsVO[] ar = (BbsVO[]) obj;
@@ -187,10 +187,9 @@ span , .sp, .t3, h3{
 		}
 %>	
 		</div>
-		<div class="banner">
-			
-		</div>
-		
+			<div class="banner">
+				<a target="_blank" href="${m4_href}"><img class="d-block w-100" src="${m4_src}" style="width: 400px; height: 400px;"></a>
+			</div>
 		</div><!-- s_middle의 끝 -->
        </div>
 	

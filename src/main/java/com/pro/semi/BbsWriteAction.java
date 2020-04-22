@@ -57,8 +57,6 @@ public class BbsWriteAction {
 	
 	@RequestMapping(value="/write.inc", method=RequestMethod.POST)
 	public ModelAndView write(BbsVO vo) throws Exception {
-		System.out.println(vo.getStatus());
-		
 		ModelAndView mv = new ModelAndView();
 		
 		MultipartFile mf = vo.getFile();

@@ -65,8 +65,6 @@
 								<th>TITLE</th>
 								<th>COMPANY</th>
 								<th>LOCATION</th>
-								<th>START_DATE</th>
-								<th>END_DATE</th>
 								<th>STATUS</th>
 							</tr>
 						</thead>
@@ -77,10 +75,26 @@
 										<td>${avo.idx }</td>
 										<td>${avo.title }</td>
 										<td>${avo.company }</td>
-										<td>${avo.location }</td>
-										<td>${avo.start_date }</td>
-										<td>${avo.end_date }</td>
-										<td>${avo.status }</td>
+										<c:if test="${avo.location == 'm1' }">
+											<td>메인 배너1</td>		
+										</c:if>
+										<c:if test="${avo.location == 'm2' }">
+											<td>메인 배너2</td>		
+										</c:if>
+										<c:if test="${avo.location == 'm3' }">
+											<td>메인 배너3</td>		
+										</c:if>
+										<c:if test="${avo.location == 'm4' }">
+											<td>메인 광고</td>		
+										</c:if>
+										<td>
+											<c:if test="${avo.status == 0 }">
+												<button type=button class="btn btn-danger" onclick="ban('${avo.idx }')">삭제</button>
+											</c:if>
+											<c:if test="${avo.status == 1 }">
+												<button type=button class="btn btn-success" onclick="re('${avo.idx }','${avo.location }')">복구</button>
+											</c:if> 
+										</td>
 									</tr>
 								</c:forEach>
 							</c:if>
@@ -102,10 +116,45 @@
 		</div>
 	</div>
 </div>
-
+<form action="ad_AdChange.inc" method="post" name="admin_frm" id="admin_frm">
+	<input type="hidden" id="status" name="status"/>
+	<input type="hidden" id="idx" name="idx" />
+</form>
 <script src="resources/js/jquery-3.4.1.min.js"></script>
 <script>
-
+	function ban(idx) {
+		$("#idx").attr("value", idx);
+		$("#status").attr("value", 1);
+		
+		 if(!(confirm("삭제시키겠습니까?"))) {
+			 return;
+		 }
+		admin_frm.submit();
+	}
+	
+	function re(idx, location) {
+		$("#idx").attr("value", idx);
+		$("#status").attr("value", 0);
+		
+		 if(!(confirm("복구시키겠습니까?"))) {
+			 return;
+		 }
+		 
+		$.ajax({
+			url: "ad_write_chk.inc",
+			type: "post",
+			dataType: "json",
+			data: "location=" + encodeURIComponent(location)
+		}).done(function(data){
+			if(data.chk == 1) {
+				admin_frm.submit();
+			} else {
+				alert("사용중인 배너위치입니다");
+			}
+		}).fail(function(err){
+			console.log(err);
+		});
+	}
 </script>
 
 </body>

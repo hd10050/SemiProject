@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.data.vo.BbsVO;
 
+import mybatis.dao.AdDAO;
 import mybatis.dao.BbsDAO;
 import mybatis.dao.MemDAO;
 
@@ -28,7 +29,7 @@ import mybatis.dao.MemDAO;
 public class HomeController {
 	
 	@Autowired
-	BbsDAO b_dao;
+	private BbsDAO b_dao;
 	
 	@Autowired
 	HttpSession session;
@@ -43,7 +44,7 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/main.inc")
-	public ModelAndView main_jsp(String nowPage, String s_type) {
+	public ModelAndView aop_main_jsp(String nowPage, String s_type) {
 		ModelAndView mv = new ModelAndView();
 		
 		nowPage = "1";

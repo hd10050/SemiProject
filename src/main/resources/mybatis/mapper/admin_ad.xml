@@ -23,11 +23,30 @@
 	</select>
 	<!--******************************-->
 	
-	<!-- 기본키(b_idx)를 이용한 특정글 조회 
-	<select id="view" resultMap ="rvomap" parameterType="String">
-		SELECT * FROM bbs_table
-		WHERE b_idx = #{b_idx}
-	</select>-->
-	<!--******************************-->
+	<!-- 등록 -->
+	<insert id="add" parameterType="com.data.vo.AdVO">
+		INSERT INTO AD_TABLE 
+		VALUES (AD_TABLE_SESQ.NEXTVAL, #{title}, #{company}, 0, #{link}, #{location}, #{file_name}, #{ori_name}, #{content})
+	</insert> 
+	
+	<!-- 검색 -->
+	<select id="getAd" resultType="com.data.vo.AdVO" parameterType="String">
+		SELECT * FROM AD_TABLE
+		WHERE LOCATION = #{location}
+		AND status = 0
+	</select>
+	
+	<!-- update -->
+	<update id="updateAd" parameterType="com.data.vo.AdVO">
+		update AD_TABLE
+		set status = #{status}
+		where idx = #{idx}
+	</update>
+	
+	<!-- List -->
+	<select id="totalList" resultType="com.data.vo.AdVO" >
+		SELECT * FROM AD_TABLE
+		WHERE status = 0 
+	</select>
 
 </mapper>

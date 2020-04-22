@@ -58,9 +58,39 @@
 	    	<div class="profile-content">
 				<div id="right_content">
 					<!-- title company content start_date end_date link location -->
-					
+						<div class="container" style="margin: 0 auto; width: 900px;">
+						    <div class="form-area" style="width: 900px">  
+						    	<div style="margin: 0 auto; width: 700px;">
+							        <form action="ad_write.inc" method="post" encType="multipart/form-data" name="write_form">
+							        <br style="clear:both">
+										<div class="form-group">
+											<input type="text" class="form-control" id="title" name="title" placeholder="title" required style="width: 700px">
+										</div>
+										<div class="form-group">
+											<input type="file" name="file" id="m_file" accept="image/*" />
+										</div>
+										<div class="form-group">
+											<input type="text" class="form-control" id="company" name="company" placeholder="company" required style="width: 700px">
+										</div>
+										<div class="form-group">
+											<input type="text" class="form-control" id="link" name="link" placeholder="link" required style="width: 700px">
+										</div>
+										<div class="form-group">
+											<select class="form-control" id="location" name="location" style="width: 300px">
+												<option value="m1">메인 배너1</option>											
+												<option value="m2">메인 배너2</option>											
+												<option value="m3">메인 배너3</option>											
+												<option value="m4">메인 광고</option>											
+											</select>
+										</div>
+										
+										<button type="button" id="save_btn" class="btn btn-primary pull-right" style="margin-left: 10px;" onclick="sub_form()">등록</button>
+							        </form>
+						        </div>
+						    </div>
+						</div>
 				</div>
-					<button class="btn btn-primary" onclick="">등록</button>
+					
 			</div>
 		</div>
 	</div>
@@ -68,7 +98,45 @@
 
 <script src="resources/js/jquery-3.4.1.min.js"></script>
 <script>
-
+	function sub_form() {
+		var title = $("#title").val();
+		var company = $("#company").val();
+		var link = $("#link").val();
+		var location = $("#location").val();
+		
+		if(title.trim().length < 1) {
+			alert("제목을 입력하세요.");
+			return;
+		}
+		if($("#m_file").val() == "") {
+			alert("이미지를 등록하세요.");
+			return;
+		}
+		if(company.trim().length < 1) {
+			alert("회사명을 입력하세요.");
+			return;
+		}
+		if(link.trim().length < 1) {
+			alert("링크를 입력하세요.");
+			return;
+		}
+		
+		$.ajax({
+			url: "ad_write_chk.inc",
+			type: "post",
+			dataType: "json",
+			data: "location=" + encodeURIComponent(location)
+		}).done(function(data){
+			if(data.chk == 1) {
+				write_form.submit();
+			} else {
+				alert("사용중인 배너위치입니다");
+			}
+		}).fail(function(err){
+			console.log(err);
+		});
+		
+	}
 </script>
 
 </body>

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.data.vo.AdVO;
+import com.data.vo.MemberVO;
 
 import mybatis.dao.AdDAO;
 import spring.util.Paging;
@@ -45,14 +46,24 @@ public class AdminAdAction {
 		// 게시물 목록 ------------------------------
 		begin = page.getBegin();
 		end = page.getEnd();
-		
+
 		ad_ar = adDao.getList(begin, end);
-		mv.addObject("ar", ad_ar);
+		mv.addObject("ad_ar", ad_ar);
 		mv.addObject("nowPage", page.getNowPage());
 		mv.addObject("pageCode", pageCode);
 		
 		mv.setViewName("admin_ad");
 		
+		return mv;
+	}
+	
+	@RequestMapping(value="/ad_AdChange.inc", method=RequestMethod.POST)
+	public ModelAndView ad_ban(AdVO vo) {
+		ModelAndView mv = new ModelAndView();
+		System.out.println(vo.getStatus() + " : " + vo.getIdx());
+		adDao.updateAd(vo);
+
+		mv.setViewName("redirect:/ad_ad.inc");
 		return mv;
 	}
 

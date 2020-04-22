@@ -33,27 +33,50 @@ public class AdDAO {
 		}
 		return ar;
 	}
-	/*
-	public AdVO view(String b_idx) {
-		AdVO vo = ss.selectOne("admin_ad.view",b_idx);
+	
+	public AdVO[] totalList() {
+		AdVO[] ar = null;
+		
+		List<AdVO> list = ss.selectList("admin_ad.totalList");
+		
+		if(list.size() > 0) {
+			ar = new AdVO[list.size()];
+			ar = list.toArray(ar);
+		}
+		return ar;
+	}
+	
+	public AdVO getAd(String location) {
+		AdVO[] ar = null;
+		
+		AdVO vo = ss.selectOne("admin_ad.getAd", location);
+		
 		return vo;
 	}
-
-	public void add(BbsVO vo) {
-		int cnt = ss.insert("admin_ad.addBbs", vo);
+	
+	public void add(AdVO vo) {
+		int cnt = ss.insert("admin_ad.add", vo);
 	}
-
-	// 글삭제
-	public boolean delBbs(String b_idx) {
+	
+	public boolean updateAd(AdVO vo) {
 		boolean value = false;
 
-		int cnt = ss.update("admin_ad.del",b_idx);
+		int cnt = ss.update("admin_ad.updateAd",vo);
 
 		if(cnt>0) {
 			value = true;
 		}
 		return value;
 	}
+	
+	/*
+	public AdVO view(String b_idx) {
+		AdVO vo = ss.selectOne("admin_ad.view",b_idx);
+		return vo;
+	}
+
+	
+
 
 	// 게시물 수정
 	public boolean viewEdit(BbsVO vo) {
