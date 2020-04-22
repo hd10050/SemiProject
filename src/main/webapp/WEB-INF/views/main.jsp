@@ -12,7 +12,7 @@
 <style>
 @import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
 span , .sp, .t3, h3{
-	font-family: 'Jeju Gothic', serif;
+	font-family: 'Jeju Gothic', serif; 
 }
 
 </style>
