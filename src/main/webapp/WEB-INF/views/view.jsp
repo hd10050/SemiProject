@@ -155,7 +155,6 @@ table{
 	width: 450px;
 }
 .action{
-	width:70px; 
 	padding-left: 450px;
 }
 .details123{
@@ -368,8 +367,9 @@ table{
 								 }
 						         %>
       				
-      						<div class="action" >
-								<button class="Tolist" type="button" id="Tolist" style="margin-top:20px; width: 70px; height: 40px; font-size: 12px; border-radius: 5px;">목록으로</button>
+      						<div class="action"  style=" margin-top: 20px;">
+								<i class="fas fa-bars fa-lg" style="color:rgba(40,99,134, 1);"></i>&nbsp
+								<a href="reviewBbs.inc?nowPage=${nowPage}&s_type=${type}" style="color:rgba(40,99,134, 1); font-size: 13px; font-weight: bold;">목록으로</a>
 							</div>
 							</div>
 							
@@ -409,7 +409,7 @@ table{
 	}
 %>
 
-	<div style="margin-left: 90px">
+	<div>
 		<h1>평균 평점</h1><h2><%=(Math.round(avg*100)/100.0) %>점</h2>
 	</div>
 
@@ -428,7 +428,7 @@ table{
 				    <label for="score1" title="text">1 star</label>
 				</div>
 			<div><br/><br/><br/>
-				<input class="form-control" name="r_content" id="r_content" placeholder="Add a comment" type="text" style="width: 500px; margin-left: 90px;"/>
+				<input class="form-control" name="r_content" id="r_content" placeholder="Add a comment" type="text" style="width: 500px;"/>
 				<br/>
 				<%
 						if(isAdd) {
