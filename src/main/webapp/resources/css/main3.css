@@ -45,18 +45,25 @@
   border: 1px; 
   margin-top: 10px;
   width: 480px;
-  height: 420px;
+  height: 400px;
   background-color: white;
   border: 1px solid #d0d9e7;
 }
 .middle-right-free{
   border: 1px solid #d0d9e7;
+  margin-left: 13px;
   margin-top: 10px;
   width: 480px;
-  height: 420px;
+  height: 400px;
   background-color: white;
   float: left;
 }
+
+.banner{
+	
+	
+}
+
 
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 
@@ -104,7 +111,7 @@
 
 .title1{
 		margin: 0 143px 0 143px;
-		padding-top: 30px;
+		padding-top: 20px;
 		padding-bottom: 11px;
 		text-align: center;
 }
@@ -216,10 +223,9 @@ body{
 	position: absolute;
 	top: 0px;
 	width: 350px;
-	left: 1020.5px;
 	height: 330px; 
 	width: 23.5%;
-    margin-left: 2%;
+    margin-left: 1%;
     display: inline-block;
 
 }
@@ -336,7 +342,7 @@ body{
 .banner{
 	position: absolute;
   	
- 	left: 560px;
+ 	left: 513px;
 	border: 1px solid #d0d9e7;
     margin-top: 10px;
     width: 400px;
