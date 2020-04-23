@@ -24,6 +24,15 @@ public class MemberAction {
 		return "memreg";
 	}
 	
+	
+	
+	@RequestMapping("/reg_tos.inc")
+	public String tos() {
+		return "TOS";
+		
+	}
+	
+
 	@RequestMapping("/memreg.inc")
 	@ResponseBody
 	public Map<String, String> memreg(String m_idx, String m_id, String m_pw, String m_name, String m_gender, 

@@ -48,7 +48,7 @@
 <%
 		}else{
 %>		  
-		    <i class="fas fa-user-plus"></i><input type="button" value="회원가입" onclick="location.href='reg.inc'" class="nanav_menu_t"/> 
+		    <i class="fas fa-user-plus"></i><input type="button" value="회원가입" onclick="location.href='reg_tos.inc'" class="nanav_menu_t"/> 
 		   <i class="fas fa-lock"></i><input type="button" value="로그인" onclick="location.href='login.inc'" class="nanav_menu_t"/> 
 		   <i class="fas fa-key"></i><input type="button" value="아이디/비밀번호 찾기" onclick="location.href='find.inc'" class="nanav_menu_t"/> 
 <%		
