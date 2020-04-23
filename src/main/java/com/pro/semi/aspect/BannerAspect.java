@@ -33,12 +33,17 @@ public class BannerAspect {
 		Object obj = null;
 		// before ---------------------------------------------------
 		AdVO[] ad_ar = a_dao.totalList();
-		for(int i = 0 ; i < ad_ar.length ; i++) {
-			String src = ad_ar[i].getLocation();
-			String href = ad_ar[i].getLink();
-			request.setAttribute(src+"_src", ad_ar[i].getContent());
-			request.setAttribute(src+"_href", href);
+		if(ad_ar != null && ad_ar.length > 0) {
+			for(int i = 0 ; i < ad_ar.length ; i++) {
+				String src = ad_ar[i].getLocation();
+				String href = ad_ar[i].getLink();
+				request.setAttribute(src+"_src", ad_ar[i].getContent());
+				request.setAttribute(src+"_href", href);
+			}
 		}
+		// 엑박 기본 이미지
+		request.setAttribute("no_image", "https://i.ibb.co/bHq2h0f/no-image.png");
+		request.setAttribute("banner_no_image", "https://i.ibb.co/Qk6tXnB/banner-no-image.png");
 		// ----------------------------------------------------------
 		
 		obj = pjp.proceed();	// 핵심 분야

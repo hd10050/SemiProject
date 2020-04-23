@@ -2,6 +2,8 @@
 <%@page import="com.data.vo.BbsVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
     
 <!DOCTYPE html>
 <html>
@@ -43,7 +45,14 @@ span , .sp, .t3, h3{
     <div class="carousel-inner" role="listbox">
         <div class="carousel-item active">
             <div class="view">
-                <a target="_blank" href="${m1_href }"><img class="d-block w-100" src="${m1_src }" alt="First slide" style="width: 1200px; height: 400px;"></a>
+                <a target="_blank" href="${m1_href }"><img class="d-block w-100"
+                	<c:if test="${empty m1_src }"> 
+						src='${banner_no_image }'
+					</c:if>
+					<c:if test="${not empty m1_src }"> 
+						src='${m1_src }'
+					</c:if> 
+                ></a>
                 <div class="mask rgba-black-light"></div>
             </div>
             <div class="carousel-caption">
@@ -53,7 +62,14 @@ span , .sp, .t3, h3{
         <div class="carousel-item">
             <!--Mask color-->
             <div class="view">
-                <a  target="_blank" href="${m2_href }"><img class="d-block w-100" src="${m2_src }" alt="Second slide" style="width: 1200px; height: 400px;"></a>
+                <a  target="_blank" href="${m2_href }"><img class="d-block w-100" 
+	                <c:if test="${empty m2_src }"> 
+						src='${banner_no_image }'
+					</c:if>
+					<c:if test="${not empty m2_src }"> 
+						src='${m2_src }'
+					</c:if>
+				></a>
                 <div class="mask rgba-black-strong"></div>
             </div>
             <div class="carousel-caption">
@@ -63,7 +79,14 @@ span , .sp, .t3, h3{
         <div class="carousel-item">
             <!--Mask color-->
             <div class="view">
-                <a target="_blank" href="${m3_href }"><img class="d-block w-100" src="${m3_src }" alt="Third slide" style="width: 1200px; height: 400px;"></a>
+                <a target="_blank" href="${m3_href }"><img class="d-block w-100"
+	                <c:if test="${empty m3_src }"> 
+						src='${banner_no_image }'
+					</c:if>
+					<c:if test="${not empty m3_src }"> 
+						src='${m3_src }'
+					</c:if> 
+                ></a>
                 <div class="mask rgba-black-slight"></div>
             </div>
             <div class="carousel-caption">
@@ -188,7 +211,14 @@ span , .sp, .t3, h3{
 %>	
 		</div>
 			<div class="banner">
-				<a target="_blank" href="${m4_href}"><img class="d-block w-100" src="${m4_src}" style="width: 400px; height: 400px;"></a>
+				<a target="_blank" href="${m4_href}"><img class="d-block w-100"
+				<c:if test="${empty m4_src }"> 
+					src='${no_image }'
+				</c:if>
+				<c:if test="${not empty m4_src }"> 
+					src='${m4_src }'
+				</c:if>
+				></a>
 			</div>
 		</div><!-- s_middle의 끝 -->
        </div>
@@ -250,6 +280,16 @@ span , .sp, .t3, h3{
 			$("#bidx").attr("value", b_idx);
 			v_form.submit();
 		}
+		
+		function imageSet(obj, src){
+			  alert("ssa");
+		  if(src == null || src == ""){
+		    obj.src = '${no_image}';
+		  } else {
+			  obj.src = src;
+		  }
+		}
+
 	</script>
 	
 </body>
