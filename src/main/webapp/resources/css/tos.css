@@ -190,23 +190,23 @@ a[class="dosirak"]:hover{
 }
 
 
-.btn_cancel{
+#btn_cancel{
 
   font-family: 'NanumBarunGothic', sans-serif;
   border:dotted 0px white;
-  background:#cecece;
+  background:#a4a4a4;
   color:#fff;    
-  border-radius:10px 10px 10px 10px;  
-  width:155px; 
-  height:50px; 
-  font-size: 20px;
+  border-radius: 7px 7px 7px 7px !important;
+  width: 115px !important;
+  height: 34px !important;
+  font-size: 15px !important;
 }
 
 #btn_order{ 
 
   font-family: 'NanumBarunGothic', sans-serif;
   border:dotted 0px white; 
-  background:#f67001;
+  background:#286386;
   color:#fff;    
   border-radius:7px 7px 7px 7px;  
   width:115px; height:34px;   
@@ -224,10 +224,7 @@ border:dotted 0px white; background:#cecece;color:#fff;    border-radius:7px 7px
 border:dotted 0px white; background:#f67001;color:#fff;    border-radius:4px 4px 4px 4px;   width:79px; height:24px;  font-size: 12px;
 }
 
-.btn_cancel2{
-  font-family: 'NanumBarunGothic', sans-serif;
-border:dotted 0px white; background:#cecece;color:#fff;    border-radius:4px 4px 4px 4px;   width:79px; height:24px;  font-size: 12px;
- }
+
 
 .btn_select{
   font-family: 'NanumBarunGothic', sans-serif;
@@ -247,12 +244,7 @@ border:dotted 0px white; background:#f67001;color:#fff;    border-radius:10px 10
 
 }
 
-.btn_cancel:hover,
-.btn_cancel1:hover,
-.btn_cancel2:hover,
-.btn_cancel3:hover{
-  background:#f67001;
-}
+
 
 #wrap{
 	padding: 30px;

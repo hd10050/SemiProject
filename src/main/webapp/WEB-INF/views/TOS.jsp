@@ -41,7 +41,7 @@
            </tr>
            <tr>
              <td align=center>
-               <textarea name="tos" rows=15 cols=100>
+               <textarea name="tos" rows=15 cols=100 style="width: 975px;">
 제1조(목적)
  이 약관은 oooo 회사(전자상거래 사업자)가 운영하는 oooo 사이버 몰(이하 “몰”이라 한다)에서 제공하는 인터넷 관련
  서비스(이하 “서비스”라 한다)를 이용함에 있어 사이버 몰과 이용자의 권리ㆍ의무 및 책임사항을 규정함을 목적으로 합니다.
@@ -276,13 +276,13 @@
             <tr>
               <td>
                 <div class="tos_stitle">
-                 <span style="color:#f67001; font-size:24px;">01</span> <span style="font-size: 24px;">개인정보 수집 및 이용에 대한 안내</span>
+                 <span style="color:#f67001; font-size:24px;">02</span> <span style="font-size: 24px;">개인정보 수집 및 이용에 대한 안내</span>
                 </div>
              </td>
            </tr>
            <tr>
              <td align=center>
-               <textarea name="tos" rows=15 cols=100>
+               <textarea name="tos" rows=15 cols=100 style="width: 975px;">
 수집하는 개인정보의 항목
 회사는 회원가입, 상담, 서비스 신청 및 제공 등을 위해 아래와 같은 개인정보를 수집하고 있습니다.
 - 이름, 이메일, 주소, 연락처, 핸드폰 번호, 아이디, 비밀번호, 닉네임, 팩스번호, 홈페이지 주소 또한 서비스 이용과정이나 사업
@@ -397,7 +397,7 @@ NICE신용평가정보㈜(이하 “대행사”)가 “대행사”에서 제�
 
 <br><br>
   <button type = "button"  id="btn_order" style="margin:10px;">회 원 가 입</button>
-  <button type = "button"  class="btn_cancel1" style="margin:10px;">취 소 하 기</button>
+  <button type = "button"  id="btn_cancel" style="margin:10px;">취 소 하 기</button>
 </div>
 
 </body>
@@ -418,6 +418,11 @@ NICE신용평가정보㈜(이하 “대행사”)가 “대행사”에서 제�
 			}else{
 				location.href="reg.inc";
 			};	
+		});
+		
+		$("#btn_cancel").bind("click", function() {
+			location.href="main.inc";
+		
 		});
 		
 	});
