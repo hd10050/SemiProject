@@ -65,7 +65,7 @@
 	for(int i=0; i<ar.length; i++){
 		int num;
 		if(type.equals("4")) {
-			num = rowTotal-((nowPage-1)*blockList + (i+2));
+			num = rowTotal-((nowPage-1)*blockList + (i+1));
 		} else {
 			num = rowTotal-((nowPage-1)*blockList + (i+1));
 		}
