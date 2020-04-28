@@ -24,7 +24,7 @@
 
 
 </head>
-<body>
+<body style="background-color: #f5f5f5; ">
 <jsp:include page="navbar.jsp"/><br/><br/><br/><br/>
 <jsp:include page="top.jsp"/>
 <div id ="list" class="col-sm-12 pull-center well" style="float: none;">

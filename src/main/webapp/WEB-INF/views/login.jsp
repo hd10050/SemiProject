@@ -56,7 +56,7 @@
 	<p>
 	    <h6 style="color: gray; font-weight: bold; text-align: center;">OR</h6>
 	    <div id="google-login-btn" class="g-signin2" data-width="0" data-height="0" data-onsuccess="onSignIn"></div>
-	    <a href="#" id="google_btn" class="btn btn-block btn-facebook" style="text-decoration: none; color: black; border: 1px solid #286386;"><i class="fab fa-google"></i> 구글 계정으로 로그인</a>
+	    <a href="#" id="google_btn" class="btn btn-block btn-facebook" style="text-decoration: none; color: white; background-color: #ad2431"><i class="fab fa-google"></i> 구글 계정으로 로그인</a>
         <a href="javascript:location.href = naverLogin.generateAuthorizeUrl();" class="btn btn-block btn-facebook" style="background: green; text-decoration: none; color: white;"> <img src="resources/css/images/naver_logo.png" alt="Avatar" class="image"> 네이버 계정으로 로그인</a> 
 	    <a id="kakao-loginbtn" class="btn btn-block btn-facebook" style="background: #ffc107;"></a>
 	    <!--<div id="google-login-btn" class="g-signin2" data-width="360" data-height="38" data-onsuccess="onSignIn"><i class="fab fa-google"></i> 구글 계정으로 로그인</div> -->

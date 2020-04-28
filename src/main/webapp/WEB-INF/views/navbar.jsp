@@ -68,25 +68,25 @@
 		<ul class="barul">
 			 <li><a href="javascript:reviewbbs(0)" class="menu_a">야생동물 구조치료기관</a>
 				 <ul>
-				     <li><a href="javascript:reviewbbs(0)" class="menu_drop">게시판</a></li>
+				     <li><a href="javascript:reviewbbs(0)" class="menu_drop">정보</a></li>
 				     <li><a href="rescueChart.inc" class="menu_drop">차트</a></li>
 				 </ul>
 			 </li>
 			 <li><a href="javascript:reviewbbs(1)" class="menu_a">동물 병원</a>
 				<ul>
-				     <li><a href="javascript:reviewbbs(1)" class="menu_drop">게시판</a></li>
+				     <li><a href="javascript:reviewbbs(1)" class="menu_drop">정보</a></li>
 				     <li><a href="hospChart.inc" class="menu_drop">차트</a></li>
 				 </ul>
 			 </li>
 			 <li><a href="javascript:reviewbbs(2)" class="menu_a">동물 약국</a>
 			 	<ul>
-				     <li><a href="javascript:reviewbbs(2)" class="menu_drop">게시판</a></li>
+				     <li><a href="javascript:reviewbbs(2)" class="menu_drop">정보</a></li>
 				     <li><a href="pharmacy.inc" class="menu_drop">차트</a></li>
 				 </ul>
 			 </li>
 			 <li><a href="javascript:reviewbbs(3)" class="menu_a">유기 동물 보호시설</a>
 				 <ul>
-				     <li><a href="javascript:reviewbbs(3)" class="menu_drop">게시판</a></li>
+				     <li><a href="javascript:reviewbbs(3)" class="menu_drop">정보</a></li>
 				     <li><a href="protect.inc" class="menu_drop">차트</a></li>
 				 </ul>
 			 </li>
