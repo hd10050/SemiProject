@@ -155,7 +155,7 @@ span , .sp, .t3, h3{
       	<!-- 자유게시판 미리보기 -->
 				<div class="title1">
 					<span class="sp"><a href="javascript:bbs(5)" style="color:black; font-size: 32px" >자유게시판</a></span>
-					<a href="javascript:bbs(4)" ><img src="resources/css/images/ico-more.png" class="moreicon"></a>   
+					<a href="javascript:bbs(5)" ><img src="resources/css/images/ico-more.png" class="moreicon"></a>   
 				</div>
 				<span class="ico"><img src="resources/css/images/free.jpg"></span>
 <%	Object obj_f = session.getAttribute("ar_f");
