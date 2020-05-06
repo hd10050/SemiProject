@@ -219,6 +219,15 @@
             <artifactId>spring-social-google</artifactId>
             <version>1.1.3</version>
         </dependency>
+        
+        <!-- 단방향 암호화 sh3-->
+        <dependency>
+		    <groupId>org.bouncycastle</groupId>
+		    <artifactId>bcprov-jdk15on</artifactId>
+		    <version>1.59</version>
+		</dependency>
+        
+        
  		    
 	</dependencies>
     <build>

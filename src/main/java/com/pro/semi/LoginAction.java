@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.data.vo.MemberVO;
 
 import mybatis.dao.MemDAO;
+import spring.util.CryptoUtil;
 
 @Controller
 public class LoginAction {
@@ -33,7 +34,11 @@ public class LoginAction {
 	public Map<String, String> login(String m_id, String m_pw){
 		Map<String, String>map = new HashMap<String, String>();
 		
-		MemberVO mvo = m_dao.login(m_pw, m_id);
+		CryptoUtil pass = new CryptoUtil();
+		
+		String pw = pass.CryptoSHA3(m_pw, 256);
+		
+		MemberVO mvo = m_dao.login(pw, m_id);
 		//System.out.println("mvo.getM_idx() = " + mvo.getM_idx());
 		
 		if(mvo != null) {

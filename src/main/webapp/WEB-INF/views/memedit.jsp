@@ -50,8 +50,8 @@
 					                    
 					                     <div class="form-group" style="padding-left: 111px">
 					                        <div class="input-group">
-					                            <span class="input-group-addon" style="width:120px;"><span class="glyphicon glyphicon-lock">&nbsp;비밀번호</span></span>
-					                            <input type="password" style="width:350px; font-size: 19px;" class="form-control"  value="${mvo.getM_pw() }" id="pw" style="font-size: 18px;"/>
+					                            <span class="input-group-addon" style="width:120px;"><span class="glyphicon glyphicon-lock">&nbsp;새비밀번호</span></span>
+					                            <input type="password" style="width:350px; font-size: 19px;" class="form-control" id="pw" style="font-size: 18px;"/>
 					                        </div>
 					                    </div>
 					                    
@@ -121,6 +121,7 @@
 					if(data.chk == 1){
 						
 						alert("수정 성공!");
+						location.href = "myPage.inc"
 						
 					}else{
 						

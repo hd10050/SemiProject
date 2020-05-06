@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.data.vo.MemberVO;
 
 import mybatis.dao.MemDAO;
+import spring.util.CryptoUtil;
 
 @Controller
 public class MyPageAction {
@@ -61,10 +62,13 @@ public class MyPageAction {
 	@ResponseBody
 	public Map<String, String> editchk(String pwd) {
 		
+		CryptoUtil pass = new CryptoUtil();
+		String pw = pass.CryptoSHA3(pwd, 256);
+		
 		Map<String, String> map = new HashMap<String, String>();
 		MemberVO mvo = (MemberVO)session.getAttribute("mvo");
 		
-		if(mvo.getM_pw().equals(pwd)) {
+		if(mvo.getM_pw().equals(pw)) {
 			map.put("chk", "1");	
 		}else {
 			map.put("chk", "2");	
@@ -93,7 +97,10 @@ public class MyPageAction {
 		mvo.setM_gender(vo.getM_gender());
 		mvo.setM_name(vo.getM_name());
 		mvo.setM_phone(vo.getM_phone());
-		mvo.setM_pw(vo.getM_pw());
+		
+		CryptoUtil pass = new CryptoUtil();
+		String pw = pass.CryptoSHA3(vo.getM_pw(), 256);
+		mvo.setM_pw(pw);
 
 		Map<String, String> map = new HashMap<String, String>();
 		if (m_dao.updateMem(mvo)) {
@@ -122,7 +129,10 @@ public class MyPageAction {
 		MemberVO mvo = (MemberVO)session.getAttribute("mvo");
 		Map<String, String> map = new HashMap<String, String>();
 
-		if(mvo.getM_pw().equals(pwd)) {
+		CryptoUtil pass = new CryptoUtil();
+		String pw = pass.CryptoSHA3(pwd, 256);
+		
+		if(mvo.getM_pw().equals(pw)) {
 				m_dao.delMem(mvo); 
 				map.put("chk", "1");	
 				session.removeAttribute("mvo");
